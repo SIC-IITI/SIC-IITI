@@ -1,85 +1,317 @@
-import React from 'react';
-import { ChevronRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import ImageScroll from '../components/ImageScroll';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, ChevronLeft, Calendar, Clock, Users, Shield } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 function Home() {
-  const navigate = useNavigate();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Images for the horizontal scrolling gallery
+  const facilityImages = [
+    { src: '/sic.png', alt: 'SIC Building Exterior' },
+    { src: '/sic-ppl2.png', alt: 'SIC Campus View' },
+    { src: '/close-sic.png', alt: 'SIC Main Entrance' },
+    { src: '/details-chart.png', alt: 'IIT Indore Logo' },
+    { src: '/sic-ppl.png', alt: 'SIC Progress Infographic' }
+  ];  
+
+  const scrollImages = (direction) => {
+    if (direction === 'next') {
+      setCurrentImageIndex((prev) => (prev + 1) % facilityImages.length);
+    } else {
+      setCurrentImageIndex((prev) => (prev - 1 + facilityImages.length) % facilityImages.length);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % facilityImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="space-y-12">
-      {/* Hero Section */}
-      <div className="rounded-xl border border-blue-200 bg-white overflow-hidden shadow-lg">
-        <div className="relative h-80 bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
-          <img
-            src="/sic.png"
-            alt="SIC facility exterior"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/20"></div>
-        </div>
-        <div className="p-8 bg-white">
-          <h1 className="text-4xl font-bold text-blue-900">
-            Sophisticated Instrumentation Center (SIC)
-          </h1>
-          <p className="mt-4 text-gray-600 leading-relaxed max-w-4xl text-lg">
-            A National Facility established in September 2011 to expedite the research program at IIT Indore. Now serving academia and industry from across the country and international centers with state-of-the-art instrumentation, expert staff, and standardized processes for training, measurement, and analysis.
-          </p>
-          <div className="mt-8 flex gap-4 flex-wrap">
-            <button onClick={() => navigate('/instruments')} className="inline-flex items-center gap-2 rounded-lg bg-blue-600 text-white px-6 py-3 font-medium hover:bg-blue-700">
-              Explore Instruments <ChevronRight className="w-4 h-4" />
-            </button>
-            <button onClick={() => navigate('/booking')} className="inline-flex items-center gap-2 rounded-lg border-2 border-blue-600 text-blue-600 px-6 py-3 font-medium hover:bg-blue-50">
-              Book a Slot <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="min-h-screen bg-gray-50 ">
+      {/* Hero Section with Background Image */}
+      <section className="relative  overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-blue-6 00 bg-blend-multiply" // Changed to bg-contain and added bg-no-repeat
+          style={{
+            backgroundImage: "url('/sic.png')", 
+            opacity: 1,
+          }}
+        />
+        
+       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80" />
+         
+        <div className="relative container mx-auto px-4 lg:px-8 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <div className="inline-block px-4 py-2 rounded-full text-sm font-semibold text-white mb-6">
+                Sophisticated Instrumentation Center - IIT Indore
+              </div>
+              
+              <h1 className="text-5xl lg:text-5xl font-bold text-white leading-tight mb-6">
+                Book Advanced Research Instruments
+              </h1>
+              
+              <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+                Access state-of-the-art analytical equipment with our easy online booking system. Get expert support for accurate and reliable research results.
+              </p>
 
-      {/* Image Scroll */}
-      <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Explore Our Facilities</h2>
-        <ImageScroll />
-      </div>
+              <div className="flex flex-wrap gap-4">
+                <Link to="/instruments">
+                <button className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 inline-flex items-center gap-2 shadow-lg">
+                  Browse Instruments <ChevronRight className="w-5 h-5" />
+                </button>
+                </Link>
+                <Link to="/booking">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 inline-flex items-center gap-2">
+                  Book Now <Calendar className="w-5 h-5" />
+                </button>
+                </Link>
+              </div>
+            </div>
 
-      {/* Features Grid */}
-      <div className="grid gap-6 md:grid-cols-3">
-        <div className="rounded-lg border border-blue-200 bg-blue-50 p-6 hover:shadow-lg transition-shadow">
-          <div className="w-12 h-12 rounded-lg bg-blue-600 text-white flex items-center justify-center mb-4">
-            <span className="text-xl">🔬</span>
+            {/* Right - IIT Indore Logo */}
+            <div className="hidden lg:flex justify-center items-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
+                <img 
+                  src="/close-sic.png" 
+                  alt="IIT Indore Logo" 
+                  className=" bg-white object-contain"
+                />
+              </div>
+            </div>
           </div>
-          <h3 className="text-lg font-semibold text-blue-900">Central Access</h3>
-          <p className="mt-3 text-gray-600 leading-relaxed">
-            Streamlined access to high-end equipment across disciplines with standardized SOPs and trained operators.
-          </p>
         </div>
-        <div className="rounded-lg border border-blue-200 bg-blue-50 p-6 hover:shadow-lg transition-shadow">
-          <div className="w-12 h-12 rounded-lg bg-blue-600 text-white flex items-center justify-center mb-4">
-            <span className="text-xl">👨‍🏫</span>
-          </div>
-          <h3 className="text-lg font-semibold text-blue-900">Training & Support</h3>
-          <p className="mt-3 text-gray-600 leading-relaxed">
-            Regular user training, safety briefings, and technical guidance to ensure reliable data quality.
-          </p>
-        </div>
-        <div className="rounded-lg border border-blue-200 bg-blue-50 p-6 hover:shadow-lg transition-shadow">
-          <div className="w-12 h-12 rounded-lg bg-blue-600 text-white flex items-center justify-center mb-4">
-            <span className="text-xl">💰</span>
-          </div>
-          <h3 className="text-lg font-semibold text-blue-900">Transparent Charges</h3>
-          <p className="mt-3 text-gray-600 leading-relaxed">
-            Clear, tiered usage charges for internal and external users to support sustainable operations.
-          </p>
-        </div>
-      </div>
+      </section>
 
-      {/* Impact Section */}
-      <div className="rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8">
-        <h2 className="text-2xl font-bold mb-4">Our Impact</h2>
-        <p className="leading-relaxed">
-          With limited research facilities in central India, SIC is catering to the needs of many educational institutes and industries in and around central India. IIT Indore now stands as one of the leaders among all IITs in research output, with each publication supported by instrumental expertise from SIC. We welcome academia and industries to explore our state-of-the-art instrumentation facilities and get their samples tested with our expert technical team.
-        </p>
-      </div>
-    </section>
+      {/* Horizontal Scrolling Image Gallery */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Infrastructure</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              State-of-the-art facilities supporting cutting-edge research
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Main Image Display */}
+            <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={facilityImages[currentImageIndex].src}
+                alt={facilityImages[currentImageIndex].alt}
+                className="w-full h-full object-contain"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent" />
+              
+              {/* Navigation Arrows */}
+              <button 
+                onClick={() => scrollImages('prev')}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg"
+              >
+                <ChevronLeft className="w-6 h-6 text-blue-900" />
+              </button>
+              <button 
+                onClick={() => scrollImages('next')}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg"
+              >
+                <ChevronRight className="w-6 h-6 text-blue-900" />
+              </button>
+
+              {/* Image Counter */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full">
+                <span className="text-blue-900 font-semibold">
+                  {currentImageIndex + 1} / {facilityImages.length}
+                </span>
+              </div>
+            </div>
+
+            {/* Thumbnail Strip */}
+            <div className="flex gap-4 mt-6 justify-center overflow-x-auto pb-4">
+              {facilityImages.map((img, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden border-4 transition-all ${
+                    index === currentImageIndex 
+                      ? 'border-blue-600 scale-110' 
+                      : 'border-gray-200 opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <img 
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* How It Works */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-blue-900 mb-4">How to Book Instruments</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Simple and transparent process to book your required instruments
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="relative">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-blue-600">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                  1
+                </div>
+                <h3 className="text-xl font-bold text-blue-900 mb-3">Sign Up / Login</h3>
+                <p className="text-gray-600">
+                  Create your account or login to access the booking system
+                </p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+                <ChevronRight className="w-6 h-6 text-blue-300" />
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-blue-600">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                  2
+                </div>
+                <h3 className="text-xl font-bold text-blue-900 mb-3">Select Instrument</h3>
+                <p className="text-gray-600">
+                  Browse our catalog and choose the instrument you need
+                </p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+                <ChevronRight className="w-6 h-6 text-blue-300" />
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-blue-600">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                  3
+                </div>
+                <h3 className="text-xl font-bold text-blue-900 mb-3">Book Time Slot</h3>
+                <p className="text-gray-600">
+                  Check availability and reserve your preferred time slot
+                </p>
+              </div>
+              <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
+                <ChevronRight className="w-6 h-6 text-blue-300" />
+              </div>
+            </div>
+
+            <div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-blue-600">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">
+                  4
+                </div>
+                <h3 className="text-xl font-bold text-blue-900 mb-3">Visit & Analyze</h3>
+                <p className="text-gray-600">
+                  Visit SIC with your sample and get expert assistance
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-blue-900 mb-4">Why Book With Us</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Experience hassle-free instrument booking with comprehensive support
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Calendar className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Easy Booking</h3>
+              <p className="text-gray-600">
+                Intuitive online system to book instruments anytime, anywhere
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Clock className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Real-Time Availability</h3>
+              <p className="text-gray-600">
+                Check instrument availability in real-time and book instantly
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Expert Support</h3>
+              <p className="text-gray-600">
+                Trained operators to assist with measurements and analysis
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-blue-900 mb-3">Quality Assurance</h3>
+              <p className="text-gray-600">
+                Standardized SOPs ensuring reliable and accurate results
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Background Image */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 rounded-3xl overflow-hidden">
+            <div 
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: 'url(/api/placeholder/1200/400)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            />
+            
+            <div className="relative p-12 lg:p-16 text-center text-white">
+              <h2 className="text-4xl font-bold mb-6">Ready to Book Your Instrument?</h2>
+              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join hundreds of researchers using our advanced instrumentation. Create an account and start booking today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 inline-flex items-center justify-center gap-2">
+                  Get Started <ChevronRight className="w-5 h-5" />
+                </button>
+                <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 inline-flex items-center justify-center gap-2">
+                  View Instruments
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
 

@@ -48,7 +48,7 @@ function Instruments() {
   ];
 
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 px-4 py-12 max-w-7xl mx-auto">
       <div>
         <h1 className="text-4xl font-bold text-blue-900 mb-4">Our Instruments</h1>
         <p className="text-gray-600 leading-relaxed text-lg">

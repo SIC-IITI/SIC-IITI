@@ -2,9 +2,9 @@ import React from 'react';
 
 function About() {
   return (
-    <section className="space-y-8">
+    <section className="space-y-8 px-4 py-12 max-w-7xl mx-auto">
       <div>
-        <h1 className="text-4xl font-bold text-blue-900 mb-6">About SIC</h1>
+        <h1 className="text-4xl font-bold  text-blue-900 mb-6">About SIC</h1>
         <p className="text-gray-600 leading-relaxed text-lg">
           The Sophisticated Instrumentation Center supports cutting-edge research across disciplines by centralizing high-end scientific equipment, expert operators, and standardized procedures. Established in September 2011, SIC has become a crucial hub for research and development at IIT Indore and a national resource for academia and industry.
         </p>
