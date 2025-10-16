@@ -11,7 +11,7 @@ function UsageCharges() {
   ];
 
   return (
-    <section className="space-y-8">
+    <section className="flex space-y-8 px-4 py-12 max-w-7xl justify-center mx-auto flex-col ">
       <div>
         <h1 className="text-4xl font-bold text-blue-900 mb-4">Usage Charges</h1>
         <p className="text-gray-600 leading-relaxed text-lg">

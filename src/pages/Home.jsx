@@ -42,22 +42,19 @@ function Home() {
           }}
         />
         
-       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80" />
+       <div className="absolute inset-0 bg-gradient-to-r from-blue-700/80 to-blue-800/80" />
          
         <div className="relative container mx-auto px-4 lg:px-8 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              <div className="inline-block px-4 py-2 rounded-full text-sm font-semibold text-white mb-6">
-                Sophisticated Instrumentation Center - IIT Indore
-              </div>
-              
-              <h1 className="text-5xl lg:text-5xl font-bold text-white leading-tight mb-6">
-                Book Advanced Research Instruments
+           
+              <h1 className="text-5xl lg:text-5xl font-bold text-white leading-tight mb-6">               
+                Welcome to <br/>Sophisticated Instrumentation Center - IIT Indore              
               </h1>
               
               <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-                Access state-of-the-art analytical equipment with our easy online booking system. Get expert support for accurate and reliable research results.
+               Book Advanced Research Instruments
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -300,12 +297,16 @@ function Home() {
                 Join hundreds of researchers using our advanced instrumentation. Create an account and start booking today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/signup">
                 <button className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 inline-flex items-center justify-center gap-2">
                   Get Started <ChevronRight className="w-5 h-5" />
                 </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 inline-flex items-center justify-center gap-2">
+                </Link>
+                <Link to="/instruments">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 inline-flex items-center justify-center gap-2">    
                   View Instruments
                 </button>
+                </Link>
               </div>
             </div>
           </div>
