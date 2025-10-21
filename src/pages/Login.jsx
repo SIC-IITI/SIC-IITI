@@ -5,7 +5,7 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <section className="flex justify-center items-center min-h-[60vh]">
+    <section className="flex justify-center px-4 py-12  items-center min-h-[60vh]">
       <div className="w-full max-w-md">
         <div className="rounded-lg border border-blue-200 bg-white shadow-lg overflow-hidden">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white">
