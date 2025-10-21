@@ -175,7 +175,7 @@ function Home() {
                 </p>
               </div>
               <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                <ChevronRight className="w-6 h-6 text-blue-300" />
+                
               </div>
             </div>
 
@@ -190,7 +190,7 @@ function Home() {
                 </p>
               </div>
               <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                <ChevronRight className="w-6 h-6 text-blue-300" />
+                
               </div>
             </div>
 
@@ -205,7 +205,7 @@ function Home() {
                 </p>
               </div>
               <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                <ChevronRight className="w-6 h-6 text-blue-300" />
+               
               </div>
             </div>
 
