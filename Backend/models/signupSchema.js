@@ -1,19 +1,16 @@
-// import { User } from "lucide-react";
 import mongoose from "mongoose";
-const signup = new mongoose.Schema({
+
+const signupSchema = new mongoose.Schema({
   name: {
-    type:String,
-    unique: true,
+    type: String,
     required: true,
+    trim: true,
   },
   email: {
-    type:String,
+    type: String,
     required: true,
     unique: true,
-    match: [
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      "Please provide a valid email address",
-    ],
+    match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Invalid email"],
   },
   password: {
     type: String,
@@ -22,17 +19,15 @@ const signup = new mongoose.Schema({
   Affiliation: {
     type: String,
     required: true,
-    enum: {
-      values: [
-        "IIT INDORE",
-        "Academic Institution",
-        "Industry",
-        "Research Center",
-        "International",
-      ],
-      message: "Affiliation is required",
-    },
+    enum: [
+      "IIT INDORE",
+      "Academic Institution",
+      "Industry",
+      "Research Center",
+      "International",
+    ],
   },
 });
-const User = mongoose.model("signup", signup);
+
+const User = mongoose.model("User", signupSchema);
 export default User;
