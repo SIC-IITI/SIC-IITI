@@ -86,7 +86,7 @@ function Signup() {
               Create Account
             </button>
             <p className="text-center text-gray-600 text-sm">
-              Already have an account? <a href="#" className="text-blue-600 font-semibold hover:text-blue-700">Login here</a>
+              Already have an account? <a href="/login" className="text-blue-600 font-semibold hover:text-blue-700">Login here</a>
             </p>
           </form>
         </div>

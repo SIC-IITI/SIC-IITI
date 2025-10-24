@@ -51,7 +51,7 @@ function Login() {
               Sign In
             </button>
             <p className="text-center text-gray-600 text-sm">
-              Don't have an account? <a href="#" className="text-blue-600 font-semibold hover:text-blue-700">Sign up here</a>
+              Don't have an account? <a href="/signup" className="text-blue-600 font-semibold hover:text-blue-700">Sign up here</a>
             </p>
           </form>
         </div>
