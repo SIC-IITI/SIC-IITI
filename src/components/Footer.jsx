@@ -67,7 +67,7 @@ function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-blue-100">Find Us</h3>
             <div className="rounded-lg overflow-hidden border-2 border-blue-700 h-40">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.3456789!2d75.9040!3d22.2883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39630f6b4b4b4b4b%3A0x4b4b4b4b4b4b4b4b!2sIndian%20Institute%20of%20Technology%20Indore!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.7182177022667!2d75.92113631617562!3d22.521357539163045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962efca9295cb87%3A0x400d3f62307a32d1!2sSIC%20-%20A%20National%20Facility!5e0!3m2!1sen!2sin!4v1664003429130!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
