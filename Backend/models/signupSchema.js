@@ -27,6 +27,7 @@ const signupSchema = new mongoose.Schema({
       "International",
     ],
   },
+    isAdmin: { type: Boolean, default: false },
 });
 
 const User = mongoose.model("User", signupSchema);

@@ -46,9 +46,11 @@ function Booking() {
 
       <div className="rounded-lg border-2 border-dashed border-blue-300 bg-white p-8 text-center">
         <p className="text-gray-600 mb-4">Ready to book your slot?</p>
-        <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
+        <a
+        href='/bookingform'
+        className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
           Open Booking Form
-        </button>
+        </a>
       </div>
 
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
