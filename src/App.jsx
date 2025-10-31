@@ -13,6 +13,7 @@ import FAQ from './pages/FAQ';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import InstrumentViewer from './pages/InstrumentViewer';
+import NewsAndEvents from './pages/NewsAndEvents';
 
 export default function App() {
   return (
@@ -22,7 +23,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/instruments" element={<Instruments />} />
-          <Route path="/instruments/:id" element={<InstrumentViewer />} />  
+          <Route path="/instruments/:id" element={<InstrumentViewer />} />
+          <Route path="/newsandevents" element={<NewsAndEvents />} />
           <Route path="/about" element={<About />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/usage-charges" element={<UsageCharges />} />
