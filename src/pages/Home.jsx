@@ -1,61 +1,91 @@
 "use client"
 
 import { useState } from "react"
-import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight, Phone, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-
+import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from "lucide-react"
+import { Link, useLocation } from 'react-router-dom';
+import Calendar from 'react-calendar';
+import '../components/CustomCalendar.css';
 export default function Home() {
   const [newsIndex, setNewsIndex] = useState(0)
   const [eventsIndex, setEventsIndex] = useState(0)
   const [excellenceIndex, setExcellenceIndex] = useState(0)
+  const [date, setDate] = useState(new Date())
 
   const newsItems = [
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-  ]
+  {
+    date: "15th July",
+    title:
+      "Hon'ble Director Prof. Suhas S. Joshi inaugurates new FE-SEM Gemini 360 at SIC, enhancing surface analysis capabilities.",
+  },
+  {
+    date: "19th April",
+    title:
+      "SIC's contribution to new supercapacitor research highlighted in prestigious 'Small' journal publication.",
+  },
+  {
+    date: "29th January",
+    title:
+      "IIT Indore partners with Case New Holland for new COE, leveraging SIC's advanced instrumentation for industry collaboration.",
+  },
+  {
+    date: "18th October",
+    title:
+      "SIC expands research services with the installation of a new high-resolution LC-HRMS Xevo G3 QTOF system.",
+  },
+  {
+    date: "10th October",
+    title:
+      "Advanced elemental analysis now available as SIC operationalizes new ICP-OES Agilent 5800 spectrometer.",
+  },
+  {
+    date: "22nd August",
+    title:
+      "SIC hosts visit for Ms. Saumya Gupta, Joint Secretary of Higher Education, showcasing the national facility's capabilities.",
+  },
+  {
+    date: "5th September",
+    title:
+      "SIC continues knowledge outreach by welcoming students from Delhi Public School and KV Dewas for facility tours.",
+  },
+]
 
   const eventsItems = [
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-    {
-      date: "5th December",
-      title:
-        "Let's celebrate this special moment with joy, laughter, and togetherness, making memories that will last a life time!",
-    },
-  ]
+  {
+    date: "16-18 Nov 2025",
+    title:
+      "SAP 2025: IIT Indore to host the prestigious Symposium on Advanced Photonics, bringing together experts in light-based technologies.",
+  },
+  {
+    date: "8-12 Dec 2025",
+    title:
+      "ICDP Workshop: A 5-day workshop on 'Information, Communications and Data Processing' to be held at the institute.",
+  },
+  {
+    date: "11-13 Dec 2025",
+    title:
+      "AIMTDR 2025: 10th International Conference on Manufacturing Technology, Design and Research to be hosted by Dept. of Mechanical Engineering.",
+  },
+  {
+    date: "16-20 Dec 2025",
+    title:
+      "ICISS 2025: The International Conference on Information Systems Security will be held at IIT Indore, focusing on cybersecurity advancements.",
+  },
+  {
+    date: "15-26 Dec 2025",
+    title:
+      "GIAN Course: 'The Exciting Landscape of Precision Medicines and Therapeutics' course to be offered by IIT Indore.",
+  },
+  {
+    date: "21-23 Mar 2025",
+    title:
+      "CSE Open-house Symposium 3.0: Featuring expert talks, coding competitions, and research presentations from the CSE department.",
+  },
+  {
+    date: "January 2026",
+    title:
+      "Fluxus 2026: Get ready for IIT Indore's annual techno-cultural festival, promising innovation, art, and entertainment.",
+  },
+]
 
   const excellenceItems = [
     {
@@ -79,6 +109,11 @@ export default function Home() {
       description: "Cutting-edge research initiatives driving technological advancement and scientific discovery.",
     },
   ]
+
+  const truncateText = (text, limit) => {
+    if (text.length <= limit) return text;
+    return text.slice(0, limit) + "...";
+  }
 
   const scrollNews = (direction) => {
     if (direction === "next") {
@@ -111,7 +146,11 @@ export default function Home() {
     }
     return visible
   }
-
+const getSundayClassName = ({ date, view }) => {
+  if (view === 'month' && date.getDay() === 0) { // 0 is Sunday
+    return 'sunday-tile';
+  }
+};
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -134,20 +173,14 @@ export default function Home() {
               groundbreaking research.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto" asChild>
-                <Link to="/instruments">Explore</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent w-full sm:w-auto"
-                asChild
-              >
-                <Link to="/booking">Book</Link>
-              </Button>
+              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+                Explore
+              </button>
+              <button className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors">
+                Book
+              </button>
             </div>
           </div>
-          
         </div>
       </section>
 
@@ -182,66 +215,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Excellence in Every Dimension */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">Excellence in Every Dimension</h2>
-          <div className="relative max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {getVisibleItems(excellenceItems, excellenceIndex).map((item, index) => (
-                <Card key={index} className="border-2 border-gray-200 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <img
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.title}
-                      className="w-full h-40 object-cover rounded-lg mb-4"
-                    />
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-600 mb-4 leading-relaxed">{item.description}</p>
-                    <button className="text-sm text-blue-600 hover:underline font-medium">Read more</button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-between mt-8 gap-4">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => scrollExcellence("prev")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => scrollExcellence("next")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* News Section */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white border-t-4 border-blue-600">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">News</h2>
           <div className="relative max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {getVisibleItems(newsItems, newsIndex).map((item, index) => (
-                <Card key={index} className="border-2 border-gray-200 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium mb-4">
-                      {item.date}
-                    </div>
-                    <p className="text-sm text-gray-700 mb-4 leading-relaxed">{item.title}</p>
-                    <button className="text-sm text-blue-600 hover:underline font-medium">Read more</button>
-                  </CardContent>
-                </Card>
+                <div key={index} className="border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-6">
+                  <div className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium mb-4">
+                    {item.date}
+                  </div>
+                  <p className="text-sm text-gray-700 mb-4 leading-relaxed">{truncateText(item.title, 100)}</p>
+                  <button className="text-sm text-blue-600 hover:underline font-medium">Read more</button>
+                </div>
               ))}
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-between mt-8 gap-4">
@@ -261,28 +248,28 @@ export default function Home() {
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
-              
+              <Link to="/newsandevents" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+                View More
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Events & Workshops Section */}
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12">Events & Workshops</h2>
-          <div className="relative">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+          <div className="relative max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
-                <Card key={index} className="border-2 border-gray-200 bg-white hover:shadow-lg transition-shadow">
-                  <CardContent className="p-4 sm:p-5 md:p-6">
-                    <div className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
-                      {item.date}
-                    </div>
-                    <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4 leading-relaxed">{item.title}</p>
-                    <button className="text-xs sm:text-sm text-blue-600 hover:underline font-medium">Read more</button>
-                  </CardContent>
-                </Card>
+                <div key={index} className="border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6">
+                  <div className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                    {item.date}
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4 leading-relaxed">{truncateText(item.title, 100)}</p>
+                  <button className="text-xs sm:text-sm text-blue-600 hover:underline font-medium">Read more</button>
+                </div>
               ))}
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-between mt-6 sm:mt-8 gap-4">
@@ -302,7 +289,124 @@ export default function Home() {
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
-              
+              <Link to="/newsandevents" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
+                View More
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Excellence in Every Dimension */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">Excellence in Every Dimension</h2>
+          <div className="relative max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {getVisibleItems(excellenceItems, excellenceIndex).map((item, index) => (
+                <div key={index} className="border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-6 bg-white">
+                  <img
+                    src={item.image || "/placeholder.svg"}
+                    alt={item.title}
+                    className="w-full h-40 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">{truncateText(item.description, 80)}</p>
+                  <button className="text-sm text-blue-600 hover:underline font-medium">Read more</button>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-between mt-8 gap-4">
+              <div className="flex gap-2">
+                <button
+                  onClick={() => scrollExcellence("prev")}
+                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
+                  aria-label="Previous"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() => scrollExcellence("next")}
+                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
+                  aria-label="Next"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+              <Link to="/newsandevents" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+                View More
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact at a Glance Section */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">Our Impact at a Glance</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="text-center">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
+                <CalendarIcon className="w-12 h-12 text-white" />
+              </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">8500+</div>
+              <div className="text-gray-600">Student enrolled</div>
+            </div>
+            <div className="text-center">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
+                <CalendarIcon className="w-12 h-12 text-white" />
+              </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">25+</div>
+              <div className="text-gray-600">Academics Progress</div>
+            </div>
+            <div className="text-center">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
+                <CalendarIcon className="w-12 h-12 text-white" />
+              </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">40+</div>
+              <div className="text-gray-600">Faculty Members</div>
+            </div>
+            <div className="text-center">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
+                <CalendarIcon className="w-12 h-12 text-white" />
+              </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">15+</div>
+              <div className="text-gray-600">Year of Excellence</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Calendar Booking Section */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Book Your
+                <br />
+                Instrument
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Easily reserve advanced research instruments for your experiments.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/booking" className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors inline-block text-center">
+                  Book
+                </Link>
+                <Link to="/instruments" className="px-6 py-3 border-2 border-gray-900 text-gray-900 hover:bg-gray-100 rounded-md font-medium transition-colors inline-block text-center">
+                  Explore Instruments
+                </Link>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <Calendar 
+                onChange={setDate} 
+                value={date} 
+                locale="en-GB"
+                tileClassName={getSundayClassName}
+              />
             </div>
           </div>
         </div>

@@ -7,12 +7,12 @@ function Navbar() {
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/instruments', label: 'Instruments' },
-    { path: '/about', label: 'About' },
     { path: '/booking', label: 'Book Now' },
-    { path: '/usage-charges', label: 'Charges' },
-    { path: '/faq', label: 'FAQ' },
-    { path: '/login', label: 'Login' },
-    { path: '/signup', label: 'Sign Up' },
+    { path: '/outreach', label: 'Outreach' },
+    { path: '/team', label: 'SIC Team' },
+    { path: '/faculty', label: 'Faculty' },
+    { path: '/contact', label: 'Contact' },
+    
   ];
 
   const renderNavButtons = () =>
