@@ -13,7 +13,6 @@ import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import InstrumentViewer from "./pages/Instruments/InstrumentViewer";
-// import Instruments from "./pages/instrument";
 import Bookingform from "./pages/Bookingform";
 import AdminDashboard from "./pages/Admin";
 import Contact from "./pages/Contact";

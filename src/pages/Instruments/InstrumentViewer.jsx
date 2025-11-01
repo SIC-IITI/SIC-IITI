@@ -32,12 +32,12 @@ const InstrumentViewer = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Back Button */}
-        <button
+        {/* <button
           onClick={() => navigate('/instruments')}
           className="mb-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center gap-2"
         >
           ← Back to Instruments
-        </button>
+        </button> */}
 
         {/* Header */}
         <div className="mb-12">
@@ -47,24 +47,6 @@ const InstrumentViewer = () => {
           <p className="text-xl text-gray-600">{instrument.labName}</p>
           <p className="text-lg text-gray-500">{instrument.subheading}</p>
 
-          {/* Status Badge */}
-          <div className="mt-4">
-            {instrument.availability_status === 'available' && (
-              <span className="inline-block px-4 py-2 bg-green-100 text-green-800 text-sm font-semibold rounded-full">
-                ✓ Available
-              </span>
-            )}
-            {instrument.availability_status === 'under_maintenance' && (
-              <span className="inline-block px-4 py-2 bg-yellow-100 text-yellow-800 text-sm font-semibold rounded-full">
-                ⚠ Under Maintenance
-              </span>
-            )}
-            {instrument.availability_status === 'unavailable' && (
-              <span className="inline-block px-4 py-2 bg-red-100 text-red-800 text-sm font-semibold rounded-full">
-                ✕ Unavailable
-              </span>
-            )}
-          </div>
         </div>
 
         {/* Image Section */}
