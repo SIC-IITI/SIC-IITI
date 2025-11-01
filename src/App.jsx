@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import InstrumentViewer from './pages/InstrumentViewer';
 import NewsAndEvents from './pages/NewsAndEvents';
+import Outreach from './pages/Outreach';
 
 export default function App() {
   return (
@@ -25,12 +26,13 @@ export default function App() {
           <Route path="/instruments" element={<Instruments />} />
           <Route path="/instruments/:id" element={<InstrumentViewer />} />
           <Route path="/newsandevents" element={<NewsAndEvents />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/outreach" element={<Outreach />} />
+          {/* <Route path="/about" element={<About />} /> */}
           <Route path="/booking" element={<Booking />} />
           <Route path="/usage-charges" element={<UsageCharges />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} /> */}
         </Routes>
       </main>
       <Footer />
