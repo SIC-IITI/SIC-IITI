@@ -173,12 +173,12 @@ const getSundayClassName = ({ date, view }) => {
               groundbreaking research.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+              <Link to="/instruments" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                 Explore
-              </button>
-              <button className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors">
+              </Link>
+              <Link to="/booking" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                 Book
-              </button>
+              </Link>
             </div>
           </div>
         </div>
