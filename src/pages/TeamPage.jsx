@@ -2,18 +2,18 @@ import React from "react";
 import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
-import { facultyAdvisor, coreTeam, alumni } from "@/data/FacultyData";
-import "./FacultyPage.css";
+import { facultyAdvisor, coreTeam, alumni } from "@/data/TeamData";
+import "./TeamPage.css";
 
-export default function FacultyPage() {
+export default function TeamPage() {
   return (
     <div className="team-page">
-      <HeroSection image="Team_Hero_1.jpg" alt="SIC Community Team" />
+      <HeroSection image="Hero_Section_1.jpg" alt="SIC Community Team" />
 
       <main className="team-page-main">
         <SectionTitle
-          title="Our Team"
-          subtitle="Meet the dedicated individuals who make SIC Community a thriving community of mechanical engineering enthusiasts at IIT Indore."
+          title="SIC Committee"
+          subtitle="SIC - A National Facility of IIT Indore, empowering cutting-edge research and innovation."
         />
 
         {/* Faculty Advisor */}
@@ -35,17 +35,7 @@ export default function FacultyPage() {
           </div>
         </div>
 
-        {/* Alumni Section */}
-        <div className="team-section">
-          <h3 className="team-heading">Honorable erstwhile members</h3>
-          <p className="team-subtext">Alumni who shaped our community</p>
-
-          <div className="team-grid alumni-team">
-            {alumni.map((member, index) => (
-              <TeamCard key={index} {...member} />
-            ))}
-          </div>
-        </div>
+        
       </main>
     </div>
   );

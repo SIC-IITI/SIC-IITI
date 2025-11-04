@@ -1,0 +1,78 @@
+// All team-related data centralized here
+
+export const facultyAdvisor = {
+  image: "FacultyPhotos/Team_1.png",
+  name: "Dr. Research Innovator",
+  designation: "Faculty Advisor",
+  researchAreas: "Thermal Systems, Fluid Mechanics, Sustainable Design",
+  email: "abc@xyz.com",
+  phone: "+91 98989-89898"
+};
+
+export const coreTeam = [
+  {
+    image: "FacultyPhotos/Team_2.png",
+    name: "Core Member 1",
+    designation: "Technical Lead",
+    researchAreas: "Automation, Robotics",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  },
+  {
+    image: "FacultyPhotos/Team_3.jpg",
+    name: "Core Member 2",
+    designation: "Operations Head",
+    researchAreas: "Industrial Engineering, Process Design",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  },
+  {
+    image: "FacultyPhotos/Team_4.png",
+    name: "Core Member 3",
+    designation: "Community Manager",
+    researchAreas: "Outreach, Communication Strategy",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  },
+  {
+    image: "FacultyPhotos/Team_5.png",
+    name: "Core Member 4",
+    designation: "Design Head",
+    researchAreas: "Product Design, UI/UX",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  },
+  {
+    image: "FacultyPhotos/Team_6.png",
+    name: "Core Member 5",
+    designation: "Workshop Coordinator",
+    researchAreas: "Manufacturing, CAD/CAM",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  },
+  {
+    image: "FacultyPhotos/Team_7.png",
+    name: "Core Member 6",
+    designation: "Events Manager",
+    researchAreas: "Event Management, Leadership",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  },
+  {
+    image: "FacultyPhotos/Team_8.png",
+    name: "Core Member 7",
+    designation: "Content Lead",
+    researchAreas: "Technical Writing, Media",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  },
+  {
+    image: "FacultyPhotos/Team_9.jpeg",
+    name: "Core Member 8",
+    designation: "Outreach Coordinator",
+    researchAreas: "Public Relations, Networking",
+    email: "abc@xyz.com",
+    phone: "+91 98989-89898"
+  }
+];
+
