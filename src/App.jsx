@@ -18,7 +18,8 @@ import InstrumentViewer from "./pages/Instruments/InstrumentViewer";
 import Bookingform from "./pages/Bookingform";
 import AdminDashboard from "./pages/Admin";
 import Contact from "./pages/Contact";
-import TeamPage from "./pages/FacultyPage";
+import FacultyPage from "./pages/FacultyPage";
+import TeamPage from "./pages/TeamPage";
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/team" element={<TeamPage />} />
         </Routes>
       </main>
