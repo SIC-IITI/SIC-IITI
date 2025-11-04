@@ -2,7 +2,7 @@ import React from "react";
 import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
-import { facultyAdvisor, coreTeam, alumni } from "@/data/TeamData";
+import { facultyAdvisor, coreTeam} from "@/data/TeamData";
 import "./TeamPage.css";
 
 export default function TeamPage() {

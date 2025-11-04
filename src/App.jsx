@@ -20,6 +20,8 @@ import AdminDashboard from "./pages/Admin";
 import Contact from "./pages/Contact";
 import FacultyPage from "./pages/FacultyPage";
 import TeamPage from "./pages/TeamPage";
+import Events from "./pages/Events";
+import Outreach from "./pages/Outreach";
 
 export default function App() {
   return (
@@ -41,6 +43,9 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/team" element={<TeamPage />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/outreach" element={<Outreach />} />
+
         </Routes>
       </main>
       <Footer />
