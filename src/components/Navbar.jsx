@@ -8,10 +8,10 @@ function Navbar() {
     { path: '/', label: 'Home' },
     { path: '/instruments', label: 'Instruments' },
     { path: '/booking', label: 'Book Now' },
-    { path: '/outreach', label: 'Outreach' },
-    { path: '/team', label: 'SIC Team' },
-    { path: '/faculty', label: 'Faculty' },
+    { path: '/about', label: 'About SIC' },
     { path: '/contact', label: 'Contact' },
+    { path: '/login', label: 'Login' },
+
     
   ];
 

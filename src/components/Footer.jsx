@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+// Removed unused social icons
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 function Footer() {
   return (
@@ -43,23 +44,43 @@ function Footer() {
             </div>
           </div>
 
-          {/* Social Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-blue-100">Follow Us</h3>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-600">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-600">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-600">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center hover:bg-blue-600">
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
+          {/* Academics Column 1 (Replaced Social Section) */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold mb-6">Academics</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
+                >
+                  Programs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
+                >
+                  Faculty
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
+                >
+                  SIC Committee
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* Map Section */}
@@ -67,7 +88,7 @@ function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-blue-100">Find Us</h3>
             <div className="rounded-lg overflow-hidden border-2 border-blue-700 h-40">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.7182177022667!2d75.92113631617562!3d22.521357539163045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962efca9295cb87%3A0x400d3f62307a32d1!2sSIC%20-%20A%20National%20Facility!5e0!3m2!1sen!2sin!4v1664003429130!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.7182177022667!2d75.92113631617562!3d22.521357539163045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962efca9295cb87%3A0x400d3f62307a32d1!2sSIC%20-%20A%20National%20Facility!5e0!3m2!1sen!2sin!4v1664003429130!5m2!1sen!2sin" // Note: This src URL looks like a placeholder
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

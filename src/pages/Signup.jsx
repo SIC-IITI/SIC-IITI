@@ -1,8 +1,62 @@
-import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import React, { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+
+const BACKEND_URL = "http://localhost:5000/api/user";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    Affiliation: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    setLoading(true);
+
+    if (formData.password !== formData.confirmPassword) {
+      setMessage("Passwords do not match");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(`${BACKEND_URL}/signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Signup failed");
+      }
+
+      setMessage("Signup successful! You can now log in.");
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        Affiliation: "",
+      });
+    } catch (err) {
+      setMessage(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="flex justify-center px-4 py-12 max-w-7xl mx-auto items-center min-h-[60vh]">
@@ -12,63 +66,61 @@ function Signup() {
             <h1 className="text-3xl font-bold">Create Account</h1>
             <p className="mt-2 text-blue-100">Join SIC to access our facilities</p>
           </div>
-          <form className="p-8 space-y-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <label htmlFor="firstName" className="block text-sm font-semibold text-blue-900 mb-2">
-                  First Name
-                </label>
-                <input
-                  id="firstName"
-                  className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="John"
-                />
-              </div>
-              <div>
-                <label htmlFor="lastName" className="block text-sm font-semibold text-blue-900 mb-2">
-                  Last Name
-                </label>
-                <input
-                  id="lastName"
-                  className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                  placeholder="Doe"
-                />
-              </div>
-            </div>
+          <form onSubmit={handleSignup} className="p-8 space-y-6">
             <div>
-              <label htmlFor="signupEmail" className="block text-sm font-semibold text-blue-900 mb-2">
-                Email Address
-              </label>
+              <label className="block text-sm font-semibold text-blue-900 mb-2">Full Name</label>
               <input
-                id="signupEmail"
-                type="email"
-                className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                placeholder="name@institute.edu"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                placeholder="John Doe"
+                required
               />
             </div>
+
             <div>
-              <label htmlFor="affiliation" className="block text-sm font-semibold text-blue-900 mb-2">
-                Affiliation
-              </label>
-              <select className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                <option>Select your affiliation</option>
-                <option>IIT Indore</option>
-                <option>Academic Institution</option>
-                <option>Industry</option>
-                <option>Research Center</option>
-                <option>International</option>
+              <label className="block text-sm font-semibold text-blue-900 mb-2">Email Address</label>
+              <input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                placeholder="name@institute.edu"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-blue-900 mb-2">Affiliation</label>
+              <select
+                name="Affiliation"
+                value={formData.Affiliation}
+                onChange={handleChange}
+                className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                required
+              >
+                <option value="">Select your affiliation</option>
+                <option value="IIT INDORE">IIT Indore</option>
+                <option value="Academic Institution">Academic Institution</option>
+                <option value="Industry">Industry</option>
+                <option value="Research Center">Research Center</option>
+                <option value="International">International</option>
               </select>
             </div>
+
             <div>
-              <label htmlFor="signupPassword" className="block text-sm font-semibold text-blue-900 mb-2">
-                Create Password
-              </label>
+              <label className="block text-sm font-semibold text-blue-900 mb-2">Create Password</label>
               <div className="relative">
                 <input
-                  id="signupPassword"
+                  name="password"
                   type={showPassword ? "text" : "password"}
-                  className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  value={formData.password}
+                  onChange={handleChange}
+                  className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
                   placeholder="Create a strong password"
+                  required
                 />
                 <button
                   type="button"
@@ -79,14 +131,43 @@ function Signup() {
                 </button>
               </div>
             </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-blue-900 mb-2">Confirm Password</label>
+              <input
+                name="confirmPassword"
+                type="password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                placeholder="Re-enter your password"
+                required
+              />
+            </div>
+
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-3 rounded-lg hover:shadow-lg transition-shadow"
+              disabled={loading}
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-3 rounded-lg hover:shadow-lg transition-shadow disabled:opacity-50"
             >
-              Create Account
+              {loading ? "Creating Account..." : "Create Account"}
             </button>
+
+            {message && (
+              <p
+                className={`text-center text-sm ${
+                  message.includes("successful") ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {message}
+              </p>
+            )}
+
             <p className="text-center text-gray-600 text-sm">
-              Already have an account? <a href="#" className="text-blue-600 font-semibold hover:text-blue-700">Login here</a>
+              Already have an account?{" "}
+              <a href="/login" className="text-blue-600 font-semibold hover:text-blue-700">
+                Login here
+              </a>
             </p>
           </form>
         </div>

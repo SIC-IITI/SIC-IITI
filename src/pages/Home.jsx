@@ -6,48 +6,11 @@ import { Link, useLocation } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
 export default function Home() {
-  const [newsIndex, setNewsIndex] = useState(0)
   const [eventsIndex, setEventsIndex] = useState(0)
   const [excellenceIndex, setExcellenceIndex] = useState(0)
   const [date, setDate] = useState(new Date())
 
-  const newsItems = [
-  {
-    date: "15th July",
-    title:
-      "Hon'ble Director Prof. Suhas S. Joshi inaugurates new FE-SEM Gemini 360 at SIC, enhancing surface analysis capabilities.",
-  },
-  {
-    date: "19th April",
-    title:
-      "SIC's contribution to new supercapacitor research highlighted in prestigious 'Small' journal publication.",
-  },
-  {
-    date: "29th January",
-    title:
-      "IIT Indore partners with Case New Holland for new COE, leveraging SIC's advanced instrumentation for industry collaboration.",
-  },
-  {
-    date: "18th October",
-    title:
-      "SIC expands research services with the installation of a new high-resolution LC-HRMS Xevo G3 QTOF system.",
-  },
-  {
-    date: "10th October",
-    title:
-      "Advanced elemental analysis now available as SIC operationalizes new ICP-OES Agilent 5800 spectrometer.",
-  },
-  {
-    date: "22nd August",
-    title:
-      "SIC hosts visit for Ms. Saumya Gupta, Joint Secretary of Higher Education, showcasing the national facility's capabilities.",
-  },
-  {
-    date: "5th September",
-    title:
-      "SIC continues knowledge outreach by welcoming students from Delhi Public School and KV Dewas for facility tours.",
-  },
-]
+
 
   const eventsItems = [
   {
@@ -113,14 +76,6 @@ export default function Home() {
   const truncateText = (text, limit) => {
     if (text.length <= limit) return text;
     return text.slice(0, limit) + "...";
-  }
-
-  const scrollNews = (direction) => {
-    if (direction === "next") {
-      setNewsIndex((prev) => (prev + 1) % newsItems.length)
-    } else {
-      setNewsIndex((prev) => (prev - 1 + newsItems.length) % newsItems.length)
-    }
   }
 
   const scrollEvents = (direction) => {
@@ -201,60 +156,21 @@ const getSundayClassName = ({ date, view }) => {
                 The Sophisticated Instrumentation Center (SIC) — A National Facility was established in September 2011 to expedite the research program at IIT Indore. It is now a national facility providing services such as data recording facilities and expertise in different state-of-the-art instruments to academia and industry from all parts of the country and some international centers.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
-                Furthermore,  it is catering to the needs of many educational institutes and industries in and around central India and satisfying the need of scientific world, academia and industries with equal importance and emphasis. It is also engaged in spreading awareness among researchers, academia and industries for the probable use of the facility among diverse users to make the facility a part of our mutual co-existence to enhance quality of researches and products in industries. 
+                Furthermore,  it is catering to the needs of many educational institutes and industries in and around central India and satisfying the need of scientific world, academia and industries with equal importance and emphasis. It is also engaged in spreading awareness among researchers, academia and industries for the probable use of the facility among diverse users to make the facility a part of our mutual co-existence to enhance quality of researches and products in industries.
               </p>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <img 
-                src="/close-sic.png" 
-                alt="Laboratory" 
-                className="rounded-lg shadow-lg w-full max-w-md object-cover h-80 md:h-96" 
+              <img
+                src="/close-sic.png"
+                alt="Laboratory"
+                className="rounded-lg shadow-lg w-full max-w-md object-cover h-80 md:h-96"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* News Section */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">News</h2>
-          <div className="relative max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {getVisibleItems(newsItems, newsIndex).map((item, index) => (
-                <div key={index} className="border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-6">
-                  <div className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-medium mb-4">
-                    {item.date}
-                  </div>
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed">{truncateText(item.title, 100)}</p>
-                  <button className="text-sm text-blue-600 hover:underline font-medium">Read more</button>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-between mt-8 gap-4">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => scrollNews("prev")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => scrollNews("next")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
-              <Link to="/newsandevents" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                View More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+ 
 
       {/* Events & Workshops Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
@@ -289,7 +205,7 @@ const getSundayClassName = ({ date, view }) => {
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
-              <Link to="/newsandevents" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
+              <Link to="/events" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
                 View More
               </Link>
             </div>
@@ -333,7 +249,7 @@ const getSundayClassName = ({ date, view }) => {
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
-              <Link to="/newsandevents" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+              <Link to="/events" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                 View More
               </Link>
             </div>
@@ -401,9 +317,9 @@ const getSundayClassName = ({ date, view }) => {
               </div>
             </div>
             <div className="flex justify-center">
-              <Calendar 
-                onChange={setDate} 
-                value={date} 
+              <Calendar
+                onChange={setDate}
+                value={date}
                 locale="en-GB"
                 tileClassName={getSundayClassName}
               />

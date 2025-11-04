@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-export default function Outreach() {
+function Outreach() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const carouselImages = [
@@ -165,15 +165,15 @@ export default function Outreach() {
                 key={index} 
                 className={`bg-white border-2 ${index % 2 === 0 ? 'border-blue-400' : 'border-gray-200'} rounded-lg overflow-hidden hover:shadow-lg transition-shadow`}
               >
-                <div className="grid md:grid-cols-3 gap-0">
-                  <div className="md:col-span-1">
+                <div className={`grid md:grid-cols-3 gap-0 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className={`md:col-span-1 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                     <img 
                       src={visitor.image} 
                       alt={visitor.title}
                       className="w-full h-48 md:h-full object-cover"
                     />
                   </div>
-                  <div className="md:col-span-2 p-6 sm:p-8">
+                  <div className={`md:col-span-2 p-6 sm:p-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
                     <div className="text-blue-600 font-semibold text-lg mb-3">
                       {visitor.date}
                     </div>
@@ -194,3 +194,5 @@ export default function Outreach() {
     </div>
   )
 }
+
+export default Outreach
