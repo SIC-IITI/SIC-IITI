@@ -1,9 +1,9 @@
 import React from "react";
-import HeroSection from "@/components/TeamPage/HeroSection";
-import SectionTitle from "@/components/TeamPage/SectionTitle";
-import TeamCard from "@/components/TeamPage/TeamCard";
-import { facultyAdvisor, coreTeam, alumni } from "@/data/teamData";
-import "./TeamPage.css";
+import HeroSection from "@/components/FacultyPage/HeroSection";
+import SectionTitle from "@/components/FacultyPage/SectionTitle";
+import TeamCard from "@/components/FacultyPage/TeamCard";
+import { facultyAdvisor, coreTeam, alumni } from "@/data/FacultyData";
+import "./FacultyPage.css";
 
 export default function TeamPage() {
   return (

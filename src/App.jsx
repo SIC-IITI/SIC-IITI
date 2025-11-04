@@ -18,7 +18,7 @@ import InstrumentViewer from "./pages/Instruments/InstrumentViewer";
 import Bookingform from "./pages/Bookingform";
 import AdminDashboard from "./pages/Admin";
 import Contact from "./pages/Contact";
-import TeamPage from "./pages/TeamPage";
+import TeamPage from "./pages/FacultyPage";
 
 export default function App() {
   return (
