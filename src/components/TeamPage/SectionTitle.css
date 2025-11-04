@@ -1,0 +1,18 @@
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem; /* similar to mb-12 */
+}
+
+.section-title-heading {
+  font-size: 2.45rem; /* ~ text-4xl */
+  font-weight: 700; /* font-bold */
+  color: #111827; /* text-gray-900 */
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.section-title-subtitle {
+  color: #4b5563; /* text-gray-600 */
+  max-width: 42rem; /* max-w-2xl */
+  margin: 0 auto;
+  line-height: 1.625; /* leading-relaxed */
+}

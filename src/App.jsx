@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -16,6 +18,8 @@ import InstrumentViewer from "./pages/Instruments/InstrumentViewer";
 import Bookingform from "./pages/Bookingform";
 import AdminDashboard from "./pages/Admin";
 import Contact from "./pages/Contact";
+import TeamPage from "./pages/TeamPage";
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -34,6 +38,7 @@ export default function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/team" element={<TeamPage />} />
         </Routes>
       </main>
       <Footer />
