@@ -1,37 +1,95 @@
-import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import React, { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+
+const BACKEND_URL = "http://localhost:5000/api/user/login";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+    setError("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (!formData.email || !formData.password) {
+      setError("Both fields are required.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      localStorage.setItem("token", data.token);
+      setSuccess("Login successful!");
+      setFormData({ email: "", password: "" });
+
+      setTimeout(() => (window.location.href = "/"), 1000);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <section className="flex justify-center px-4 py-12  items-center min-h-[60vh]">
+    <section className="flex justify-center px-4 py-12 items-center min-h-[60vh]">
       <div className="w-full max-w-md">
         <div className="rounded-lg border border-blue-200 bg-white shadow-lg overflow-hidden">
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white">
             <h1 className="text-3xl font-bold">Login</h1>
             <p className="mt-2 text-blue-100">Access your SIC account</p>
           </div>
-          <form className="p-8 space-y-6">
+
+          <form className="p-8 space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-blue-900 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-blue-900 mb-2"
+              >
                 Email Address
               </label>
               <input
                 id="email"
                 type="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 placeholder="name@institute.edu"
               />
             </div>
+
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-blue-900 mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-blue-900 mb-2"
+              >
                 Password
               </label>
               <div className="relative">
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
+                  value={formData.password}
+                  onChange={handleChange}
                   className="w-full rounded-lg border border-blue-300 bg-blue-50 px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   placeholder="••••••••"
                 />
@@ -40,18 +98,44 @@ function Login() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-600 hover:text-blue-700"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
+
+            {error && (
+              <p className="text-red-600 text-sm font-semibold text-center">
+                {error}
+              </p>
+            )}
+            {success && (
+              <p className="text-green-600 text-sm font-semibold text-center">
+                {success}
+              </p>
+            )}
+
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-3 rounded-lg hover:shadow-lg transition-shadow"
+              disabled={loading}
+              className={`w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-3 rounded-lg hover:shadow-lg transition-shadow ${
+                loading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
             >
-              Sign In
+              {loading ? "Signing In..." : "Sign In"}
             </button>
+
             <p className="text-center text-gray-600 text-sm">
-              Don't have an account? <a href="#" className="text-blue-600 font-semibold hover:text-blue-700">Sign up here</a>
+              Don't have an account?{" "}
+              <a
+                href="/signup"
+                className="text-blue-600 font-semibold hover:text-blue-700"
+              >
+                Sign up here
+              </a>
             </p>
           </form>
         </div>

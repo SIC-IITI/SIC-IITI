@@ -201,14 +201,14 @@ const getSundayClassName = ({ date, view }) => {
                 The Sophisticated Instrumentation Center (SIC) — A National Facility was established in September 2011 to expedite the research program at IIT Indore. It is now a national facility providing services such as data recording facilities and expertise in different state-of-the-art instruments to academia and industry from all parts of the country and some international centers.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
-                Furthermore,  it is catering to the needs of many educational institutes and industries in and around central India and satisfying the need of scientific world, academia and industries with equal importance and emphasis. It is also engaged in spreading awareness among researchers, academia and industries for the probable use of the facility among diverse users to make the facility a part of our mutual co-existence to enhance quality of researches and products in industries. 
+                Furthermore,  it is catering to the needs of many educational institutes and industries in and around central India and satisfying the need of scientific world, academia and industries with equal importance and emphasis. It is also engaged in spreading awareness among researchers, academia and industries for the probable use of the facility among diverse users to make the facility a part of our mutual co-existence to enhance quality of researches and products in industries.
               </p>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <img 
-                src="/close-sic.png" 
-                alt="Laboratory" 
-                className="rounded-lg shadow-lg w-full max-w-md object-cover h-80 md:h-96" 
+              <img
+                src="/close-sic.png"
+                alt="Laboratory"
+                className="rounded-lg shadow-lg w-full max-w-md object-cover h-80 md:h-96"
               />
             </div>
           </div>
@@ -401,9 +401,9 @@ const getSundayClassName = ({ date, view }) => {
               </div>
             </div>
             <div className="flex justify-center">
-              <Calendar 
-                onChange={setDate} 
-                value={date} 
+              <Calendar
+                onChange={setDate}
+                value={date}
                 locale="en-GB"
                 tileClassName={getSundayClassName}
               />

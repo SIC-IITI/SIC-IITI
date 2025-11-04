@@ -48,7 +48,7 @@ function FAQ() {
               className="w-full p-6 text-left flex items-center justify-between hover:bg-blue-50"
             >
               <p className="font-semibold text-blue-900">{item.q}</p>
-              <div className={`text-blue-600 transform transition-transform ${expanded === idx ? 'rotate-180' : ''}`}>
+              <div className={`text-blue-600 transform transition-transform ${expanded === idx ? 'rotate-90' : ''}`}>
                 <ChevronRight className="w-5 h-5" />
               </div>
             </button>
