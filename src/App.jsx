@@ -12,7 +12,8 @@ import UsageCharges from "./pages/UsageCharges";
 import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import InstrumentViewer from "./pages/Instruments/InstrumentViewer";
+// import InstrumentViewer from "./pages/Instruments/InstrumentViewer";
+import InstrumentDetails from "./pages/Instruments/InstrumentDetail";
 import Bookingform from "./pages/Bookingform";
 import AdminDashboard from "./pages/Admin";
 import Contact from "./pages/Contact";
@@ -24,7 +25,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/instruments" element={<Instruments />} />
-          <Route path="/instruments/:id" element={<InstrumentViewer />} />
+          <Route path="/instruments/:id" element={<InstrumentDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />

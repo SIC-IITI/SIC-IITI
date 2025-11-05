@@ -57,10 +57,7 @@ export default function Navbar() {
     { path: '/', label: 'Home', icon: Home },
     { path: '/instruments', label: 'Instruments', icon: Microscope },
     { path: '/booking', label: 'Book Now', icon: Calendar },
-    { path: '/team', label: 'SIC Team', icon: Users },
-    { path: '/outreach', label: 'Outreach', icon: Globe },
-    { path: '/faculty', label: 'Faculty', icon: GraduationCap },
-
+    { path: '/about', label: 'About SIC', icon: Info },
     { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
@@ -178,13 +175,7 @@ export default function Navbar() {
         >
           Login
         </Link>
-        <Link
-          to="/signup"
-          onClick={() => setIsMenuOpen(false)}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow-lg shadow-blue-500/30 transition-all hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 text-sm"
-        >
-          Sign Up
-        </Link>
+       
       </>
     );
   };
