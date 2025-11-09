@@ -70,22 +70,19 @@ const instrumentsData = [
       resolution: "< 129 eV (typical)",
       detectionLimit: "0.1 wt% (typical)"
     },
-    handledBy: "Lab Coordinator",
-    email: "contact@iiti.ac.in",
-    image: "path/to/eds-image.jpg"
+     handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    image: "path/to/scxrd-image.jpg"
   },
   {
     id: "bse-bsd",
     name: "BSE/BSD",
     fullName: "Backscattered Electron Detector",
     category: "X-Ray",
-    model: "Backscattered Electron Detector",
+    model: "Gemini 360",
     features: [
-      "Atomic number contrast imaging",
-      "High sensitivity to compositional variations",
-      "Complementary to secondary electron imaging",
-      "Excellent for phase identification",
-      "Non-destructive analysis technique"
+      "The BSE detector in the Gemini SEM360 is designed to capture high-energy electrons that are reflected or backscattered from the sample. BSE imaging provides contrast based on the atomic number of elements, making it useful for compositional analysis. Heavier elements appear brighter, allowing for differentiation between different materials within the sample.",
+
     ],
     applications: [
       "Material composition analysis with atomic number contrast",

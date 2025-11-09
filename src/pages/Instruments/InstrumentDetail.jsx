@@ -60,13 +60,20 @@ const InstrumentDetail = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#D9D9D9" }}>
       {/* Hero Header */}
-      <div className="relative bg-gradient-to-r from-indigo-950 via-blue-950 to-slate-900 py-12 overflow-hidden">
-        {/* Animated background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          {[...Array(50)].map((_, i) => (
+        <div
+        className="relative h-[300px] bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80')",
+        }}
+      >
+
+        {/* Stars Effect */}
+        <div className="absolute inset-0 opacity-40">
+          {[...Array(200)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-white rounded-full animate-pulse"
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
@@ -239,31 +246,7 @@ const InstrumentDetail = () => {
             </div>
           </div>
 
-          {/* Action Buttons Card */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200 flex flex-col justify-center hover:shadow-2xl transition-shadow">
-            <h2
-              className="text-2xl font-bold text-gray-800 mb-6 text-center"
-              style={{ fontFamily: "Cantata one" }}
-            >
-              Quick Actions
-            </h2>
-            <div className="space-y-4">
-              <button
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3"
-                style={{ fontFamily: "Cantata one" }}
-              >
-                <FileText className="w-5 h-5" />
-                Form Submission
-              </button>
-              <button
-                className="w-full px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-3"
-                style={{ fontFamily: "Cantata one" }}
-              >
-                <Beaker className="w-5 h-5" />
-                Collect your Data
-              </button>
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>
