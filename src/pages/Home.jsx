@@ -3,6 +3,13 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from "lucide-react"
 import { Link, useLocation } from 'react-router-dom';
+import CountUp from 'react-countup';
+import {
+  Users,
+  GraduationCap,
+  Briefcase,
+  Trophy,
+} from 'lucide-react';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
 export default function Home() {
@@ -128,12 +135,12 @@ const getSundayClassName = ({ date, view }) => {
               groundbreaking research.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/instruments" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                 Explore
-              </Link>
-              <Link to="/booking" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+              </button>
+              <button className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors">
                 Book
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -257,42 +264,63 @@ const getSundayClassName = ({ date, view }) => {
         </div>
       </section>
 
-      {/* Impact at a Glance Section */}
-      <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">Our Impact at a Glance</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
-                <CalendarIcon className="w-12 h-12 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">8500+</div>
-              <div className="text-gray-600">Student enrolled</div>
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
-                <CalendarIcon className="w-12 h-12 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">25+</div>
-              <div className="text-gray-600">Academics Progress</div>
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
-                <CalendarIcon className="w-12 h-12 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">40+</div>
-              <div className="text-gray-600">Faculty Members</div>
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
-                <CalendarIcon className="w-12 h-12 text-white" />
-              </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">15+</div>
-              <div className="text-gray-600">Year of Excellence</div>
-            </div>
+     {/* Impact at a Glance Section */}
+  <section className="py-16 sm:py-20 bg-gray-50">
+    <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+        Our Impact at a Glance
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        
+        
+        {/* Stat 1: Students */}
+        <div className="text-center">
+          <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-600 flex items-center justify-center">
+            <Users className="w-12 h-12 text-white" />
           </div>
+          <div className="text-4xl font-bold text-gray-900 mb-2">
+            <CountUp end={4500} duration={1} enableScrollSpy scrollSpyOnce />+
+          </div>
+          <div className="text-gray-600">Student enrolled</div>
         </div>
-      </section>
+
+        {/* Stat 2: Academics */}
+        <div className="text-center">
+          <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-green-600 flex items-center justify-center">
+            
+            <GraduationCap className="w-12 h-12 text-white" />
+          </div>
+          <div className="text-4xl font-bold text-gray-900 mb-2">
+            <CountUp end={25} duration={1} enableScrollSpy scrollSpyOnce />+
+          </div>
+          <div className="text-gray-600">Academics Progress</div>
+        </div>
+
+        {/* Stat 3: Faculty */}
+        <div className="text-center">
+          <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center">
+            <Briefcase className="w-12 h-12 text-white" />
+          </div>
+          <div className="text-4xl font-bold text-gray-900 mb-2">
+            <CountUp end={40} duration={1} enableScrollSpy scrollSpyOnce />+
+          </div>
+          <div className="text-gray-600">Faculty Members</div>
+        </div>
+
+        {/* Stat 4: Years */}
+        <div className="text-center">
+          <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-indigo-600 flex items-center justify-center">
+            <Trophy className="w-12 h-12 text-white" />
+          </div>
+          <div className="text-4xl font-bold text-gray-900 mb-2">
+            <CountUp end={12} duration={1} enableScrollSpy scrollSpyOnce />+
+          </div>
+          <div className="text-gray-600">Year of Excellence</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
       {/* Calendar Booking Section */}
       <section className="py-16 sm:py-20 bg-white">
