@@ -13,7 +13,6 @@ import UsageCharges from "./pages/UsageCharges";
 import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-// import InstrumentViewer from "./pages/Instruments/InstrumentViewer";
 import InstrumentDetails from "./pages/Instruments/InstrumentDetail";
 import Bookingform from "./pages/Bookingform";
 import AdminDashboard from "./pages/Admin";
