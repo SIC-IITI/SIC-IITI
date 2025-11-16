@@ -1,7 +1,7 @@
 // data/instrumentsData.js
 
 const instrumentsData = [
-  // ==================== X-RAY ANALYSIS ====================
+   // ==================== X-RAY ANALYSIS ====================
   {
     id: "scxrd",
     name: "SCXRD",
@@ -34,7 +34,11 @@ const instrumentsData = [
     },
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    image: "path/to/scxrd-image.jpg"
+    images: [
+      "/assets/instruments/X-Ray/SCXRD/image1.jpg",
+      "/assets/instruments/X-Ray/SCXRD/image2.jpg",
+      "/assets/instruments/X-Ray/SCXRD/image3.jpg"
+    ]
   },
   {
     id: "eds-edx",
@@ -70,9 +74,12 @@ const instrumentsData = [
       resolution: "< 129 eV (typical)",
       detectionLimit: "0.1 wt% (typical)"
     },
-     handledBy: "Mr. Kinny Pandey",
+    handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    image: "path/to/scxrd-image.jpg"
+    images: [
+      "/assets/instruments/X-Ray/EDS-EDX/image1.jpg",
+      "/assets/instruments/X-Ray/EDS-EDX/image2.jpg"
+    ]
   },
   {
     id: "bse-bsd",
@@ -81,8 +88,9 @@ const instrumentsData = [
     category: "X-Ray",
     model: "Gemini 360",
     features: [
-      "The BSE detector in the Gemini SEM360 is designed to capture high-energy electrons that are reflected or backscattered from the sample. BSE imaging provides contrast based on the atomic number of elements, making it useful for compositional analysis. Heavier elements appear brighter, allowing for differentiation between different materials within the sample.",
-
+      "Captures high-energy electrons reflected or backscattered from the sample.",
+      "Provides contrast based on atomic number for compositional analysis.",
+      "Heavier elements appear brighter, enabling differentiation within the sample."
     ],
     applications: [
       "Material composition analysis with atomic number contrast",
@@ -104,7 +112,10 @@ const instrumentsData = [
     },
     handledBy: "Er. Atul Singh",
     email: "atul.singh@iiti.ac.in",
-    image: "path/to/bse-image.jpg"
+    images: [
+      "/assets/instruments/X-Ray/BSE-BSD/image1.jpg",
+      "/assets/instruments/X-Ray/BSE-BSD/image2.jpg"
+    ]
   },
 
   // ==================== MICROSCOPY ====================
@@ -117,37 +128,31 @@ const instrumentsData = [
     features: [
       "GEMINI Technology with high efficiency in-lens detector",
       "No magnetic field at specimen level",
-      "Superb resolution and image quality at high and low operating voltages",
+      "Superb resolution and image quality at high and low voltages",
       "Extremely wide operating voltage range from 0.02-20kV",
-      "Minimal adjustments required when changing operating conditions",
       "Short analytical working distance of 8.5 mm",
-      "High probe current (up to 100 nA) with excellent stability (< 0.2%/h)",
-      "Windows-based SmartSEM control software",
+      "High probe current (up to 100 nA) with excellent stability (<0.2%/h)",
       "Integrated SE, InLens, and EDX detectors"
     ],
     applications: [
       "High-resolution imaging of nanostructures and nanomaterials",
-      "Biological sample visualization with minimal preparation",
       "Surface topography analysis for microelectronics",
       "Elemental analysis and phase identification with EDX",
-      "Contaminant detection and thin film analysis",
-      "Atomic number contrast imaging",
       "Grain boundary and microstructural studies",
-      "Catalysis research at nanoscale",
-      "MEMS and NEMS device characterization",
-      "Forensic trace evidence analysis",
-      "Art conservation and archaeological studies"
+      "Catalysis research at nanoscale"
     ],
     specifications: {
       resolution: "1.0 nm @ 20 kV, 1.7 nm @ 1 kV",
       magnification: "12× to 900,000×",
       voltage: "0.02 - 20 kV",
-      probeCurrent: "Up to 100 nA",
-      workingDistance: "8.5 mm (analytical)"
+      workingDistance: "8.5 mm"
     },
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    image: "path/to/supra55-image.jpg"
+    images: [
+      "/assets/instruments/Microscopy/Supra-55/image1.jpg",
+      "/assets/instruments/Microscopy/Supra-55/image2.jpg"
+    ]
   },
   {
     id: "gemini-360",
@@ -160,25 +165,24 @@ const instrumentsData = [
       "Ultra-high resolution imaging",
       "Advanced detector technology",
       "Automated imaging and analysis",
-      "Low vacuum operation capability",
-      "Enhanced analytical capabilities"
+      "Low vacuum operation capability"
     ],
     applications: [
       "Ultra-high resolution materials characterization",
       "Advanced semiconductor inspection",
       "Nanomaterial analysis and development",
-      "3D imaging and surface reconstruction",
-      "Large-area automated imaging",
-      "Failure analysis in advanced materials"
+      "3D imaging and surface reconstruction"
     ],
     specifications: {
       resolution: "Sub-nanometer capability",
-      automation: "Advanced AI-assisted features",
       modes: "High vacuum, low vacuum"
     },
     handledBy: "Lab Coordinator",
     email: "contact@iiti.ac.in",
-    image: "path/to/gemini360-image.jpg"
+    images: [
+      "/assets/instruments/Microscopy/Gemini-360/image1.jpg",
+      "/assets/instruments/Microscopy/Gemini-360/image2.jpg"
+    ]
   },
   {
     id: "afm",
@@ -190,28 +194,23 @@ const instrumentsData = [
       "Atomic-scale resolution imaging",
       "3D surface topography mapping",
       "Multiple imaging modes (contact, non-contact, tapping)",
-      "Force measurements and spectroscopy",
-      "Ambient and liquid environment operation",
-      "Non-destructive surface analysis"
+      "Force measurements and spectroscopy"
     ],
     applications: [
       "Nanoscale surface topography imaging",
       "Thin film thickness and roughness measurement",
-      "Nanoparticle size and shape characterization",
-      "Biological sample imaging in liquid",
-      "Mechanical property measurements",
-      "Electrical and magnetic property mapping",
-      "Polymer surface characterization",
-      "Nanolithography and manipulation"
+      "Nanoparticle size and shape characterization"
     ],
     specifications: {
       resolution: "< 1 nm vertical, < 5 nm lateral",
-      scanRange: "Up to 100 µm × 100 µm",
-      modes: "Contact, tapping, phase imaging"
+      scanRange: "Up to 100 µm × 100 µm"
     },
     handledBy: "Lab Coordinator",
     email: "contact@iiti.ac.in",
-    image: "path/to/afm-image.jpg"
+    images: [
+      "/assets/instruments/Microscopy/AFM/image1.jpg",
+      "/assets/instruments/Microscopy/AFM/image2.jpg"
+    ]
   },
   {
     id: "clsm",
@@ -223,30 +222,25 @@ const instrumentsData = [
       "High-resolution 3D imaging",
       "Optical sectioning capability",
       "Multiple laser wavelengths",
-      "Fluorescence imaging with multiple channels",
-      "Live cell imaging capability",
-      "Z-stack and time-lapse imaging"
+      "Fluorescence imaging with multiple channels"
     ],
     applications: [
       "3D reconstruction of biological specimens",
       "Live cell imaging and dynamics",
-      "Fluorescence microscopy of labeled samples",
-      "Co-localization studies",
-      "Tissue section analysis",
-      "Polymer and material surface imaging",
-      "Biofilm structure analysis",
-      "Neuronal network visualization"
+      "Fluorescence microscopy of labeled samples"
     ],
     specifications: {
       resolution: "Optical diffraction limit (~200 nm lateral)",
-      lasers: "Multiple wavelengths (405-633 nm typical)",
-      objectives: "10× to 100× (oil/water immersion)"
+      lasers: "405-633 nm typical"
     },
     handledBy: "Lab Coordinator",
     email: "contact@iiti.ac.in",
-    image: "path/to/clsm-image.jpg"
+    images: [
+      "/assets/instruments/Microscopy/CLSM/image1.jpg",
+      "/assets/instruments/Microscopy/CLSM/image2.jpg"
+    ]
   },
-
+  
   // ==================== SPECTROSCOPY ====================
   {
     id: "nmr-500",

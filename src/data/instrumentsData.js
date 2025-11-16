@@ -1,229 +1,1309 @@
+// data/instrumentsData.js
 
-const instrumentsData = [
+export const instrumentsData = [
+  // ==================== X-RAY ANALYSIS ====================
   {
-    id: 1,
-    name: "3D Printer (RAISE3D N2)",
-    category: "Additive Manufacturing",
-    manufacturer: "RAISE3D",
-    model_number: "N2",
-    labName: "3D Lab IIT INDORE",
-    subheading: "SIC Adopted Lab",
-    description: "Advanced 3D printer operating on Fused Deposition Modeling (FDM) technology for rapid prototyping and research applications.",
-    image_url: "https://images.unsplash.com/photo-1564375273161-be6684e8d77f?w=800&q=80",
-    availability_status: "available",
-    about: "The RAISE3D N2 is an advanced 3D printer that operates on Fused Deposition Modeling (FDM) technology. FDM is a filament-based additive manufacturing process where a temperature-controlled print head extrudes thermoplastic material layer by layer. A water-soluble support structure is generated where necessary to maintain model accuracy and complexity.",
-    printingRequirements: [
-      { label: "File format", value: ".stl" },
-      { label: "Maximum dimensions", value: "25 cm x 25 cm x 25 cm" },
-      { label: "Printing material", value: "Polylactic Acid (PLA)" },
-      { label: "Support material", value: "High Impact Polystyrene (HIPS)" }
+    id: "scxrd",
+    name: "SCXRD",
+    fullName: "Single Crystal X-Ray Diffractometer",
+    category: "X-Ray",
+    model: "Agilent Technologies Super Nova System",
+    features: [
+      "State of the art dual core Agilent Technologies (Oxford Diffraction) Super Nova CCD System",
+      "Access to micro-focus Cu and Mo sources which allows even small-size crystals data collection",
+      "Oxford Cryosystems which enable temperature range from 90 to 400K",
+      "High-definition microscopes for the separation and mounting of crystals",
+      "Dual wavelength capability (Cu Kα and Mo Kα)",
+      "CCD detector for high-sensitivity data collection",
     ],
-    technicalSpecifications: [
-      { parameter: "Printer Model", details: "RAISE3D N2" },
-      { parameter: "Technology", details: "Fused Deposition Modeling (FDM)" },
-      { parameter: "Build Volume", details: "305 × 305 × 305 mm" },
-      { parameter: "Layer Resolution", details: "0.01 mm – 0.25 mm" },
-      { parameter: "Filament Diameter", details: "1.75 mm" },
-      { parameter: "Supported Materials", details: "PLA, ABS, PETG, Nylon, HIPS" },
-      { parameter: "Max Extruder Temp.", details: "300°C" },
-      { parameter: "Build Plate Temp.", details: "110°C" },
-      { parameter: "Connectivity", details: "USB, Wi-Fi, LAN" }
+    applications: [
+      "Crystal screening and mounting, including air-sensitive samples",
+      "Diffraction data collection under various conditions, including temperatures as low as 90 K",
+      "Structure solution, refinement, and interpretation up to publication level",
+      "Cambridge Structure Database searching",
+      "Structural evaluation of compounds",
+      "Lattice information and unit cell determination",
+      "X-ray crystallography of proteins and small molecules",
+      "Polymorphism and co-crystal studies",
     ],
-    applicationsResearch: "The 3D Printer at CRF-IIT Delhi caters to diverse research and prototyping requirements. It facilitates rapid prototyping of mechanical parts for mechanical design studies, enables testing and exploration of various thermoplastic materials for material research, and allows the creation of precise 3D-scaled architectural models for design visualization. Additionally, it supports the fabrication of customized lab equipment, including specialized tools and fixtures, to meet specific experimental needs.",
-    charges: [
-      { label: "Booking Charge", value: "₹100/- (Standard fee for all 3D printing jobs)" },
-      { label: "Cost for IIT Indore Students", value: "Free of charge (only booking fee applicable)" },
-      { label: "Cost for External Users", value: "Total cost depends on material usage and printing time, plus 18% GST" },
-      { label: "Procedure", value: "Users should meet the Operational In-Charge with their 3D model file (.stl format) to check feasibility and get an estimated total cost before booking a slot" },
-      { label: "Non-IIT Indore Users", value: "Please contact the Coordinator / Operational In-Charge for details on charges" }
+    handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
+      "/assets/instruments/X-Ray/SCXRD/xs1.png",
+      "/assets/instruments/X-Ray/SCXRD/xs3.png",
+      "/assets/instruments/X-Ray/SCXRD/xs4.png",
+      "/assets/instruments/X-Ray/SCXRD/xs5.png",
+      "/assets/instruments/X-Ray/SCXRD/xs6.png",
+      "/assets/instruments/X-Ray/SCXRD/xs7.png",
+      "/assets/instruments/X-Ray/SCXRD/xs8.png",
+      "/assets/instruments/X-Ray/SCXRD/xs9.png",
+      "/assets/instruments/X-Ray/SCXRD/xs10.png",
+      "/assets/instruments/X-Ray/SCXRD/xs12.png",
+      "/assets/instruments/X-Ray/SCXRD/xs11.png",
+
+
     ],
-    contact: {
-      physicalLocation: {
-        name: "3D Printing Lab",
-        room: "Room No. WS 109D, Central Workshop",
-        institute: "Indian Institute of Technology Indore",
-        address: "Khandwa Road, Simrol, Indore – 453552"
-      },
-      coordinator: {
-        name: "Prof. Sunil Jha",
-        designation: "Head, Central Workshop",
-        institute: "Indian Institute of Technology Indore",
-        phone: "(91)-11-26591949",
-        email: "suniljha@mech.iitd.ac.in"
-      },
-      labStaff: {
-        name: "Mr. Tarun Singh",
-        designation: "Project Attendant",
-        room: "Room No. 614B, POD A",
-        institute: "Indian Institute of Technology Indore",
-        phone: "011-2659-6702",
-        email: "iitd13728@crf.iitd.ac.in"
-      }
-    }
   },
+
   {
-    id: 2,
-    name: "X-Ray Diffractometer",
-    category: "Spectroscopy",
-    manufacturer: "Bruker",
-    model_number: "D8 Advance",
-    labName: "Materials Science Lab",
-    subheading: "Advanced Materials Research Facility",
-    description: "Advanced X-ray diffraction system for crystal structure determination and phase analysis.",
-    image_url: "https://images.unsplash.com/photo-1581093458791-9d42e837d4c6?w=800&q=80",
-    availability_status: "available",
-    about: "The Bruker D8 Advance is a state-of-the-art X-ray diffractometer designed for high-precision crystal structure analysis and phase identification. It utilizes Cu Kα radiation to probe the atomic structure of materials.",
-    printingRequirements: [
-      { label: "Sample preparation", value: "Powder or thin film samples" },
-      { label: "Sample size", value: "Minimum 100 mg for powder" },
-      { label: "Sample holder", value: "Standard or zero-background holders" }
+    id: "eds-edx",
+    name: "EDS/EDX",
+    fullName: "Energy Dispersive X-Ray Spectroscopy",
+    category: "X-Ray",
+    model: "Oxford X-MAX 20",
+    features: [
+      "Integrated with SEM, TEM, or FIB systems",
+      "Non-destructive elemental analysis",
+      "Micro and nanoscale compositional mapping",
+      "Rapid qualitative and quantitative analysis",
+      "Detection of elements from beryllium (Be) to uranium (U)",
+      "High spatial resolution for localized analysis",
     ],
-    technicalSpecifications: [
-      { parameter: "Radiation Source", details: "Cu Kα" },
-      { parameter: "Goniometer Radius", details: "280 mm" },
-      { parameter: "2θ Range", details: "-110° to 168°" },
-      { parameter: "Resolution", details: "0.0001°" },
-      { parameter: "Detector", details: "LYNXEYE XE-T" }
+    applications: [
+      "Phase identification in alloys, ceramics, and composites",
+      "Failure analysis and impurity detection",
+      "Microstructural analysis of grain boundaries and inclusions",
+      "Dopant distribution mapping in semiconductors",
+      "Contamination analysis on semiconductor wafers",
+      "Thin film composition analysis",
+      "Nanomaterial characterization and catalysis research",
+      "Mineral identification and petrographic studies",
+      "Environmental analysis of pollutants",
+      "Elemental mapping in biological tissues",
+      "Pharmaceutical composition analysis",
+      "Archaeological artifact authentication",
+      "Forensic trace evidence analysis",
     ],
-    applicationsResearch: "Crystal structure analysis, phase identification, crystallite size determination, texture analysis, and thin film characterization for materials science research.",
-    charges: [
-      { label: "Internal Users", value: "₹500/- per hour" },
-      { label: "External Academic", value: "₹1500/- per hour + 18% GST" },
-      { label: "External Industry", value: "₹3000/- per hour + 18% GST" }
+    handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
+      "/assets/instruments/X-Ray/EDS-EDX/xe1.png",
+      "/assets/instruments/X-Ray/EDS-EDX/xe2.png",
     ],
-    contact: {
-      physicalLocation: {
-        name: "XRD Lab",
-        room: "Building A, Room 205",
-        institute: "Indian Institute of Technology Indore",
-        address: "Khandwa Road, Simrol, Indore – 453552"
-      },
-      coordinator: {
-        name: "Dr. Michael Chen",
-        designation: "Professor, Materials Science",
-        institute: "Indian Institute of Technology Indore",
-        phone: "(91)-11-26591950",
-        email: "michael.chen@iiti.ac.in"
-      },
-      labStaff: {
-        name: "Ms. Priya Sharma",
-        designation: "Technical Officer",
-        room: "Building A, Room 205A",
-        institute: "Indian Institute of Technology Indore",
-        phone: "011-2659-6703",
-        email: "priya.sharma@iiti.ac.in"
-      }
-    }
   },
+
   {
-    id: 3,
-    name: "Scanning Electron Microscope",
+    id: "bse-bsd",
+    name: "BSE/BSD",
+    fullName: "Backscattered Electron Detector",
+    category: "X-Ray",
+    model: "Gemini 360",
+    features: [
+      "Captures high-energy electrons reflected or backscattered from the sample.",
+      "Provides contrast based on atomic number for compositional analysis.",
+      "Heavier elements appear brighter, enabling differentiation within the sample.",
+    ],
+    applications: [
+      "Material composition analysis with atomic number contrast",
+      "Phase identification in multiphase materials",
+      "Grain boundary and microstructural analysis",
+      "Inclusion and void detection",
+      "Semiconductor layered structure examination",
+      "Mineral differentiation in geological samples",
+      "Bone and tissue composition analysis",
+      "Forensic residue analysis",
+      "Archaeological artifact characterization",
+      "Corrosion and failure analysis",
+      "Quality control in coating applications",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    images: [
+      "/assets/instruments/X-Ray/BSE-BSD/xb1.png",
+    ],
+  },
+  // ==================== MICROSCOPY ====================
+  {
+    id: "supra-55",
+    name: "Supra 55",
+    fullName: "Field Emission Scanning Electron Microscope",
     category: "Microscopy",
-    manufacturer: "ZEISS",
-    model_number: "Sigma 300",
-    labName: "Electron Microscopy Lab",
-    subheading: "Advanced Imaging Facility",
-    description: "High-resolution field emission SEM for advanced imaging and analysis of materials at nanoscale.",
-    image_url: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&q=80",
-    availability_status: "available",
-    about: "The ZEISS Sigma 300 is a field emission scanning electron microscope offering exceptional resolution and versatility for nanoscale imaging and analysis.",
-    printingRequirements: [
-      { label: "Sample preparation", value: "Conductive coating required for non-conductive samples" },
-      { label: "Sample size", value: "Up to 200 mm diameter" },
-      { label: "Sample mounting", value: "Standard SEM stubs" }
+    model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
+    features: [
+      "GEMINI Technology with high efficiency in-lens detector",
+      "No magnetic field at specimen level",
+      "Superb resolution and image quality at high and low voltages",
+      "Extremely wide operating voltage range from 0.02-20kV",
+      "Short analytical working distance of 8.5 mm",
+      "High probe current (up to 100 nA) with excellent stability (<0.2%/h)",
+      "Integrated SE, InLens, and EDX detectors",
     ],
-    technicalSpecifications: [
-      { parameter: "Resolution", details: "0.8 nm at 15 kV" },
-      { parameter: "Magnification", details: "12× to 2,000,000×" },
-      { parameter: "Accelerating Voltage", details: "0.02 to 30 kV" },
-      { parameter: "Detectors", details: "SE, BSE, EDX" },
-      { parameter: "Sample Size", details: "Up to 200 mm diameter" }
+    applications: [
+      "High-resolution imaging of nanostructures and nanomaterials",
+      "Surface topography analysis for microelectronics",
+      "Elemental analysis and phase identification with EDX",
+      "Grain boundary and microstructural studies",
+      "Catalysis research at nanoscale",
     ],
-    applicationsResearch: "Surface morphology analysis, nanostructure characterization, elemental composition analysis, failure analysis, and material quality control.",
-    charges: [
-      { label: "Internal Users", value: "₹800/- per hour" },
-      { label: "External Academic", value: "₹2000/- per hour + 18% GST" },
-      { label: "External Industry", value: "₹4000/- per hour + 18% GST" }
+    handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
+      "/assets/instruments/Microscopy/Supra-55/ms1.png",
+      "/assets/instruments/Microscopy/Supra-55/ms2.png",
+      "/assets/instruments/Microscopy/Supra-55/ms3.png",
+
+
     ],
-    contact: {
-      physicalLocation: {
-        name: "SEM Lab",
-        room: "Building B, Room 301",
-        institute: "Indian Institute of Technology Indore",
-        address: "Khandwa Road, Simrol, Indore – 453552"
-      },
-      coordinator: {
-        name: "Dr. Sarah Williams",
-        designation: "Associate Professor, Physics",
-        institute: "Indian Institute of Technology Indore",
-        phone: "(91)-11-26591951",
-        email: "sarah.williams@iiti.ac.in"
-      },
-      labStaff: {
-        name: "Mr. Rajesh Kumar",
-        designation: "Senior Technical Assistant",
-        room: "Building B, Room 301A",
-        institute: "Indian Institute of Technology Indore",
-        phone: "011-2659-6704",
-        email: "rajesh.kumar@iiti.ac.in"
-      }
-    }
   },
+
   {
-    id: 4,
-    name: "NMR Spectrometer",
+    id: "gemini-360",
+    name: "Gemini 360",
+    fullName: "Advanced Field Emission Scanning Electron Microscope",
+    category: "Microscopy",
+    model: "Carl Zeiss Gemini 360",
+    features: [
+      "Next-generation GEMINI optics",
+      "Ultra-high resolution imaging",
+      "Advanced detector technology",
+      "Automated imaging and analysis",
+      "Low vacuum operation capability",
+    ],
+    applications: [
+      "Ultra-high resolution materials characterization",
+      "Advanced semiconductor inspection",
+      "Nanomaterial analysis and development",
+      "3D imaging and surface reconstruction",
+    ],
+     handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
+      "/assets/instruments/Microscopy/Gemini-360/mg1.png",
+      "/assets/instruments/Microscopy/Gemini-360/mg2.png",
+
+    ],
+  },
+
+  {
+    id: "afm",
+    name: "AFM",
+    fullName: "Atomic Force Microscope",
+    category: "Microscopy",
+    model: "Atomic Force Microscope",
+    features: [
+      "Atomic-scale resolution imaging",
+      "3D surface topography mapping",
+      "Multiple imaging modes (contact, non-contact, tapping)",
+      "Force measurements and spectroscopy",
+    ],
+    applications: [
+      "Nanoscale surface topography imaging",
+      "Thin film thickness and roughness measurement",
+      "Nanoparticle size and shape characterization",
+    ],
+   handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
+      "/assets/instruments/Microscopy/AFM/ma1.png",
+    ],
+  },
+
+  {
+    id: "clsm",
+    name: "CLSM",
+    fullName: "Confocal Laser Scanning Microscope",
+    category: "Microscopy",
+    model: "Confocal Laser Scanning Microscope",
+    features: [
+      "High-resolution 3D imaging",
+      "Optical sectioning capability",
+      "Multiple laser wavelengths",
+      "Fluorescence imaging with multiple channels",
+    ],
+    applications: [
+      "3D reconstruction of biological specimens",
+      "Live cell imaging and dynamics",
+      "Fluorescence microscopy of labeled samples",
+    ],
+      handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
+      "/assets/instruments/Microscopy/CLSM/mc1.png",
+      "/assets/instruments/Microscopy/CLSM/mc2.png",
+      "/assets/instruments/Microscopy/CLSM/mc3.png",
+
+    ],
+  },
+  // ==================== SPECTROSCOPY ====================
+  {
+    id: "nmr-500",
+    name: "NMR 500",
+    fullName: "500 MHz Nuclear Magnetic Resonance Spectrometer",
     category: "Spectroscopy",
-    manufacturer: "Agilent",
-    model_number: "DD2 500",
-    labName: "NMR Facility",
-    subheading: "Molecular Structure Analysis Lab",
-    description: "High-field NMR spectrometer for molecular structure determination and chemical analysis.",
-    image_url: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80",
-    availability_status: "under_maintenance",
-    about: "The Agilent DD2 500 is a high-field NMR spectrometer equipped with advanced automation for molecular structure elucidation and chemical analysis.",
-    printingRequirements: [
-      { label: "Sample preparation", value: "Dissolved in deuterated solvent" },
-      { label: "Sample volume", value: "0.5-0.6 mL in 5mm NMR tube" },
-      { label: "Sample concentration", value: "1-10 mg/mL recommended" }
+    model: "500 MHz NMR Spectrometer",
+    features: [
+      "500 MHz proton frequency",
+      "High-resolution multinuclear capability",
+      "Advanced pulse sequences",
+      "Variable temperature control",
+      "Automatic sample changer (optional)",
+      "2D and 3D NMR experiments",
     ],
-    technicalSpecifications: [
-      { parameter: "Field Strength", details: "11.7 Tesla (500 MHz)" },
-      { parameter: "Probe", details: "5mm AutoX DB" },
-      { parameter: "Temperature Range", details: "-150°C to +150°C" },
-      { parameter: "Shimming", details: "Automated 3D gradient shimming" },
-      { parameter: "Sample Changer", details: "60-position" }
+    applications: [
+      "Structure elucidation of organic compounds",
+      "Protein and nucleic acid structure determination",
+      "Reaction monitoring and kinetic studies",
+      "Purity and quality control analysis",
+      "Polymer characterization",
+      "Metabolomics and mixture analysis",
+      "Drug discovery and development",
+      "Material science studies",
     ],
-    applicationsResearch: "Molecular structure elucidation, protein structure analysis, reaction monitoring, quantitative analysis, and dynamics studies.",
-    charges: [
-      { label: "Internal Users", value: "₹1000/- per hour" },
-      { label: "External Academic", value: "₹2500/- per hour + 18% GST" },
-      { label: "External Industry", value: "₹5000/- per hour + 18% GST" },
-      { label: "Note", value: "Currently under maintenance - Expected availability: December 2025" }
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/nmr500-image.png",
+  },
+
+  {
+    id: "nmr-400",
+    name: "NMR 400",
+    fullName: "400 MHz Nuclear Magnetic Resonance Spectrometer",
+    category: "Spectroscopy",
+    model: "400 MHz NMR Spectrometer",
+    features: [
+      "400 MHz proton frequency",
+      "Multinuclear observation",
+      "Standard 1D and 2D experiments",
+      "Variable temperature capability",
+      "User-friendly automation",
+      "Routine structural analysis",
     ],
-    contact: {
-      physicalLocation: {
-        name: "NMR Lab",
-        room: "Building C, Room 102",
-        institute: "Indian Institute of Technology Indore",
-        address: "Khandwa Road, Simrol, Indore – 453552"
-      },
-      coordinator: {
-        name: "Dr. James Rodriguez",
-        designation: "Professor, Chemistry",
-        institute: "Indian Institute of Technology Indore",
-        phone: "(91)-11-26591952",
-        email: "james.rodriguez@iiti.ac.in"
-      },
-      labStaff: {
-        name: "Dr. Anjali Verma",
-        designation: "Research Scientist",
-        room: "Building C, Room 102B",
-        institute: "Indian Institute of Technology Indore",
-        phone: "011-2659-6705",
-        email: "anjali.verma@iiti.ac.in"
-      }
-    }
-  }
+    applications: [
+      "Organic compound characterization",
+      "Small molecule structure determination",
+      "Quantitative NMR analysis",
+      "Teaching and training applications",
+      "Quality control in synthesis",
+      "Natural product analysis",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/nmr400-image.png",
+  },
+
+  {
+    id: "ft-ir",
+    name: "FT-IR",
+    fullName: "Fourier Transform Infrared Spectroscopy",
+    category: "Spectroscopy",
+    model: "Fourier Transform Infrared Spectrometer",
+    features: [
+      "Wide spectral range (4000-400 cm⁻¹)",
+      "High resolution and sensitivity",
+      "ATR (Attenuated Total Reflectance) accessory",
+      "Transmission and reflection modes",
+      "Minimal sample preparation",
+      "Rapid analysis capability",
+    ],
+    applications: [
+      "Functional group identification",
+      "Compound identification and verification",
+      "Quality control and assurance",
+      "Polymer characterization",
+      "Pharmaceutical analysis",
+      "Environmental sample analysis",
+      "Surface coating analysis",
+      "Forensic investigations",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/ftir-image.png",
+  },
+
+  {
+    id: "tcspc",
+    name: "TCSPC",
+    fullName: "Time-Correlated Single Photon Counting",
+    category: "Spectroscopy",
+    model: "Time-Correlated Single Photon Counting System",
+    features: [
+      "Picosecond time resolution",
+      "High sensitivity detection",
+      "Fluorescence lifetime measurement",
+      "Time-resolved spectroscopy",
+      "Multiple excitation wavelengths",
+      "Advanced data analysis software",
+    ],
+    applications: [
+      "Fluorescence lifetime imaging (FLIM)",
+      "Time-resolved emission spectroscopy",
+      "Photophysical studies of molecules",
+      "Protein dynamics and interactions",
+      "FRET (Förster Resonance Energy Transfer) studies",
+      "Semiconductor characterization",
+      "Single molecule detection",
+      "Quantum dot studies",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/tcspc-image.png",
+  },
+
+  {
+    id: "cd",
+    name: "CD",
+    fullName: "Circular Dichroism Spectroscopy",
+    category: "Spectroscopy",
+    model: "Circular Dichroism Spectrometer",
+    features: [
+      "UV to visible wavelength range",
+      "Temperature-controlled measurements",
+      "Rapid spectral acquisition",
+      "High sensitivity and low noise",
+      "Protein secondary structure analysis",
+      "Kinetic measurements capability",
+    ],
+    applications: [
+      "Protein secondary structure determination",
+      "DNA and RNA conformation studies",
+      "Protein folding and stability studies",
+      "Enzyme-substrate interactions",
+      "Chiral molecule analysis",
+      "Drug-protein binding studies",
+      "Thermal and chemical denaturation studies",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/cd-image.png",
+  },
+
+  {
+    id: "uv-visible",
+    name: "UV-Visible Spectrometer",
+    fullName: "UV-Visible Absorption Spectroscopy",
+    category: "Spectroscopy",
+    model: "UV-Visible Absorption Spectrometer",
+    features: [
+      "190-1100 nm wavelength range",
+      "Double beam optical system",
+      "Fast scanning capability",
+      "Temperature control",
+      "Multiple cell holder",
+      "Software for kinetics and quantitation",
+    ],
+    applications: [
+      "Quantitative analysis of analytes",
+      "Protein and nucleic acid concentration determination",
+      "Enzyme kinetics studies",
+      "Reaction monitoring",
+      "Quality control in pharmaceuticals",
+      "Environmental water analysis",
+      "Nanoparticle characterization",
+      "Band gap determination",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/uvvis-image.png",
+  },
+
+  {
+    id: "uv-vis-nir",
+    name: "UV-VIS-NIR",
+    fullName: "UV-Visible-Near Infrared Spectroscopy",
+    category: "Spectroscopy",
+    model: "UV-Visible-NIR Spectrometer",
+    features: [
+      "Extended wavelength range (190-3300 nm)",
+      "High resolution in NIR region",
+      "Integrating sphere for diffuse reflectance",
+      "Temperature-controlled measurements",
+      "Solid, liquid, and film sample analysis",
+    ],
+    applications: [
+      "Optical property characterization",
+      "Thin film analysis",
+      "Semiconductor band gap determination",
+      "Nanomaterial optical properties",
+      "Solar cell material characterization",
+      "Optical coating analysis",
+      "Gemstone and mineral analysis",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/uvvisnir-image.png",
+  },
+
+  {
+    id: "spectrofluorometer",
+    name: "Spectrofluorometer",
+    fullName: "Fluorescence Spectroscopy",
+    category: "Spectroscopy",
+    model: "Fluorescence Spectrometer",
+    features: [
+      "Excitation and emission scanning",
+      "3D fluorescence mapping",
+      "Quantum yield measurements",
+      "Temperature control",
+      "Solid and liquid sample holders",
+      "Time-resolved capabilities (optional)",
+    ],
+    applications: [
+      "Fluorescence emission and excitation spectra",
+      "Quantum yield determination",
+      "Fluorophore characterization",
+      "Protein and enzyme studies",
+      "DNA/RNA quantification",
+      "Environmental monitoring",
+      "Food quality analysis",
+      "Pharmaceutical fluorescence studies",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/fluorometer-image.png",
+  },
+  // ==================== CHROMATOGRAPHY ====================
+  {
+    id: "lc-hrms",
+    name: "LC-HRMS",
+    fullName: "Liquid Chromatography High Resolution Mass Spectrometry",
+    category: "Chromatography",
+    model: "LC-HRMS System",
+    features: [
+      "High mass resolution and accuracy",
+      "ESI and APCI ionization sources",
+      "Wide mass range coverage",
+      "MS/MS capabilities",
+      "Fast polarity switching",
+      "Advanced data processing software",
+    ],
+    applications: [
+      "Small molecule identification and quantification",
+      "Metabolomics and lipidomics studies",
+      "Protein and peptide analysis",
+      "Drug metabolism studies",
+      "Natural product characterization",
+      "Environmental contaminant analysis",
+      "Food safety testing",
+      "Pharmaceutical impurity profiling",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/lchrms-image.png",
+  },
+
+  {
+    id: "hplc-rp",
+    name: "HPLC-RP",
+    fullName: "High Performance Liquid Chromatography Reverse Phase",
+    category: "Chromatography",
+    model: "HPLC System with RP Column",
+    features: [
+      "Binary or quaternary pump system",
+      "UV-Vis or PDA detector",
+      "Autosampler for high throughput",
+      "Column thermostat",
+      "Method development software",
+      "C18 and other RP columns",
+    ],
+    applications: [
+      "Pharmaceutical analysis and quality control",
+      "Natural product separation",
+      "Peptide and protein purification",
+      "Environmental sample analysis",
+      "Food and beverage testing",
+      "Chiral separations",
+      "Impurity profiling",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/hplc-image.png",
+  },
+
+  {
+    id: "gc-ms",
+    name: "GC-MS",
+    fullName: "Gas Chromatography Mass Spectrometry",
+    category: "Chromatography",
+    model: "GC-MS System",
+    features: [
+      "Capillary column technology",
+      "EI and CI ionization modes",
+      "Automated injection systems",
+      "Temperature programmable oven",
+      "Spectral library matching",
+      "SIM and SCAN modes",
+    ],
+    applications: [
+      "Volatile organic compound analysis",
+      "Environmental monitoring",
+      "Forensic toxicology",
+      "Food flavor and fragrance analysis",
+      "Petrochemical analysis",
+      "Drug testing and screening",
+      "Pesticide residue analysis",
+      "Metabolite profiling",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/gcms-image.png",
+  },
+  // ==================== THERMAL ANALYSIS ====================
+  {
+    id: "tga",
+    name: "TGA",
+    fullName: "Thermogravimetric Analysis",
+    category: "Thermal Analysis",
+    model: "Thermogravimetric Analyzer",
+    features: [
+      "High-precision microbalance",
+      "Wide temperature range",
+      "Controlled atmosphere (N₂, air, O₂)",
+      "Simultaneous TGA-DTA/DSC (optional)",
+      "Automated sample loading",
+      "Evolved gas analysis coupling",
+    ],
+    applications: [
+      "Thermal stability determination",
+      "Decomposition temperature analysis",
+      "Moisture and volatile content",
+      "Composition analysis of materials",
+      "Oxidation and corrosion studies",
+      "Polymer degradation studies",
+      "Catalyst characterization",
+      "Coal and fuel analysis",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/tga-image.png",
+  },
+
+  {
+    id: "dsc",
+    name: "DSC",
+    fullName: "Differential Scanning Calorimetry",
+    category: "Thermal Analysis",
+    model: "Differential Scanning Calorimeter",
+    features: [
+      "Heat flow measurement",
+      "Wide temperature range",
+      "Cooling and heating modes",
+      "Modulated DSC capability",
+      "Autosampler option",
+      "Precise temperature control",
+    ],
+    applications: [
+      "Glass transition temperature (Tg) determination",
+      "Melting and crystallization studies",
+      "Polymorphism investigation",
+      "Purity determination",
+      "Reaction kinetics",
+      "Thermal history analysis",
+      "Drug formulation studies",
+      "Material compatibility testing",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/dsc-image.png",
+  },
+
+  // ==================== SPECIALIZED EQUIPMENT ====================
+  {
+    id: "bet-surface-analyzer",
+    name: "BET Surface Analyzer",
+    fullName: "BET Surface Area Analyzer",
+    category: "Surface Analysis",
+    model: "Quanta chrome, Autos orb iQ2 by Aton Paar",
+    features: [
+      "Chemisorption is used primarily to evaluate quantitatively the number of surface active sites which are likely to promote (catalyze) chemical reactions.",
+      "Both static adsorption isotherms and dynamic pulse titrations yield monolayer uptake, metal area, nanocluster (crystallite) size and active metal area of heterogeneous catalysts.",
+      "Isothermal results can be used to map surface energetic heterogeneity via heat of adsorption calculations.",
+    ],
+    applications: [
+      "BET surface area (single and/or multipoint)",
+      "Langmuir surface area, adsorption and/or desorption isotherms, pore size and surface area distributions, micropore volume and surface area",
+      "Mapping surface energetic heterogeneity via heat of adsorption calculations.",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    image: [
+      "/assets/instruments/bet-surface-analyzer/bet1.png",
+      "/assets/instruments/bet-surface-analyzer/bet2.png",
+    ],
+  },
+
+  {
+    id: "microwave-reactor",
+    name: "Microwave Reactor",
+    fullName: "Monowave 200 autosampler MAS 24 by Anton Paar",
+    category: "Chemical Synthesis",
+    model: "Microwave Synthesis Reactor",
+    features: [
+      "Monowave Reactor 200-Needs 5.5bar to 6 bar of compressed gas for correct pressure measurement and tight sealing up to 20 bar.",
+      "The Anton Paar Monowave product line is a series of high-performance monomode microwave reactors designed for small- to medium-scale microwave synthesis.",
+      "Attain temperatures up to 300 °C and pressures up to 30 bar with advanced all-the-time safety features for high-speed, high-pressure, high-temperature reactions.",
+      "Improve productivity and product purity across all applications in research and development laboratories with precise heating profiles.",
+      "Reduce consumable costs and your environmental footprint by using the reusable vials, caps, and septa.",
+      "Precaution-Before using Monowave 200, read the monowave instruction manuals carefully and observe all mentioned safety instructions.",
+      "Note-Monowave 200 is not acid resistance! The use of corrosive chemicals will reduce the lifetime of the instrument",
+      "Chemi Batch",
+    ],
+    applications: [
+      "Academic Research",
+      "Agrochemicals",
+      "Catalysts",
+      "Emulsions",
+      "Inorganic Chemicals",
+      "Liquid Crystals",
+      "Lubricant testing",
+      "Organic Chemicals",
+    ],
+
+    handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    image: [
+      "/assets/instruments/microwave-reactor/mreac1.png",
+      "/assets/instruments/microwave-reactor/mreac2.png",
+    ],
+  },
+
+  {
+    id: "element-analyzer",
+    name: "Element Analyzer",
+    fullName: "CHNS Elemental Analyzer",
+    category: "Elemental Analysis",
+    model: "Flash 2000",
+    features: [
+      "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
+      "It was designed to operate on the “Dumas method” principle, which calls for “flash combustion” to completely and instantly oxidizing the sample.",
+      "The combustion products are separated by a chromatography before being detected by a thermal conductivity detector (T.C.D. ), which produces an output signal corresponding to the concentration of each component in the mixture.",
+      "The purpose of the element analyzer is to estimate the percentages of carbon, hydrogen, nitrogen, and sulfur present in organic and inorganic samples produced both internally at the Institute and externally.",
+    ],
+    applications: [
+      "CHNS elemental analysers have been used in analytical laboratories for over thirty years.",
+      "The method is used extensively across a wide range of applications, including pharmaceuticals, chemicals, oil-related products, catalysts and food.",
+      "In the oil industry, an important application is the regular monitoring of coke build-up on refinery catalysts to ensure that regeneration procedures (involving controlled burning of the carbon) are executed at optimal intervals.",
+      "Since many of these catalyst systems involve large quantities of noble metals such as platinum, palladium and rhenium, mismanagement of this testing would entail serious financial losses.",
+      "In food analysis, the determination of nitrogen (as a surrogate for protein) is very important for pricing grain and evaluating meat products, and is increasingly undertaken by combustion analysis.",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    image: [
+      "/assets/instruments/element-analyzer/elean1.png",
+      "/assets/instruments/element-analyzer/elean2.png",
+    ],
+  },
+
+  {
+    id: "milliq-di-water",
+    name: "MilliQ DI Water",
+    fullName: "Ultrapure Water System",
+    category: "Water Purification",
+    model: "Milli-Q Ultrapure Water System",
+    features: [
+      "Type 1 ultrapure water production",
+      "18.2 MΩ·cm resistivity",
+      "Multiple purification technologies",
+      "Real-time quality monitoring",
+      "UV sterilization",
+      "Low TOC levels",
+    ],
+    applications: [
+      "HPLC and UPLC mobile phases",
+      "Molecular biology applications",
+      "Cell culture preparation",
+      "Buffer and reagent preparation",
+      "Analytical instrument operations",
+      "Sample dilutions",
+      "Glassware rinsing",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/milliq-image.png",
+  },
+
+  {
+    id: "lyophilizer",
+    name: "Lyophilizer",
+    fullName: "Freeze Dryer for Sample Preservation",
+    category: "Sample Preparation",
+    model: "Freeze Dryer / Lyophilizer",
+    features: [
+      "Ultra-low temperature capability",
+      "High vacuum system",
+      "Multiple flask/vial capacity",
+      "Automated cycle control",
+      "Ice condenser",
+      "Data logging and monitoring",
+    ],
+    applications: [
+      "Pharmaceutical product preservation",
+      "Biological sample preservation",
+      "Protein and enzyme stabilization",
+      "Vaccine and antibody storage preparation",
+      "Food preservation and processing",
+      "Nanomaterial drying",
+      "Organic and inorganic sample drying",
+      "Herbal extract preservation",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/lyophilizer-image.png",
+  },
+
+  {
+    id: "polarimeter",
+    name: "Polarimeter",
+    fullName: "Optical Rotation Measurement",
+    category: "Optical Analysis",
+    model: "Automatic Polarimeter",
+    features: [
+      "Automatic measurement",
+      "Temperature control",
+      "High precision rotation angle measurement",
+      "Specific rotation calculation",
+      "Multiple wavelength options",
+      "Digital display and data output",
+    ],
+    applications: [
+      "Chiral compound analysis",
+      "Enantiomeric purity determination",
+      "Sugar concentration measurement",
+      "Pharmaceutical quality control",
+      "Natural product characterization",
+      "Amino acid analysis",
+      "Essential oil analysis",
+      "Regulatory compliance testing",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/polarimeter-image.png",
+  },
+
+  {
+    id: "rheometer",
+    name: "Rheometer",
+    fullName: "Rheological Property Analysis",
+    category: "Material Testing",
+    model: "Rotational Rheometer",
+    features: [
+      "Rotational and oscillatory measurements",
+      "Wide range of viscosity measurement",
+      "Temperature control system",
+      "Multiple geometry options",
+      "Shear rate and stress control",
+      "Advanced software for data analysis",
+    ],
+    applications: [
+      "Polymer melt and solution rheology",
+      "Viscosity profiling of fluids",
+      "Gel characterization",
+      "Paint and coating flow properties",
+      "Food texture analysis",
+      "Pharmaceutical formulation testing",
+      "Cosmetic product development",
+      "Viscoelastic property determination",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/rheometer-image.png",
+  },
+
+  {
+    id: "ln2-plant",
+    name: "LN2 Plant",
+    fullName: "Liquid Nitrogen Production Plant",
+    category: "Facility",
+    model: "On-site Liquid Nitrogen Generator",
+    features: [
+      "Continuous LN2 production",
+      "High purity nitrogen output",
+      "Automated operation",
+      "Storage tank integration",
+      "Energy efficient design",
+      "Safety monitoring systems",
+    ],
+    applications: [
+      "Cryogenic cooling for experiments",
+      "Sample preservation and storage",
+      "Inert atmosphere provision",
+      "Cryogenic grinding",
+      "NMR and other instrument cooling",
+      "Biological sample banking",
+      "Material science research",
+      "Vacuum systems purging",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/ln2-image.png",
+  },
+  // ==================== THERMAL ANALYSIS ====================
+  {
+    id: "tga",
+    name: "TGA",
+    fullName: "Thermogravimetric Analysis",
+    category: "Thermal Analysis",
+    model: "Thermogravimetric Analyzer",
+    features: [
+      "High-precision microbalance",
+      "Wide temperature range",
+      "Controlled atmosphere (N₂, air, O₂)",
+      "Simultaneous TGA-DTA/DSC (optional)",
+      "Automated sample loading",
+      "Evolved gas analysis coupling",
+    ],
+    applications: [
+      "Thermal stability determination",
+      "Decomposition temperature analysis",
+      "Moisture and volatile content",
+      "Composition analysis of materials",
+      "Oxidation and corrosion studies",
+      "Polymer degradation studies",
+      "Catalyst characterization",
+      "Coal and fuel analysis",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/tga-image.png",
+  },
+
+  {
+    id: "dsc",
+    name: "DSC",
+    fullName: "Differential Scanning Calorimetry",
+    category: "Thermal Analysis",
+    model: "Differential Scanning Calorimeter",
+    features: [
+      "Heat flow measurement",
+      "Wide temperature range",
+      "Cooling and heating modes",
+      "Modulated DSC capability",
+      "Autosampler option",
+      "Precise temperature control",
+    ],
+    applications: [
+      "Glass transition temperature (Tg) determination",
+      "Melting and crystallization studies",
+      "Polymorphism investigation",
+      "Purity determination",
+      "Reaction kinetics",
+      "Thermal history analysis",
+      "Drug formulation studies",
+      "Material compatibility testing",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/dsc-image.png",
+  },
+
+  // ==================== SPECIALIZED EQUIPMENT ====================
+  {
+    id: "bet-surface-analyzer",
+    name: "BET Surface Analyzer",
+    fullName: "Brunauer-Emmett-Teller Surface Area Analysis",
+    category: "Surface Analysis",
+    model: "BET Surface Area Analyzer",
+    features: [
+      "N₂ physisorption at 77 K",
+      "Multipoint BET analysis",
+      "Pore size distribution",
+      "BJH and t-plot methods",
+      "Automated degassing station",
+      "Low surface area capability",
+    ],
+    applications: [
+      "Surface area determination",
+      "Pore size and volume analysis",
+      "Catalyst characterization",
+      "Adsorbent material evaluation",
+      "Powder and porous material analysis",
+      "Nanomaterial surface characterization",
+      "Quality control of materials",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/bet-image.png",
+  },
+
+  {
+    id: "microwave-reactor",
+    name: "Microwave Reactor",
+    fullName: "Microwave-Assisted Chemical Synthesis",
+    category: "Chemical Synthesis",
+    model: "Microwave Synthesis Reactor",
+    features: [
+      "Precise temperature and pressure control",
+      "Rapid heating capability",
+      "Multiple vessel positions",
+      "IR temperature monitoring",
+      "Stirring mechanisms",
+      "Safety pressure monitoring",
+    ],
+    applications: [
+      "Accelerated organic synthesis",
+      "Nanoparticle synthesis",
+      "Polymer chemistry",
+      "Green chemistry applications",
+      "Peptide synthesis",
+      "Material synthesis and modification",
+      "Extraction processes",
+      "Digestion for analysis",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/microwave-image.png",
+  },
+
+  {
+    id: "element-analyzer",
+    name: "Element Analyzer",
+    fullName: "CHNS/O Elemental Analysis",
+    category: "Elemental Analysis",
+    model: "CHN/CHNS/CHNSO Elemental Analyzer",
+    features: [
+      "Combustion method",
+      "High precision and accuracy",
+      "Solid and liquid sample capability",
+      "Automated operation",
+      "Micro-sample capability",
+      "TCD detection",
+    ],
+    applications: [
+      "Organic compound characterization",
+      "Pharmaceutical quality control",
+      "Environmental sample analysis",
+      "Soil and agricultural analysis",
+      "Polymer composition analysis",
+      "Fuel and coal analysis",
+      "Protein nitrogen content",
+      "Research and development",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/element-analyzer-image.png",
+  },
+
+  {
+    id: "milliq-di-water",
+    name: "MilliQ DI Water",
+    fullName: "Ultrapure Water System",
+    category: "Water Purification",
+    model: "Milli-Q Ultrapure Water System",
+    features: [
+      "Type 1 ultrapure water production",
+      "18.2 MΩ·cm resistivity",
+      "Multiple purification technologies",
+      "Real-time quality monitoring",
+      "UV sterilization",
+      "Low TOC levels",
+    ],
+    applications: [
+      "HPLC and UPLC mobile phases",
+      "Molecular biology applications",
+      "Cell culture preparation",
+      "Buffer and reagent preparation",
+      "Analytical instrument operations",
+      "Sample dilutions",
+      "Glassware rinsing",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/milliq-image.png",
+  },
+
+  {
+    id: "lyophilizer",
+    name: "Lyophilizer",
+    fullName: "Freeze Dryer for Sample Preservation",
+    category: "Sample Preparation",
+    model: "Freeze Dryer / Lyophilizer",
+    features: [
+      "Ultra-low temperature capability",
+      "High vacuum system",
+      "Multiple flask/vial capacity",
+      "Automated cycle control",
+      "Ice condenser",
+      "Data logging and monitoring",
+    ],
+    applications: [
+      "Pharmaceutical product preservation",
+      "Biological sample preservation",
+      "Protein and enzyme stabilization",
+      "Vaccine and antibody storage preparation",
+      "Food preservation and processing",
+      "Nanomaterial drying",
+      "Organic and inorganic sample drying",
+      "Herbal extract preservation",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/lyophilizer-image.png",
+  },
+
+  {
+    id: "polarimeter",
+    name: "Polarimeter",
+    fullName: "Optical Rotation Measurement",
+    category: "Optical Analysis",
+    model: "Automatic Polarimeter",
+    features: [
+      "Automatic measurement",
+      "Temperature control",
+      "High precision rotation angle measurement",
+      "Specific rotation calculation",
+      "Multiple wavelength options",
+      "Digital display and data output",
+    ],
+    applications: [
+      "Chiral compound analysis",
+      "Enantiomeric purity determination",
+      "Sugar concentration measurement",
+      "Pharmaceutical quality control",
+      "Natural product characterization",
+      "Amino acid analysis",
+      "Essential oil analysis",
+      "Regulatory compliance testing",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/polarimeter-image.png",
+  },
+
+  {
+    id: "rheometer",
+    name: "Rheometer",
+    fullName: "Rheological Property Analysis",
+    category: "Material Testing",
+    model: "Rotational Rheometer",
+    features: [
+      "Rotational and oscillatory measurements",
+      "Wide range of viscosity measurement",
+      "Temperature control system",
+      "Multiple geometry options",
+      "Shear rate and stress control",
+      "Advanced software for data analysis",
+    ],
+    applications: [
+      "Polymer melt and solution rheology",
+      "Viscosity profiling of fluids",
+      "Gel characterization",
+      "Paint and coating flow properties",
+      "Food texture analysis",
+      "Pharmaceutical formulation testing",
+      "Cosmetic product development",
+      "Viscoelastic property determination",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/rheometer-image.png",
+  },
+
+  {
+    id: "ln2-plant",
+    name: "LN2 Plant",
+    fullName: "Liquid Nitrogen Production Plant",
+    category: "Facility",
+    model: "On-site Liquid Nitrogen Generator",
+    features: [
+      "Continuous LN2 production",
+      "High purity nitrogen output",
+      "Automated operation",
+      "Storage tank integration",
+      "Energy efficient design",
+      "Safety monitoring systems",
+    ],
+    applications: [
+      "Cryogenic cooling for experiments",
+      "Sample preservation and storage",
+      "Inert atmosphere provision",
+      "Cryogenic grinding",
+      "NMR and other instrument cooling",
+      "Biological sample banking",
+      "Material science research",
+      "Vacuum systems purging",
+    ],
+    handledBy: "Lab Coordinator",
+    email: "contact@iiti.ac.in",
+    image: "path/to/ln2-image.png",
+  },
+  // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
+  {
+    id: "icp-oes",
+    name: "ICP-OES",
+    fullName: "Inductively Coupled Plasma Optical Emission Spectroscopy",
+    category: "Centre of Excellence",
+    model: "Agilent 5800",
+    features: [
+      "Inductively Coupled Plasma Optical Emission spectroscopy (ICP-OES) is an analytical technique used to determine how much of certain elements are in a sample.",
+      "The ICP-OES principle uses the fact that atoms and ions can absorb energy to move electrons from the ground state to an excited state.",
+      "In ICP-OES, the source of that energy is heat from an argon plasma that operates at 10,000 kelvin.",
+    ],
+    applications: [
+      "ICP-OES is a powerful tool for the determination of trace and ultra-trace elemental concentrations in a wide variety of samples specifically for multi-element analysis.",
+      "With the help of ICP-OES we can determine metals in wine, arsenic in food, trace elements bound to proteins and metals contamination in drinking water and wastewater.",
+      "ICP-OES used for the determination of nutrient levels in agricultural soils. This information is then used to calculate the amount of fertilizer required to maximize crop yield and quality.",
+      "ICP-OES can determine what amount of certain oil additives remain in motor oils (and other lubricating oils) for quality control and compliance with production and industry specifications.",
+    ],
+    handledBy: "Mr. Kunal Bhadra",
+    email: "kunalb@iiti.ac.in",
+    image: "assets/instruments/Centre-of-Excellence/image.png",
+  },
+
+  {
+    id: "ft-ir",
+    name: "FT-IR ",
+    fullName: "FT-IR Spectrometer",
+    category: "Centre of Excellence",
+    model: "Bruker ALPHA II",
+    features: [
+      "Fourier Transform Infrared Spectroscopy, also known as FT-IR Spectroscopy, is ananalytical technique used to identify organic, polymeric and in some cases inorganicmaterials.",
+      "The FT-IR analysis method uses infrared light to scan test samples and observe chemical properties.",
+      " The Bruker ALPHA II is a compact and modular FT-IR spectrometer for chemically analyze any solid, liquid/gel form of sample.",
+    ],
+    applications: [
+      "This Instrument is used for compound identification by matching the spectra (frequency range between 4000-400 cm-1) of an unknown substance with a reference spectrum.",
+      "It is used for trace analysis in raw materials or final products.",
+      "FT-IR is used for characterizing the variation in fuel stability of several biodiesel/antioxidant mixture.",
+      "It is also utilized for functional group identification in unknown compounds. For example; Ketones, Aldehydes, Carboxylic Acids and so on.",
+    ],
+    handledBy: "Mr. Kunal Bhadra",
+    email: "kunalb@iiti.ac.in",
+    image: "assets/instruments/Centre-of-Excellence/image.png",
+  },
+
+  {
+    id: "flash-point-tester",
+    name: "Flash Point Tester",
+    fullName: "Pensky-Martens Flash Point Tester",
+    category: "Centre of Excellence",
+    model: "Anton Paar-PMA 300",
+    features: [
+      "Flash Point of a flammable liquid is the lowest temperature at which vapours of that liquid will ignite when close to an ignition source.",
+      "The PMA 300 Pensky Martens flash point tester used to determine high-precision flash point of petroleum and chemical products automatically.",
+      "The PMA 300 is a closed-cup flash point tester equipped with premium technology and modern design.",
+      "It determines flash points above ambient temperature up to 370 °C.",
+    ],
+    applications: [
+      "Petroleum refineries process crude oil into different products such as Diesel, Kerosene, Biodiesel blends and many more.",
+      "According to product specifications, flash point is a mandatory value.",
+      "For chemicals, the flash point is important for storage and transport of products as well as for the quality.",
+      "For lubricating oil, flash and fire point testing is an important parameter within product specifications.",
+      "Methods it can follow: ISO 2719-A, ISO 2719B, ISO 2719-C, IP 34-A, IP 34-B ASTM D93-A, ASTM D93-B, ASTM D93-C GB T261.",
+    ],
+    handledBy: "Mr. Kunal Bhadra",
+    email: "kunalb@iiti.ac.in",
+    image: [
+      "assets/instruments/Centre-of-Excellence/flash-point-tester/image.png",
+      "assets/instruments/Centre-of-Excellence/flash-point-tester/image2.png",
+    ],
+  },
+
+  {
+    id: "ak-viscometer",
+    name: "AK Viscometer",
+    fullName: "Kinematic Viscosity Measurement",
+    category: "Centre of Excellence",
+    model: "Anton Paar – SVM 1101 Sample Fill",
+    features: [
+      "Viscosity quantifies the internal frictional force between adjacent layers of fluid that are in relative motion.",
+      "Kinematic Viscosity (ν) is a measure of a fluid’s resistance to flow under the influence of gravity.",
+      "It can be obtained by dividing the Dynamic (Absolute) Viscosity (μ) of a fluid with the fluid mass Density (ρ).",
+      "The theoretical unit of Kinematic Viscosity is m2/s or Stoke (St).",
+    ],
+    applications: [
+      "Automatic Kinematic Viscometer determine Kinematic Viscosity (range: 0.3 mm2/s to 1000 mm2/s) and Density (range: 0 g/cm3 to 3 g/cm3) in single run at a particular temperature (range: +15 °C to +100 °C) ",
+      "The analysis is carried out using standard methods ASTM D4052 and ISO 12185",
+      "Kinematic Viscosity is a crucial property used across various industries to understand and predict fluid behavior. It’s particularly important in applications where fluids are subjected to gravity, such as in pipeline flow, hydraulic systems and lubrication.",
+    ],
+    handledBy: "Mr. Kunal Bhadra",
+    email: "kunalb@iiti.ac.in",
+    image: "assets/instruments/centre-of-excellence/ak-viscometer/image.png",
+  },
+
+  {
+    id: "b-viscometer",
+    name: "B Viscometer",
+    fullName: "Brookfield Viscosity Measurement",
+    category: "Centre of Excellence",
+    model: "AMETEK DV2T LV",
+    features: [
+      "The Brookfield Viscometer measures fluid viscosity by measuring the force to turn the spindle in the solution at a given shear rate.",
+      "Brookfield deals with liquids and semi-solids.",
+      "Apparent viscosity in cP (centipoise) is determined by Brookfield viscometer, which measures the torque required to rotate a spindle at constant speed in oil of a given temperature.",
+    ],
+    applications: [
+      "Viscosity is a principal parameter when any flow measurements of fluids, such as liquids, semi-solids, gases and even solids are made.",
+      "Brookfield has a variety of food application, lubricant viscosity application notes using viscometer.",
+      "Applicable on different types of beverages test, paints test.",
+      "High viscosity liquid requires more power to pump than a low viscosity one. Knowing its behavior, therefore, is useful when designing pumping and piping systems.",
+    ],
+    handledBy: "Mr. Kunal Bhadra",
+    email: "kunalb@iiti.ac.in",
+    image: "assets/instruments/centre-of-excellence/b-viscometer/image.png",
+  },
+
+  {
+    id: "millipore",
+    name: "Millipore",
+    fullName: "Millipore Test System",
+    category: "Centre of Excellence",
+    model: "Millipore (Merck)",
+    features: [
+      "Millipore contamination analysis kit consists of assorted Millipore filtration products suited for contamination measurement control.",
+      "The kit includes the apparatus shown below.",
+    ],
+    applications: [
+      "Millipore Test kit is recommended for ensuring conformance to cleanliness standards popularly known as the Millipore Value.",
+      "Particle counting and analysis is a critical part of quality assurance in the automotive and electronics industries.",
+      "Cleanliness analysis is done to quickly determine the particle size, type and the potential to cause damage.",
+      "This System is used in many fields including forensic science, semiconductor and optical film thickness measurement, biotechnology and the latest in materials science.",
+    ],
+    handledBy: "Mr. Kunal Bhadra",
+    email: "kunalb@iiti.ac.in",
+    image: "assets/instruments/centre-of-excellence/millipore/image.png",
+  },
 ];
+
+// ==================== Helper Functions ====================
+
+export const getInstrumentsByCategory = (category) => {
+  return instrumentsData.filter(
+    (instrument) => instrument.category === category
+  );
+};
+
+export const getAllCategories = () => {
+  return [...new Set(instrumentsData.map((instrument) => instrument.category))];
+};
+
+export const getInstrumentById = (id) => {
+  return instrumentsData.find((instrument) => instrument.id === id);
+};
+
+export const searchInstruments = (searchTerm) => {
+  const term = searchTerm.toLowerCase();
+  return instrumentsData.filter(
+    (instrument) =>
+      instrument.name.toLowerCase().includes(term) ||
+      instrument.fullName.toLowerCase().includes(term) ||
+      instrument.model.toLowerCase().includes(term) ||
+      instrument.category.toLowerCase().includes(term) ||
+      instrument.applications.some((app) => app.toLowerCase().includes(term)) ||
+      instrument.features.some((feature) =>
+        feature.toLowerCase().includes(term)
+      )
+  );
+};
+
+// ==================== Category Descriptions ====================
+
+export const categoryDescriptions = {
+  "X-Ray":
+    "X-ray based analytical techniques for structural and elemental analysis",
+  Microscopy: "Advanced imaging techniques from nano to micro scale",
+  Spectroscopy:
+    "Spectroscopic methods for molecular and atomic characterization",
+  Chromatography: "Separation and analysis techniques for complex mixtures",
+  "Thermal Analysis": "Temperature-dependent property analysis of materials",
+  "Surface Analysis": "Surface area, porosity, and adsorption characterization",
+  "Chemical Synthesis": "Equipment for accelerated and controlled synthesis",
+  "Elemental Analysis": "Quantitative determination of elemental composition",
+  "Water Purification": "High-purity water production systems",
+  "Sample Preparation": "Sample processing and preservation equipment",
+  "Optical Analysis": "Optical property measurement instruments",
+  "Material Testing": "Rheological and mechanical property analysis",
+  Facility: "Core facility infrastructure and utilities",
+  "Centre of Excellence":
+    "Specialized instruments for automotive and industrial applications",
+};
 
 export default instrumentsData;
