@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import instrumentsData from "../../data/data";
+import instrumentsData from "../../data/instrumentsData";
 
 const InstrumentsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");

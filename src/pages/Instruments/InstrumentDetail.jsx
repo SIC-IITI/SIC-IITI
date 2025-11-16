@@ -11,7 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import instrumentsData from "../../data/instrumentsData";
-import { getImagesFromInstrument, getFallbackImages } from "../../utils/imageLoader";
+import { getImagesFromInstrument, getFallbackImages } from "../../utils/imageloader";
 
 const InstrumentDetail = () => {
   const { id } = useParams();
@@ -288,7 +288,7 @@ const InstrumentDetail = () => {
         )}
 
         {/* Applications Section */}
-        {parsedApplications.length > 0 && (
+        {instrument.applications && instrument.applications.length > 0 && (
           <div className="bg-white rounded-lg shadow-md border border-gray-200 mb-8">
             <div className="p-8">
               <h2
@@ -297,39 +297,18 @@ const InstrumentDetail = () => {
               >
                 Applications
               </h2>
-              <div className="space-y-3">
-                {parsedApplications.map((app, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {instrument.applications.map((app, index) => (
                   <div
                     key={index}
-                    className="border border-gray-300 rounded-lg overflow-hidden"
+                    className="flex items-start gap-4 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-100 hover:shadow-md transition-shadow"
                   >
-                    <button
-                      onClick={() =>
-                        setExpandedApp(expandedApp === index ? null : index)
-                      }
-                      className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="flex items-center gap-4">
-                        <span className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                          {index + 1}
-                        </span>
-                        <span className="font-semibold text-left text-gray-800 text-base">
-                          {app.title}
-                        </span>
-                      </div>
-                      {expandedApp === index ? (
-                        <ChevronUp className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                      )}
-                    </button>
-                    {expandedApp === index && app.content && (
-                      <div className="p-4 bg-white border-t border-gray-200">
-                        <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                          {app.content}
-                        </p>
-                      </div>
-                    )}
+                    <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                      {index + 1}
+                    </span>
+                    <p className="text-gray-700 leading-relaxed flex-1 text-sm">
+                      {app}
+                    </p>
                   </div>
                 ))}
               </div>
