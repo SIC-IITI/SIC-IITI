@@ -9,9 +9,13 @@ import {
   ChevronUp,
   ChevronLeft,
   ChevronRight,
+  Phone,
 } from "lucide-react";
 import instrumentsData from "../../data/instrumentsData";
-import { getImagesFromInstrument, getFallbackImages } from "../../utils/imageloader";
+import {
+  getImagesFromInstrument,
+  getFallbackImages,
+} from "../../utils/imageloader";
 
 const InstrumentDetail = () => {
   const { id } = useParams();
@@ -20,10 +24,8 @@ const InstrumentDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([]);
 
-  // Find the instrument by ID
   const instrument = instrumentsData.find((item) => item.id === id);
 
-  // Load images for the instrument
   useEffect(() => {
     if (!instrument) return;
 
@@ -81,10 +83,7 @@ const InstrumentDetail = () => {
   // If instrument not found
   if (!instrument) {
     return (
-      <div
-        className="min-h-screen flex items-center justify-center"
-        style={{ backgroundColor: "#D9D9D9" }}
-      >
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="text-center">
           <div className="mb-6">
             <Beaker className="w-24 h-24 text-gray-400 mx-auto mb-4" />
@@ -107,69 +106,44 @@ const InstrumentDetail = () => {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#D9D9D9" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#ffffffff" }}>
       {/* Hero Header */}
-      <div
-        className="relative h-[300px] bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80')",
-        }}
-      >
-        {/* Stars Effect */}
-        <div className="absolute inset-0 opacity-40">
-          {[...Array(200)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 pt-6">
-          <button
-            onClick={() => navigate("/instruments")}
-            className="flex items-center gap-2 text-white hover:text-teal-400 transition-colors mb-6 group"
-          >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            <span className="font-semibold">Back to Instruments</span>
-          </button>
+
+
+        <div className="relative max-w-7xl mx-auto px-4">
+
 
           <div className="flex items-center gap-3 mb-4">
-            <Beaker className="w-10 h-10 text-teal-400" />
             <h1
-              className="text-4xl md:text-5xl font-bold text-white"
+              className="text-4xl md:text-5xl font-bold text-black mt-10"
               style={{ fontFamily: "Cantata one" }}
             >
-              {instrument.name}
+              {instrument.name} (
+                <div className="text-3xl inline-block font-normal  text-black ">
+               {instrument.fullName}
+                </div>
+              )
             </h1>
           </div>
+          {/* Model Section */}
 
-          <div className="flex items-center gap-4 text-gray-300">
-            <span className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/20">
+           <div className="    mb-3 ">
+            <p className=" text-black text-xl "> {instrument.model}</p>
+          </div>
+          <div className="flex items-center text-black">
+            <span className="px-4 py-2 bg-black/10  rounded-full  font-semibold ">
               {instrument.category}
             </span>
           </div>
         </div>
-      </div>
+
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-full  px-5 ">
         {/* Image Slideshow Section */}
-        <div className="bg-white rounded-lg shadow-md border border-gray-200 p-8 mb-8">
-          <h2
-            className="text-3xl font-bold text-gray-900 mb-6"
-            style={{ fontFamily: "Cantata one" }}
-          >
-            Instrument Gallery
-          </h2>
-          <div className="relative w-full h-96 md:h-[500px] lg:h-[600px] rounded-lg overflow-hidden bg-white border-2 border-gray-200">
+        <div className=" mb-1">
+          <div className="relative  w-96 h-96 px-10  md:h-[500px] lg:h-[600px] overflow-hidden">
             {images.length > 0 ? (
               <>
                 {images.map((image, index) => (
@@ -187,55 +161,6 @@ const InstrumentDetail = () => {
                     }}
                   />
                 ))}
-
-                {/* Navigation Arrows */}
-                {images.length > 1 && (
-                  <>
-                    <button
-                      onClick={() => setCurrentImageIndex((prevIndex) =>
-                        prevIndex === 0 ? images.length - 1 : prevIndex - 1
-                      )}
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all hover:scale-110"
-                      aria-label="Previous image"
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button
-                      onClick={() => setCurrentImageIndex((prevIndex) =>
-                        (prevIndex + 1) % images.length
-                      )}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg transition-all hover:scale-110"
-                      aria-label="Next image"
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </button>
-                  </>
-                )}
-
-                {/* Slide Indicators */}
-                {images.length > 1 && (
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 bg-white/90 px-4 py-2 rounded-full shadow-lg">
-                    {images.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          index === currentImageIndex
-                            ? "bg-blue-600 w-8"
-                            : "bg-gray-300 hover:bg-gray-400"
-                        }`}
-                        aria-label={`Go to image ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-                )}
-
-                {/* Image Counter */}
-                {images.length > 1 && (
-                  <div className="absolute top-4 right-4 bg-white/90 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                    {currentImageIndex + 1} / {images.length}
-                  </div>
-                )}
               </>
             ) : (
               <div className="flex items-center justify-center h-full">
@@ -245,136 +170,140 @@ const InstrumentDetail = () => {
           </div>
         </div>
 
-        {/* Model Section */}
-        <div className="bg-white rounded-lg shadow-md p-8 mb-8 border border-gray-200">
-          <div className="flex items-center gap-3 mb-4">
-            <FileText className="w-8 h-8 text-blue-600" />
+        {/*About  Section */}
+        {instrument.features && instrument.features.length > 0 && (
+          <div className="mt-6 bg-white px-9 py-6 mb-8 ">
             <h2
-              className="text-3xl font-bold text-gray-900"
+              className="text-4xl font-bold mb-4"
               style={{ fontFamily: "Cantata one" }}
             >
-              Model Information
+              About the Instrument
             </h2>
-          </div>
-          <p className="text-base text-gray-700 leading-relaxed">
-            {instrument.model}
-          </p>
-        </div>
 
-        {/* Features Section */}
-        {instrument.features && instrument.features.length > 0 && (
-          <div className="bg-white rounded-lg shadow-md border border-gray-200 mb-8">
-            <div className="p-8">
-              <h2
-                className="text-3xl font-bold text-gray-900 mb-6"
-                style={{ fontFamily: "Cantata one" }}
-              >
-                Features
-              </h2>
-              <div className="space-y-5">
-                {instrument.features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                      {index + 1}
-                    </span>
-                    <p className="text-gray-700 leading-relaxed flex-1 pt-1.5 text-base whitespace-pre-line">
-                      {feature}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ul className="list-disc pl-6 gap-y-1 text-gray-700">
+              {instrument.features.map((feature, index) => (
+                <li key={index} className="text-lg whitespace-pre-line">
+                  {feature}
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
         {/* Applications Section */}
         {instrument.applications && instrument.applications.length > 0 && (
-          <div className="bg-white rounded-lg shadow-md border border-gray-200 mb-8">
-            <div className="p-8">
-              <h2
-                className="text-3xl font-bold text-gray-900 mb-6"
-                style={{ fontFamily: "Cantata one" }}
-              >
-                Applications
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {instrument.applications.map((app, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-4 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-100 hover:shadow-md transition-shadow"
-                  >
-                    <span className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                      {index + 1}
-                    </span>
-                    <p className="text-gray-700 leading-relaxed flex-1 text-sm">
-                      {app}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Empty state for applications */}
-        {(!instrument.applications || instrument.applications.length === 0) && (
-          <div className="bg-white rounded-lg shadow-md border border-gray-200 mb-8">
-            <div className="p-8">
-              <h2
-                className="text-3xl font-bold text-gray-900 mb-6"
-                style={{ fontFamily: "Cantata one" }}
-              >
-                Applications
-              </h2>
-              <div className="text-center py-4">
-                <p className="text-gray-500 italic">
-                  Application details will be added soon.
-                </p>
-              </div>
-            </div>
+          <div className=" mb-8 px-9">
+            <h2
+              className="text-3xl font-bold text-gray-900 mb-6"
+              style={{ fontFamily: "Cantata one" }}
+            >
+              Applications
+            </h2>
+            <ul className="list-disc pl-6 gap-y-1 text-gray-700">
+              {instrument.applications.map((app, index) => (
+                <li key={index} className="flex items-start p-1">
+                  <p className="text-lg whitespace-pre-line">
+                    {app}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
         {/* Contact Information Section */}
-        <div className="bg-white rounded-lg shadow-md border border-gray-200 p-8">
-          <h2
-            className="text-3xl font-bold text-gray-900 mb-6"
-            style={{ fontFamily: "Cantata one" }}
-          >
-            Contact Information
-          </h2>
-          <div className="space-y-5">
-            <div className="flex items-start gap-4">
-              <span className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                1
-              </span>
-              <div className="flex-1 pt-1.5">
-                <p className="text-sm text-gray-600 mb-1 font-semibold">
-                  Handled By
-                </p>
-                <p className="text-base text-gray-800 font-medium">
-                  {instrument.handledBy}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <span className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-bold">
-                2
-              </span>
-              <div className="flex-1 pt-1.5">
-                <p className="text-sm text-gray-600 mb-1 font-semibold">
-                  Email
-                </p>
-                <a
-                  href={`mailto:${instrument.email}`}
-                  className="text-base text-blue-600 hover:underline font-medium break-all"
+        <section className=" py-12">
+          <div className="max-w-7xl mx-auto px-6">
+            <h2
+              className="text-3xl font-bold text-center mb-10"
+              style={{ fontFamily: "Cantata one, serif" }}
+            >
+              How to contact
+            </h2>
+
+            {/* Container that centers three fixed-size cards */}
+            <div className="flex justify-center gap-8 flex-wrap">
+              {/* Physical Location */}
+              <div
+                className="bg-[#ececec] p-4"
+                style={{ width: "380px", height: "190px" }}
+              >
+                <h3 className="text-2xl font-bold mb-3">Physical Location:</h3>
+
+                <div
+                  className="text-[#111827] leading-5"
+                  style={{ lineHeight: 1.35 }}
                 >
-                  {instrument.email}
-                </a>
+                  <p className="mb-1">3D Printing Lab</p>
+                  <p className="mb-1">Room No. WS 109D, Central Workshop</p>
+                  <p className="mb-1">Indian Institute of Technology Indore,</p>
+                  <p className="">Khandwa Road, Simrol, Indore – 453552</p>
+                </div>
+              </div>
+
+              {/*  Coordinator */}
+              <div
+                className="bg-[#ececec] p-4"
+                style={{ width: "380px", height: "190px" }}
+              >
+                <h3 className="text-2xl font-bold mb-3">Coordinator:</h3>
+
+                <div
+                  className="text-[#111827]  leading-5"
+                  style={{ lineHeight: 1.35 }}
+                >
+                  <p className="font-medium mb-1">Prof. Sunil Jha</p>
+                  <p className="mb-1">Head, Central Workshop</p>
+                  <p className="mb-2">Indian Institute of Technology Indore</p>
+
+                  <div className="flex items-center gap-2 text-sm">
+                    <Phone className="w-4 h-4" />
+                    <span>Tel: (91)-11-26591949</span>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-sm mt-1">
+                    <Mail className="w-4 h-4" />
+                    <a href="mailto:suniljha@mech.iitd.ac.in">
+                      Email: suniljha@mech.iitd.ac.in
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Lab Staff */}
+              <div
+                className="bg-[#ececec]  p-4"
+                style={{ width: "380px", height: "190px" }}
+              >
+                <h3 className="text-2xl font-bold mb-3">Lab Staff:</h3>
+
+                <div
+                  className="text-[#111827]  leading-5"
+                  style={{ lineHeight: 1.35 }}
+                >
+                  <p className="font-medium mb-1">
+                    Mr. Tarun Singh –{" "}
+                    <span className="font-normal">Project Attendant</span>
+                  </p>
+                  <p className="mb-1">Room No. 614B, POD A</p>
+                  <p className="mb-2">Indian Institute of Technology Indore</p>
+
+                  <div className="flex items-center gap-2 text-sm">
+                    <Phone className="w-4 h-4" />
+                    <span>Tel: 011-2659-6702</span>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-sm mt-1">
+                    <Mail className="w-4 h-4" />
+                    <a href="mailto:ird13728@crf.iitd.ac.in">
+                      Email: ird13728@crf.iitd.ac.in
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
