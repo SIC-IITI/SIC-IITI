@@ -176,12 +176,16 @@ export default function Home() {
               groundbreaking research.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/instruments">
               <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                 Explore
               </button>
+              </Link>
+              <Link to="/booking">
               <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                 Book
               </button>
+              </Link>
             </div>
           </div>
         </div>
