@@ -1,46 +1,4 @@
-// import express from "express";
-// import Booking from "../models/bookingSchema.js";
-// import { authenticateToken } from "../middlewares/auth.js";
 
-// const router = express.Router();
-
-// // Create booking
-// router.post("/", authenticateToken, async (req, res) => {
-//   try {
-//     const { instrumentName, experimentTitle, description, preferredDate, durationHours } = req.body;
-
-//     if (!instrumentName || !experimentTitle || !description || !preferredDate || !durationHours) {
-//       return res.status(400).json({ message: "All fields are required." });
-//     }
-
-//     const booking = await Booking.create({
-//       user: req.user.id,
-//       instrumentName,
-//       experimentTitle,
-//       description,
-//       preferredDate,
-//       durationHours,
-//     });
-
-//     res.status(201).json({ message: "Booking created successfully", booking });
-//   } catch (error) {
-//     console.error("Booking Error:", error);
-//     res.status(500).json({ message: "Error creating booking", error: error.message });
-//   }
-// });
-
-// // Get user’s own bookings
-// router.get("/", authenticateToken, async (req, res) => {
-//   try {
-//     const bookings = await Booking.find({ user: req.user.id }).sort({ createdAt: -1 });
-//     res.json(bookings);
-//   } catch (error) {
-//     console.error("Fetch Booking Error:", error);
-//     res.status(500).json({ message: "Error fetching bookings", error: error.message });
-//   }
-// });
-
-// export default router;
 import express from "express";
 import Booking from "../models/bookingSchema.js";
 import { authenticateToken } from "../middlewares/auth.js";

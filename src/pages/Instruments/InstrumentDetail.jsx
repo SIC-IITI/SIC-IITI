@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  ArrowLeft,
-  Mail,
-  FileText,
-  Beaker,
-  ChevronDown,
-  ChevronUp,
-  ChevronLeft,
-  ChevronRight,
-  Phone,
-} from "lucide-react";
+import { Mail, Beaker, Phone } from "lucide-react";
 import instrumentsData from "../../data/instrumentsData";
 import {
   getImagesFromInstrument,
@@ -20,7 +10,6 @@ import {
 const InstrumentDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [expandedApp, setExpandedApp] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([]);
 
@@ -170,7 +159,10 @@ const InstrumentDetail = () => {
 
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
               {instrument.features.map((feature, index) => (
-                <li key={index} className="text-base sm:text-lg whitespace-pre-line">
+                <li
+                  key={index}
+                  className="text-base sm:text-lg whitespace-pre-line"
+                >
                   {feature}
                 </li>
               ))}
@@ -189,7 +181,10 @@ const InstrumentDetail = () => {
             </h2>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
               {instrument.applications.map((app, index) => (
-                <li key={index} className="text-base sm:text-lg whitespace-pre-line">
+                <li
+                  key={index}
+                  className="text-base sm:text-lg whitespace-pre-line"
+                >
                   {app}
                 </li>
               ))}
@@ -233,7 +228,9 @@ const InstrumentDetail = () => {
                   <p className="mb-2">Indian Institute of Technology Indore</p>
                   <div className="flex items-center gap-2 mt-2">
                     <Phone className="w-4 h-4 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Tel: (91)-11-26591949</span>
+                    <span className="text-xs sm:text-sm">
+                      Tel: (91)-11-26591949
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 mt-1">
                     <Mail className="w-4 h-4 flex-shrink-0" />
@@ -261,7 +258,9 @@ const InstrumentDetail = () => {
                   <p className="mb-2">Indian Institute of Technology Indore</p>
                   <div className="flex items-center gap-2 mt-2">
                     <Phone className="w-4 h-4 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Tel: 011-2659-6702</span>
+                    <span className="text-xs sm:text-sm">
+                      Tel: 011-2659-6702
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 mt-1">
                     <Mail className="w-4 h-4 flex-shrink-0" />

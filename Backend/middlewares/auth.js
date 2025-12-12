@@ -1,27 +1,4 @@
-// import jwt from "jsonwebtoken";
-// import User from "../models/signupSchema.js";
 
-// const JWT_SECRET = "SECRET KEY";
-
-// export const authenticateToken = async (req, res, next) => {
-//   const authHeader = req.headers.authorization;
-//   if (!authHeader) return res.status(401).json({ message: "No token provided" });
-//   const token = authHeader.split(" ")[1];
-//   try {
-//     const decoded = jwt.verify(token, JWT_SECRET);
-//     req.user = decoded;
-//     next();
-//   } catch {
-//     res.status(403).json({ message: "Invalid token" });
-//   }
-// };
-
-// export const isAdmin = async (req, res, next) => {
-//   const user = await User.findById(req.user.userId);
-//   if (!user || !user.isAdmin)
-//     return res.status(403).json({ message: "Access denied" });
-//   next();
-// };
 import jwt from "jsonwebtoken";
 import User from "../models/signupSchema.js";
 

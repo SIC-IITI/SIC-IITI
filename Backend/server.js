@@ -1,37 +1,4 @@
-// import express from "express";
-// import cors from "cors";
-// import connectdb from "./config/database.js";
-// import userRoutes from "./routes/Signup.js";
-// import bookingRoutes from "./routes/Booking.js";
-// import adminBookingRoutes from "./routes/Adminbooking.js";
 
-// const PORT = process.env.PORT || 5000;
-// const app = express();
-
-// // Connect MongoDB
-// connectdb();
-
-// // Middlewares
-// app.use(cors());
-// app.use(express.json());
-
-// // Health check
-// app.get("/", (req, res) => {
-//   res.json({ status: "OK", message: "Server is running 🚀" });
-// });
-
-// // Routes
-// app.use("/api/user", userRoutes);
-// app.use("/api/bookings", bookingRoutes);
-// app.use("/api/admin/bookings", adminBookingRoutes);
-
-// // Error handling
-// app.use((err, req, res, next) => {
-//   console.error("Unhandled Error:", err);
-//   res.status(500).json({ message: "Internal Server Error", error: err.message });
-// });
-
-// app.listen(PORT, () => console.log(`✅ Server running at http://localhost:${PORT}`));
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
@@ -45,11 +12,10 @@ import adminBookingRoutes from "./routes/Adminbooking.js";
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-// Connect to MongoDB
 connectdb();
 
 // Security middleware
-app.use(helmet()); // Adds security headers
+app.use(helmet());
 
 // CORS configuration
 const corsOptions = {
@@ -59,7 +25,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Request logging
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 } else {

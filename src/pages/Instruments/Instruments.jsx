@@ -1,4 +1,4 @@
-// src/pages/Instruments.jsx
+
 import React, { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,6 @@ const InstrumentsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  // Group instruments by category
   const groupedInstruments = useMemo(() => {
     const filtered = instrumentsData.filter(
       (instrument) =>
