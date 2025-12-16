@@ -62,16 +62,23 @@ function Navbar() {
 
   {/* About SIC Dropdown */}
   <div className="relative group">
-    <span className="cursor-pointer px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+    {/* <span className="cursor-pointer px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">
       About SIC
-    </span>
+    </span> */}
+    <Link
+        to="/about"
+        className="cursor-pointer px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+      About SIC
+      >
+        About SIC
+      </Link>
 
     <div className="absolute left-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
       <Link
-        to="/about"
+        to="/outreach"
         className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
       >
-        About Us
+        Outreach
       </Link>
       <Link
         to="/faculty"
