@@ -1,10 +1,23 @@
 import React from "react";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
+import { IconCornerUpRight, IconExternalLink } from "@tabler/icons-react";
 import "./TeamCard.css";
 
-export default function TeamCard({ image, name, designation, researchAreas, email, phone }) {
+export default function TeamCard({ image, name, designation, researchAreas, email, phone, website   }) {
   return (
     <div className="team-card">
+      {website && (
+        <a
+         href={website}
+         target="_blank"
+         rel="noopener noreferrer"
+         className="team-card-external"
+         aria-label={`${name} personal website`}
+        >
+        <IconExternalLink size={24} stroke={1.8} />
+        </a>
+     )}
+      
       <div className="team-card-image-wrapper">
         <img src={image} alt={name} className="team-card-image" />
       </div>

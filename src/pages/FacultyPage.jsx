@@ -2,7 +2,7 @@ import React from "react";
 import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
-import { facultyAdvisor, coreTeam, alumni } from "@/data/FacultyData";
+import { facultyAdvisors, coreTeam, alumni } from "@/data/FacultyData";
 import "./FacultyPage.css";
 
 export default function FacultyPage() {
@@ -18,9 +18,15 @@ export default function FacultyPage() {
 
         {/* Faculty Advisor */}
         <div className="team-section">
-          <div className="faculty-advisor">
+          {/* <div className="faculty-advisor">
             <TeamCard {...facultyAdvisor} />
-          </div>
+          </div> */}
+          <div className="team-grid faculty-advisors">
+  {facultyAdvisors.map((advisor, index) => (
+    <TeamCard key={index} {...advisor} />
+  ))}
+</div>
+
         </div>
 
         {/* Core Team */}
@@ -28,7 +34,7 @@ export default function FacultyPage() {
           <h3 className="team-heading">Core Team</h3>
           <p className="team-subtext">The backbone of our organization</p>
 
-          <div className="team-grid core-team">
+          <div className="team-grid f-core-team">
             {coreTeam.map((member, index) => (
               <TeamCard key={index} {...member} />
             ))}
@@ -40,7 +46,7 @@ export default function FacultyPage() {
           <h3 className="team-heading">Honorable erstwhile members</h3>
           <p className="team-subtext">Alumni who shaped our community</p>
 
-          <div className="team-grid alumni-team">
+          <div className="team-grid f-alumni-team">
             {alumni.map((member, index) => (
               <TeamCard key={index} {...member} />
             ))}

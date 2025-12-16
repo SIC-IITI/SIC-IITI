@@ -25,11 +25,6 @@
   margin-bottom: 5rem; /* mb-20 */
 }
 
-.faculty-advisor {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 4rem; /* mb-16 */
-}
 
 .faculty-advisor .team-card {
   max-width: 20rem; /* max-w-xs */
@@ -58,31 +53,46 @@
 
 /* Core Team: 1 → 2 → 4 columns */
 @media (min-width: 640px) {
-  .core-team {
+  .f-core-team {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .core-team {
+  .f-core-team {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Alumni Team: 1 → 2 → 3 columns */
+
+
+.faculty-advisors {
+  display: grid;
+  gap: 2rem;
+  max-width: 42rem; /* keeps cards compact */
+  margin: 0 auto;
+}
+
+/* Tablet: 2 columns */
 @media (min-width: 640px) {
-  .alumni-team {
+  .faculty-advisors {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-@media (min-width: 1024px) {
-  .alumni-team {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.f-alumni-team {
+  display: grid;
+  gap: 2rem;
+  max-width: 42rem; /* same as faculty */
+  margin: 0 auto;
 }
 
-.alumni-team {
-  max-width: 64rem; /* max-w-4xl */
-  margin: 0 auto;
+/* Tablet & above: always 2 columns */
+@media (min-width: 640px) {
+  .f-alumni-team {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.faculty-advisors,
+.f-alumni-team {
+  justify-items: center;
 }

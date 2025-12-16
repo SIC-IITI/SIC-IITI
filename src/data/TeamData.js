@@ -1,7 +1,7 @@
 // All team-related data centralized here
 
 export const facultyAdvisor = {
-  image: "FacultyPhotos/Team_1.png",
+  image: "assets/FacultyPhotos/Team_1.png",
   name: "Dr. Research Innovator",
   designation: "Faculty Advisor",
   researchAreas: "Thermal Systems, Fluid Mechanics, Sustainable Design",
@@ -11,7 +11,7 @@ export const facultyAdvisor = {
 
 export const coreTeam = [
   {
-    image: "FacultyPhotos/Team_2.png",
+    image: "assets/FacultyPhotos/Team_2.png",
     name: "Core Member 1",
     designation: "Technical Lead",
     researchAreas: "Automation, Robotics",
@@ -19,7 +19,7 @@ export const coreTeam = [
     phone: "+91 98989-89898"
   },
   {
-    image: "FacultyPhotos/Team_3.jpg",
+    image: "assets/FacultyPhotos/Team_3.jpg",
     name: "Core Member 2",
     designation: "Operations Head",
     researchAreas: "Industrial Engineering, Process Design",
@@ -27,7 +27,7 @@ export const coreTeam = [
     phone: "+91 98989-89898"
   },
   {
-    image: "FacultyPhotos/Team_4.png",
+    image: "assets/FacultyPhotos/Team_4.png",
     name: "Core Member 3",
     designation: "Community Manager",
     researchAreas: "Outreach, Communication Strategy",
@@ -35,7 +35,7 @@ export const coreTeam = [
     phone: "+91 98989-89898"
   },
   {
-    image: "FacultyPhotos/Team_5.png",
+    image: "assets/FacultyPhotos/Team_5.png",
     name: "Core Member 4",
     designation: "Design Head",
     researchAreas: "Product Design, UI/UX",
@@ -43,7 +43,7 @@ export const coreTeam = [
     phone: "+91 98989-89898"
   },
   {
-    image: "FacultyPhotos/Team_6.png",
+    image: "assets/FacultyPhotos/Team_6.png",
     name: "Core Member 5",
     designation: "Workshop Coordinator",
     researchAreas: "Manufacturing, CAD/CAM",
@@ -51,7 +51,7 @@ export const coreTeam = [
     phone: "+91 98989-89898"
   },
   {
-    image: "FacultyPhotos/Team_7.png",
+    image: "assets/FacultyPhotos/Team_7.png",
     name: "Core Member 6",
     designation: "Events Manager",
     researchAreas: "Event Management, Leadership",
@@ -59,7 +59,7 @@ export const coreTeam = [
     phone: "+91 98989-89898"
   },
   {
-    image: "FacultyPhotos/Team_8.png",
+    image: "assets/FacultyPhotos/Team_8.png",
     name: "Core Member 7",
     designation: "Content Lead",
     researchAreas: "Technical Writing, Media",
@@ -67,7 +67,7 @@ export const coreTeam = [
     phone: "+91 98989-89898"
   },
   {
-    image: "FacultyPhotos/Team_9.jpeg",
+    image: "assets/FacultyPhotos/Team_9.jpeg",
     name: "Core Member 8",
     designation: "Outreach Coordinator",
     researchAreas: "Public Relations, Networking",
