@@ -3,8 +3,28 @@ import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
 import { facultyAdvisors, coreTeam, alumni } from "@/data/FacultyData";
+import HeroSlider from "@/components/HeroSlider";
 import { useEffect } from "react";
 import "./FacultyPage.css";
+
+const teamSlides = [
+  {
+    image: "assets/TeamPhotos/Team_4.jpg",
+    title: "SIC Team",
+    subtitle: "A National Facility of IIT Indore",
+  },
+  {
+    image: "assets/TeamPhotos/Team_5.jpg",
+    title: "Research & Innovation",
+    subtitle: "Empowering future technologies",
+  },
+  {
+    image: "assets/TeamPhotos/Team_6.jpg",
+    title: "Collaborative Excellence",
+    subtitle: "Where science meets impact",
+  },
+];
+
 
 export default function FacultyPage() {
   useEffect(() => {
@@ -29,7 +49,12 @@ export default function FacultyPage() {
 
   return (
     <div className="team-page">
-      <HeroSection image="Team_Hero_1.jpg" alt="SIC Community Team" />
+      {/* <HeroSection image="Team_Hero_1.jpg" alt="SIC Community Team" /> */}
+      <HeroSlider
+              slides={teamSlides}
+              height="75vh"
+              autoplayDelay={4500}
+            />
 
       <main className="team-page-main">
         <SectionTitle
