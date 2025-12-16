@@ -35,7 +35,7 @@ function Navbar() {
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      <div className="max-w-full px-4 py-2 sm:px-6 lg:px-8">
+      <div className="max-w-full px-4 py-2 sm:px-6 lg:px-14">
         <div className="flex items-center justify-between h-16">
           <Link
             to="/"
@@ -66,7 +66,7 @@ function Navbar() {
       About SIC
     </span>
 
-    <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+    <div className="absolute left-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
       <Link
         to="/about"
         className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
@@ -118,7 +118,38 @@ function Navbar() {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden pb-3 pt-2 space-y-1">
-            {renderNavButtons(true)}
+            {renderNavButtons(true).filter(
+  (item) => !item.props.children.includes("About SIC")
+)}
+
+<div className="pl-4 space-y-1">
+  <p className="text-sm font-semibold text-gray-500 mt-2">About SIC</p>
+
+  <Link
+    to="/about"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+  >
+    About Us
+  </Link>
+
+  <Link
+    to="/faculty"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+  >
+    SIC Team
+  </Link>
+
+  <Link
+    to="/team"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+  >
+    SIC Committee
+  </Link>
+</div>
+
           </div>
         )}
       </div>
