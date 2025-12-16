@@ -96,3 +96,15 @@
 .f-alumni-team {
   justify-items: center;
 }
+/* Initial hidden state */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Visible state */
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
