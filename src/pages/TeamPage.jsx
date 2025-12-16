@@ -2,7 +2,7 @@ import React from "react";
 import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
-import { facultyAdvisor, coreTeam} from "@/data/TeamData";
+import { facultyAdvisors, coreTeam} from "@/data/TeamData";
 import "./TeamPage.css";
 
 export default function TeamPage() {
@@ -18,8 +18,13 @@ export default function TeamPage() {
 
         {/* Faculty Advisor */}
         <div className="team-section">
-          <div className="faculty-advisor">
+          {/* <div className="faculty-advisor">
             <TeamCard {...facultyAdvisor} />
+          </div> */}
+          <div className="team-grid faculty-advisors">
+            {facultyAdvisors.map((advisor, index) => (
+              <TeamCard key={index} {...advisor} />
+            ))}
           </div>
         </div>
 
