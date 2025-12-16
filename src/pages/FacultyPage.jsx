@@ -3,9 +3,30 @@ import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
 import { facultyAdvisors, coreTeam, alumni } from "@/data/FacultyData";
+import { useEffect } from "react";
 import "./FacultyPage.css";
 
 export default function FacultyPage() {
+  useEffect(() => {
+  const elements = document.querySelectorAll(".animate-on-scroll");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+
+  return () => observer.disconnect();
+}, []);
+
   return (
     <div className="team-page">
       <HeroSection image="Team_Hero_1.jpg" alt="SIC Community Team" />
@@ -23,7 +44,9 @@ export default function FacultyPage() {
           </div> */}
           <div className="team-grid faculty-advisors">
   {facultyAdvisors.map((advisor, index) => (
+    <div key={index} className="animate-on-scroll">
     <TeamCard key={index} {...advisor} />
+    </div>
   ))}
 </div>
 
@@ -36,7 +59,9 @@ export default function FacultyPage() {
 
           <div className="team-grid f-core-team">
             {coreTeam.map((member, index) => (
+              <div key={index} className="animate-on-scroll">
               <TeamCard key={index} {...member} />
+              </div>
             ))}
           </div>
         </div>
@@ -48,7 +73,9 @@ export default function FacultyPage() {
 
           <div className="team-grid f-alumni-team">
             {alumni.map((member, index) => (
+              <div key={index} className="animate-on-scroll">
               <TeamCard key={index} {...member} />
+              </div>
             ))}
           </div>
         </div>
