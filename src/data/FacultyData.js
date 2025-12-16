@@ -1,104 +1,84 @@
 // All team-related data centralized here
 
-export const facultyAdvisor = {
-  image: "FacultyPhotos/Team_1.png",
-  name: "Dr. Research Innovator",
-  designation: "Faculty Advisor",
-  researchAreas: "Thermal Systems, Fluid Mechanics, Sustainable Design",
-  email: "abc@xyz.com",
-  phone: "+91 98989-89898"
-};
+export const facultyAdvisors = [
+  {
+  image: "assets/FacultyPhotos/Team_1.png",
+  name: "Prof. Apurba K. Das",
+  designation: "Professor-In-Charge, SIC",
+  researchAreas: "Renewable Energy, photovoltaics, Biophysical Chemistry",
+  email: "apurba.das@iiti.ac.in",
+  phone: "+91 731-660-3353",
+  website: "https://chemistry.iiti.ac.in/faculty/prof-apurba-k-das"
+ },
+ {
+  image: "assets/FacultyPhotos/Team_2.png",
+  name: "Prof. Krushna R. Mavani",
+  designation: "Co-Convener SIC",
+  researchAreas: "Experimental Condensed Matter Physics",
+  email: "krushna@iiti.ac.in",
+  phone: "+91-731-6603318",
+  website: "https://physics.iiti.ac.in/dr-krushna-r-mavani/"
+ },
+];
 
 export const coreTeam = [
   {
-    image: "FacultyPhotos/Team_2.png",
-    name: "Core Member 1",
-    designation: "Technical Lead",
-    researchAreas: "Automation, Robotics",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
+    image: "assets/FacultyPhotos/Team_4.png",
+    name: "Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    phone: "+91-731-660-3541"
   },
   {
-    image: "FacultyPhotos/Team_3.jpg",
-    name: "Core Member 2",
-    designation: "Operations Head",
-    researchAreas: "Industrial Engineering, Process Design",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
+    image: "assets/FacultyPhotos/Team_7.png",
+    name: "Dr. Ravinder",
+    email: "ravinderk@iiti.ac.in",
+    phone: "+91-731-660-3541"
   },
   {
-    image: "FacultyPhotos/Team_4.png",
-    name: "Core Member 3",
-    designation: "Community Manager",
-    researchAreas: "Outreach, Communication Strategy",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
+    image: "assets/FacultyPhotos/Team_5.png",
+    name: "Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    phone: "+91-731-660-3541"
   },
   {
-    image: "FacultyPhotos/Team_5.png",
-    name: "Core Member 4",
-    designation: "Design Head",
-    researchAreas: "Product Design, UI/UX",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
+    image: "assets/FacultyPhotos/Team_6.png",
+    name: "Ghanashyam Bhavsar",
+    email: "ghanashyam@iiti.ac.in",
+    phone: "Ph. +91-731-660-3543"
   },
   {
-    image: "FacultyPhotos/Team_6.png",
-    name: "Core Member 5",
-    designation: "Workshop Coordinator",
-    researchAreas: "Manufacturing, CAD/CAM",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
+    image: "assets/FacultyPhotos/Team_13.png",
+    name: "Sagar Patail",
+    email: "sagarpatail@iiti.ac.in",
+    phone: "+91-731-660-3541"
   },
   {
-    image: "FacultyPhotos/Team_7.png",
-    name: "Core Member 6",
-    designation: "Events Manager",
-    researchAreas: "Event Management, Leadership",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
+    image: "assets/FacultyPhotos/Team_8.png",
+    name: "Ranjeet Raghuvanshi",
+    email: "managersic@iiti.ac.in",
+    phone: "+91-731-660-3311"
   },
-  {
-    image: "FacultyPhotos/Team_8.png",
-    name: "Core Member 7",
-    designation: "Content Lead",
-    researchAreas: "Technical Writing, Media",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
-  },
-  {
-    image: "FacultyPhotos/Team_9.jpeg",
-    name: "Core Member 8",
-    designation: "Outreach Coordinator",
-    researchAreas: "Public Relations, Networking",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
-  }
+  
 ];
 
 export const alumni = [
   {
-    image: "FacultyPhotos/Team_10.png",
-    name: "Member1",
-    designation: "Former President",
+    image: "assets/FacultyPhotos/Team_11.png",
+    name: "Prof. Suman Mukhopadhyay",
+    designation: "Erstwhile Head SIC (Sept. 2019 – Sept.2022)",
+    researchAreas: "Coordination and Organometallic Chemistry in Biology, Catalysis, and Medicinal Applications",
+    email: "suman@iiti.ac.in",
+    phone: "07316603328",
+    website: "https://chemistry.iiti.ac.in/faculty/prof-suman-mukhopadhyay"
+  },
+  {
+    image: "assets/FacultyPhotos/Team_10.png",
+    name: "Prof. Shaikh M. Mobin",
+    designation: "Erstwhile In charge SIC (April 2012 – Sept. 2019)",
     researchAreas: "Thermal Systems, Materials Science",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
+    email: "xray@iiti.ac.in",
+    phone: "0731 660 3336",
+    website:"https://chemistry.iiti.ac.in/faculty/prof-shaikh-m-mobin"
   },
-  {
-    image: "FacultyPhotos/Team_11.png",
-    name: "Member2",
-    designation: "Former Vice President",
-    researchAreas: "Mechatronics, Machine Design",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
-  },
-  {
-    image: "FacultyPhotos/Team_12.jpeg",
-    name: "Member3",
-    designation: "Former Secretary",
-    researchAreas: "Automation, Data-Driven Manufacturing",
-    email: "abc@xyz.com",
-    phone: "+91 98989-89898"
-  }
+  
 ];
