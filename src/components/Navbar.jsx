@@ -9,7 +9,7 @@ function Navbar() {
     { path: '/', label: 'Home' },
     { path: '/instruments', label: 'Instruments' },
     { path: '/booking', label: 'Book Now' },
-    { path: '/about', label: 'About SIC' },
+    // { path: '/about', label: 'About SIC' },
     { path: '/contact', label: 'Contact' },
     { path: '/login', label: 'Login' },
   ];
@@ -35,7 +35,7 @@ function Navbar() {
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      <div className="max-w-full px-4 py-2 sm:px-6 lg:px-8">
+      <div className="max-w-full px-4 py-2 sm:px-6 lg:px-14">
         <div className="flex items-center justify-between h-16">
           <Link
             to="/"
@@ -50,9 +50,52 @@ function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2">
+          {/* <div className="hidden lg:flex items-center space-x-2">
             {renderNavButtons()}
-          </div>
+          </div> */}
+
+
+          <div className="hidden lg:flex items-center space-x-2">
+  {renderNavButtons().filter(
+    (item) => !item.props.children.includes("About SIC")
+  )}
+
+  {/* About SIC Dropdown */}
+  <div className="relative group">
+    {/* <span className="cursor-pointer px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+      About SIC
+    </span> */}
+    <Link
+        to="/about"
+        className="cursor-pointer px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+      About SIC
+      >
+        About SIC
+      </Link>
+
+    <div className="absolute left-0 mt-2 w-36 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <Link
+        to="/outreach"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+      >
+        Outreach
+      </Link>
+      <Link
+        to="/faculty"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+      >
+        SIC Team
+      </Link>
+      <Link
+        to="/team"
+        className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+      >
+        SIC Committee
+      </Link>
+    </div>
+  </div>
+</div>
+
 
           {/* Mobile Menu Button */}
           <button
@@ -82,7 +125,38 @@ function Navbar() {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden pb-3 pt-2 space-y-1">
-            {renderNavButtons(true)}
+            {renderNavButtons(true).filter(
+  (item) => !item.props.children.includes("About SIC")
+)}
+
+<div className="pl-4 space-y-1">
+  <p className="text-sm font-semibold text-gray-500 mt-2">About SIC</p>
+
+  <Link
+    to="/about"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+  >
+    About Us
+  </Link>
+
+  <Link
+    to="/faculty"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+  >
+    SIC Team
+  </Link>
+
+  <Link
+    to="/team"
+    onClick={() => setIsMobileMenuOpen(false)}
+    className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 rounded-lg"
+  >
+    SIC Committee
+  </Link>
+</div>
+
           </div>
         )}
       </div>

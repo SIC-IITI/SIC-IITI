@@ -109,3 +109,20 @@
     font-size: 0.9rem;
   }
 }
+.team-card {
+  position: relative; /* required for absolute positioning */
+}
+
+.team-card-external {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: #6b7280; /* gray-500 */
+  z-index: 2;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.team-card-external:hover {
+  color: #2563eb; /* blue-600 */
+  transform: translate(2px, -2px);
+}

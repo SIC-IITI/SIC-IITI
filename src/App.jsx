@@ -21,6 +21,7 @@ import FacultyPage from "./pages/FacultyPage";
 import TeamPage from "./pages/TeamPage";
 import Events from "./pages/Events";
 import Outreach from "./pages/Outreach";
+import ExcellencePage from "./pages/Excellence";
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/team" element={<TeamPage />} />
           <Route path="/events" element={<Events />} />
           <Route path="/outreach" element={<Outreach />} />
+          <Route path="/excellence" element={<ExcellencePage />} />
         </Routes>
       </main>
       <Footer />
