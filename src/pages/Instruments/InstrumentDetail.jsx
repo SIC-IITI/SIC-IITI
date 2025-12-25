@@ -64,7 +64,7 @@ const InstrumentDetail = () => {
 
   if (!instrument) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 ">
         <div className="text-center">
           <div className="mb-6">
             <Beaker className="w-24 h-24 text-gray-400 mx-auto mb-4" />
@@ -87,9 +87,9 @@ const InstrumentDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50 py-8 ">
       {/* Hero Header */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10">
+      <div className="relative max-w-6xl mx-auto ">
         <div className="mb-4 sm:mb-6">
           <h1
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-2"
@@ -116,8 +116,8 @@ const InstrumentDetail = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl ">
+      {/* Main Content - Added mx-auto here to center the body content */}
+      <div className="max-w-7xl mx-auto">
         {/* Image Slideshow Section */}
         <div className="mb-8 sm:mb-12 sm:px-6 lg:px-20">
           <div className="relative w-96 max-w-4xl  h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] overflow-hidden ">
@@ -192,90 +192,85 @@ const InstrumentDetail = () => {
           </div>
         )}
 
-        {/* Contact Information Section */}
-        <section className="py-8 sm:py-12 ">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-              className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-10"
-              style={{ fontFamily: "Cantata one, serif" }}
-            >
-              How to contact
-            </h2>
+        {/* Contact Section - Modified wrapper to center content */}
+        <div className="w-full">
+          <section className="py-12 mx-auto px-4 sm:px-16 lg:px-8 justify-center bg-white">
+            <div className="max-w-7xl mx-auto px-6">
+              <h2
+                className="text-3xl font-bold text-center mb-10"
+                style={{ fontFamily: "Cantata one, serif" }}
+              >
+                How to Contact
+              </h2>
 
-            {/* Responsive grid for contact cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl  mx-auto">
-              {/* Physical Location */}
-              <div className="bg-[#ececec] p-4 sm:p-6 ">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                  Physical Location:
-                </h3>
-                <div className="text-[#111827] text-sm sm:text-base space-y-1">
-                  <p>3D Printing Lab</p>
-                  <p>Room No. WS 109D, Central Workshop</p>
-                  <p>Indian Institute of Technology Indore,</p>
-                  <p>Khandwa Road, Simrol, Indore – 453552</p>
-                </div>
-              </div>
-
-              {/* Coordinator */}
-              <div className="bg-[#ececec] p-4 sm:p-6 ">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                  Coordinator:
-                </h3>
-                <div className="text-[#111827] text-sm sm:text-base space-y-1">
-                  <p className="font-medium">{instrument.handledBy}</p>
-                  <p>Head, Central Workshop</p>
-                  <p className="mb-2">Indian Institute of Technology Indore</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Phone className="w-4 h-4 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">
-                      Tel: (91)-11-26591949
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <Mail className="w-4 h-4 flex-shrink-0" />
-                    <a
-                      href={`mailto:${instrument.email}`}
-                      className="text-xs sm:text-sm break-all hover:underline"
-                    >
-                      Email: {instrument.email}
-                    </a>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                {/* Physical Location */}
+                <div className="bg-[#ececec] p-6 flex flex-col justify-between">
+                  <h3 className="text-2xl font-bold mb-3">Physical Location</h3>
+                  <div className="text-[#111827] space-y-1">
+                    <p>3D Printing Lab</p>
+                    <p>Room No. WS 109D, Central Workshop</p>
+                    <p>Indian Institute of Technology Indore</p>
+                    <p>Khandwa Road, Simrol, Indore – 453552</p>
                   </div>
                 </div>
-              </div>
 
-              {/* Lab Staff */}
-              <div className="bg-[#ececec] p-4 sm:p-6 ">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3">
-                  Lab Staff:
-                </h3>
-                <div className="text-[#111827] text-sm sm:text-base space-y-1">
-                  <p className="font-medium">
-                    {instrument.handledBy} –{" "}
-                    <span className="font-normal">Project Attendant</span>
-                  </p>
-                  <p>Room No. 614B, POD A</p>
-                  <p className="mb-2">Indian Institute of Technology Indore</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Phone className="w-4 h-4 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">
-                      Tel: 011-2659-6702
-                    </span>
+                {/* Coordinator */}
+                <div className="bg-[#ececec] p-6 flex flex-col justify-between">
+                  <h3 className="text-2xl font-bold mb-3">Coordinator</h3>
+                  <div className="space-y-1">
+                    <p className="font-medium">{instrument.handledBy}</p>
+                    <p>Head, Central Workshop</p>
+                    <p>Indian Institute of Technology Indore</p>
+
+                    <div className="flex items-center gap-2 mt-3">
+                      <Phone className="w-4 h-4" />
+                      <span className="text-sm">+91-11-26591949</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4" />
+                      <a
+                        href={`mailto:${instrument.email}`}
+                        className="text-sm hover:underline"
+                      >
+                        {instrument.email}
+                      </a>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <Mail className="w-4 h-4 flex-shrink-0" />
-                    <a
-                      href={`mailto:${instrument.email}`}
-                      className="text-xs sm:text-sm break-all hover:underline"
-                    >
-                      Email: {instrument.email}
-                    </a>
+                </div>
+
+                {/* Lab Staff */}
+                <div className="bg-[#ececec] p-6 flex flex-col justify-between">
+                  <h3 className="text-2xl font-bold mb-3">Lab Staff</h3>
+                  <div className="space-y-1">
+                    <p className="font-medium">
+                      {instrument.handledBy} –{" "}
+                      <span className="font-normal">Project Attendant</span>
+                    </p>
+                    <p>Room No. 614B, POD A</p>
+                    <p>Indian Institute of Technology Indore</p>
+
+                    <div className="flex items-center gap-2 mt-3">
+                      <Phone className="w-4 h-4" />
+                      <span className="text-sm">011-2659-6702</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4" />
+                      <a
+                        href={`mailto:${instrument.email}`}
+                        className="text-sm hover:underline"
+                      >
+                        {instrument.email}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </div>
   );
