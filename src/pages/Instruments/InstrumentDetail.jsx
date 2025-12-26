@@ -7,7 +7,6 @@ import {
   getImagesFromInstrument,
   getFallbackImages,
 } from "../../utils/imageloader";
-import { buttonVariants } from "@/components/ui/button";
 
 const InstrumentDetail = () => {
   const { id } = useParams();
