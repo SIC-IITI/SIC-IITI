@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Mail, Beaker, Phone } from "lucide-react";
+import { Mail, Beaker, Calendar, FileText, Phone } from "lucide-react";
 import instrumentsData from "../../data/instrumentsData";
+
 import {
   getImagesFromInstrument,
   getFallbackImages,
 } from "../../utils/imageloader";
+import { buttonVariants } from "@/components/ui/button";
 
 const InstrumentDetail = () => {
   const { id } = useParams();
@@ -116,7 +118,6 @@ const InstrumentDetail = () => {
         </div>
       </div>
 
-      {/* Main Content - Added mx-auto here to center the body content */}
       <div className="max-w-7xl mx-auto">
         {/* Image Slideshow Section */}
         <div className="mb-8 sm:mb-12 sm:px-6 lg:px-20">
@@ -146,6 +147,23 @@ const InstrumentDetail = () => {
             )}
           </div>
         </div>
+        <div className={`flex flex-wrap gap-3 px-20 sm:px-6 lg:px-20 mb-2`}>
+      <button
+        onClick={() => navigate(`/booking`)}
+        className="flex items-center gap-2 px-6 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition-all shadow-md active:scale-95"
+      >
+        <Calendar className="w-4 h-4" />
+        Book Now
+      </button>
+      <button
+        onClick={() => navigate(`/charges/${id}`)}
+        className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
+      >
+        <FileText className="w-4 h-4" />
+        Charges List
+      </button>
+    </div>
+
 
         {/* About Section */}
         {instrument.features && instrument.features.length > 0 && (
