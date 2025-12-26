@@ -1,5 +1,3 @@
-
-
 export const instrumentsData = [
   // ==================== X-RAY ANALYSIS ====================
   {
@@ -8,6 +6,11 @@ export const instrumentsData = [
     fullName: "Single Crystal X-Ray Diffractometer",
     category: "X-Ray",
     model: "Agilent Technologies Super Nova System",
+    usageCharges: {
+      internal: "₹ 1,200 per sample",
+      external: "₹ 2,500 per sample",
+      unit: "per sample",
+    },
     features: [
       "State of the art dual core Agilent Technologies (Oxford Diffraction) Super Nova CCD System",
       "Access to micro-focus Cu and Mo sources which allows even small-size crystals data collection",
@@ -49,6 +52,11 @@ export const instrumentsData = [
     fullName: "Energy Dispersive X-Ray Spectroscopy",
     category: "X-Ray",
     model: "Oxford X-MAX 20",
+    usageCharges: {
+      internal: "₹ 800 per hour",
+      external: "₹ 1,800 per hour",
+      unit: "per hour",
+    },
     features: [
       "Integrated with SEM, TEM, or FIB systems",
       "Non-destructive elemental analysis",
@@ -86,6 +94,11 @@ export const instrumentsData = [
     fullName: "Backscattered Electron Detector",
     category: "X-Ray",
     model: "Gemini 360",
+    usageCharges: {
+      internal: "₹ 600 per hour",
+      external: "₹ 1,400 per hour",
+      unit: "per hour",
+    },
     features: [
       "Captures high-energy electrons reflected or backscattered from the sample.",
       "Provides contrast based on atomic number for compositional analysis.",
@@ -108,6 +121,7 @@ export const instrumentsData = [
     email: "atul.singh@iiti.ac.in",
     images: ["/assets/instruments/X-Ray/BSE-BSD/xb1.png"],
   },
+
   // ==================== MICROSCOPY ====================
   {
     id: "supra-55",
@@ -115,6 +129,11 @@ export const instrumentsData = [
     fullName: "Field Emission Scanning Electron Microscope",
     category: "Microscopy",
     model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "GEMINI Technology with high efficiency in-lens detector",
       "No magnetic field at specimen level",
@@ -146,6 +165,11 @@ export const instrumentsData = [
     fullName: "Advanced Field Emission Scanning Electron Microscope",
     category: "Microscopy",
     model: "Carl Zeiss Gemini 360",
+    usageCharges: {
+      internal: "₹ 1,800 per hour",
+      external: "₹ 3,500 per hour",
+      unit: "per hour",
+    },
     features: [
       "Next-generation GEMINI optics",
       "Ultra-high resolution imaging",
@@ -173,6 +197,11 @@ export const instrumentsData = [
     fullName: "Atomic Force Microscope",
     category: "Microscopy",
     model: "Atomic Force Microscope",
+    usageCharges: {
+      internal: "₹ 1,200 per hour",
+      external: "₹ 2,500 per hour",
+      unit: "per hour",
+    },
     features: [
       "Atomic-scale resolution imaging",
       "3D surface topography mapping",
@@ -195,6 +224,11 @@ export const instrumentsData = [
     fullName: "Confocal Laser Scanning Microscope",
     category: "Microscopy",
     model: "Confocal Laser Scanning Microscope",
+    usageCharges: {
+      internal: "₹ 1,000 per hour",
+      external: "₹ 2,200 per hour",
+      unit: "per hour",
+    },
     features: [
       "High-resolution 3D imaging",
       "Optical sectioning capability",
@@ -214,6 +248,7 @@ export const instrumentsData = [
       "/assets/instruments/Microscopy/CLSM/mc3.png",
     ],
   },
+
   // ==================== SPECTROSCOPY ====================
   {
     id: "nmr-500",
@@ -221,6 +256,11 @@ export const instrumentsData = [
     fullName: "Nuclear Magnetic Resonance(NMR) 500MHz",
     category: "Spectroscopy",
     model: "AVANCE NEO Ascend 500 Bruker BioSpin International AG",
+    usageCharges: {
+      internal: "₹ 1,000 per hour",
+      external: "₹ 2,200 per hour",
+      unit: "per hour",
+    },
     features: [
       "Magnet: 11.764 Tesla (Superconducting),",
       "50 mm bore Probes Available: For Solution State NMR 5 mm Broad Band Observe I-Probe",
@@ -248,6 +288,11 @@ export const instrumentsData = [
     fullName: "Nuclear Magnetic Resonance(NMR) 400MHz",
     category: "Spectroscopy",
     model: "AVANCE NEO Ascend 400 Bruker BioSpin International AG",
+    usageCharges: {
+      internal: "₹ 800 per hour",
+      external: "₹ 1,800 per hour",
+      unit: "per hour",
+    },
     features: [
       "Magnet: 8.96 Tesla (Superconducting),",
       "50 mm bore Probes Available: For Solution State NMR 5 mm Broad Band Fluorine Observe Probe with a gradient along Z-axis and Automated Tuning",
@@ -270,8 +315,12 @@ export const instrumentsData = [
     name: "FT-IR",
     fullName: "Fourier Transform Infrared Spectrometer (FT-IR)",
     category: "Spectroscopy",
-    model:
-      "      Fourier Transform Infrared Spectrometer (FT-IR), Tensor 27, BRUKER",
+    model: "Fourier Transform Infrared Spectrometer (FT-IR), Tensor 27, BRUKER",
+    usageCharges: {
+      internal: "₹ 400 per sample",
+      external: "₹ 900 per sample",
+      unit: "per sample",
+    },
     features: [
       "FT-IR is an analytical instrument (with MIR source, ZnSe beam splitter, and DLaTGS detector) dedicated to identifying materials including polymers,",
       "based on the relative amount of energy of key functionalities present in the sample.",
@@ -292,6 +341,11 @@ export const instrumentsData = [
     fullName: "Time-Correlated Single Photon Counting",
     category: "Spectroscopy",
     model: "(TCSPC), Horiba",
+    usageCharges: {
+      internal: "₹ 700 per hour",
+      external: "₹ 1,600 per hour",
+      unit: "per hour",
+    },
     features: [
       "Cell holder with facility for recirculating liquid temperature control.",
       "Picobrite Diode Laser with a repetition rate of 5 MHz with instrument response function 140 picoseconds.",
@@ -318,6 +372,11 @@ export const instrumentsData = [
     fullName: "Circular Dichroism Spectropolarimeter",
     category: "Spectroscopy",
     model: "JASCO J-815 Circular Dichroism Spectropolarimeter",
+    usageCharges: {
+      internal: "₹ 900 per hour",
+      external: "₹ 2,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "Measurement range from 163–1100 nm with high S/N ratio",
       "Traceable calibration for IQ, OQ, and PQ suitable for GLP/GMP labs",
@@ -346,12 +405,18 @@ export const instrumentsData = [
     email: "kinny@iiti.ac.in",
     images: ["/assets/instruments/Spectroscopy/CD/s_cd.png"],
   },
+
   {
     id: "uv-vis",
     name: "UV-Visible",
     fullName: "UV-Visible Spectrophotometer",
     category: "Spectroscopy",
     model: "Varian Cary 100 Bio UV-Visible Spectrophotometer",
+    usageCharges: {
+      internal: "₹ 300 per sample",
+      external: "₹ 700 per sample",
+      unit: "per sample",
+    },
     features: [
       "Wavelength range: 190–900 nm",
       "Accuracy: ± 2 nm",
@@ -373,17 +438,23 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
-  images: [
+    images: [
       "/assets/instruments/Spectroscopy/UV-Visible-Spectrophotometer/s_uvspe1.png",
       "/assets/instruments/Spectroscopy/UV-Visible-Spectrophotometer/s_uvspe2.png",
     ],
   },
+
   {
     id: "uv-vis-nir",
     name: "UV-VIS-NIR",
     fullName: "UV-VIS-NIR Spectrophotometer",
     category: "Spectroscopy",
     model: "Perkin-Elmer LAMBDA 750 UV-VIS-NIR Spectrophotometer",
+    usageCharges: {
+      internal: "₹ 500 per sample",
+      external: "₹ 1,100 per sample",
+      unit: "per sample",
+    },
     features: [
       "Measurement range: 190–3300 nm",
       "High-performance UV/Vis/NIR spectrophotometry",
@@ -400,17 +471,23 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
-        images: [
+    images: [
       "/assets/instruments/Spectroscopy/UV-VIS-NIR/s_uv_nir1.png",
       "/assets/instruments/Spectroscopy/UV-VIS-NIR/s_uv_nir2.png",
     ],
   },
+
   {
     id: "spectrofluorometer",
     name: "Spectrofluorometer",
     fullName: "FluoroMax-4 Spectrofluorometer",
     category: "Spectroscopy",
     model: "FluoroMax SPEX® (FluoroMax-4)",
+    usageCharges: {
+      internal: "₹ 600 per hour",
+      external: "₹ 1,400 per hour",
+      unit: "per hour",
+    },
     features: [
       "Compact single-module high-sensitivity spectrofluorometer",
       "33% higher sensitivity and 20% better S/N ratio compared to previous models",
@@ -439,210 +516,237 @@ export const instrumentsData = [
       "/assets/instruments/Spectroscopy/Spectrofluorometer/s_sflu2.png",
     ],
   },
+
   // ==================== CHROMATOGRAPHY ====================
- {
-  id: "lc-hrms",
-  name: "LC-HRMS",
-  fullName: "Liquid Chromatography–High Resolution Mass Spectrometer",
-  category: "Chromatography",
-  make: "Waters",
-  model: "ACQUITY H-Class Plus UPLC + Xevo G3 QTOF",
-  description: "UPLC system with QSM, SM-FTN, column manager, PDA detector, RI detector, and Xevo G3 QTOF configured with ESI/APCI/ASAP probes for nominal and accurate mass detection. Controlled via MassLynx V 4.2.",
-  features: [
-    "Mass range (TOF): 20–100,000 m/z",
-    "Quadrupole resolving mode: 20–4000 m/z",
-    "Quadrupole non-resolving mode: 20–16,000 m/z",
-    "Resolving power > 40,000 FWHM",
-    "Mass accuracy < 1 ppm",
-    "Sample Manager (SM-FTN) temperature: 4°C to 40°C",
-    "Column manager temperature: 25°C to 80°C"
-  ],
-  sampleRequirements: [
-    "Powder: 10 mg",
-    "Liquid: 2 mL at 0.5 mg/mL concentration"
-  ],
-  applications: [
-    "Separation, identification, and quantification of unknown and known compounds",
-    "Determination of molecular weights, structures, and elemental compositions",
-    "Drug assay analysis for pharmaceutical industries",
-    "Pharmacokinetic studies (absorption, metabolism, excretion)",
-    "Bioanalytical quantitation in plasma, urine, saliva, and serum",
-    "Analysis of agrochemical and pesticide components"
-  ],
-  handledBy: "Mr. Ghanashyam Bhavsar",
-  email: "ghanashyam@iiti.ac.in",
-  images: "/assets/instruments/Chromatography/LC-HRMS/chlo_lc.png"
-}
-,
-{
-  id: "hplc-rp",
-  name: "HPLC-RP",
-  fullName: "High Performance Liquid Chromatography (Reversed Phase)",
-  category: "Chromatography",
-  make: "Thermo Scientific",
-  model: "Vanquish Core",
-  description: "The Vanquish Core system includes a quaternary pump, autosampler, column oven, and PDA detector designed for high-resolution reversed phase chromatography.",
-  features: [
-    "Quaternary pump supporting isocratic and gradient modes",
-    "Maximum system pressure: 700 bar for high-resolution separations",
-    "Flow range: 0–10 mL/min for diverse sample types",
-    "Easy transfer of methods from HPLC to sub-2-micron columns",
-    "pH range: 0–13 with chloride concentration up to 0.1 mol/L",
-    "Injection volume: 0.01–100 µL",
-    "Sample cooling: 4–40°C",
-    "Sample capacity: 216 vials (1.5 mL each)",
-    "Column compartment temperature: 5–85°C",
-    "Optimized for reversed phase chromatography"
-  ],
-  sampleRequirements: [
-    "Powder samples: 5 mg",
-    "Liquid samples: 2 mL (1 mg/mL concentration)"
-  ],
-  applications: [
-    "Drug quality testing, impurity detection, reaction monitoring, qualitative and quantitative analysis, dissolution studies",
-    "Environmental pollutant analysis including phenolics, air pollution markers, oil spills, and plastic degradation compounds",
-    "Food and flavor analysis including sugars, preservatives, additives, and contaminants",
-    "Forensic applications including drug identification, dye analysis, blood drug quantification, and volatile compound analysis"
-  ],
-  handledBy: "Mr. Ghanashyam Bhavsar",
-  email: "ghanashyam@iiti.ac.in",
-  images: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png"
-}
-,
-{
-  id: "gc-ms",
-  name: "GC-MS",
-  fullName: "Gas Chromatography – Mass Spectrometer",
-  category: "Chromatography",
-  model: "Shimadzu GSMS-QP2010 Ultra",
-  features: [
-    "Versatile system for separation and identification of non-polar and mid-polar compounds",
-    "Supports three configurations: GC-MS, GC-TCD, GC-FID",
-    "Electron Ionization (EI) and Chemical Ionization (CI) with positive and negative ion modes",
-    "Helium carrier gas for GC-MS operation",
-    "High sensitivity detection down to PPM levels",
-    "Mass range: 10–1000 Da",
-    "NIST mass spectral library for compound identification",
-    "GC-TCD suitable for gas analysis (H₂, N₂, CO, CO₂, CH₄)",
-    "GC-FID suitable for hydrocarbons and volatile organic compounds"
-  ],
-  sampleRequirements: [
-    "Sample quantity: 20 mg",
-    "Must be soluble in methanol",
-    "Molecular weight range: 50–600 Da",
-    "Sample must be volatile for GC-MS analysis"
-  ],
-  applications: [
-    "Identification and quantification of volatile and semi-volatile organic compounds",
-    "Molecular weight and limited elemental composition determination of unknown organics",
-    "Structural elucidation via spectral matching with reference libraries",
-    "Analysis of complex mixtures through GC separation and MS fragmentation patterns",
-    "Typical analysis time: 20–100 minutes depending on GC method"
-  ],
-  handledBy: "Mr. Ghanashyam Bhavsar",
-  email: "ghanashyam@iiti.ac.in",
-  images: [
-    "/assets/instruments/Chromatography/GC-MS/chro_gc1.png",
-    "/assets/instruments/Chromatography/GC-MS/chro_gc2.png",
-    "/assets/instruments/Chromatography/GC-MS/chro_gc3.png"
+  {
+    id: "lc-hrms",
+    name: "LC-HRMS",
+    fullName: "Liquid Chromatography–High Resolution Mass Spectrometer",
+    category: "Chromatography",
+    make: "Waters",
+    model: "ACQUITY H-Class Plus UPLC + Xevo G3 QTOF",
+    usageCharges: {
+      internal: "₹ 600 per sample",
+      external: "₹ 1,500 per sample",
+      unit: "per sample",
+    },
+    description:
+      "UPLC system with QSM, SM-FTN, column manager, PDA detector, RI detector, and Xevo G3 QTOF configured with ESI/APCI/ASAP probes for nominal and accurate mass detection. Controlled via MassLynx V 4.2.",
+    features: [
+      "Mass range (TOF): 20–100,000 m/z",
+      "Quadrupole resolving mode: 20–4000 m/z",
+      "Quadrupole non-resolving mode: 20–16,000 m/z",
+      "Resolving power > 40,000 FWHM",
+      "Mass accuracy < 1 ppm",
+      "Sample Manager (SM-FTN) temperature: 4°C to 40°C",
+      "Column manager temperature: 25°C to 80°C",
+    ],
+    sampleRequirements: [
+      "Powder: 10 mg",
+      "Liquid: 2 mL at 0.5 mg/mL concentration",
+    ],
+    applications: [
+      "Separation, identification, and quantification of unknown and known compounds",
+      "Determination of molecular weights, structures, and elemental compositions",
+      "Drug assay analysis for pharmaceutical industries",
+      "Pharmacokinetic studies (absorption, metabolism, excretion)",
+      "Bioanalytical quantitation in plasma, urine, saliva, and serum",
+      "Analysis of agrochemical and pesticide components",
+    ],
+    handledBy: "Mr. Ghanashyam Bhavsar",
+    email: "ghanashyam@iiti.ac.in",
+    images: "/assets/instruments/Chromatography/LC-HRMS/chlo_lc.png",
+  },
 
+  {
+    id: "hplc-rp",
+    name: "HPLC-RP",
+    fullName: "High Performance Liquid Chromatography (Reversed Phase)",
+    category: "Chromatography",
+    make: "Thermo Scientific",
+    model: "Vanquish Core",
+    usageCharges: {
+      internal: "₹ 500 per sample",
+      external: "₹ 1,200 per sample",
+      unit: "per sample",
+    },
+    description:
+      "The Vanquish Core system includes a quaternary pump, autosampler, column oven, and PDA detector designed for high-resolution reversed phase chromatography.",
+    features: [
+      "Quaternary pump supporting isocratic and gradient modes",
+      "Maximum system pressure: 700 bar for high-resolution separations",
+      "Flow range: 0–10 mL/min for diverse sample types",
+      "Easy transfer of methods from HPLC to sub-2-micron columns",
+      "pH range: 0–13 with chloride concentration up to 0.1 mol/L",
+      "Injection volume: 0.01–100 µL",
+      "Sample cooling: 4–40°C",
+      "Sample capacity: 216 vials (1.5 mL each)",
+      "Column compartment temperature: 5–85°C",
+      "Optimized for reversed phase chromatography",
+    ],
+    sampleRequirements: [
+      "Powder samples: 5 mg",
+      "Liquid samples: 2 mL (1 mg/mL concentration)",
+    ],
+    applications: [
+      "Drug quality testing, impurity detection, reaction monitoring, qualitative and quantitative analysis, dissolution studies",
+      "Environmental pollutant analysis including phenolics, air pollution markers, oil spills, and plastic degradation compounds",
+      "Food and flavor analysis including sugars, preservatives, additives, and contaminants",
+      "Forensic applications including drug identification, dye analysis, blood drug quantification, and volatile compound analysis",
+    ],
+    handledBy: "Mr. Ghanashyam Bhavsar",
+    email: "ghanashyam@iiti.ac.in",
+    images: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png",
+  },
 
-  ]
-}
-,
+  {
+    id: "gc-ms",
+    name: "GC-MS",
+    fullName: "Gas Chromatography – Mass Spectrometer",
+    category: "Chromatography",
+    model: "Shimadzu GSMS-QP2010 Ultra",
+    usageCharges: {
+      internal: "₹ 700 per sample",
+      external: "₹ 1,600 per sample",
+      unit: "per sample",
+    },
+    features: [
+      "Versatile system for separation and identification of non-polar and mid-polar compounds",
+      "Supports three configurations: GC-MS, GC-TCD, GC-FID",
+      "Electron Ionization (EI) and Chemical Ionization (CI) with positive and negative ion modes",
+      "Helium carrier gas for GC-MS operation",
+      "High sensitivity detection down to PPM levels",
+      "Mass range: 10–1000 Da",
+      "NIST mass spectral library for compound identification",
+      "GC-TCD suitable for gas analysis (H₂, N₂, CO, CO₂, CH₄)",
+      "GC-FID suitable for hydrocarbons and volatile organic compounds",
+    ],
+    sampleRequirements: [
+      "Sample quantity: 20 mg",
+      "Must be soluble in methanol",
+      "Molecular weight range: 50–600 Da",
+      "Sample must be volatile for GC-MS analysis",
+    ],
+    applications: [
+      "Identification and quantification of volatile and semi-volatile organic compounds",
+      "Molecular weight and limited elemental composition determination of unknown organics",
+      "Structural elucidation via spectral matching with reference libraries",
+      "Analysis of complex mixtures through GC separation and MS fragmentation patterns",
+      "Typical analysis time: 20–100 minutes depending on GC method",
+    ],
+    handledBy: "Mr. Ghanashyam Bhavsar",
+    email: "ghanashyam@iiti.ac.in",
+    images: [
+      "/assets/instruments/Chromatography/GC-MS/chro_gc1.png",
+      "/assets/instruments/Chromatography/GC-MS/chro_gc2.png",
+      "/assets/instruments/Chromatography/GC-MS/chro_gc3.png",
+    ],
+  },
   // ==================== THERMAL ANALYSIS ====================
   {
-  id: "tga",
-  name: "TGA",
-  fullName: "Thermogravimetric Analyzer",
-  category: "Thermal Analysis",
-  model: "METTLER TOLEDO TGA/DSC 1 STARe System",
-  features: [
-    "Measures change in sample weight during heating, cooling, or isothermal conditions",
-    "Used for material composition analysis",
-    "Applicable to plastics, elastomers, thermosets, minerals, ceramics, and pharmaceutical materials",
-    "Thermobalance-based detection",
-    "Typical upper temperature limit: 800°C"
-  ],
-  applications: [
-    "Weight loss/gain measurement as a function of temperature or time",
-    "Thermal decomposition and oxidation studies",
-    "Purity and composition analysis",
-    "Determination of drying and ignition temperatures",
-    "Determination of stability temperatures of compounds",
-    "Quantitative mass loss analysis using thermal curves"
-  ],
-  sampleRequirements: [
-    "Suitable sample forms: crystals, powders, films, particles, gels, solids, liquids",
-    "Sample size: pieces < 5 mm",
-    "Typical sample weight: 2–10 mg"
-  ],
-  handledBy: "Er. Atul Singh",
-  email: "atul.singh@iiti.ac.in",
-  images: [
-    "/assets/instruments/Thermal-Analysis/TGA/ta_t1.png",
-    "/assets/instruments/Thermal-Analysis/TGA/ta_t2.png",
-    "/assets/instruments/Thermal-Analysis/TGA/ta_t3.png",
-  ]
-}
-,
-{
-  id: "dsc",
-  name: "DSC",
-  fullName: "Differential Scanning Calorimeter",
-  category: "Thermal Analysis",
-  model: "PerkinElmer DSC 8000",
-  features: [
-    "Determines phase transitions including melting, crystallization, crystal-to-crystal transitions, and liquid crystal transitions",
-    "Measures heat absorbed or released during phase changes",
-    "Useful for studying glass transitions in polymers",
-    "Provides quantitative thermal data for phase diagrams and material characterization"
-  ],
-  applications: [
-    "Measurement of fusion and crystallization events",
-    "Determination of glass transition temperatures",
-    "Study of oxidation and other thermo-chemical reactions",
-    "Analysis of changes in heat capacity during transitions",
-    "Identification of crystallization temperature (Tc) and melting temperature (Tm)",
-    "Construction of phase diagrams using transition temperatures and enthalpies"
-  ],
-  handledBy: "Er. Atul Singh",
-  email: "atul.singh@iiti.ac.in",
-   images: [
-    "/assets/instruments/Thermal-Analysis/DSC/ta_d1.png",
-    "/assets/instruments/Thermal-Analysis/DSC/ta_d2.png",
-  ]
-}
-,
-
+    id: "tga",
+    name: "TGA",
+    fullName: "Thermogravimetric Analyzer",
+    category: "Thermal Analysis",
+    model: "METTLER TOLEDO TGA/DSC 1 STARe System",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
+    features: [
+      "Measures change in sample weight during heating, cooling, or isothermal conditions",
+      "Used for material composition analysis",
+      "Applicable to plastics, elastomers, thermosets, minerals, ceramics, and pharmaceutical materials",
+      "Thermobalance-based detection",
+      "Typical upper temperature limit: 800°C",
+    ],
+    applications: [
+      "Weight loss/gain measurement as a function of temperature or time",
+      "Thermal decomposition and oxidation studies",
+      "Purity and composition analysis",
+      "Determination of drying and ignition temperatures",
+      "Determination of stability temperatures of compounds",
+      "Quantitative mass loss analysis using thermal curves",
+    ],
+    sampleRequirements: [
+      "Suitable sample forms: crystals, powders, films, particles, gels, solids, liquids",
+      "Sample size: pieces < 5 mm",
+      "Typical sample weight: 2–10 mg",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    images: [
+      "/assets/instruments/Thermal-Analysis/TGA/ta_t1.png",
+      "/assets/instruments/Thermal-Analysis/TGA/ta_t2.png",
+      "/assets/instruments/Thermal-Analysis/TGA/ta_t3.png",
+    ],
+  },
+  {
+    id: "dsc",
+    name: "DSC",
+    fullName: "Differential Scanning Calorimeter",
+    category: "Thermal Analysis",
+    model: "PerkinElmer DSC 8000",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
+    features: [
+      "Determines phase transitions including melting, crystallization, crystal-to-crystal transitions, and liquid crystal transitions",
+      "Measures heat absorbed or released during phase changes",
+      "Useful for studying glass transitions in polymers",
+      "Provides quantitative thermal data for phase diagrams and material characterization",
+    ],
+    applications: [
+      "Measurement of fusion and crystallization events",
+      "Determination of glass transition temperatures",
+      "Study of oxidation and other thermo-chemical reactions",
+      "Analysis of changes in heat capacity during transitions",
+      "Identification of crystallization temperature (Tc) and melting temperature (Tm)",
+      "Construction of phase diagrams using transition temperatures and enthalpies",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    images: [
+      "/assets/instruments/Thermal-Analysis/DSC/ta_d1.png",
+      "/assets/instruments/Thermal-Analysis/DSC/ta_d2.png",
+    ],
+  },
   // ==================== SPECIALIZED EQUIPMENT ====================
   {
-  id: "bet-surface-area",
-  name: "BET Surface Area Analyzer",
-  fullName: "BET Surface Area Analyzer (Autosorb iQ2)",
-  category: "Surface-Analysis",
-  model: "Quantachrome Autosorb iQ2 (Anton Paar)",
-  features: [
-    "Physorption: Accurate N₂ BET surface area measurements from 0.01 m²/g upwards at liquid nitrogen temperature",
-    "Chemisorption: Quantitative evaluation of surface active sites via static isotherms and dynamic pulse titrations",
-    "Determines monolayer uptake, metal area, nanocluster (crystallite) size, and active metal area for heterogeneous catalysts",
-    "Isothermal data can be used to map surface energetic heterogeneity via heat-of-adsorption calculations",
-    "Supports multiple sorption and chemisorption experiments for catalyst characterization"
-  ],
-  otherOptions: [
-    "Vapour sorption",
-    "TPD / TPR / TPO",
-    "Chemi-batch measurements"
-  ],
-  applications: [
-    "BET (single- and multipoint) surface area determination",
-    "Langmuir surface area and adsorption/desorption isotherms",
-    "Pore size and surface area distribution analysis",
-    "Micropore volume and micropore surface area estimation",
-    "Mapping surface energetic heterogeneity"
-  ],
-  handledBy: "Er. Atul Singh",
-  email: "atul.singh@iiti.ac.in",
+    id: "bet-surface-area",
+    name: "BET Surface Area Analyzer",
+    fullName: "BET Surface Area Analyzer (Autosorb iQ2)",
+    category: "Surface-Analysis",
+    model: "Quantachrome Autosorb iQ2 (Anton Paar)",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
+    features: [
+      "Physorption: Accurate N₂ BET surface area measurements from 0.01 m²/g upwards at liquid nitrogen temperature",
+      "Chemisorption: Quantitative evaluation of surface active sites via static isotherms and dynamic pulse titrations",
+      "Determines monolayer uptake, metal area, nanocluster (crystallite) size, and active metal area for heterogeneous catalysts",
+      "Isothermal data can be used to map surface energetic heterogeneity via heat-of-adsorption calculations",
+      "Supports multiple sorption and chemisorption experiments for catalyst characterization",
+    ],
+    otherOptions: [
+      "Vapour sorption",
+      "TPD / TPR / TPO",
+      "Chemi-batch measurements",
+    ],
+    applications: [
+      "BET (single- and multipoint) surface area determination",
+      "Langmuir surface area and adsorption/desorption isotherms",
+      "Pore size and surface area distribution analysis",
+      "Micropore volume and micropore surface area estimation",
+      "Mapping surface energetic heterogeneity",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
 
     images: [
       "/assets/instruments/Bet-Surface-Analyzer/bet1.png",
@@ -650,46 +754,54 @@ export const instrumentsData = [
     ],
   },
 
- {
-  id: "microwave-reactor",
-  name: "Microwave Reactor",
-  fullName: "Microwave Reactor (Monowave 200)",
-  category: "Chemical-Synthesis",
-  model: "Anton Paar Monowave 200 with MAS 24 Autosampler",
-  features: [
-    "Requires 5.5–6 bar compressed gas for accurate pressure measurement and sealing up to 20 bar",
-    "High-performance monomode microwave reactor for small- to medium-scale synthesis",
-    "Supports temperatures up to 300°C and pressures up to 30 bar",
-    "Advanced safety features for high-speed, high-pressure, and high-temperature reactions",
-    "Precise heating profiles for improved productivity and product purity",
-    "Reusable vials, caps, and septa reduce consumable cost and environmental impact",
-    "Not acid-resistant — corrosive chemicals significantly reduce instrument lifespan"
-  ],
-  applications: [
-    "Academic research synthesis",
-    "Agrochemical studies",
-    "Catalyst preparation and testing",
-    "Emulsion formation",
-    "Inorganic chemical reactions",
-    "Liquid crystal synthesis",
-    "Lubricant testing",
-    "Organic chemical synthesis"
-  ],
-  handledBy: "Mr. Kinny Pandey",
-  email: "kinny@iiti.ac.in",
-  images: [
+  {
+    id: "microwave-reactor",
+    name: "Microwave Reactor",
+    fullName: "Microwave Reactor (Monowave 200)",
+    category: "Chemical-Synthesis",
+    model: "Anton Paar Monowave 200 with MAS 24 Autosampler",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
+    features: [
+      "Requires 5.5–6 bar compressed gas for accurate pressure measurement and sealing up to 20 bar",
+      "High-performance monomode microwave reactor for small- to medium-scale synthesis",
+      "Supports temperatures up to 300°C and pressures up to 30 bar",
+      "Advanced safety features for high-speed, high-pressure, and high-temperature reactions",
+      "Precise heating profiles for improved productivity and product purity",
+      "Reusable vials, caps, and septa reduce consumable cost and environmental impact",
+      "Not acid-resistant — corrosive chemicals significantly reduce instrument lifespan",
+    ],
+    applications: [
+      "Academic research synthesis",
+      "Agrochemical studies",
+      "Catalyst preparation and testing",
+      "Emulsion formation",
+      "Inorganic chemical reactions",
+      "Liquid crystal synthesis",
+      "Lubricant testing",
+      "Organic chemical synthesis",
+    ],
+    handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
       "/assets/instruments/Microwave-Reactor/mreac1.png",
       "/assets/instruments/Microwave-Reactor/mreac2.png",
     ],
-}
-,
-
+  },
   {
     id: "element-analyzer",
     name: "Element Analyzer",
     fullName: "CHNS Elemental Analyzer",
     category: "Elemental Analysis",
     model: "Flash 2000",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
       "It was designed to operate on the “Dumas method” principle, which calls for “flash combustion” to completely and instantly oxidizing the sample.",
@@ -710,90 +822,102 @@ export const instrumentsData = [
       "/assets/instruments/Element-Analyzer/elean2.png",
     ],
   },
-{
-  id: "milliq-system",
-  name: "MilliQ System",
-  fullName: "Milli-Q Ultrapure & DI Water System",
-  category: "Water-Purification",
-  model: "Merck Millipore Milli-Q System",
-  features: [
-    "Produces Type 3 RO water and Type 1 ultrapure water (18.2 MΩ·cm)",
-    "Delivers ultrapure water directly from tap water",
-    "Intelligent storage solution ensures multi-targeted water quality protection",
-    "IPAK Meta and IPAK Quanta cartridges remove ions down to trace levels",
-    "Q-POD dispenser with three adjustable flow rates",
-    "Check & Dispense indicators ensure system readiness",
-    "One-touch volumetric dispensing from 100 mL to 25 L",
-    "Dispenser and touchscreen can be placed up to 3 m away",
-    "Consistently low TOC (<5 ppb) for ultrapure water",
-    "User-friendly touchscreen with resistivity, temperature, TOC, and circulation status",
-    "Inline TOC indicator shows results within 90 seconds of dispensing",
-    "Full data traceability via e-Sure tags on all consumables",
-    "Flexible installation: benchtop, under-bench, or wall-mounted",
-    "Hands-free foot-pedal dispensing option",
-    "Lab Close mode reduces water and energy use during inactivity",
-    "Automatic alerts for cartridge replacement",
-    "Manufactured at ISO 9001 and ISO 14001 certified facility",
-    "Supports My Milli-Q digital service ecosystem"
-  ],
-  applications: [
-    "Production of pure and ultrapure water for analytical and laboratory use",
-    "Food and drinking water sample preparation",
-    "Pharmaceutical manufacturing and quality control",
-    "PCR and DNA sequencing",
-    "2-D electrophoresis and blotting (Northern, Southern, Western)",
-    "Mammalian cell culture",
-    "MALDI-TOF MS sample preparation"
-  ],
-  handledBy: "Er. Atul Singh",
-  email: "atul.singh@iiti.ac.in",
-  images: [
-    "/assets/instruments/MilliQ-DI-Water/mdw1.png",
-  ]
-}
-,
-{
-  id: "lyophilizer",
-  name: "Lyophilizer",
-  fullName: "Freeze Dryer (Lyophilizer)",
-  category: "Sample-Preparation",
-  model: "LABCONCO Lyophilizer",
-  features: [
-    "Vacuum break valve prevents oil backstreaming by bleeding air into the system during shutdown",
-    "Patented moisture sensor prevents refrigeration or vacuum start-up when moisture is detected in the collector chamber",
-    "Durable steel benchtop cabinet suitable for countertops and lab carts",
-    "Upright stainless steel collector chamber for fast and easy defrosting",
-    "Optional PTFE-coated collector coil and chamber for increased corrosion resistance",
-    "Quick-disconnect drain hose for simplified defrosting",
-    "Vacuum control valve maintains set-point vacuum level for optimized freeze-drying efficiency",
-    "Automatic hot gas defrost that shuts off upon completion"
-  ],
-  applications: [
-    "Pharmaceutical and biotechnology freeze-drying of vaccines, biologics, and injectables for increased shelf-life",
-    "Food industry freeze-drying to preserve quality, flavor, and texture with extended shelf-life",
-    "ISRO and military rations for lightweight, long-lasting meals",
-    "Freeze-dried coffee preservation of aroma and flavor",
-    "Freeze-drying delicate fruits such as berries while retaining color and rehydration ability",
-    "Preservation of insects for exotic pet food, bird feed, fish bait, and human consumption",
-    "Chemical synthesis applications for stabilizing or improving solubility of compounds",
-    "Taxidermy preservation through freeze-dried mounts"
-  ],
-  handledBy: "Er. Atul Singh",
-  email: "lyophilizer@iiti.ac.in",
-  images: [
-    "/assets/instruments/Lyophilizer/lyo1.png",
-    "/assets/instruments/Lyophilizer/lyo2.png",
-    "/assets/instruments/Lyophilizer/lyo3.png"
-  ]
-}
-,
+  {
+    id: "milliq-system",
+    name: "MilliQ System",
+    fullName: "Milli-Q Ultrapure & DI Water System",
+    category: "Water-Purification",
+    model: "Merck Millipore Milli-Q System",
+    usageCharges: {
+      internal: "₹ 100 per 10 liters",
+      external: "₹ 300 per 10 liters",
+      unit: "per 10 liters",
+    },
 
+    features: [
+      "Produces Type 3 RO water and Type 1 ultrapure water (18.2 MΩ·cm)",
+      "Delivers ultrapure water directly from tap water",
+      "Intelligent storage solution ensures multi-targeted water quality protection",
+      "IPAK Meta and IPAK Quanta cartridges remove ions down to trace levels",
+      "Q-POD dispenser with three adjustable flow rates",
+      "Check & Dispense indicators ensure system readiness",
+      "One-touch volumetric dispensing from 100 mL to 25 L",
+      "Dispenser and touchscreen can be placed up to 3 m away",
+      "Consistently low TOC (<5 ppb) for ultrapure water",
+      "User-friendly touchscreen with resistivity, temperature, TOC, and circulation status",
+      "Inline TOC indicator shows results within 90 seconds of dispensing",
+      "Full data traceability via e-Sure tags on all consumables",
+      "Flexible installation: benchtop, under-bench, or wall-mounted",
+      "Hands-free foot-pedal dispensing option",
+      "Lab Close mode reduces water and energy use during inactivity",
+      "Automatic alerts for cartridge replacement",
+      "Manufactured at ISO 9001 and ISO 14001 certified facility",
+      "Supports My Milli-Q digital service ecosystem",
+    ],
+    applications: [
+      "Production of pure and ultrapure water for analytical and laboratory use",
+      "Food and drinking water sample preparation",
+      "Pharmaceutical manufacturing and quality control",
+      "PCR and DNA sequencing",
+      "2-D electrophoresis and blotting (Northern, Southern, Western)",
+      "Mammalian cell culture",
+      "MALDI-TOF MS sample preparation",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    images: ["/assets/instruments/MilliQ-DI-Water/mdw1.png"],
+  },
+  {
+    id: "lyophilizer",
+    name: "Lyophilizer",
+    fullName: "Freeze Dryer (Lyophilizer)",
+    category: "Sample-Preparation",
+    model: "LABCONCO Lyophilizer",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
+    features: [
+      "Vacuum break valve prevents oil backstreaming by bleeding air into the system during shutdown",
+      "Patented moisture sensor prevents refrigeration or vacuum start-up when moisture is detected in the collector chamber",
+      "Durable steel benchtop cabinet suitable for countertops and lab carts",
+      "Upright stainless steel collector chamber for fast and easy defrosting",
+      "Optional PTFE-coated collector coil and chamber for increased corrosion resistance",
+      "Quick-disconnect drain hose for simplified defrosting",
+      "Vacuum control valve maintains set-point vacuum level for optimized freeze-drying efficiency",
+      "Automatic hot gas defrost that shuts off upon completion",
+    ],
+    applications: [
+      "Pharmaceutical and biotechnology freeze-drying of vaccines, biologics, and injectables for increased shelf-life",
+      "Food industry freeze-drying to preserve quality, flavor, and texture with extended shelf-life",
+      "ISRO and military rations for lightweight, long-lasting meals",
+      "Freeze-dried coffee preservation of aroma and flavor",
+      "Freeze-drying delicate fruits such as berries while retaining color and rehydration ability",
+      "Preservation of insects for exotic pet food, bird feed, fish bait, and human consumption",
+      "Chemical synthesis applications for stabilizing or improving solubility of compounds",
+      "Taxidermy preservation through freeze-dried mounts",
+    ],
+    handledBy: "Er. Atul Singh",
+    email: "lyophilizer@iiti.ac.in",
+    images: [
+      "/assets/instruments/Lyophilizer/lyo1.png",
+      "/assets/instruments/Lyophilizer/lyo2.png",
+      "/assets/instruments/Lyophilizer/lyo3.png",
+    ],
+  },
   {
     id: "polarimeter",
     name: "Polarimeter",
     fullName: "Optical Rotation Measurement",
     category: "Optical Analysis",
     model: "Automatic Polarimeter",
+    usageCharges: {
+      internal: "₹ 500 per hour",
+      external: "₹ 1,200 per hour",
+      unit: "per hour",
+    },
+
     features: [
       "Automatic measurement",
       "Temperature control",
@@ -823,6 +947,12 @@ export const instrumentsData = [
     fullName: "Rheological Property Analysis",
     category: "Material Testing",
     model: "Rotational Rheometer",
+    usageCharges: {
+      internal: "₹ 600 per hour",
+      external: "₹ 1,500 per hour",
+      unit: "per hour",
+    },
+
     features: [
       "Rotational and oscillatory measurements",
       "Wide range of viscosity measurement",
@@ -845,39 +975,42 @@ export const instrumentsData = [
     email: "contact@iiti.ac.in",
     images: "/assets/instruments/rheometer-image.png",
   },
-{
-  id: "liquid-nitrogen-plant",
-  name: "Liquid Nitrogen Plant",
-  fullName: "LN500 Liquid Nitrogen Plant (StirLIN)",
-  category: "Cryogenics",
-  model: "LN500",
-  make: "StirLIN",
-  features: [
-    "Produces liquid nitrogen at ~10 L/hour capacity",
-    "Fully automatic compact StirLIN system — plug-and-produce solution",
-    "Dispenses liquid via flexible hose & valve",
-    "Reduces dependency on bulk LN₂ supply logistics",
-    "UN1977 classified as refrigerated liquid nitrogen (cryogenic)",
-    "Space-saving design suitable for lab benchtop installation"
-  ],
-  applications: [
-    "Cryopreservation of cells and microbes",
-    "Lyophilization support",
-    "NMR magnet cooling (keep superconducting coils below Tc)",
-    "Single crystal XRD temperature control (≈80 K and above)",
-    "Magnetic measurements at ultra-low temperatures",
-    "Low-temperature photoluminescence and Raman spectroscopy (< −77°C)",
-    "Low-temperature chemical synthesis"
-  ],
-  handledBy: "Mr. Kinny Pandey",
-  email: "kinny@iiti.ac.in",
-  images: [
-    "/assets/instruments/LN2-plant/ln1.png",
-    "/assets/instruments/LN2-plant/ln2.png",
-  ]
-}
-,
-
+  {
+    id: "liquid-nitrogen-plant",
+    name: "Liquid Nitrogen Plant",
+    fullName: "LN500 Liquid Nitrogen Plant (StirLIN)",
+    category: "Cryogenics",
+    model: "LN500",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
+    make: "StirLIN",
+    features: [
+      "Produces liquid nitrogen at ~10 L/hour capacity",
+      "Fully automatic compact StirLIN system — plug-and-produce solution",
+      "Dispenses liquid via flexible hose & valve",
+      "Reduces dependency on bulk LN₂ supply logistics",
+      "UN1977 classified as refrigerated liquid nitrogen (cryogenic)",
+      "Space-saving design suitable for lab benchtop installation",
+    ],
+    applications: [
+      "Cryopreservation of cells and microbes",
+      "Lyophilization support",
+      "NMR magnet cooling (keep superconducting coils below Tc)",
+      "Single crystal XRD temperature control (≈80 K and above)",
+      "Magnetic measurements at ultra-low temperatures",
+      "Low-temperature photoluminescence and Raman spectroscopy (< −77°C)",
+      "Low-temperature chemical synthesis",
+    ],
+    handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
+    images: [
+      "/assets/instruments/LN2-plant/ln1.png",
+      "/assets/instruments/LN2-plant/ln2.png",
+    ],
+  },
   // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
   {
     id: "icp-oes",
@@ -885,6 +1018,11 @@ export const instrumentsData = [
     fullName: "Inductively Coupled Plasma Optical Emission Spectroscopy",
     category: "Centre of Excellence",
     model: "Agilent 5800",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "Inductively Coupled Plasma Optical Emission spectroscopy (ICP-OES) is an analytical technique used to determine how much of certain elements are in a sample.",
       "The ICP-OES principle uses the fact that atoms and ions can absorb energy to move electrons from the ground state to an excited state.",
@@ -898,15 +1036,23 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    images: ["assets/instruments/Centre-of-Excellence-ACR-Initiative/ICP-OES/image.png",]
+    images: [
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/ICP-OES/image.png",
+    ],
   },
 
   {
-    id: "ft-ir",
+    id: "ft-ir-coe",
     name: "FT-IR ",
     fullName: "FT-IR Spectrometer",
     category: "Centre of Excellence",
     model: "Bruker ALPHA II",
+    usageCharges: {
+      internal: "₹ 100 per 10 liters",
+      external: "₹ 300 per 10 liters",
+      unit: "per 10 liters",
+    },
+
     features: [
       "Fourier Transform Infrared Spectroscopy, also known as FT-IR Spectroscopy, is ananalytical technique used to identify organic, polymeric and in some cases inorganicmaterials.",
       "The FT-IR analysis method uses infrared light to scan test samples and observe chemical properties.",
@@ -920,7 +1066,9 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    images: ["assets/instruments/Centre-of-Excellence-ACR-Initiative/FT-IR/image.png"],
+    images: [
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/FT-IR/image.png",
+    ],
   },
 
   {
@@ -929,6 +1077,11 @@ export const instrumentsData = [
     fullName: "Pensky-Martens Flash Point Tester",
     category: "Centre of Excellence",
     model: "Anton Paar-PMA 300",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "Flash Point of a flammable liquid is the lowest temperature at which vapours of that liquid will ignite when close to an ignition source.",
       "The PMA 300 Pensky Martens flash point tester used to determine high-precision flash point of petroleum and chemical products automatically.",
@@ -946,7 +1099,7 @@ export const instrumentsData = [
     email: "kunalb@iiti.ac.in",
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
-     "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image2.png",
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image2.png",
     ],
   },
 
@@ -956,6 +1109,11 @@ export const instrumentsData = [
     fullName: "Kinematic Viscosity Measurement",
     category: "Centre of Excellence",
     model: "Anton Paar – SVM 1101 Sample Fill",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "Viscosity quantifies the internal frictional force between adjacent layers of fluid that are in relative motion.",
       "Kinematic Viscosity (ν) is a measure of a fluid’s resistance to flow under the influence of gravity.",
@@ -969,7 +1127,9 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    images: ["assets/instruments/Centre-of-Excellence-ACR-Initiative/AK-Viscometer/image.png"],
+    images: [
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/AK-Viscometer/image.png",
+    ],
   },
 
   {
@@ -978,6 +1138,11 @@ export const instrumentsData = [
     fullName: "Brookfield Viscosity Measurement",
     category: "Centre of Excellence",
     model: "AMETEK DV2T LV",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "The Brookfield Viscometer measures fluid viscosity by measuring the force to turn the spindle in the solution at a given shear rate.",
       "Brookfield deals with liquids and semi-solids.",
@@ -991,7 +1156,9 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    images: ["assets/instruments/Centre-of-Excellence-ACR-Initiative/B-Viscometer/image.png"],
+    images: [
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/B-Viscometer/image.png",
+    ],
   },
 
   {
@@ -1000,6 +1167,11 @@ export const instrumentsData = [
     fullName: "Millipore Test System",
     category: "Centre of Excellence",
     model: "Millipore (Merck)",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
     features: [
       "Millipore contamination analysis kit consists of assorted Millipore filtration products suited for contamination measurement control.",
       "The kit includes the apparatus shown below.",
@@ -1012,7 +1184,9 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    images: ["assets/instruments/Centre-of-Excellence-ACR-Initiative/Millipore/image.png"],
+    images: [
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Millipore/image.png",
+    ],
   },
 ];
 

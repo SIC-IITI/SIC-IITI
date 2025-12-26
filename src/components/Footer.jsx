@@ -1,5 +1,4 @@
 import React from 'react';
-// Removed unused social icons
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 function Footer() {
