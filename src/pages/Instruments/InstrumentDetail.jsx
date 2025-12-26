@@ -155,7 +155,7 @@ const InstrumentDetail = () => {
         Book Now
       </button>
       <button
-        onClick={() => navigate(`/charges/${id}`)}
+        onClick={() => navigate(`/usage-charges`)}
         className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
       >
         <FileText className="w-4 h-4" />
