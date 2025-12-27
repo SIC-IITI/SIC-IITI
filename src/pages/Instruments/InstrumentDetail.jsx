@@ -6,7 +6,7 @@ import instrumentsData from "../../data/instrumentsData";
 import {
   getImagesFromInstrument,
   getFallbackImages,
-} from "../../utils/imageLoader";
+} from "../../utils/imageloader";
 
 const InstrumentDetail = () => {
   const { id } = useParams();
