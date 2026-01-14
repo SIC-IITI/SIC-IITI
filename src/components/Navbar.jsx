@@ -78,18 +78,17 @@ function Navbar() {
               className="h-12 w-12 object-contain"
             />
             {/* Text Block */}
-           <div className="flex flex-col justify-center leading-tight max-w-[320px]">
-  <span className="text-[13px] sm:text-[17px] font-semibold text-black tracking-tight">
-    Sophisticated Instrumentation Centre
-  </span>
+            <div className="flex flex-col justify-center leading-tight max-w-[320px]">
+              <span className="text-[13px] sm:text-[17px] font-semibold text-black tracking-tight">
+                Sophisticated Instrumentation Centre
+              </span>
 
-  <span className="block w-full border-b border-black my-0.5"></span>
+              <span className="block w-full border-b border-black my-0.5"></span>
 
-  <span className="text-[11px] sm:text-[13px] text-gray-700">
-    Indian Institute of Technology Indore
-  </span>
-</div>
-
+              <span className="text-[11px] sm:text-[13px] text-gray-700">
+                Indian Institute of Technology Indore
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -209,9 +208,7 @@ function Navbar() {
       {/* Mobile Menu Overlay and Drawer */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
-          isMobileMenuOpen
-            ? "opacity-100 visible"
-            : "opacity-0 invisible"
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={closeMobileMenu}
         aria-hidden="true"
