@@ -63,33 +63,36 @@ function Navbar() {
   );
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo Section */}
-          <Link
-            to="/"
-            className="flex items-center gap-4 hover:opacity-90 transition-opacity"
-          >
-            {/* IIT Logo */}
-            <img
-              src="/iiti-logo.png"
-              alt="IIT Indore Logo"
-              className="h-12 w-12 object-contain"
-            />
-            {/* Text Block */}
-            <div className="flex flex-col justify-center leading-tight max-w-[320px]">
-              <span className="text-[13px] sm:text-[17px] font-semibold text-black tracking-tight">
-                Sophisticated Instrumentation Centre
-              </span>
+    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+      <div className="max-w-full px-4 sm:px-6 lg:px-14">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+         <Link
+  to="/"
+  aria-label="Go to Homepage"
+  className="flex items-center gap-3 flex-shrink-0"
+>
+  {/* IIT Logo */}
+  <img
+    src="/iiti-logo.png"
+    alt="IIT Indore Logo"
+    className="h-12 w-auto"
+  />
 
-              <span className="block w-full border-b border-black my-0.5"></span>
+  {/* Text Block */}
+  <div className="hidden sm:flex flex-col justify-center leading-tight">
+    <span className="text-[17px] font-semibold text-black tracking-tight">
+      Sophisticated Instrumentation Centre
+    </span>
 
-              <span className="text-[11px] sm:text-[13px] text-gray-700">
-                Indian Institute of Technology Indore
-              </span>
-            </div>
-          </Link>
+    <span className="block w-full border-b border-black my-0.5"></span>
+
+    <span className="text-[13px] font-normal text-gray-700">
+      Indian Institute of Technology Indore
+    </span>
+  </div>
+</Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
