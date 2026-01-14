@@ -80,17 +80,18 @@ function Navbar() {
   />
 
   {/* Text Block */}
-  <div className="hidden sm:flex flex-col justify-center leading-tight">
-    <span className="text-[17px] font-semibold text-black tracking-tight">
-      Sophisticated Instrumentation Centre
-    </span>
+ <div className="flex flex-col justify-center leading-tight max-w-[320px]">
+  <span className="text-[13px] sm:text-[17px] font-semibold text-black tracking-tight">
+    Sophisticated Instrumentation Centre
+  </span>
 
-    <span className="block w-full border-b border-black my-0.5"></span>
+  <span className="block w-full border-b border-black my-0.5"></span>
 
-    <span className="text-[13px] font-normal text-gray-700">
-      Indian Institute of Technology Indore
-    </span>
-  </div>
+  <span className="text-[11px] sm:text-[13px] text-gray-700">
+    Indian Institute of Technology Indore
+  </span>
+</div>
+
 </Link>
 
 
