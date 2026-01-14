@@ -43,17 +43,32 @@ function Navbar() {
       <div className="max-w-full px-4 sm:px-6 lg:px-14">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center gap-3 text-2xl font-bold text-blue-900 flex-shrink-0"
-            aria-label="Go to Homepage"
-          >
-            <img
-              src="/iiti-logo-sic-name.png"
-              alt="IITI Logo"
-              className="h-12 sm:h-14 md:h-16 w-auto max-w-[220px]"
-            />
-          </Link>
+         <Link
+  to="/"
+  aria-label="Go to Homepage"
+  className="flex items-center gap-3 flex-shrink-0"
+>
+  {/* IIT Logo */}
+  <img
+    src="/iiti-logo.png"
+    alt="IIT Indore Logo"
+    className="h-12 w-auto"
+  />
+
+  {/* Text Block */}
+  <div className="hidden sm:flex flex-col justify-center leading-tight">
+    <span className="text-[17px] font-semibold text-black tracking-tight">
+      Sophisticated Instrumentation Centre
+    </span>
+
+    <span className="block w-full border-b border-black my-0.5"></span>
+
+    <span className="text-[13px] font-normal text-gray-700">
+      Indian Institute of Technology Indore
+    </span>
+  </div>
+</Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-2">
