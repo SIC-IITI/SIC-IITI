@@ -18,7 +18,7 @@ function Navbar() {
     { path: "/about", label: "About Us" },
     { path: "/outreach", label: "Outreach" },
     { path: "/team", label: "SIC Team" },
-    { path: "/committee", label: "SIC Committee" },
+    { path: "/faculty", label: "SIC Committee" },
   ];
 
   // Close mobile menu on route change
