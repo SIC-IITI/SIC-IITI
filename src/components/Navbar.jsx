@@ -149,8 +149,6 @@ function Navbar() {
                 ))}
               </div>
             </div>
-
-            {/* Last 2 items */}
             {navItems.slice(4).map((item) => {
               const isActive = isActivePath(item.path);
               return (
@@ -209,7 +207,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay and Drawer */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
@@ -225,7 +222,7 @@ function Navbar() {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex flex-col h-full p-6">
-            {/* Close Button */}
+      
             <button
               onClick={closeMobileMenu}
               className="self-end mb-6 text-gray-600 hover:text-black text-2xl w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
@@ -234,9 +231,8 @@ function Navbar() {
               ✕
             </button>
 
-            {/* Navigation Links */}
             <div className="flex flex-col gap-4 overflow-y-auto">
-              {/* First 3 items */}
+           
               {navItems.slice(0, 3).map((item) => (
                 <Link
                   key={item.path}
@@ -273,7 +269,6 @@ function Navbar() {
                 ))}
               </div>
 
-              {/* Last 2 items */}
               <div className="border-t border-gray-200 pt-4 mt-2">
                 {navItems.slice(4).map((item) => (
                   <Link
