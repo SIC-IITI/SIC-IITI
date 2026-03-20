@@ -24,7 +24,7 @@ import Outreach from "./pages/Outreach";
 import ExcellencePage from "./pages/Excellence";
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white w-full max-w-8xl mx-auto px-4 sm:px-6 md:px-6 lg:px-12 xl:px-20">
       <Navbar />
       <main className="flex-1 max-w-full w-full mx-auto ">
         <Routes>

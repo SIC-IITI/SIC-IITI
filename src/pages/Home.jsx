@@ -35,11 +35,25 @@ export default function Home() {
     return () => observer.disconnect();
   }, []); 
 
+  /* PREVIOUS HERO IMAGES COMMENTED OUT
   const heroImages = [
     "/sic.png",
     "/sic-ppl.png",
     "/sic-ppl2.png",
     "/close-sic.png"
+  ]
+  */
+
+  // NEW HERO IMAGES
+  const heroImages = [
+    "/nmr500.png",
+    "/lc-hrms.png",
+    "/gc-ms.png",
+    "/clsm.png",
+    "/bet.png",
+    "/tga.png",
+    "/dsc.png",
+    "/hplc.png"
   ]
 
   useEffect(() => {
@@ -60,30 +74,37 @@ export default function Home() {
 
   const eventsItems = [
     {
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
       date: "16-18 Nov 2025",
       title: "SAP 2025: IIT Indore to host the prestigious Symposium on Advanced Photonics, bringing together experts in light-based technologies.",
     },
     {
+      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&h=400&fit=crop",
       date: "8-12 Dec 2025",
       title: "ICDP Workshop: A 5-day workshop on 'Information, Communications and Data Processing' to be held at the institute.",
     },
     {
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
       date: "11-13 Dec 2025",
       title: "AIMTDR 2025: 10th International Conference on Manufacturing Technology, Design and Research to be hosted by Dept. of Mechanical Engineering.",
     },
     {
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
       date: "16-20 Dec 2025",
       title: "ICISS 2025: The International Conference on Information Systems Security will be held at IIT Indore, focusing on cybersecurity advancements.",
     },
     {
+      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop",
       date: "15-26 Dec 2025",
       title: "GIAN Course: 'The Exciting Landscape of Precision Medicines and Therapeutics' course to be offered by IIT Indore.",
     },
     {
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
       date: "21-23 Mar 2025",
       title: "CSE Open-house Symposium 3.0: Featuring expert talks, coding competitions, and research presentations from the CSE department.",
     },
     {
+      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop",
       date: "January 2026",
       title: "Fluxus 2026: Get ready for IIT Indore's annual techno-cultural festival, promising innovation, art, and entertainment.",
     },
@@ -150,8 +171,89 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
       
-      {/* Hero Section */}
-      <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden group">
+      {false && (
+        <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden group">
+          {/* Image Container with Fade Transitions */}
+          <div className="absolute inset-0">
+            {heroImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ backgroundImage: `url("${image}")` }}
+              />
+            ))}
+          </div>
+
+          {/* Left Navigation Arrow */}
+          <button
+            onClick={prevHeroImage}
+            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black/20 text-white hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+          </button>
+          
+          {/* Right Navigation Arrow */}
+          <button
+            onClick={nextHeroImage}
+            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black/20 text-white hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+          </button>
+
+          {/* DARK OVERLAY */}
+          <div className="absolute inset-0 bg-black/50 mix-blend-multiply pointer-events-none" aria-hidden="true" />
+
+          {/* Content Overlay */}
+          <div className="relative z-20 container mx-auto px-6 sm:px-8 lg:px-12 xl:px-28 h-full flex items-center">
+            <div className="max-w-3xl animate-on-scroll">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow">
+                Welcome To
+                <br />
+                Sophisticated
+                <br />
+                Instrumentation Centre
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl drop-shadow">
+                Empowering minds, fostering innovation, and shaping the future through world-class education and
+                groundbreaking research.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/instruments">
+                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+                  Explore
+                </button>
+                </Link>
+                <Link to="/booking">
+                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+                  Book
+                </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Image Indicators */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentImageIndex ? 'bg-white w-8' : 'bg-white/60 hover:bg-white/80'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* --- NEW HERO SECTION (IMAGES ONLY) --- */}
+      <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gray-100 overflow-hidden group">
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -182,38 +284,6 @@ export default function Home() {
         >
           <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
         </button>
-
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black/50 mix-blend-multiply pointer-events-none" aria-hidden="true" />
-
-        {/* Content Overlay */}
-        <div className="relative z-20 container mx-auto px-6 sm:px-8 lg:px-12 xl:px-28 h-full flex items-center">
-          <div className="max-w-3xl animate-on-scroll">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow">
-              Welcome To
-              <br />
-              Sophisticated
-              <br />
-              Instrumentation Centre
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl drop-shadow">
-              Empowering minds, fostering innovation, and shaping the future through world-class education and
-              groundbreaking research.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/instruments">
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                Explore
-              </button>
-              </Link>
-              <Link to="/booking">
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                Book
-              </button>
-              </Link>
-            </div>
-          </div>
-        </div>
 
         {/* Image Indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
@@ -272,9 +342,14 @@ export default function Home() {
               {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
                 <div 
                   key={index} 
-                  
-                  className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6 animate-on-scroll stagger-${index + 1}`}
+                  className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6 bg-white animate-on-scroll stagger-${index + 1}`}
                 >
+                  {/* NEW: Added Image to Event Cards */}
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-40 object-cover rounded-lg mb-4"
+                  />
                   <div className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
                     {item.date}
                   </div>
@@ -315,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* Excellence in Every Dimension */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
+      {/* <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 animate-on-scroll">Excellence in Every Dimension</h2>
           <div className="relative max-w-7xl mx-auto">
@@ -365,7 +440,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Impact at a Glance Section */}
       <section className="py-16 sm:py-20 bg-gray-50">
@@ -379,7 +454,7 @@ export default function Home() {
                 <Users className="w-12 h-12 text-white" />
               </div>
               <div className="text-4xl font-bold text-gray-900 mb-2">
-                <CountUp end={4500} duration={1} enableScrollSpy scrollSpyOnce />+
+                <CountUp end={1000} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
               <div className="text-gray-600">Student enrolled</div>
             </div>
@@ -399,7 +474,7 @@ export default function Home() {
                 <Briefcase className="w-12 h-12 text-white" />
               </div>
               <div className="text-4xl font-bold text-gray-900 mb-2">
-                <CountUp end={40} duration={1} enableScrollSpy scrollSpyOnce />+
+                <CountUp end={100} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
               <div className="text-gray-600">Faculty Members</div>
             </div>
@@ -409,7 +484,7 @@ export default function Home() {
                 <Trophy className="w-12 h-12 text-white" />
               </div>
               <div className="text-4xl font-bold text-gray-900 mb-2">
-                <CountUp end={12} duration={1} enableScrollSpy scrollSpyOnce />+
+                <CountUp end={14} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
               <div className="text-gray-600">Year of Excellence</div>
             </div>
