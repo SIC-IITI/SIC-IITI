@@ -26,13 +26,7 @@ function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-blue-100">Contact Information</h3>
             <div className="space-y-3">
-              <div className="flex gap-3">
-                <Phone className="w-5 h-5 flex-shrink-0 text-blue-300" />
-                <div className="text-sm">
-                  <p className="font-medium">+91 (731) 660 3311</p>
-                  <p className="text-blue-200">Ext: 3311 / 3543 / 3541</p>
-                </div>
-              </div>
+             
               <div className="flex gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0 text-blue-300" />
                 <div className="text-sm">

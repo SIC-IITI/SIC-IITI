@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -50px 0px', 
+      rootMargin: '0px 0px -50px 0px',
       threshold: 0.1
     };
 
@@ -24,7 +24,7 @@ export default function Home() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);  
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -33,7 +33,7 @@ export default function Home() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []); 
+  }, []);
 
   /* PREVIOUS HERO IMAGES COMMENTED OUT
   const heroImages = [
@@ -78,64 +78,11 @@ export default function Home() {
     date: "14-16 May 2025",
     title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
   },
-  {
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
-    date: "16-18 Nov 2025",
-    title: "SAP 2025: IIT Indore to host the prestigious Symposium on Advanced Photonics, bringing together experts in light-based technologies.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&h=400&fit=crop",
-    date: "8-12 Dec 2025",
-    title: "ICDP Workshop: A 5-day workshop on 'Information, Communications and Data Processing' to be held at the institute.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
-    date: "11-13 Dec 2025",
-    title: "AIMTDR 2025: 10th International Conference on Manufacturing Technology, Design and Research to be hosted by Dept. of Mechanical Engineering.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
-    date: "16-20 Dec 2025",
-    title: "ICISS 2025: The International Conference on Information Systems Security will be held at IIT Indore, focusing on cybersecurity advancements.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop",
-    date: "15-26 Dec 2025",
-    title: "GIAN Course: 'The Exciting Landscape of Precision Medicines and Therapeutics' course to be offered by IIT Indore.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
-    date: "21-23 Mar 2025",
-    title: "CSE Open-house Symposium 3.0: Featuring expert talks, coding competitions, and research presentations from the CSE department.",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop",
-    date: "January 2026",
-    title: "Fluxus 2026: Get ready for IIT Indore's annual techno-cultural festival, promising innovation, art, and entertainment.",
-  },
+
 ]
 
   const excellenceItems = [
-    {
-      image: "/sic-ppl.png",
-      title: "Research Innovation",
-      description: "Cutting-edge research initiatives driving technological advancement and scientific discovery.",
-    },
-    {
-      image: "/sic-ppl2.png",
-      title: "Research Innovation",
-      description: "Cutting-edge research initiatives driving technological advancement and scientific discovery.",
-    },
-    {
-      image: "/sic-ppl.png",
-      title: "Research Innovation",
-      description: "Cutting-edge research initiatives driving technological advancement and scientific discovery.",
-    },
-    {
-      image: "/sic-ppl2.png",
-      title: "Research Innovation",
-      description: "Cutting-edge research initiatives driving technological advancement and scientific discovery.",
-    },
+
   ]
 
   const truncateText = (text, limit) => {
@@ -151,22 +98,15 @@ export default function Home() {
     }
   }
 
-  const scrollExcellence = (direction) => {
-    if (direction === "next") {
-      setExcellenceIndex((prev) => (prev + 1) % excellenceItems.length)
-    } else {
-      setExcellenceIndex((prev) => (prev - 1 + excellenceItems.length) % excellenceItems.length)
-    }
-  }
+const getVisibleItems = (items, currentIndex) => {
+  if (items.length <= 4) return items 
 
-  const getVisibleItems = (items, currentIndex) => {
-    const visible = []
-    for (let i = 0; i < 4; i++) {
-      visible.push(items[(currentIndex + i) % items.length])
-    }
-    return visible
+  const visible = []
+  for (let i = 0; i < 4; i++) {
+    visible.push(items[(currentIndex + i) % items.length])
   }
-
+  return visible
+}
   const getSundayClassName = ({ date, view }) => {
     if (view === 'month' && date.getDay() === 0) {
       return 'sunday-tile'
@@ -175,7 +115,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
-      
+
       {false && (
         <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden group">
           {/* Image Container with Fade Transitions */}
@@ -199,7 +139,7 @@ export default function Home() {
           >
             <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
-          
+
           {/* Right Navigation Arrow */}
           <button
             onClick={nextHeroImage}
@@ -280,7 +220,7 @@ export default function Home() {
         >
           <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
         </button>
-        
+
         {/* Right Navigation Arrow */}
         <button
           onClick={nextHeroImage}
@@ -345,11 +285,10 @@ export default function Home() {
           <div className="relative max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6 bg-white animate-on-scroll stagger-${index + 1}`}
                 >
-                  {/* NEW: Added Image to Event Cards */}
                   <img
                     src={item.image}
                     alt={item.title}
@@ -401,8 +340,8 @@ export default function Home() {
           <div className="relative max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {getVisibleItems(excellenceItems, excellenceIndex).map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-6 bg-white animate-on-scroll stagger-${index + 1}`}
                 >
                   <img
