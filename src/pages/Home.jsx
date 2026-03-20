@@ -84,22 +84,25 @@ export default function Home() {
   const excellenceItems = [
 
   ]
+  const canScroll = eventsItems.length > 4
 
   const truncateText = (text, limit) => {
     if (text.length <= limit) return text
     return text.slice(0, limit) + "..."
   }
 
-  const scrollEvents = (direction) => {
-    if (direction === "next") {
-      setEventsIndex((prev) => (prev + 1) % eventsItems.length)
-    } else {
-      setEventsIndex((prev) => (prev - 1 + eventsItems.length) % eventsItems.length)
-    }
+ const scrollEvents = (direction) => {
+  if (eventsItems.length <= 4) return
+
+  if (direction === "next") {
+    setEventsIndex((prev) => (prev + 1) % eventsItems.length)
+  } else {
+    setEventsIndex((prev) => (prev - 1 + eventsItems.length) % eventsItems.length)
   }
+}
 
 const getVisibleItems = (items, currentIndex) => {
-  if (items.length <= 4) return items 
+  if (items.length <= 4) return items
 
   const visible = []
   for (let i = 0; i < 4; i++) {
@@ -283,7 +286,11 @@ const getVisibleItems = (items, currentIndex) => {
             Events & Workshops
           </h2>
           <div className="relative max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+           <div className={`grid gap-6
+  ${eventsItems.length === 1 ? "grid-cols-1 max-w-md mx-auto" : ""}
+  ${eventsItems.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto" : ""}
+  ${eventsItems.length >= 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" : ""}
+`}>
               {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
                 <div
                   key={index}
@@ -310,15 +317,18 @@ const getVisibleItems = (items, currentIndex) => {
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-between mt-6 sm:mt-8 gap-4 animate-on-scroll">
               <div className="flex gap-2">
-                <button
-                  onClick={() => scrollEvents("prev")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Previous"
-                >
+              <button
+  onClick={() => scrollEvents("prev")}
+  disabled={!canScroll}
+  className={`w-10 h-10 rounded-full flex items-center justify-center
+    ${canScroll ? "bg-black hover:bg-gray-800 text-white" : "bg-gray-300 text-gray-500 cursor-not-allowed"}`}
+>
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => scrollEvents("next")}
+  disabled={!canScroll}
+
                   className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
                   aria-label="Next"
                 >
@@ -333,58 +343,6 @@ const getVisibleItems = (items, currentIndex) => {
         </div>
       </section>
 
-      {/* Excellence in Every Dimension */}
-      {/* <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 animate-on-scroll">Excellence in Every Dimension</h2>
-          <div className="relative max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {getVisibleItems(excellenceItems, excellenceIndex).map((item, index) => (
-                <div
-                  key={index}
-                  className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-6 bg-white animate-on-scroll stagger-${index + 1}`}
-                >
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.title}
-                    className="w-full h-40 object-cover rounded-lg mb-4"
-                  />
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">{truncateText(item.description, 80)}</p>
-                  <Link
-                  to="/excellence"
-                  className="text-xs sm:text-sm text-blue-600 hover:underline font-medium"
-                  aria-label={`Read more about ${item.title}`}
-                  >
-                    Read more
-                  </Link>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-between mt-8 gap-4 animate-on-scroll">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => scrollExcellence("prev")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => scrollExcellence("next")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
-              <Link to="/excellence" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                View More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Impact at a Glance Section */}
       <section className="py-16 sm:py-20 bg-gray-50">
