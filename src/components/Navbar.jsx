@@ -8,10 +8,9 @@ function Navbar() {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/instruments", label: "Instruments" },
-    { path: "/booking", label: "Book Now" },
+    { path: "https://sicbooking.iiti.ac.in/login", label: "Book Now" },
     { path: "/about", label: "About SIC", dropdown: true },
     { path: "/contact", label: "Contact" },
-    { path: "/login", label: "Login" },
   ];
 
   const aboutDropdownItems = [
@@ -63,38 +62,45 @@ function Navbar() {
   );
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-      <div className="max-w-full px-4 sm:px-6 lg:px-14">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-         <Link
-  to="/"
-  aria-label="Go to Homepage"
-  className="flex items-center gap-3 flex-shrink-0"
->
-  {/* IIT Logo */}
-  <img
-    src="/iiti-logo.png"
-    alt="IIT Indore Logo"
-    className="h-12 w-auto"
-  />
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+<div className="flex items-center gap-4">
+  {/* Logo */}
+  <Link
+    to="/"
+    className="flex items-center gap-2 hover:opacity-90 transition-opacity"
+  >
+    <img
+      src="/iiti-logo.png"
+      alt="IIT Indore Logo"
+      className="h-16 w-16 object-contain"
+    />
 
-  {/* Text Block */}
- <div className="flex flex-col justify-center leading-tight max-w-[320px]">
-  <span className="text-[13px] sm:text-[17px] font-semibold text-black tracking-tight">
-    Sophisticated Instrumentation Centre
-  </span>
+    <div className="flex flex-col leading-tight">
+      <span className="text-[14px] font-semibold text-gray-900">
+        भारतीय प्रौद्योगिकी संस्थान इंदौर
+      </span>
+      <span className="block w-full border-b border-black my-0.5"></span>
+      <span className="text-[10px] text-gray-700">
+        INDIAN INSTITUTE OF TECHNOLOGY INDORE
+      </span>
+    </div>
+  </Link>
 
-  <span className="block w-full border-b border-black my-0.5"></span>
+  {/* Divider */}
+  <div className="h-12 w-[1px] bg-blue-500 shrink-0"></div>
 
-  <span className="text-[11px] sm:text-[13px] text-gray-700">
-    Indian Institute of Technology Indore
-  </span>
+  {/* SIC Text */}
+  <div className="flex flex-col leading-tight">
+    <span className="text-[24px] text-black font-bold">
+      Sophisticated Instrumentation
+    </span>
+    <span className="text-[24px] font-bold text-black">
+      Centre
+    </span>
+  </div>
 </div>
-
-</Link>
-
-
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
             {/* First 3 items */}
@@ -104,11 +110,10 @@ function Navbar() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? "bg-blue-600 text-white shadow-sm"
-                      : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
-                  }`}
+                  className={`whitespace-nowrap px-4 py-2 rounded-lg text-m font-semibold transition-colors duration-200 ${isActive
+                    ? "bg-blue-600 text-white shadow-sm"
+                    : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -118,7 +123,7 @@ function Navbar() {
             {/* About SIC Dropdown */}
             <div className="relative group">
               <button
-                className="whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1"
+                className="whitespace-nowrap px-4 py-2 rounded-lg text-m font-semibold text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
@@ -155,11 +160,10 @@ function Navbar() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? "bg-blue-600 text-white shadow-sm"
-                      : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
-                  }`}
+                  className={`whitespace-nowrap px-4 py-2 rounded-lg text-m font-semibold transition-colors duration-200 ${isActive
+                    ? "bg-blue-600 text-white shadow-sm"
+                    : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -208,21 +212,19 @@ function Navbar() {
       </div>
 
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={closeMobileMenu}
         aria-hidden="true"
       >
         {/* Mobile Drawer */}
         <div
-          className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex flex-col h-full p-6">
-      
+
             <button
               onClick={closeMobileMenu}
               className="self-end mb-6 text-gray-600 hover:text-black text-2xl w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
@@ -232,17 +234,16 @@ function Navbar() {
             </button>
 
             <div className="flex flex-col gap-4 overflow-y-auto">
-           
+
               {navItems.slice(0, 3).map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={closeMobileMenu}
-                  className={`text-lg font-medium transition-colors px-3 py-2 rounded-lg ${
-                    isActivePath(item.path)
-                      ? "bg-blue-50 text-blue-600"
-                      : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
-                  }`}
+                  className={`text-lg font-medium transition-colors px-3 py-2 rounded-lg ${isActivePath(item.path)
+                    ? "bg-blue-50 text-blue-600"
+                    : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -258,11 +259,10 @@ function Navbar() {
                     key={item.path}
                     to={item.path}
                     onClick={closeMobileMenu}
-                    className={`block text-base font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${
-                      isActivePath(item.path)
-                        ? "bg-blue-50 text-blue-600"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                    }`}
+                    className={`block text-base font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${isActivePath(item.path)
+                      ? "bg-blue-50 text-blue-600"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -275,11 +275,10 @@ function Navbar() {
                     key={item.path}
                     to={item.path}
                     onClick={closeMobileMenu}
-                    className={`block text-lg font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${
-                      isActivePath(item.path)
-                        ? "bg-blue-50 text-blue-600"
-                        : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
-                    }`}
+                    className={`block text-lg font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${isActivePath(item.path)
+                      ? "bg-blue-50 text-blue-600"
+                      : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
+                      }`}
                   >
                     {item.label}
                   </Link>

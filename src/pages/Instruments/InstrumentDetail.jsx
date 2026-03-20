@@ -128,9 +128,8 @@ const InstrumentDetail = () => {
                     key={index}
                     src={image}
                     alt={`${instrument.name} view ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${
-                      index === currentImageIndex ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                      }`}
                     onError={(e) => {
                       console.error(`Failed to load image: ${image}`);
                       e.target.src =
@@ -221,11 +220,12 @@ const InstrumentDetail = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
                 {/* Physical Location */}
-                <div className="bg-[#ececec] p-6 flex flex-col justify-between">
+                <div className="bg-[#ececec] p-6 flex flex-col justify-start">
                   <h3 className="text-2xl font-bold mb-3">Physical Location</h3>
-                  <div className="text-[#111827] space-y-1">
-                    <p>3D Printing Lab</p>
-                    <p>Room No. WS 109D, Central Workshop</p>
+                  <div className="text-[#111827] ">
+                    {instrument.location}
+                    <p>SIC Building</p>
+
                     <p>Indian Institute of Technology Indore</p>
                     <p>Khandwa Road, Simrol, Indore – 453552</p>
                   </div>
@@ -233,44 +233,15 @@ const InstrumentDetail = () => {
 
                 {/* Coordinator */}
                 <div className="bg-[#ececec] p-6 flex flex-col justify-between">
-                  <h3 className="text-2xl font-bold mb-3">Coordinator</h3>
+                  <h3 className="text-2xl font-bold mb-3">Facility Manager</h3>
                   <div className="space-y-1">
                     <p className="font-medium">{instrument.handledBy}</p>
-                    <p>Head, Central Workshop</p>
-                    <p>Indian Institute of Technology Indore</p>
-
-                    <div className="flex items-center gap-2 mt-3">
-                      <Phone className="w-4 h-4" />
-                      <span className="text-sm">+91-11-26591949</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <Mail className="w-4 h-4" />
-                      <a
-                        href={`mailto:${instrument.email}`}
-                        className="text-sm hover:underline"
-                      >
-                        {instrument.email}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Lab Staff */}
-                <div className="bg-[#ececec] p-6 flex flex-col justify-between">
-                  <h3 className="text-2xl font-bold mb-3">Lab Staff</h3>
-                  <div className="space-y-1">
-                    <p className="font-medium">
-                      {instrument.handledBy} –{" "}
-                      <span className="font-normal">Project Attendant</span>
+                    <p>
+                      {instrument.position ? instrument.position : "Technical Superintendent, SIC"}
                     </p>
-                    <p>Room No. 614B, POD A</p>
                     <p>Indian Institute of Technology Indore</p>
 
-                    <div className="flex items-center gap-2 mt-3">
-                      <Phone className="w-4 h-4" />
-                      <span className="text-sm">011-2659-6702</span>
-                    </div>
+
 
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4" />
@@ -284,6 +255,7 @@ const InstrumentDetail = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           </section>
         </div>
