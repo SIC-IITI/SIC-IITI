@@ -50,6 +50,14 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
+  const nextHeroImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
+  }
+
+  const prevHeroImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)
+  }
+
   const eventsItems = [
     {
       date: "16-18 Nov 2025",
@@ -142,9 +150,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
       
-
       {/* Hero Section */}
-      <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden">
+      <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden group">
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -158,11 +165,29 @@ export default function Home() {
           ))}
         </div>
 
+        {/* Left Navigation Arrow */}
+        <button
+          onClick={prevHeroImage}
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black/20 text-white hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+        </button>
+        
+        {/* Right Navigation Arrow */}
+        <button
+          onClick={nextHeroImage}
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black/20 text-white hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100"
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+        </button>
+
         {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-black/50 mix-blend-multiply pointer-events-none" aria-hidden="true" />
 
         {/* Content Overlay */}
-        <div className="relative z-10 container mx-auto px-6 sm:px-8 lg:px-12 xl:px-28 h-full flex items-center">
+        <div className="relative z-20 container mx-auto px-6 sm:px-8 lg:px-12 xl:px-28 h-full flex items-center">
           <div className="max-w-3xl animate-on-scroll">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow">
               Welcome To
@@ -191,7 +216,7 @@ export default function Home() {
         </div>
 
         {/* Image Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
           {heroImages.map((_, index) => (
             <button
               key={index}
