@@ -73,42 +73,47 @@ export default function Home() {
   }
 
   const eventsItems = [
-    {
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
-      date: "16-18 Nov 2025",
-      title: "SAP 2025: IIT Indore to host the prestigious Symposium on Advanced Photonics, bringing together experts in light-based technologies.",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&h=400&fit=crop",
-      date: "8-12 Dec 2025",
-      title: "ICDP Workshop: A 5-day workshop on 'Information, Communications and Data Processing' to be held at the institute.",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
-      date: "11-13 Dec 2025",
-      title: "AIMTDR 2025: 10th International Conference on Manufacturing Technology, Design and Research to be hosted by Dept. of Mechanical Engineering.",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
-      date: "16-20 Dec 2025",
-      title: "ICISS 2025: The International Conference on Information Systems Security will be held at IIT Indore, focusing on cybersecurity advancements.",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop",
-      date: "15-26 Dec 2025",
-      title: "GIAN Course: 'The Exciting Landscape of Precision Medicines and Therapeutics' course to be offered by IIT Indore.",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
-      date: "21-23 Mar 2025",
-      title: "CSE Open-house Symposium 3.0: Featuring expert talks, coding competitions, and research presentations from the CSE department.",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop",
-      date: "January 2026",
-      title: "Fluxus 2026: Get ready for IIT Indore's annual techno-cultural festival, promising innovation, art, and entertainment.",
-    },
-  ]
+  {
+    image: "/event1.png",
+    date: "14-16 May 2025",
+    title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop",
+    date: "16-18 Nov 2025",
+    title: "SAP 2025: IIT Indore to host the prestigious Symposium on Advanced Photonics, bringing together experts in light-based technologies.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600&h=400&fit=crop",
+    date: "8-12 Dec 2025",
+    title: "ICDP Workshop: A 5-day workshop on 'Information, Communications and Data Processing' to be held at the institute.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+    date: "11-13 Dec 2025",
+    title: "AIMTDR 2025: 10th International Conference on Manufacturing Technology, Design and Research to be hosted by Dept. of Mechanical Engineering.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop",
+    date: "16-20 Dec 2025",
+    title: "ICISS 2025: The International Conference on Information Systems Security will be held at IIT Indore, focusing on cybersecurity advancements.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop",
+    date: "15-26 Dec 2025",
+    title: "GIAN Course: 'The Exciting Landscape of Precision Medicines and Therapeutics' course to be offered by IIT Indore.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+    date: "21-23 Mar 2025",
+    title: "CSE Open-house Symposium 3.0: Featuring expert talks, coding competitions, and research presentations from the CSE department.",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop",
+    date: "January 2026",
+    title: "Fluxus 2026: Get ready for IIT Indore's annual techno-cultural festival, promising innovation, art, and entertainment.",
+  },
+]
 
   const excellenceItems = [
     {
@@ -253,13 +258,13 @@ export default function Home() {
       )}
 
       {/* --- NEW HERO SECTION (IMAGES ONLY) --- */}
-      <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gray-100 overflow-hidden group">
+      <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
             <div
               key={index}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+              className={`absolute inset-0 bg-contain bg-center bg-no-repeat transition-opacity duration-1000 ${
                 index === currentImageIndex ? 'opacity-100' : 'opacity-0'
               }`}
               style={{ backgroundImage: `url("${image}")` }}
@@ -270,7 +275,7 @@ export default function Home() {
         {/* Left Navigation Arrow */}
         <button
           onClick={prevHeroImage}
-          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black/20 text-white hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100"
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -279,7 +284,7 @@ export default function Home() {
         {/* Right Navigation Arrow */}
         <button
           onClick={nextHeroImage}
-          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black/20 text-white hover:bg-black/50 transition-all opacity-0 group-hover:opacity-100"
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -291,8 +296,8 @@ export default function Home() {
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentImageIndex ? 'bg-white w-8' : 'bg-white/60 hover:bg-white/80'
+              className={`w-3 h-3 rounded-full transition-all duration-300 shadow-sm ${
+                index === currentImageIndex ? 'bg-black w-8' : 'bg-black/30 hover:bg-black/60'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
