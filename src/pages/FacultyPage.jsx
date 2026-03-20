@@ -57,10 +57,7 @@ export default function FacultyPage() {
             />
 
       <main className="team-page-main">
-        <SectionTitle
-          title="Our Team"
-          subtitle="Meet the dedicated individuals who make SIC Community a thriving community of mechanical engineering enthusiasts at IIT Indore."
-        />
+        
 
         {/* Faculty Advisor */}
         <div className="team-section">
@@ -79,7 +76,7 @@ export default function FacultyPage() {
 
         {/* Core Team */}
         <div className="team-section">
-          <h3 className="team-heading">Core Team</h3>
+          <h3 className="team-heading">Technical Team</h3>
           <p className="team-subtext">The backbone of our organization</p>
 
           <div className="team-grid f-core-team">

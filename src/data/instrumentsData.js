@@ -30,6 +30,7 @@ export const instrumentsData = [
       "Polymorphism and co-crystal studies",
     ],
     handledBy: "Mr. Kinny Pandey",
+    location: " SC-XRD lab",
     email: "kinny@iiti.ac.in",
     images: [
       "/assets/instruments/X-Ray/SCXRD/xs1.png",
@@ -81,6 +82,8 @@ export const instrumentsData = [
       "Forensic trace evidence analysis",
     ],
     handledBy: "Mr. Kinny Pandey",
+    location: " EDS/EDX lab",
+
     email: "kinny@iiti.ac.in",
     images: [
       "/assets/instruments/X-Ray/EDS-EDX/xe1.png",
@@ -213,8 +216,9 @@ export const instrumentsData = [
       "Thin film thickness and roughness measurement",
       "Nanoparticle size and shape characterization",
     ],
-    handledBy: "Mr. Kinny Pandey",
-    email: "kinny@iiti.ac.in",
+ handledBy: "Dr. Ravinder  ",
+    email: "ravinderk@iiti.ac.in",
+    position:"Junior Technical Superintendent, SIC",
     images: ["/assets/instruments/Microscopy/AFM/ma1.png"],
   },
 
@@ -240,8 +244,9 @@ export const instrumentsData = [
       "Live cell imaging and dynamics",
       "Fluorescence microscopy of labeled samples",
     ],
-    handledBy: "Mr. Kinny Pandey",
-    email: "kinny@iiti.ac.in",
+    handledBy: "Dr. Ravinder  ",
+    email: "ravinderk@iiti.ac.in",
+    position:"Junior Technical Superintendent, SIC",
     images: [
       "/assets/instruments/Microscopy/CLSM/mc1.png",
       "/assets/instruments/Microscopy/CLSM/mc2.png",
@@ -436,6 +441,7 @@ export const instrumentsData = [
       "Quantitative and qualitative analysis in beverage industry",
       "General chemical research measurements",
     ],
+    position:" Technical Superintendent, SIC",
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: [
@@ -509,8 +515,8 @@ export const instrumentsData = [
       "Remote fiber-based fluorescence detection",
       "Long-lived luminescence studies via phosphor meter",
     ],
-    handledBy: "SIC",
-    email: "sic@iiti.ac.in",
+     handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
     images: [
       "/assets/instruments/Spectroscopy/Spectrofluorometer/s_sflu1.png",
       "/assets/instruments/Spectroscopy/Spectrofluorometer/s_sflu2.png",
@@ -555,6 +561,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
+    location : "LC-MS lab",
     images: "/assets/instruments/Chromatography/LC-HRMS/chlo_lc.png",
   },
 
@@ -595,6 +602,8 @@ export const instrumentsData = [
       "Forensic applications including drug identification, dye analysis, blood drug quantification, and volatile compound analysis",
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
+    location : "LC-MS lab",
+
     email: "ghanashyam@iiti.ac.in",
     images: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png",
   },
@@ -635,6 +644,7 @@ export const instrumentsData = [
       "Typical analysis time: 20–100 minutes depending on GC method",
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
+    location : "LC-MS lab",
     email: "ghanashyam@iiti.ac.in",
     images: [
       "/assets/instruments/Chromatography/GC-MS/chro_gc1.png",
@@ -674,8 +684,10 @@ export const instrumentsData = [
       "Sample size: pieces < 5 mm",
       "Typical sample weight: 2–10 mg",
     ],
-    handledBy: "Er. Atul Singh",
+    handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
+        position:"Junior Technical Assistant, SIC",
+
     images: [
       "/assets/instruments/Thermal-Analysis/TGA/ta_t1.png",
       "/assets/instruments/Thermal-Analysis/TGA/ta_t2.png",
@@ -707,8 +719,10 @@ export const instrumentsData = [
       "Identification of crystallization temperature (Tc) and melting temperature (Tm)",
       "Construction of phase diagrams using transition temperatures and enthalpies",
     ],
-    handledBy: "Er. Atul Singh",
+    handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
+        position:"Junior Technical Assistant, SIC",
+
     images: [
       "/assets/instruments/Thermal-Analysis/DSC/ta_d1.png",
       "/assets/instruments/Thermal-Analysis/DSC/ta_d2.png",
@@ -745,8 +759,9 @@ export const instrumentsData = [
       "Micropore volume and micropore surface area estimation",
       "Mapping surface energetic heterogeneity",
     ],
-    handledBy: "Er. Atul Singh",
+    handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
+    position: "Junior Technical Assistant, SIC",
 
     images: [
       "/assets/instruments/Bet-Surface-Analyzer/bet1.png",
@@ -815,8 +830,9 @@ export const instrumentsData = [
       "Since many of these catalyst systems involve large quantities of noble metals such as platinum, palladium and rhenium, mismanagement of this testing would entail serious financial losses.",
       "In food analysis, the determination of nitrogen (as a surrogate for protein) is very important for pricing grain and evaluating meat products, and is increasingly undertaken by combustion analysis.",
     ],
-    handledBy: "Er. Atul Singh",
+    handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
+    position: "Junior Technical Assistant, SIC",
     images: [
       "/assets/instruments/Element-Analyzer/elean1.png",
       "/assets/instruments/Element-Analyzer/elean2.png",
@@ -863,8 +879,10 @@ export const instrumentsData = [
       "Mammalian cell culture",
       "MALDI-TOF MS sample preparation",
     ],
-    handledBy: "Er. Atul Singh",
+    handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
+        position:"Junior Technical Assistant, SIC",
+
     images: ["/assets/instruments/MilliQ-DI-Water/mdw1.png"],
   },
   {
@@ -898,8 +916,9 @@ export const instrumentsData = [
       "Chemical synthesis applications for stabilizing or improving solubility of compounds",
       "Taxidermy preservation through freeze-dried mounts",
     ],
-    handledBy: "Er. Atul Singh",
-    email: "lyophilizer@iiti.ac.in",
+    handledBy: "Mr. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+        position:"Junior Technical Assistant, SIC",
     images: [
       "/assets/instruments/Lyophilizer/lyo1.png",
       "/assets/instruments/Lyophilizer/lyo2.png",
@@ -936,8 +955,8 @@ export const instrumentsData = [
       "Essential oil analysis",
       "Regulatory compliance testing",
     ],
-    handledBy: "Lab Coordinator",
-    email: "contact@iiti.ac.in",
+     handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
     images: ["/assets/instruments/polarimeter-image.png"],
   },
 
@@ -971,8 +990,8 @@ export const instrumentsData = [
       "Cosmetic product development",
       "Viscoelastic property determination",
     ],
-    handledBy: "Lab Coordinator",
-    email: "contact@iiti.ac.in",
+     handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
     images: "/assets/instruments/rheometer-image.png",
   },
   {
@@ -1036,6 +1055,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
+    position:"Quality Analyst, SIC",
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/ICP-OES/image.png",
     ],
@@ -1065,6 +1085,8 @@ export const instrumentsData = [
       "It is also utilized for functional group identification in unknown compounds. For example; Ketones, Aldehydes, Carboxylic Acids and so on.",
     ],
     handledBy: "Mr. Kunal Bhadra",
+    position:"Quality Analyst, SIC",
+
     email: "kunalb@iiti.ac.in",
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/FT-IR/image.png",
@@ -1097,6 +1119,8 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
+    position:"Quality Analyst, SIC",
+
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image2.png",
@@ -1127,6 +1151,8 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
+    position:"Quality Analyst, SIC",
+
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/AK-Viscometer/image.png",
     ],
@@ -1156,6 +1182,8 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
+    position:"Quality Analyst, SIC",
+
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/B-Viscometer/image.png",
     ],
@@ -1184,6 +1212,8 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
+    position:"Quality Analyst, SIC",
+
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Millipore/image.png",
     ],
