@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -50px 0px', 
+      rootMargin: '0px 0px -50px 0px',
       threshold: 0.1
     };
 
@@ -24,7 +24,7 @@ export default function Home() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);  
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -33,10 +33,10 @@ export default function Home() {
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []); 
+  }, []);
 
   const heroImages = [
-    "/sic.png",
+    "/slider1.png",
     "/sic-ppl.png",
     "/sic-ppl2.png",
     "/close-sic.png"
@@ -141,7 +141,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
-      
+
 
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden">
@@ -245,9 +245,9 @@ export default function Home() {
           <div className="relative max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
-                <div 
-                  key={index} 
-                  
+                <div
+                  key={index}
+
                   className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6 animate-on-scroll stagger-${index + 1}`}
                 >
                   <div className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
@@ -296,8 +296,8 @@ export default function Home() {
           <div className="relative max-w-7xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {getVisibleItems(excellenceItems, excellenceIndex).map((item, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-6 bg-white animate-on-scroll stagger-${index + 1}`}
                 >
                   <img

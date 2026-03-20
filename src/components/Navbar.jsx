@@ -66,30 +66,42 @@ function Navbar() {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo Section */}
-          <Link
-            to="/"
-            className="flex items-center gap-4 hover:opacity-90 transition-opacity"
-          >
-            {/* IIT Logo */}
-            <img
-              src="/iiti-logo.png"
-              alt="IIT Indore Logo"
-              className="h-12 w-12 object-contain"
-            />
-            {/* Text Block */}
-            <div className="flex flex-col justify-center leading-tight max-w-[320px]">
-              <span className="text-[13px] sm:text-[17px] font-semibold text-black tracking-tight">
-                Sophisticated Instrumentation Centre
-              </span>
+     {/* Header Section */}
+<div className="w-full flex items-center justify-between px-6 py-4 border-b">
 
-              <span className="block w-full border-b border-black my-0.5"></span>
+  {/* LEFT: Logo + Institute Identity */}
+  <Link
+    to="/"
+    className="flex items-center gap-4 hover:opacity-90 transition-opacity"
+  >
+    <img
+      src="/iiti-logo.png"
+      alt="IIT Indore Logo"
+      className="h-16 w-16 object-contain"
+    />
 
-              <span className="text-[11px] sm:text-[13px] text-gray-700">
-                Indian Institute of Technology Indore
-              </span>
-            </div>
-          </Link>
+    <div className="flex flex-col leading-tight">
+      <span className="text-[15px] sm:text-[16px] font-semibold text-black">
+        भारतीय प्रौद्योगिकी संस्थान इंदौर
+      </span>
+
+      <span className="w-full border-b border-black my-1"></span>
+
+      <span className="text-[14px] sm:text-[16px] text-gray-800">
+        Indian Institute of Technology Indore
+      </span>
+    </div>
+  </Link>
+
+  {/* RIGHT: Facility Branding (like SAPTARSHI) */}
+  <div className="hidden md:flex flex-col items-end text-right">
+
+    <span className="text-[20px] font-bold tracking-wide">
+       Sophisticated Instrumentation Centre
+    </span>
+  </div>
+
+</div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
