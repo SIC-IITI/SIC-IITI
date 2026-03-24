@@ -46,16 +46,16 @@ export default function Home() {
 
   // NEW HERO IMAGES
   const heroImages = [
-    "/nmr500.png",
-    "/lc-hrms.png",
-    "/gc-ms.png",
-    "/clsm.png",
-    "/bet.png",
-    "/tga.png",
-    "/dsc.png",
-    "/hplc.png"
-  ]
 
+    { src: "/nmr500.png", id: "nmr-500" },
+    { src: "/lc-hrms.png", id: "lc-hrms" },
+    { src: "/gc-ms.png", id: "gc-ms" },
+    { src: "/clsm.png", id: "clsm" },
+    { src: "/bet.png", id: "bet-surface-area" },
+    { src: "/tga.png", id: "tga" },
+    { src: "/dsc.png", id: "dsc" },
+    { src: "/hplc.png", id: "hplc-rp" }
+  ]
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
@@ -73,17 +73,18 @@ export default function Home() {
   }
 
   const eventsItems = [
-  {
-    image: "/event1.png",
-    date: "14-16 May 2025",
-    title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
-  },
+    {
+      image: "/event1.png",
+      date: "14-16 May 2025",
+      title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
+    },
 
-]
+  ]
 
   const excellenceItems = [
 
   ]
+  const canScroll = eventsItems.length > 4
 
   const truncateText = (text, limit) => {
     if (text.length <= limit) return text
@@ -91,6 +92,8 @@ export default function Home() {
   }
 
   const scrollEvents = (direction) => {
+    if (eventsItems.length <= 4) return
+
     if (direction === "next") {
       setEventsIndex((prev) => (prev + 1) % eventsItems.length)
     } else {
@@ -98,15 +101,15 @@ export default function Home() {
     }
   }
 
-const getVisibleItems = (items, currentIndex) => {
-  if (items.length <= 4) return items 
+  const getVisibleItems = (items, currentIndex) => {
+    if (items.length <= 4) return items
 
-  const visible = []
-  for (let i = 0; i < 4; i++) {
-    visible.push(items[(currentIndex + i) % items.length])
+    const visible = []
+    for (let i = 0; i < 4; i++) {
+      visible.push(items[(currentIndex + i) % items.length])
+    }
+    return visible
   }
-  return visible
-}
   const getSundayClassName = ({ date, view }) => {
     if (view === 'month' && date.getDay() === 0) {
       return 'sunday-tile'
@@ -123,9 +126,8 @@ const getVisibleItems = (items, currentIndex) => {
             {heroImages.map((image, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
                 style={{ backgroundImage: `url("${image}")` }}
               />
             ))}
@@ -168,14 +170,14 @@ const getVisibleItems = (items, currentIndex) => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/instruments">
-                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                  Explore
-                </button>
+                  <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+                    Explore
+                  </button>
                 </Link>
                 <Link to="/booking">
-                <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                  Book
-                </button>
+                  <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
+                    Book
+                  </button>
                 </Link>
               </div>
             </div>
@@ -187,9 +189,8 @@ const getVisibleItems = (items, currentIndex) => {
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentImageIndex ? 'bg-white w-8' : 'bg-white/60 hover:bg-white/80'
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-white w-8' : 'bg-white/60 hover:bg-white/80'
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -202,13 +203,17 @@ const getVisibleItems = (items, currentIndex) => {
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
-            <div
+            <Link
               key={index}
-              className={`absolute inset-0 bg-contain bg-center bg-no-repeat transition-opacity duration-1000 ${
-                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-              }`}
-              style={{ backgroundImage: `url("${image}")` }}
-            />
+              to={`/instruments/${image.id}`}
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0'
+                }`}
+            >
+              <div
+                className="w-full h-full bg-contain bg-center bg-no-repeat cursor-pointer hover:scale-105 transition-transform duration-300"
+                style={{ backgroundImage: `url("${image.src}")` }}
+              />
+            </Link>
           ))}
         </div>
 
@@ -236,9 +241,8 @@ const getVisibleItems = (items, currentIndex) => {
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 shadow-sm ${
-                index === currentImageIndex ? 'bg-black w-8' : 'bg-black/30 hover:bg-black/60'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 shadow-sm ${index === currentImageIndex ? 'bg-black w-8' : 'bg-black/30 hover:bg-black/60'
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -275,7 +279,71 @@ const getVisibleItems = (items, currentIndex) => {
           </div>
         </div>
       </section>
+    {/* Message from Head - SIC */}
+<section className="py-16 sm:py-20 bg-gray-50">
+  <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
 
+    {/* Heading */}
+    <div className="text-center mb-12 animate-on-scroll">
+      <div className="flex items-center justify-center gap-4 mb-4">
+        <div className="h-px w-20 bg-gray-300" />
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          Message from Head – SIC
+        </h2>
+        <div className="h-px w-20 bg-gray-300" />
+      </div>
+      <p className="text-sm text-gray-500">
+        Professor in Charge | Sophisticated Instrumentation Centre – A National Facility
+      </p>
+    </div>
+
+    {/* Main Card */}
+    <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10 animate-on-scroll">
+
+      <div className="grid md:grid-cols-3 gap-8 items-center">
+
+        {/* LEFT: Image */}
+        <div className="flex flex-col items-center text-center">
+          <img
+            src="/assets/FacultyPhotos/Team_1.png"
+            alt="Head of SIC"
+            className="w-60 h-60 rounded-full object-cover shadow-md mb-4"
+          />
+
+          <h3 className="font-semibold text-gray-900">
+           Prof. Apurba K. Das
+          </h3>
+          <p className="text-sm text-gray-500">
+            Professor In Charge, SIC
+          </p>
+        </div>
+
+        {/* RIGHT: Message */}
+        <div className="md:col-span-2 text-gray-700 leading-relaxed text-justify space-y-4">
+
+          {/* Quote icon */}
+          <p className="text-4xl text-gray-300 leading-none">“</p>
+
+          <p>
+            The Sophisticated Instrumentation Centre (SIC) at IIT Indore, Simrol campus, is equipped with state-of-the-art, high-end instruments facilities that enable researchers to explore advanced instruments in all disciplines. The facility houses well-established facilities including chromatography, microscopy, spectroscopy, X-ray characterization, thermal analysis, optical and physical property characterization.
+          </p>
+
+          <p>
+            These advanced facilities are extensively used by undergraduate and postgraduate students, research scholars, and faculty members to support cutting-edge research. In addition, the Centre extends its services to external users such as industries, national laboratories, research organizations, and academic institutions on payment basis.
+          </p>
+
+          {/* Signature */}
+          <div className="pt-4">
+            <p className="font-semibold text-gray-900">
+              — Professor In Charge
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Events & Workshops Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
@@ -283,7 +351,11 @@ const getVisibleItems = (items, currentIndex) => {
             Events & Workshops
           </h2>
           <div className="relative max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className={`grid gap-6
+  ${eventsItems.length === 1 ? "grid-cols-1 max-w-md mx-auto" : ""}
+  ${eventsItems.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto" : ""}
+  ${eventsItems.length >= 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" : ""}
+`}>
               {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
                 <div
                   key={index}
@@ -312,13 +384,16 @@ const getVisibleItems = (items, currentIndex) => {
               <div className="flex gap-2">
                 <button
                   onClick={() => scrollEvents("prev")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Previous"
+                  disabled={!canScroll}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center
+    ${canScroll ? "bg-black hover:bg-gray-800 text-white" : "bg-gray-300 text-gray-500 cursor-not-allowed"}`}
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => scrollEvents("next")}
+                  disabled={!canScroll}
+
                   className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
                   aria-label="Next"
                 >
@@ -333,58 +408,6 @@ const getVisibleItems = (items, currentIndex) => {
         </div>
       </section>
 
-      {/* Excellence in Every Dimension */}
-      {/* <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 animate-on-scroll">Excellence in Every Dimension</h2>
-          <div className="relative max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {getVisibleItems(excellenceItems, excellenceIndex).map((item, index) => (
-                <div
-                  key={index}
-                  className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-6 bg-white animate-on-scroll stagger-${index + 1}`}
-                >
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.title}
-                    className="w-full h-40 object-cover rounded-lg mb-4"
-                  />
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">{truncateText(item.description, 80)}</p>
-                  <Link
-                  to="/excellence"
-                  className="text-xs sm:text-sm text-blue-600 hover:underline font-medium"
-                  aria-label={`Read more about ${item.title}`}
-                  >
-                    Read more
-                  </Link>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-between mt-8 gap-4 animate-on-scroll">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => scrollExcellence("prev")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => scrollExcellence("next")}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
-              <Link to="/excellence" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                View More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Impact at a Glance Section */}
       <section className="py-16 sm:py-20 bg-gray-50">

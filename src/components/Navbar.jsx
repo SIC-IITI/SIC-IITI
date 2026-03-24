@@ -93,10 +93,9 @@ function Navbar() {
 
   {/* SIC Text */}
   <div className="flex flex-col leading-tight">
-    <span className="text-[24px] text-black font-bold">
+    <span className="text-[18px] text-black font-bold">
       Sophisticated Instrumentation
-    </span>
-    <span className="text-[24px] font-bold text-black">
+
       Centre
     </span>
   </div>
