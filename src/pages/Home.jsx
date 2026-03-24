@@ -55,7 +55,16 @@ export default function Home() {
     "/dsc.png",
     "/hplc.png"
   ]
-
+const heroImages1 = [
+  { src: "/nmr500.png", id: "nmr500" },
+  { src: "/lc-hrms.png", id: "lc-hrms" },
+  { src: "/gc-ms.png", id: "gc-ms" },
+  { src: "/clsm.png", id: "clsm" },
+  { src: "/bet.png", id: "bet" },
+  { src: "/tga.png", id: "tga" },
+  { src: "/dsc.png", id: "dsc" },
+  { src: "/hplc.png", id: "hplc" }
+]
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)

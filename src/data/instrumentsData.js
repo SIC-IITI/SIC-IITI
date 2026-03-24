@@ -120,8 +120,8 @@ export const instrumentsData = [
       "Corrosion and failure analysis",
       "Quality control in coating applications",
     ],
-    handledBy: "Er. Atul Singh",
-    email: "atul.singh@iiti.ac.in",
+    handledBy: "Mr. Kinny Pandey",
+    email: "kinny@iiti.ac.in",
     images: ["/assets/instruments/X-Ray/BSE-BSD/xb1.png"],
   },
 
@@ -216,9 +216,9 @@ export const instrumentsData = [
       "Thin film thickness and roughness measurement",
       "Nanoparticle size and shape characterization",
     ],
- handledBy: "Dr. Ravinder  ",
+    handledBy: "Dr. Ravinder  ",
     email: "ravinderk@iiti.ac.in",
-    position:"Junior Technical Superintendent, SIC",
+    position: "Junior Technical Superintendent, SIC",
     images: ["/assets/instruments/Microscopy/AFM/ma1.png"],
   },
 
@@ -246,7 +246,7 @@ export const instrumentsData = [
     ],
     handledBy: "Dr. Ravinder  ",
     email: "ravinderk@iiti.ac.in",
-    position:"Junior Technical Superintendent, SIC",
+    position: "Junior Technical Superintendent, SIC",
     images: [
       "/assets/instruments/Microscopy/CLSM/mc1.png",
       "/assets/instruments/Microscopy/CLSM/mc2.png",
@@ -280,6 +280,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
+    location: "NMR lab",
     images: [
       "/assets/instruments/Spectroscopy/NMR-500/snmr500_2.png",
       "/assets/instruments/Spectroscopy/NMR-500/snmr500_1.png",
@@ -309,6 +310,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
+    location: "NMR lab",
     images: [
       "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.png",
       "/assets/instruments/Spectroscopy/NMR-400/snmr400_2.png",
@@ -441,7 +443,7 @@ export const instrumentsData = [
       "Quantitative and qualitative analysis in beverage industry",
       "General chemical research measurements",
     ],
-    position:" Technical Superintendent, SIC",
+    position: " Technical Superintendent, SIC",
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: [
@@ -515,7 +517,7 @@ export const instrumentsData = [
       "Remote fiber-based fluorescence detection",
       "Long-lived luminescence studies via phosphor meter",
     ],
-     handledBy: "Mr. Kinny Pandey",
+    handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
       "/assets/instruments/Spectroscopy/Spectrofluorometer/s_sflu1.png",
@@ -561,7 +563,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
-    location : "LC-MS lab",
+    location: "LC-MS lab",
     images: "/assets/instruments/Chromatography/LC-HRMS/chlo_lc.png",
   },
 
@@ -602,7 +604,7 @@ export const instrumentsData = [
       "Forensic applications including drug identification, dye analysis, blood drug quantification, and volatile compound analysis",
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
-    location : "LC-MS lab",
+    location: "LC-MS lab",
 
     email: "ghanashyam@iiti.ac.in",
     images: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png",
@@ -644,7 +646,7 @@ export const instrumentsData = [
       "Typical analysis time: 20–100 minutes depending on GC method",
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
-    location : "LC-MS lab",
+    location: "LC-MS lab",
     email: "ghanashyam@iiti.ac.in",
     images: [
       "/assets/instruments/Chromatography/GC-MS/chro_gc1.png",
@@ -686,7 +688,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
-        position:"Junior Technical Assistant, SIC",
+    position: "Junior Technical Assistant, SIC",
 
     images: [
       "/assets/instruments/Thermal-Analysis/TGA/ta_t1.png",
@@ -721,7 +723,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
-        position:"Junior Technical Assistant, SIC",
+    position: "Junior Technical Assistant, SIC",
 
     images: [
       "/assets/instruments/Thermal-Analysis/DSC/ta_d1.png",
@@ -881,7 +883,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
-        position:"Junior Technical Assistant, SIC",
+    position: "Junior Technical Assistant, SIC",
 
     images: ["/assets/instruments/MilliQ-DI-Water/mdw1.png"],
   },
@@ -918,7 +920,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Atul Singh",
     email: "atul.singh@iiti.ac.in",
-        position:"Junior Technical Assistant, SIC",
+    position: "Junior Technical Assistant, SIC",
     images: [
       "/assets/instruments/Lyophilizer/lyo1.png",
       "/assets/instruments/Lyophilizer/lyo2.png",
@@ -955,7 +957,7 @@ export const instrumentsData = [
       "Essential oil analysis",
       "Regulatory compliance testing",
     ],
-     handledBy: "Mr. Kinny Pandey",
+    handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: ["/assets/instruments/polarimeter-image.png"],
   },
@@ -990,7 +992,7 @@ export const instrumentsData = [
       "Cosmetic product development",
       "Viscoelastic property determination",
     ],
-     handledBy: "Mr. Kinny Pandey",
+    handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: "/assets/instruments/rheometer-image.png",
   },
@@ -1055,7 +1057,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    position:"Quality Analyst, SIC",
+    position: "Quality Analyst, SIC",
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/ICP-OES/image.png",
     ],
@@ -1085,7 +1087,7 @@ export const instrumentsData = [
       "It is also utilized for functional group identification in unknown compounds. For example; Ketones, Aldehydes, Carboxylic Acids and so on.",
     ],
     handledBy: "Mr. Kunal Bhadra",
-    position:"Quality Analyst, SIC",
+    position: "Quality Analyst, SIC",
 
     email: "kunalb@iiti.ac.in",
     images: [
@@ -1119,7 +1121,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    position:"Quality Analyst, SIC",
+    position: "Quality Analyst, SIC",
 
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
@@ -1151,7 +1153,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    position:"Quality Analyst, SIC",
+    position: "Quality Analyst, SIC",
 
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/AK-Viscometer/image.png",
@@ -1182,7 +1184,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    position:"Quality Analyst, SIC",
+    position: "Quality Analyst, SIC",
 
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/B-Viscometer/image.png",
@@ -1212,7 +1214,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",
-    position:"Quality Analyst, SIC",
+    position: "Quality Analyst, SIC",
 
     images: [
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Millipore/image.png",
@@ -1224,7 +1226,7 @@ export const instrumentsData = [
 
 export const getInstrumentsByCategory = (category) => {
   return instrumentsData.filter(
-    (instrument) => instrument.category === category
+    (instrument) => instrument.category === category,
   );
 };
 
@@ -1246,8 +1248,8 @@ export const searchInstruments = (searchTerm) => {
       instrument.category.toLowerCase().includes(term) ||
       instrument.applications.some((app) => app.toLowerCase().includes(term)) ||
       instrument.features.some((feature) =>
-        feature.toLowerCase().includes(term)
-      )
+        feature.toLowerCase().includes(term),
+      ),
   );
 };
 
