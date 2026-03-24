@@ -564,7 +564,7 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     location: "LC-MS lab",
-    images: "/assets/instruments/Chromatography/LC-HRMS/chlo_lc.png",
+    images: ["/assets/instruments/Chromatography/LC-HRMS/image.png"],
   },
 
   {
@@ -605,9 +605,8 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     location: "LC-MS lab",
-
     email: "ghanashyam@iiti.ac.in",
-    images: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png",
+    images: ["/assets/instruments/Chromatography/HPLC-RP/chro_hp.png"],
   },
 
   {
