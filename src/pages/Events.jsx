@@ -12,70 +12,7 @@ export default function EventsPage() {
   fullDescription:
     "A 3-day hands-on workshop on Advanced Microscopy organized by the Sophisticated Instrumentation Centre, IIT Indore. The program covers key microscopy techniques including Atomic Force Microscopy (AFM), Confocal Microscopy, Field-Emission Scanning Electron Microscopy (FESEM), and Fluorescence Microscopy. Participants will gain practical experience through live demonstrations, specimen preparation, and analysis of microscopic structures. The workshop also focuses on real-world applications in materials science and advanced research.",
   venue: "Sophisticated Instrumentation Centre, IIT Indore",
-},
-  {
-    date: "16-18 Nov 2025",
-    title:
-      "SAP 2025: IIT Indore to host the prestigious Symposium on Advanced Photonics, bringing together experts in light-based technologies.",
-    image: "/event1.png",
-    fullDescription:
-      "The Symposium on Advanced Photonics (SAP) 2025 is a premier international conference...",
-    venue: "Main Auditorium, IIT Indore",
-  },
-  {
-    date: "8-12 Dec 2025",
-    title:
-      "ICDP Workshop: A 5-day workshop on 'Information, Communications and Data Processing' to be held at the institute.",
-    image: "/event1.png",
-    fullDescription:
-      "This comprehensive 5-day workshop focuses on the latest advances in information theory...",
-    venue: "CSE Department, IIT Indore",
-  },
-  {
-    date: "11-13 Dec 2025",
-    title:
-      "AIMTDR 2025: 10th International Conference on Manufacturing Technology, Design and Research.",
-    image: "/event1.png",
-    fullDescription:
-      "AIMTDR 2025 is the 10th edition of the International Conference on Advances in Materials...",
-    venue: "Mechanical Engineering Block, IIT Indore",
-  },
-  {
-    date: "16-20 Dec 2025",
-    title:
-      "ICISS 2025: The International Conference on Information Systems Security focusing on cybersecurity.",
-    image: "/event1.png",
-    fullDescription:
-      "ICISS 2025 is a premier forum for presenting advances in information systems security...",
-    venue: "Computer Science Block, IIT Indore",
-  },
-  {
-    date: "15-26 Dec 2025",
-    title:
-      "GIAN Course: The Exciting Landscape of Precision Medicines and Therapeutics.",
-    image: "/event1.png",
-    fullDescription:
-      "This GIAN course provides a comprehensive overview of precision medicine...",
-    venue: "Biosciences Department, IIT Indore",
-  },
-  {
-    date: "21-23 Mar 2025",
-    title:
-      "CSE Open-house Symposium 3.0 with coding competitions and research presentations.",
-    image: "/event1.png",
-    fullDescription:
-      "The CSE Open-house Symposium 3.0 showcases research and innovation...",
-    venue: "CSE Department, IIT Indore",
-  },
-  {
-    date: "January 2026",
-    title:
-      "Fluxus 2026: IIT Indore's annual techno-cultural festival.",
-    image: "/event1.png",
-    fullDescription:
-      "Fluxus 2026 is IIT Indore's flagship techno-cultural festival...",
-    venue: "IIT Indore Campus",
-  },
+}
 ]
 
   const truncateText = (text, limit) => {
