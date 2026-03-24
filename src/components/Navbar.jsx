@@ -16,8 +16,8 @@ function Navbar() {
   const aboutDropdownItems = [
     { path: "/about", label: "About Us" },
     { path: "/outreach", label: "Outreach" },
-    { path: "/team", label: "SIC Team" },
-    { path: "/faculty", label: "SIC Committee" },
+    { path: "/team", label: "SIC Committee" },
+    { path: "/faculty", label: "SIC Team" },
   ];
 
   // Close mobile menu on route change

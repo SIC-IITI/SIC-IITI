@@ -320,9 +320,9 @@ export const instrumentsData = [
   {
     id: "ft-ir",
     name: "FT-IR",
-    fullName: "Fourier Transform Infrared Spectrometer (FT-IR)",
+    fullName: "Fourier Transform Infrared Spectrometer ",
     category: "Spectroscopy",
-    model: "Fourier Transform Infrared Spectrometer (FT-IR), Tensor 27, BRUKER",
+    model: "Fourier Transform Infrared Spectrometer , Tensor 27, BRUKER",
     usageCharges: {
       internal: "₹ 400 per sample",
       external: "₹ 900 per sample",

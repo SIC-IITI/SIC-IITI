@@ -436,6 +436,35 @@ const getVisibleItems = (items, currentIndex) => {
           </div>
         </div>
       </section>
+
+      {/* SIC Virtual Tour Section */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+          <div className="text-center mb-12 md:mb-16 animate-on-scroll">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="h-px w-20 sm:w-24 bg-gray-300" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">SIC Virtual Tour</h2>
+              <div className="h-px w-20 sm:w-24 bg-gray-300" />
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
+              Take a virtual walk through our state-of-the-art facilities and explore the advanced instrumentation available for research and innovation.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl animate-on-scroll stagger-2">
+            <div className="aspect-video relative">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/IDo-YS_Bq-w?si=Slpj7ejr45PwZDk1"
+                title="SIC Virtual Tour"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

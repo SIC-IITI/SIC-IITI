@@ -37,40 +37,31 @@ function Footer() {
             </div>
           </div>
 
-          {/* Academics Column 1 (Replaced Social Section) */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold mb-6">Academics</h3>
+            <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="/instruments"
                   className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
                 >
-                  Programs
+                  Instruments
                 </a>
               </li>
               <li>
                 <a
-                  href="/about"
+                  href="https://sicbooking.iiti.ac.in/"
                   className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
                 >
-                  About Us
+                  Book Now
                 </a>
               </li>
               <li>
                 <a
-                  href="/faculty"
+                  href="/outreach"
                   className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
                 >
-                  Faculty
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/team"
-                  className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
-                >
-                  SIC Committee
+                  Outreach
                 </a>
               </li>
             </ul>
@@ -78,7 +69,7 @@ function Footer() {
 
           {/* Map Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-blue-100">Find Us</h3>
+            <h3 className="text-lg font-semibold mb-4 text-blue-100">SIC site map</h3>
             <div className="rounded-lg overflow-hidden border-2 border-blue-700 h-40">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.7182177022667!2d75.92113631617562!3d22.521357539163045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962efca9295cb87%3A0x400d3f62307a32d1!2sSIC%20-%20A%20National%20Facility!5e0!3m2!1sen!2sin!4v1664003429130!5m2!1sen!2sin" // Note: This src URL looks like a placeholder

@@ -90,7 +90,7 @@ const InstrumentDetail = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 ">
       {/* Hero Header */}
-      <div className="relative max-w-6xl mx-auto ">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-20">
         <div className="mb-4 sm:mb-6">
           <h1
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-2"
@@ -119,8 +119,9 @@ const InstrumentDetail = () => {
 
       <div className="max-w-7xl mx-auto">
         {/* Image Slideshow Section */}
-        <div className="mb-8 sm:mb-12 sm:px-6 lg:px-20">
-          <div className="relative w-96 max-w-4xl  h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] overflow-hidden ">
+        <div className="mb-8 sm:mb-12 px-4 sm:px-6 lg:px-20 flex justify-center">
+          {/* Adjusted to be nicely sized but not overwhelming */}
+          <div className="relative w-full max-w-4xl h-64 sm:h-80 md:h-[400px] lg:h-[500px] overflow-hidden">
             {images.length > 0 ? (
               <>
                 {images.map((image, index) => (
@@ -128,8 +129,10 @@ const InstrumentDetail = () => {
                     key={index}
                     src={image}
                     alt={`${instrument.name} view ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
-                      }`}
+                    // Added mix-blend-multiply here to remove the white background visually
+                    className={`absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-opacity duration-1000 p-2 sm:p-4 ${
+                      index === currentImageIndex ? "opacity-100" : "opacity-0"
+                    }`}
                     onError={(e) => {
                       console.error(`Failed to load image: ${image}`);
                       e.target.src =
@@ -145,7 +148,8 @@ const InstrumentDetail = () => {
             )}
           </div>
         </div>
-        <div className={`flex flex-wrap gap-3 px-20 sm:px-6 lg:px-20 mb-2`}>
+        
+        <div className="flex flex-wrap gap-3 px-4 sm:px-6 lg:px-20 mb-2">
           <button
             onClick={() => navigate(`/booking`)}
             className="flex items-center gap-2 px-6 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition-all shadow-md active:scale-95"
@@ -207,7 +211,7 @@ const InstrumentDetail = () => {
           </div>
         )}
 
-        {/* Contact Section - Modified wrapper to center content */}
+        {/* Contact Section */}
         <div className="w-full">
           <section className="py-12 mx-auto px-4 sm:px-16 lg:px-8 justify-center bg-white">
             <div className="max-w-7xl mx-auto px-6">
@@ -225,7 +229,6 @@ const InstrumentDetail = () => {
                   <div className="text-[#111827] ">
                     {instrument.location}
                     <p>SIC Building</p>
-
                     <p>Indian Institute of Technology Indore</p>
                     <p>Khandwa Road, Simrol, Indore – 453552</p>
                   </div>
@@ -240,8 +243,6 @@ const InstrumentDetail = () => {
                       {instrument.position ? instrument.position : "Technical Superintendent, SIC"}
                     </p>
                     <p>Indian Institute of Technology Indore</p>
-
-
 
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4" />

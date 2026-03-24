@@ -78,7 +78,7 @@ export default function TeamPage() {
 
         {/* Core Team */}
         <div className="team-section">
-          <h3 className="team-heading">Core Team</h3>
+          <h3 className="team-heading">Core Committee</h3>
           <p className="team-subtext">The backbone of our organization</p>
 
           <div className="team-grid core-team">

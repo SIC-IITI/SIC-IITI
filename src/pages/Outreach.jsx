@@ -5,7 +5,7 @@ function Outreach() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const carouselImages = [
-    "/sic-ppl.png",
+    "/director.png",
     "/sic-ppl2.png",
     "/close-sic.png",
     "/sic.png"
@@ -20,6 +20,12 @@ function Outreach() {
   }
 
   const visitors = [
+    {
+      date: "Oct 15, 2025",
+      title: "Prof Irina A. Kurzina VISIT SIC",
+      description: "Professor from Tomsk state university, Russia Visit SIC",
+      image: "/visit.png"
+    },
     {
       date: "July 24, 2025",
       title: "FOREIGN ARMY OFFICERS VISIT SIC",
