@@ -6,6 +6,8 @@ export const instrumentsData = [
     fullName: "Single Crystal X-Ray Diffractometer",
     category: "X-Ray",
     model: "Agilent Technologies Super Nova System",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,200 per sample",
       external: "₹ 2,500 per sample",
@@ -53,6 +55,8 @@ export const instrumentsData = [
     fullName: "Energy Dispersive X-Ray Spectroscopy",
     category: "X-Ray",
     model: "Oxford X-MAX 20",
+    showInStatus: true,
+    status: "Under Maintenance",
     usageCharges: {
       internal: "₹ 800 per hour",
       external: "₹ 1,800 per hour",
@@ -97,6 +101,8 @@ export const instrumentsData = [
     fullName: "Backscattered Electron Detector",
     category: "X-Ray",
     model: "Gemini 360",
+    showInStatus: true,
+    status: "Not Working",
     usageCharges: {
       internal: "₹ 600 per hour",
       external: "₹ 1,400 per hour",
@@ -132,6 +138,8 @@ export const instrumentsData = [
     fullName: "Field Emission Scanning Electron Microscope",
     category: "Microscopy",
     model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -168,6 +176,8 @@ export const instrumentsData = [
     fullName: "Advanced Field Emission Scanning Electron Microscope",
     category: "Microscopy",
     model: "Carl Zeiss Gemini 360",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,800 per hour",
       external: "₹ 3,500 per hour",
@@ -200,6 +210,8 @@ export const instrumentsData = [
     fullName: "Atomic Force Microscope",
     category: "Microscopy",
     model: "Atomic Force Microscope",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,200 per hour",
       external: "₹ 2,500 per hour",
@@ -228,6 +240,8 @@ export const instrumentsData = [
     fullName: "Confocal Laser Scanning Microscope",
     category: "Microscopy",
     model: "Confocal Laser Scanning Microscope",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,000 per hour",
       external: "₹ 2,200 per hour",
@@ -261,6 +275,8 @@ export const instrumentsData = [
     fullName: "Nuclear Magnetic Resonance(NMR) 500MHz",
     category: "Spectroscopy",
     model: "AVANCE NEO Ascend 500 Bruker BioSpin International AG",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,000 per hour",
       external: "₹ 2,200 per hour",
@@ -294,6 +310,8 @@ export const instrumentsData = [
     fullName: "Nuclear Magnetic Resonance(NMR) 400MHz",
     category: "Spectroscopy",
     model: "AVANCE NEO Ascend 400 Bruker BioSpin International AG",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 800 per hour",
       external: "₹ 1,800 per hour",
@@ -323,6 +341,8 @@ export const instrumentsData = [
     fullName: "Fourier Transform Infrared Spectrometer ",
     category: "Spectroscopy",
     model: "Fourier Transform Infrared Spectrometer , Tensor 27, BRUKER",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 400 per sample",
       external: "₹ 900 per sample",
@@ -348,6 +368,8 @@ export const instrumentsData = [
     fullName: "Time-Correlated Single Photon Counting",
     category: "Spectroscopy",
     model: "(TCSPC), Horiba",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 700 per hour",
       external: "₹ 1,600 per hour",
@@ -379,6 +401,8 @@ export const instrumentsData = [
     fullName: "Circular Dichroism Spectropolarimeter",
     category: "Spectroscopy",
     model: "JASCO J-815 Circular Dichroism Spectropolarimeter",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 900 per hour",
       external: "₹ 2,000 per hour",
@@ -419,6 +443,8 @@ export const instrumentsData = [
     fullName: "UV-Visible Spectrophotometer",
     category: "Spectroscopy",
     model: "Varian Cary 100 Bio UV-Visible Spectrophotometer",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 300 per sample",
       external: "₹ 700 per sample",
@@ -447,8 +473,8 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: [
-      "/assets/instruments/Spectroscopy/UV-Visible-Spectrophotometer/s_uvspe1.png",
-      "/assets/instruments/Spectroscopy/UV-Visible-Spectrophotometer/s_uvspe2.png",
+      "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/s_uvspe1.png",
+      "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/s_uvspe2.png",
     ],
   },
 
@@ -458,6 +484,8 @@ export const instrumentsData = [
     fullName: "UV-VIS-NIR Spectrophotometer",
     category: "Spectroscopy",
     model: "Perkin-Elmer LAMBDA 750 UV-VIS-NIR Spectrophotometer",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 500 per sample",
       external: "₹ 1,100 per sample",
@@ -491,6 +519,8 @@ export const instrumentsData = [
     fullName: "FluoroMax-4 Spectrofluorometer",
     category: "Spectroscopy",
     model: "FluoroMax SPEX® (FluoroMax-4)",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 600 per hour",
       external: "₹ 1,400 per hour",
@@ -533,6 +563,8 @@ export const instrumentsData = [
     category: "Chromatography",
     make: "Waters",
     model: "ACQUITY H-Class Plus UPLC + Xevo G3 QTOF",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 600 per sample",
       external: "₹ 1,500 per sample",
@@ -574,6 +606,8 @@ export const instrumentsData = [
     category: "Chromatography",
     make: "Thermo Scientific",
     model: "Vanquish Core",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 500 per sample",
       external: "₹ 1,200 per sample",
@@ -615,6 +649,8 @@ export const instrumentsData = [
     fullName: "Gas Chromatography – Mass Spectrometer",
     category: "Chromatography",
     model: "Shimadzu GSMS-QP2010 Ultra",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 700 per sample",
       external: "₹ 1,600 per sample",
@@ -660,6 +696,8 @@ export const instrumentsData = [
     fullName: "Thermogravimetric Analyzer",
     category: "Thermal Analysis",
     model: "METTLER TOLEDO TGA/DSC 1 STARe System",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -701,6 +739,8 @@ export const instrumentsData = [
     fullName: "Differential Scanning Calorimeter",
     category: "Thermal Analysis",
     model: "PerkinElmer DSC 8000",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -736,6 +776,8 @@ export const instrumentsData = [
     fullName: "BET Surface Area Analyzer (Autosorb iQ2)",
     category: "Surface-Analysis",
     model: "Quantachrome Autosorb iQ2 (Anton Paar)",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -778,6 +820,8 @@ export const instrumentsData = [
     fullName: "Microwave Reactor (Monowave 200)",
     category: "Chemical-Synthesis",
     model: "Anton Paar Monowave 200 with MAS 24 Autosampler",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -815,6 +859,8 @@ export const instrumentsData = [
     fullName: "CHNS Elemental Analyzer",
     category: "Elemental Analysis",
     model: "Flash 2000",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -847,6 +893,8 @@ export const instrumentsData = [
     fullName: "Milli-Q Ultrapure & DI Water System",
     category: "Water-Purification",
     model: "Merck Millipore Milli-Q System",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 100 per 10 liters",
       external: "₹ 300 per 10 liters",
@@ -894,6 +942,8 @@ export const instrumentsData = [
     fullName: "Freeze Dryer (Lyophilizer)",
     category: "Sample-Preparation",
     model: "LABCONCO Lyophilizer",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -934,6 +984,8 @@ export const instrumentsData = [
     fullName: "Optical Rotation Measurement",
     category: "Optical Analysis",
     model: "Automatic Polarimeter",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 500 per hour",
       external: "₹ 1,200 per hour",
@@ -969,6 +1021,8 @@ export const instrumentsData = [
     fullName: "Rheological Property Analysis",
     category: "Material Testing",
     model: "Rotational Rheometer",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 600 per hour",
       external: "₹ 1,500 per hour",
@@ -1003,6 +1057,8 @@ export const instrumentsData = [
     fullName: "LN500 Liquid Nitrogen Plant (StirLIN)",
     category: "Cryogenics",
     model: "LN500",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -1040,6 +1096,8 @@ export const instrumentsData = [
     fullName: "Inductively Coupled Plasma Optical Emission Spectroscopy",
     category: "Centre of Excellence",
     model: "Agilent 5800",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -1070,6 +1128,8 @@ export const instrumentsData = [
     fullName: "FT-IR Spectrometer",
     category: "Centre of Excellence",
     model: "Bruker ALPHA II",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 100 per 10 liters",
       external: "₹ 300 per 10 liters",
@@ -1102,6 +1162,8 @@ export const instrumentsData = [
     fullName: "Pensky-Martens Flash Point Tester",
     category: "Centre of Excellence",
     model: "Anton Paar-PMA 300",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -1136,6 +1198,8 @@ export const instrumentsData = [
     fullName: "Kinematic Viscosity Measurement",
     category: "Centre of Excellence",
     model: "Anton Paar – SVM 1101 Sample Fill",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -1167,6 +1231,8 @@ export const instrumentsData = [
     fullName: "Brookfield Viscosity Measurement",
     category: "Centre of Excellence",
     model: "AMETEK DV2T LV",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -1198,6 +1264,8 @@ export const instrumentsData = [
     fullName: "Millipore Test System",
     category: "Centre of Excellence",
     model: "Millipore (Merck)",
+    showInStatus: true,
+    status: "Operational",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
