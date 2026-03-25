@@ -65,8 +65,8 @@ function Navbar() {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-<div className="flex items-center gap-4">
-  {/* Logo */}
+<div className="flex items-center gap-3">
+  {/* Logo + IIT */}
   <Link
     to="/"
     className="flex items-center gap-2 hover:opacity-90 transition-opacity"
@@ -74,29 +74,35 @@ function Navbar() {
     <img
       src="/iiti-logo.png"
       alt="IIT Indore Logo"
-      className="h-16 w-16 object-contain"
+      className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
     />
 
     <div className="flex flex-col leading-tight">
-      <span className="text-[14px] font-semibold text-gray-900">
-        भारतीय प्रौद्योगिकी संस्थान इंदौर
+      {/* Desktop */}
+      <span className="hidden sm:block text-sm font-semibold text-gray-900">
+        IIT Indore
       </span>
-      <span className="block w-full border-b border-black my-0.5"></span>
-      <span className="text-[10px] text-gray-700">
-        INDIAN INSTITUTE OF TECHNOLOGY INDORE
+
+      {/* Mobile */}
+      <span className="block sm:hidden text-sm font-semibold text-gray-900">
+        IIT
       </span>
     </div>
   </Link>
 
   {/* Divider */}
-  <div className="h-12 w-[1px] bg-blue-500 shrink-0"></div>
+  <div className="h-10 w-[1px] bg-blue-500 shrink-0"></div>
 
-  {/* SIC Text */}
+  {/* SIC */}
   <div className="flex flex-col leading-tight">
-    <span className="text-[18px] text-black font-bold">
-      Sophisticated Instrumentation
+    {/* Desktop */}
+    <span className="hidden sm:block text-lg font-bold text-black">
+      Sophisticated Instrumentation Centre
+    </span>
 
-      Centre
+    {/* Mobile */}
+    <span className="block sm:hidden text-base font-bold text-black">
+      SIC
     </span>
   </div>
 </div>
