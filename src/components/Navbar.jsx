@@ -10,6 +10,7 @@ function Navbar() {
     { path: "/instruments", label: "Instruments" },
     { path: "https://sicbooking.iiti.ac.in/login", label: "Book Now" },
     { path: "/about", label: "About SIC", dropdown: true },
+    { path: "/dst-fist", label: "DST-FIST" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -95,7 +96,6 @@ function Navbar() {
   <div className="flex flex-col leading-tight">
     <span className="text-[18px] text-black font-bold">
       Sophisticated Instrumentation
-
       Centre
     </span>
   </div>
@@ -153,6 +153,8 @@ function Navbar() {
                 ))}
               </div>
             </div>
+            
+            {/* Remaining items (DST-FIST, Contact) */}
             {navItems.slice(4).map((item) => {
               const isActive = isActivePath(item.path);
               return (
@@ -268,6 +270,7 @@ function Navbar() {
                 ))}
               </div>
 
+              {/* Remaining items */}
               <div className="border-t border-gray-200 pt-4 mt-2">
                 {navItems.slice(4).map((item) => (
                   <Link

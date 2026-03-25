@@ -22,6 +22,8 @@ import TeamPage from "./pages/TeamPage";
 import Events from "./pages/Events";
 import Outreach from "./pages/Outreach";
 import ExcellencePage from "./pages/Excellence";
+import DstFist from "./pages/DstFist"; 
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white w-full max-w-8xl mx-auto px-4 sm:px-6 md:px-6 lg:px-12 xl:px-20">
@@ -45,6 +47,7 @@ export default function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/outreach" element={<Outreach />} />
           <Route path="/excellence" element={<ExcellencePage />} />
+          <Route path="/dst-fist" element={<DstFist />} /> {/* Added Route */}
         </Routes>
       </main>
       <Footer />
