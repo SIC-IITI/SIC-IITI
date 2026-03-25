@@ -82,7 +82,9 @@ const InstrumentsPage = () => {
             style={{ fontFamily: "Cantata one" }}
           >
             <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto">
-              View Appointment Slot
+              <a href="https://people.iiti.ac.in/~nkjain/facilities.php" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-900">
+                View Appointment Slot
+              </a>
             </button>
             <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto">
               View Facility Status

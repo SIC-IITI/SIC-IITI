@@ -279,71 +279,71 @@ export default function Home() {
           </div>
         </div>
       </section>
-    {/* Message from Head - SIC */}
-<section className="py-16 sm:py-20 bg-gray-50">
-  <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+      {/* Message from Head - SIC */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
 
-    {/* Heading */}
-    <div className="text-center mb-12 animate-on-scroll">
-      <div className="flex items-center justify-center gap-4 mb-4">
-        <div className="h-px w-20 bg-gray-300" />
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          Message from Head – SIC
-        </h2>
-        <div className="h-px w-20 bg-gray-300" />
-      </div>
-      <p className="text-sm text-gray-500">
-        Professor in Charge | Sophisticated Instrumentation Centre – A National Facility
-      </p>
-    </div>
-
-    {/* Main Card */}
-    <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10 animate-on-scroll">
-
-      <div className="grid md:grid-cols-3 gap-8 items-center">
-
-        {/* LEFT: Image */}
-        <div className="flex flex-col items-center text-center">
-          <img
-            src="/assets/FacultyPhotos/Team_1.png"
-            alt="Head of SIC"
-            className="w-60 h-60 rounded-full object-cover shadow-md mb-4"
-          />
-
-          <h3 className="font-semibold text-gray-900">
-           Prof. Apurba K. Das
-          </h3>
-          <p className="text-sm text-gray-500">
-            Professor In Charge, SIC
-          </p>
-        </div>
-
-        {/* RIGHT: Message */}
-        <div className="md:col-span-2 text-gray-700 leading-relaxed text-justify space-y-4">
-
-          {/* Quote icon */}
-          <p className="text-4xl text-gray-300 leading-none">“</p>
-
-          <p>
-            The Sophisticated Instrumentation Centre (SIC) at IIT Indore, Simrol campus, is equipped with state-of-the-art, high-end instruments facilities that enable researchers to explore advanced instruments in all disciplines. The facility houses well-established facilities including chromatography, microscopy, spectroscopy, X-ray characterization, thermal analysis, optical and physical property characterization.
-          </p>
-
-          <p>
-            These advanced facilities are extensively used by undergraduate and postgraduate students, research scholars, and faculty members to support cutting-edge research. In addition, the Centre extends its services to external users such as industries, national laboratories, research organizations, and academic institutions on payment basis.
-          </p>
-
-          {/* Signature */}
-          <div className="pt-4">
-            <p className="font-semibold text-gray-900">
-              — Professor In Charge
+          {/* Heading */}
+          <div className="text-center mb-12 animate-on-scroll">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="h-px w-20 bg-gray-300" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                Message from Head – SIC
+              </h2>
+              <div className="h-px w-20 bg-gray-300" />
+            </div>
+            <p className="text-sm text-gray-500">
+              Professor in Charge | Sophisticated Instrumentation Centre – A National Facility
             </p>
           </div>
 
+          {/* Main Card */}
+          <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10 animate-on-scroll">
+
+            <div className="grid md:grid-cols-3 gap-8 items-center">
+
+              {/* LEFT: Image */}
+              <div className="flex flex-col items-center text-center">
+                <img
+                  src="/assets/FacultyPhotos/Team_1.png"
+                  alt="Head of SIC"
+                  className="w-60 h-60 rounded-18 object-cover shadow-md mb-4"
+                />
+
+                <h3 className="font-semibold text-gray-900">
+                  Prof. Apurba K. Das
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Professor In Charge, SIC
+                </p>
+              </div>
+
+              {/* RIGHT: Message */}
+              <div className="md:col-span-2 text-gray-700 leading-relaxed text-justify space-y-4">
+
+                {/* Quote icon */}
+                <p className="text-4xl text-gray-300 leading-none">“</p>
+
+                <p>
+                  The Sophisticated Instrumentation Centre (SIC) at IIT Indore, Simrol campus, is equipped with state-of-the-art, high-end instruments facilities that enable researchers to explore advanced instruments in all disciplines. The facility houses well-established facilities including chromatography, microscopy, spectroscopy, X-ray characterization, thermal analysis, optical and physical property characterization.
+                </p>
+
+                <p>
+                  These advanced facilities are extensively used by undergraduate and postgraduate students, research scholars, and faculty members to support cutting-edge research. In addition, the Centre extends its services to external users such as industries, national laboratories, research organizations, and academic institutions on payment basis.
+                </p>
+
+                {/* Signature */}
+                <div className="pt-4">
+                  <p className="font-semibold text-gray-900">
+                    — Professor In Charge
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
       {/* Events & Workshops Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
@@ -423,7 +423,7 @@ export default function Home() {
               <div className="text-4xl font-bold text-gray-900 mb-2">
                 <CountUp end={1000} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
-              <div className="text-gray-600">Student enrolled</div>
+              <div className="text-gray-600">Students Users</div>
             </div>
 
             <div className="text-center animate-on-scroll stagger-2">
@@ -431,9 +431,9 @@ export default function Home() {
                 <GraduationCap className="w-12 h-12 text-white" />
               </div>
               <div className="text-4xl font-bold text-gray-900 mb-2">
-                <CountUp end={25} duration={1} enableScrollSpy scrollSpyOnce />+
+                <CountUp end={7} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
-              <div className="text-gray-600">Academics Progress</div>
+              <div className="text-gray-600">Total departments</div>
             </div>
 
             <div className="text-center animate-on-scroll stagger-3">
@@ -443,7 +443,7 @@ export default function Home() {
               <div className="text-4xl font-bold text-gray-900 mb-2">
                 <CountUp end={100} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
-              <div className="text-gray-600">Faculty Members</div>
+              <div className="text-gray-600">Faculty Users</div>
             </div>
 
             <div className="text-center animate-on-scroll stagger-4">

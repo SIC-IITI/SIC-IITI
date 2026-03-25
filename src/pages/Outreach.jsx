@@ -86,7 +86,7 @@ function Outreach() {
           <div className="max-w-7xl mx-auto">
             {/* New flex wrapper for laptop layout */}
             <div className="flex items-center justify-center gap-2 lg:gap-4">
-              
+
               {/* Previous Button (Laptop) */}
               <button
                 onClick={prevImage}
@@ -98,12 +98,12 @@ function Outreach() {
 
               {/* Original relative container, now a flex item */}
               <div className="relative flex-1">
-                <img 
-                  src={carouselImages[currentImageIndex]} 
-                  alt="Outreach Activities" 
-                  className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-lg shadow-md border-4 border-blue-400"    
+                <img
+                  src={carouselImages[currentImageIndex]}
+                  alt="Outreach Activities"
+                  className="w-full h-80 sm:h-80 md:h-96 object-cover rounded-lg shadow-md border-4 border-blue-400"
                 />
-                
+
                 {/* Previous Button (Mobile) - now hidden on large screens */}
                 <button
                   onClick={prevImage}
@@ -129,8 +129,8 @@ function Outreach() {
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentImageIndex 
-                          ? 'bg-blue-600 w-6' 
+                        index === currentImageIndex
+                          ? 'bg-blue-600 w-6'
                           : 'bg-white/70 hover:bg-white'
                       }`}
                       aria-label={`Go to image ${index + 1}`}
@@ -167,14 +167,14 @@ function Outreach() {
           {/* Events Grid */}
           <div className="max-w-6xl mx-auto space-y-6">
             {visitors.map((visitor, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`bg-white border-2 ${index % 2 === 0 ? 'border-blue-400' : 'border-gray-200'} rounded-lg overflow-hidden hover:shadow-lg transition-shadow`}
               >
                 <div className={`grid md:grid-cols-3 gap-0 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                   <div className={`md:col-span-1 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                    <img 
-                      src={visitor.image} 
+                    <img
+                      src={visitor.image}
                       alt={visitor.title}
                       className="w-full h-48 md:h-full object-cover"
                     />
