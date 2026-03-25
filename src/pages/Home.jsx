@@ -37,7 +37,7 @@ export default function Home() {
 
   /* PREVIOUS HERO IMAGES COMMENTED OUT
   const heroImages = [
-    "/sic.png",
+    "/slider1.png",
     "/sic-ppl.png",
     "/sic-ppl2.png",
     "/close-sic.png"
