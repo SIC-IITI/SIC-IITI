@@ -91,7 +91,7 @@ const InstrumentDetail = () => {
     <div className="min-h-screen bg-gray-50 py-8 ">
       {/* Hero Header */}
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-20">
-        <div className="mb-4 sm:mb-6">
+        <div className="mb-1 sm:mb-4">
           <h1
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-2"
             style={{ fontFamily: "Cantata one" }}
@@ -104,7 +104,7 @@ const InstrumentDetail = () => {
         </div>
 
         {/* Model Section */}
-        <div className="mb-3">
+        <div className="mb-1">
           <p className="text-black text-base sm:text-lg md:text-xl">
             {instrument.model}
           </p>
@@ -148,7 +148,7 @@ const InstrumentDetail = () => {
             )}
           </div>
         </div>
-        
+
         <div className="flex flex-wrap gap-3 px-4 sm:px-6 lg:px-20 mb-2">
           <button
             onClick={() => navigate(`/booking`)}

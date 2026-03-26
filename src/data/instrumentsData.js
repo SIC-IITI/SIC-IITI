@@ -128,10 +128,10 @@ export const instrumentsData = [
   // ==================== MICROSCOPY ====================
   {
     id: "supra-55",
-    name: "Supra 55",
+    name: "FE-SEM Supra-55",
     fullName: "Field Emission Scanning Electron Microscope",
     category: "Microscopy",
-    model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
+    model: "Supra-55 (Carl Zeiss, Germany)",
     usageCharges: {
       internal: "₹ 1,500 per hour",
       external: "₹ 3,000 per hour",
@@ -164,10 +164,10 @@ export const instrumentsData = [
 
   {
     id: "gemini-360",
-    name: "Gemini 360",
-    fullName: "Advanced Field Emission Scanning Electron Microscope",
+    name: "FE-SEM Gemini 360",
+    fullName: "Field Emission Scanning Electron Microscope",
     category: "Microscopy",
-    model: "Carl Zeiss Gemini 360",
+    model: " Gemini 360",
     usageCharges: {
       internal: "₹ 1,800 per hour",
       external: "₹ 3,500 per hour",
@@ -199,7 +199,7 @@ export const instrumentsData = [
     name: "AFM",
     fullName: "Atomic Force Microscope",
     category: "Microscopy",
-    model: "Atomic Force Microscope",
+    model: "NX-10 park systems",
     usageCharges: {
       internal: "₹ 1,200 per hour",
       external: "₹ 2,500 per hour",
@@ -322,7 +322,7 @@ export const instrumentsData = [
     name: "FT-IR",
     fullName: "Fourier Transform Infrared Spectrometer ",
     category: "Spectroscopy",
-    model: "Fourier Transform Infrared Spectrometer , Tensor 27, BRUKER",
+    model: " Tensor 27, BRUKER",
     usageCharges: {
       internal: "₹ 400 per sample",
       external: "₹ 900 per sample",
@@ -347,7 +347,7 @@ export const instrumentsData = [
     name: "TCSPC",
     fullName: "Time-Correlated Single Photon Counting",
     category: "Spectroscopy",
-    model: "(TCSPC), Horiba",
+    model: "Horiba",
     usageCharges: {
       internal: "₹ 700 per hour",
       external: "₹ 1,600 per hour",

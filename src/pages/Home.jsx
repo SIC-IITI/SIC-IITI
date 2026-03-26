@@ -12,6 +12,8 @@ export default function Home() {
   const [excellenceIndex, setExcellenceIndex] = useState(0)
   const [date, setDate] = useState(new Date())
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+const [touchStart, setTouchStart] = useState(null)
+const [touchEnd, setTouchEnd] = useState(null)
 
   useEffect(() => {
     const observerOptions = {
@@ -35,26 +37,22 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  /* PREVIOUS HERO IMAGES COMMENTED OUT
-  const heroImages = [
-    "/slider1.png",
-    "/sic-ppl.png",
-    "/sic-ppl2.png",
-    "/close-sic.png"
-  ]
-  */
+
 
   // NEW HERO IMAGES
   const heroImages = [
-
-    { src: "/nmr500.png", id: "nmr-500" },
-    { src: "/lc-hrms.png", id: "lc-hrms" },
-    { src: "/gc-ms.png", id: "gc-ms" },
-    { src: "/clsm.png", id: "clsm" },
-    { src: "/bet.png", id: "bet-surface-area" },
-    { src: "/tga.png", id: "tga" },
-    { src: "/dsc.png", id: "dsc" },
-    { src: "/hplc.png", id: "hplc-rp" }
+    { src: "/assets/slider/nmr500.png", id: "nmr-500" },
+    { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
+    { src: "/assets/slider/gc-ms.png", id: "gc-ms" },
+    { src: "/assets/slider/clsm.png", id: "clsm" },
+    { src: "/assets/slider/bet.png", id: "bet-surface-area" },
+    { src: "/assets/slider/tga.png", id: "tga" },
+    { src: "/assets/slider/dsc.png", id: "dsc" },
+    { src: "/assets/slider/hplc.png", id: "hplc-rp" },
+    { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
+    { src: "/assets/instruments/Microscopy/AFM/ma1.png", id: "afm" },
+    { src: "/assets/instruments/Microscopy/CLSM/mc1.png", id: "clsm" },
+    { src: "/assets/instruments/Microscopy/Supra-55/ms1.png", id: "supra-55" },
   ]
   useEffect(() => {
     const interval = setInterval(() => {
@@ -115,7 +113,22 @@ export default function Home() {
       return 'sunday-tile'
     }
   }
+const handleTouchStart = (e) => {
+  setTouchStart(e.targetTouches[0].clientX)
+}
 
+const handleTouchMove = (e) => {
+  setTouchEnd(e.targetTouches[0].clientX)
+}
+
+const handleTouchEnd = () => {
+  if (!touchStart || !touchEnd) return
+
+  const distance = touchStart - touchEnd
+
+  if (distance > 50) nextHeroImage()   // swipe left
+  if (distance < -50) prevHeroImage()  // swipe right
+}
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
 
@@ -203,24 +216,25 @@ export default function Home() {
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
-            <Link
+            <div
               key={index}
-              to={`/instruments/${image.id}`}
-              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100 z-10' : 'opacity-0'
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100 z-10" : "opacity-0"
                 }`}
             >
-              <div
-                className="w-full h-full bg-contain bg-center bg-no-repeat cursor-pointer hover:scale-105 transition-transform duration-300"
-                style={{ backgroundImage: `url("${image.src}")` }}
-              />
-            </Link>
+              <Link to={`/instruments/${image.id}`}>
+                <div
+                  className="w-full h-full bg-contain bg-center bg-no-repeat cursor-pointer"
+                  style={{ backgroundImage: `url("${image.src}")` }}
+                />
+              </Link>
+            </div>
           ))}
         </div>
 
         {/* Left Navigation Arrow */}
         <button
           onClick={prevHeroImage}
-          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
+          className="absolute  sm:block left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -229,7 +243,7 @@ export default function Home() {
         {/* Right Navigation Arrow */}
         <button
           onClick={nextHeroImage}
-          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
+          className="absolute  sm:block right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
