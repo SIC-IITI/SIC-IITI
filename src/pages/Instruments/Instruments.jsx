@@ -86,9 +86,12 @@ const InstrumentsPage = () => {
                 View Appointment Slot
               </a>
             </button>
-            <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto">
-              View Facility Status
-            </button>
+            <button 
+            onClick={() => navigate('/facility-status')}
+            className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
+          >
+            View Facility Status
+          </button>
             <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto">
               Book Your Instrument
             </button>

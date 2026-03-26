@@ -4,7 +4,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import FacilityStatus from './pages/Instruments/FacilityStatus';
 import Home from "./pages/Home";
 import Instruments from "./pages/Instruments/Instruments";
 import About from "./pages/About";
@@ -23,6 +23,7 @@ import Events from "./pages/Events";
 import Outreach from "./pages/Outreach";
 import ExcellencePage from "./pages/Excellence";
 import DstFist from "./pages/DstFist"; 
+
 
 export default function App() {
   return (
@@ -47,7 +48,8 @@ export default function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/outreach" element={<Outreach />} />
           <Route path="/excellence" element={<ExcellencePage />} />
-          <Route path="/dst-fist" element={<DstFist />} /> {/* Added Route */}
+          <Route path="/dst-fist" element={<DstFist />} /> 
+          <Route path="/facility-status" element={<FacilityStatus />} />
         </Routes>
       </main>
       <Footer />
