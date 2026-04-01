@@ -12,8 +12,8 @@ export default function Home() {
   const [excellenceIndex, setExcellenceIndex] = useState(0)
   const [date, setDate] = useState(new Date())
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-const [touchStart, setTouchStart] = useState(null)
-const [touchEnd, setTouchEnd] = useState(null)
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
 
   useEffect(() => {
     const observerOptions = {
@@ -41,13 +41,14 @@ const [touchEnd, setTouchEnd] = useState(null)
 
   // NEW HERO IMAGES
   const heroImages = [
-    { src: "/assets/slider/nmr500.png", id: "nmr-500" },
+    { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
+    { src: "/assets/slider/slider1.png", id: "slider1" },
     { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
-    { src: "/assets/slider/gc-ms.png", id: "gc-ms" },
-    { src: "/assets/slider/clsm.png", id: "clsm" },
-    { src: "/assets/slider/bet.png", id: "bet-surface-area" },
-    { src: "/assets/slider/tga.png", id: "tga" },
-    { src: "/assets/slider/dsc.png", id: "dsc" },
+    { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
+    { src: "/assets/slider/clsm.jpeg", id: "clsm" },
+    { src: "/assets/slider/bet.jpeg", id: "bet-surface-area" },
+    { src: "/assets/slider/tga.jpeg", id: "tga" },
+    { src: "/assets/slider/dsc.jpeg", id: "dsc" },
     { src: "/assets/slider/hplc.png", id: "hplc-rp" },
     { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
     { src: "/assets/instruments/Microscopy/AFM/ma1.png", id: "afm" },
@@ -113,22 +114,22 @@ const [touchEnd, setTouchEnd] = useState(null)
       return 'sunday-tile'
     }
   }
-const handleTouchStart = (e) => {
-  setTouchStart(e.targetTouches[0].clientX)
-}
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX)
+  }
 
-const handleTouchMove = (e) => {
-  setTouchEnd(e.targetTouches[0].clientX)
-}
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
 
-const handleTouchEnd = () => {
-  if (!touchStart || !touchEnd) return
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
 
-  const distance = touchStart - touchEnd
+    const distance = touchStart - touchEnd
 
-  if (distance > 50) nextHeroImage()   // swipe left
-  if (distance < -50) prevHeroImage()  // swipe right
-}
+    if (distance > 50) nextHeroImage()   // swipe left
+    if (distance < -50) prevHeroImage()  // swipe right
+  }
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
 

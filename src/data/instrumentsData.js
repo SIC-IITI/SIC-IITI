@@ -262,9 +262,7 @@ export const instrumentsData = [
     email: "ravinderk@iiti.ac.in",
     position: "Junior Technical Superintendent, SIC",
     images: [
-      "/assets/instruments/Microscopy/CLSM/mc1.png",
-      "/assets/instruments/Microscopy/CLSM/mc2.png",
-      "/assets/instruments/Microscopy/CLSM/mc3.png",
+      "/assets/instruments/Microscopy/CLSM/mc1.jpeg",
     ],
   },
 
@@ -298,9 +296,7 @@ export const instrumentsData = [
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
     images: [
-      "/assets/instruments/Spectroscopy/NMR-500/snmr500_2.png",
-      "/assets/instruments/Spectroscopy/NMR-500/snmr500_1.png",
-      "/assets/instruments/Spectroscopy/NMR-500/snmr500_3.png",
+      "/assets/instruments/Spectroscopy/NMR-500/snmr500_2.jpeg",,
     ],
   },
 
@@ -330,8 +326,7 @@ export const instrumentsData = [
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
     images: [
-      "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.png",
-      "/assets/instruments/Spectroscopy/NMR-400/snmr400_2.png",
+      "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg",
     ],
   },
 
@@ -684,9 +679,7 @@ export const instrumentsData = [
     location: "LC-MS lab",
     email: "ghanashyam@iiti.ac.in",
     images: [
-      "/assets/instruments/Chromatography/GC-MS/chro_gc1.png",
-      "/assets/instruments/Chromatography/GC-MS/chro_gc2.png",
-      "/assets/instruments/Chromatography/GC-MS/chro_gc3.png",
+      "/assets/instruments/Chromatography/GC-MS/chro_gc1.jpeg",
     ],
   },
   // ==================== THERMAL ANALYSIS ====================
@@ -728,9 +721,7 @@ export const instrumentsData = [
     position: "Junior Technical Assistant, SIC",
 
     images: [
-      "/assets/instruments/Thermal-Analysis/TGA/ta_t1.png",
-      "/assets/instruments/Thermal-Analysis/TGA/ta_t2.png",
-      "/assets/instruments/Thermal-Analysis/TGA/ta_t3.png",
+      "/assets/instruments/Thermal-Analysis/TGA/ta_t1.jpeg",
     ],
   },
   {
@@ -765,8 +756,7 @@ export const instrumentsData = [
     position: "Junior Technical Assistant, SIC",
 
     images: [
-      "/assets/instruments/Thermal-Analysis/DSC/ta_d1.png",
-      "/assets/instruments/Thermal-Analysis/DSC/ta_d2.png",
+      "/assets/instruments/Thermal-Analysis/DSC/ta_d1.jpeg",
     ],
   },
   // ==================== SPECIALIZED EQUIPMENT ====================
@@ -808,8 +798,7 @@ export const instrumentsData = [
 
     images: [
       "/bet.png",
-      "/assets/instruments/BET-Surface-Analyzer/bet1.png",
-      "/assets/instruments/BET-Surface-Analyzer/bet2.png"
+      "/assets/instruments/BET-Surface-Analyzer/bet1.jpeg",
 
     ],
   },
