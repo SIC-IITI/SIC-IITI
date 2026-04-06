@@ -1,11 +1,12 @@
+
 import React, { useState } from "react";
 import { CheckCircle, Wrench, AlertTriangle, X, Beaker } from "lucide-react";
-import instrumentsData from "../../data/instrumentsData";
+import instrumentsData, { categoryDescriptions } from "../../data/instrumentsData";
 
 export default function FacilityStatus() {
   const [selectedInstrument, setSelectedInstrument] = useState(null);
 
-  // Replaced index-based mock with a function that reads the actual status string
+  // Status logic
   const getInstrumentStatusDetails = (statusString) => {
     if (statusString === "Not Working") {
       return {
@@ -24,106 +25,136 @@ export default function FacilityStatus() {
         bg: "bg-orange-100",
         border: "border-orange-200",
         icon: Wrench,
-        message: "Scheduled maintenance in progress. Expected to resume shortly.",
+        message: "Scheduled maintenance in progress.",
       };
     }
-    // Default to Operational
     return {
       label: "Operational",
       color: "text-green-700",
       bg: "bg-green-100",
       border: "border-green-200",
       icon: CheckCircle,
-      message: "Instrument is working perfectly and available for booking.",
+      message: "Instrument is working perfectly.",
     };
   };
 
   const truncateText = (text, limit) => {
     if (!text) return "";
-    if (text.length <= limit) return text;
-    return text.slice(0, limit) + "...";
+    return text.length <= limit ? text : text.slice(0, limit) + "...";
   };
+
+  // ✅ GROUPING LOGIC
+  const groupedInstruments = instrumentsData
+    .filter((item) => item.showInStatus !== false)
+    .reduce((acc, instrument) => {
+      if (!acc[instrument.category]) {
+        acc[instrument.category] = [];
+      }
+      acc[instrument.category].push(instrument);
+      return acc;
+    }, {});
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header - Blue Theme */}
+
+      {/* Header */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-6 text-center sm:text-left">
-          <h1
-            className="text-4xl sm:text-5xl font-bold mb-4"
-            style={{ fontFamily: "Cantata one" }}
-          >
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4" style={{ fontFamily: "Cantata one" }}>
             Facility Status
           </h1>
-          <p className="text-lg text-blue-100 max-w-2xl mx-auto sm:mx-0">
-            Check the real-time operational status of all instruments at the
-            Sophisticated Instrumentation Centre.
+          <p className="text-lg text-blue-100 max-w-2xl">
+            Check the real-time operational status of all instruments.
           </p>
         </div>
       </section>
 
-      {/* Cards Grid */}
+      {/* ✅ CATEGORY-WISE RENDERING */}
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {instrumentsData
-              .filter((instrument) => instrument.showInStatus !== false) // Added filter logic here
-              .map((instrument) => {
-                const status = getInstrumentStatusDetails(instrument.status || "Operational");
-                const StatusIcon = status.icon;
-                const imageUrl =
-                  instrument.images && instrument.images.length > 0
-                    ? instrument.images[0]
-                    : "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80";
+        <div className="container mx-auto px-6 max-w-7xl">
 
-                return (
-                  <div
-                    key={instrument.id}
-                    className="group border border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
-                    onClick={() => setSelectedInstrument({ ...instrument, status })}
-                  >
-                    {/* Image Container */}
-                    <div className="relative h-48 bg-gray-100 p-4 flex items-center justify-center overflow-hidden">
-                      <img
-                        src={imageUrl}
-                        alt={instrument.name}
-                        className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          e.target.src =
-                            "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80";
-                        }}
-                      />
+          {Object.entries(groupedInstruments)
+            .sort(([a], [b]) => a.localeCompare(b))
+            .map(([category, instruments]) => (
+              <div key={category} className="mb-12">
+
+                {/* Category Heading */}
+                <h2
+                  className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2"
+                  style={{ fontFamily: "Cantata one" }}
+                >
+                  {category}
+                </h2>
+
+                {/* Category Description */}
+                {categoryDescriptions[category] && (
+                  <p className="text-gray-500 mb-6 text-sm">
+                    {categoryDescriptions[category]}
+                  </p>
+                )}
+
+                {/* Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {instruments.map((instrument) => {
+                    const status = getInstrumentStatusDetails(
+                      instrument.status || "Operational"
+                    );
+                    const StatusIcon = status.icon;
+
+                    const imageUrl =
+                      instrument.images?.[0] ||
+                      "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80";
+
+                    return (
                       <div
-                        className={`absolute top-3 right-3 px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-sm border ${status.bg} ${status.color} ${status.border}`}
+                        key={instrument.id}
+                        className="group border border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
+                        onClick={() =>
+                          setSelectedInstrument({ ...instrument, status })
+                        }
                       >
-                        <StatusIcon className="w-3.5 h-3.5" />
-                        {status.label}
-                      </div>
-                    </div>
+                        {/* Image */}
+                        <div className="relative h-48 bg-gray-100 p-4 flex items-center justify-center">
+                          <img
+                            src={imageUrl}
+                            alt={instrument.name}
+                            className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition"
+                          />
 
-                    {/* Content */}
-                    <div className="p-5 flex flex-col flex-grow border-t border-gray-100">
-                      <h3
-                        className="text-lg font-bold text-gray-900 mb-1"
-                        style={{ fontFamily: "Cantata one" }}
-                      >
-                        {instrument.name}
-                      </h3>
-                      <p className="text-sm text-gray-500 mb-4 flex-grow">
-                        {truncateText(instrument.fullName, 60)}
-                      </p>
-                      <button className="text-sm text-blue-600 hover:underline font-medium text-left mt-auto">
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
+                          {/* Status Badge */}
+                          <div
+                            className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 border ${status.bg} ${status.color} ${status.border}`}
+                          >
+                            <StatusIcon className="w-3 h-3" />
+                            {status.label}
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-5 flex flex-col flex-grow">
+                          <h3 className="text-lg font-bold text-gray-900 mb-1">
+                            {instrument.name}
+                          </h3>
+
+                          <p className="text-sm text-gray-500 mb-4 flex-grow">
+                            {truncateText(instrument.fullName, 60)}
+                          </p>
+
+                          <button className="text-sm text-blue-600 hover:underline">
+                            View Details
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
         </div>
       </section>
 
-      {/* Modal */}
+
+       {/* Modal */}
       {selectedInstrument && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
           <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
@@ -192,7 +223,7 @@ export default function FacilityStatus() {
                 </div>
               </div>
             </div>
-            
+
             <div className="border-t p-5 bg-gray-50 rounded-b-xl flex justify-end">
               <button
                 onClick={() => setSelectedInstrument(null)}

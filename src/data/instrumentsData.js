@@ -296,7 +296,7 @@ export const instrumentsData = [
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
     images: [
-      "/assets/instruments/Spectroscopy/NMR-500/snmr500_2.jpeg",,
+      "/assets/instruments/Spectroscopy/NMR-500/snmr500_1.jpeg",
     ],
   },
 
@@ -926,10 +926,11 @@ export const instrumentsData = [
     images: ["/assets/instruments/MilliQ-DI-Water/mdw1.png"],
   },
   {
-    id: "lyophilizer",
-    name: "Lyophilizer",
-    fullName: "Freeze Dryer (Lyophilizer)",
-    category: "Sample-Preparation",
+
+  id: "lyophilizer-labconco",
+  name: "Lyophilizer - Labconco",
+  fullName: "Freeze Dryer (Labconco Lyophilizer)",
+  category: "Freeze Drying",
     model: "LABCONCO Lyophilizer",
     showInStatus: true,
     status: "Operational",
@@ -962,11 +963,44 @@ export const instrumentsData = [
     email: "atul.singh@iiti.ac.in",
     position: "Junior Technical Assistant, SIC",
     images: [
+      "/assets/instruments/Lyophilizer/lyo4.jpeg",
       "/assets/instruments/Lyophilizer/lyo1.png",
       "/assets/instruments/Lyophilizer/lyo2.png",
       "/assets/instruments/Lyophilizer/lyo3.png",
     ],
   },
+  {
+  id: "lyophilizer-virtis",
+  name: "Lyophilizer - VirTis",
+  fullName: "Freeze Dryer (VirTis Lyophilizer)",
+  category: "Freeze Drying",
+  model: "VirTis Lyophilizer",
+  showInStatus: true,
+  status: "Operational",
+  usageCharges: {
+    internal: "₹ 1,500 per hour",
+    external: "₹ 3,000 per hour",
+    unit: "per hour",
+  },
+  features: [
+    "Advanced freeze-drying system for sensitive biological and chemical samples",
+    "Efficient sublimation under controlled vacuum",
+    "Uniform temperature distribution for consistent drying",
+    "Suitable for pharmaceuticals and research applications",
+  ],
+  applications: [
+    "Freeze drying of biological samples and pharmaceuticals",
+    "Long-term preservation of sensitive materials",
+    "Food and chemical sample dehydration",
+    "Stabilization of compounds for storage and transport",
+  ],
+  handledBy: "Mr. Atul Singh",
+  email: "atul.singh@iiti.ac.in",
+  position: "Junior Technical Assistant, SIC",
+  images: [
+    "/assets/instruments/Lyophilizer/VirTis.jpeg"
+  ],
+},
   {
     id: "polarimeter",
     name: "Polarimeter",
@@ -1325,7 +1359,7 @@ export const categoryDescriptions = {
   "Chemical Synthesis": "Equipment for accelerated and controlled synthesis",
   "Elemental Analysis": "Quantitative determination of elemental composition",
   "Water Purification": "High-purity water production systems",
-  "Sample Preparation": "Sample processing and preservation equipment",
+  "Freeze Drying": "Freeze drying (lyophilization) systems for sample preservation and dehydration",
   "Optical Analysis": "Optical property measurement instruments",
   "Material Testing": "Rheological and mechanical property analysis",
   Facility: "Core facility infrastructure and utilities",

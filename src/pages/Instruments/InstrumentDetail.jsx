@@ -112,7 +112,7 @@ const InstrumentDetail = () => {
 
         <div className="flex items-center text-black mb-6 sm:mb-8">
           <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-black/10 rounded-full font-semibold text-sm sm:text-base">
-            {instrument.category}
+            {instrument.category.replace("-", " ")}
           </span>
         </div>
       </div>
