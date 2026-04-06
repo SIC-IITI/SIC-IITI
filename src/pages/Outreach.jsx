@@ -21,47 +21,44 @@ function Outreach() {
 
   const visitors = [
     {
+      date: "Jan 15, 2026",
+      title: "Visit of DAVV students to SIC",
+      description: "Visit of DAVV students to SIC",
+      image: "/davv-students.png"
+    },
+    {
       date: "Oct 15, 2025",
       title: "Prof Irina A. Kurzina VISIT SIC",
       description: "Professor from Tomsk state university, Russia Visit SIC",
       image: "/visit.png"
     },
+     {
+      title: "Visit of Ms. Saumya Gupta IAS",
+      description: "Visit of Ms. Saumya Gupta IAS ,Joint secretary Technical Education, MoE , GoI",
+      image: "/saumya-gupta.png"
+    },
+    {
+      date: "Oct 14, 2025",
+      title: "Masters students from IPS academy Indore visit to SIC",
+      image: "/masters-visit.png"
+    },
     {
       date: "July 24, 2025",
       title: "FOREIGN ARMY OFFICERS VISIT SIC",
       description: "As a part of the institute's 'Ek Bharat Shrestha Bharat Abhiyan.'",
-      image: "/sic-ppl.png"
+      image: "/sic-army-visit.png"
     },
     {
       date: "December 22, 2022",
-      title: "Educational tour",
+      title: "Foreign students visit under exchange program",
       description: "Students of JNV Ghattiya, Ujjain, visit as 'Ek Bharat Shresht Bharat Abhiyan.'",
       image: "/sic-ppl2.png"
     },
     {
       date: "July 15, 2024",
-      title: "SDPS International School Student's Visit.",
-      description: "As a part of the institute's 'Ek Bharat Shrestha Bharat Abhiyan.'",
+      title: "Send off function for Ms. Mitali Dave",
       image: "/sic-ppl.png"
     },
-    {
-      date: "October 13, 2022",
-      title: "Dr. G.S. Grover visit",
-      description: "Task Group Chair, IUPAC Safety Training Program, India, Visit on Laboratory Safety Management.",
-      image: "/close-sic.png"
-    },
-    {
-      date: "March 6, 2024",
-      title: "Dr. A D Giddings visit",
-      description: "Team SIC Organized a session about 'Atom Prob Tomography and Its Application.' Dr. Giddings has a Doctoral degree in semiconductor spintronics from the University of Nottingham. He is a member of the Institute of Physics IIUDT and a Fellow of the Royal Society of Arts, Manufactures and Commerce (RSA).",
-      image: "/sic-ppl2.png"
-    },
-    {
-      date: "September 18, 2023",
-      title: "Student Outreach Program",
-      description: "Local school students visit SIC facilities to learn about advanced scientific instrumentation and research methodologies.",
-      image: "/sic-ppl.png"
-    }
   ]
 
   return (
@@ -101,7 +98,7 @@ function Outreach() {
                 <img
                   src={carouselImages[currentImageIndex]}
                   alt="Outreach Activities"
-                  className="w-full h-80 sm:h-80 md:h-96 object-cover rounded-lg shadow-md border-4 border-blue-400"
+                  className="w-full h-80 sm:h-80 md:h-96 object-contain bg-gray-100 rounded-lg shadow-md border-4 border-blue-400"
                 />
 
                 {/* Previous Button (Mobile) - now hidden on large screens */}
