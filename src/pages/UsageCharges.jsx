@@ -273,7 +273,7 @@ function UsageCharges() {
               },
               {
                 icon: Users,
-                text: "For custom analysis requirements, contact the respective instrument handler",
+                text: "For custom analysis requirements, contact the respective instrument Facility Manager",
               },
               {
                 icon: TrendingUp,
@@ -299,34 +299,28 @@ function UsageCharges() {
 
         {/* Enhanced Contact Information */}
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white rounded-2xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
-          <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-3">Need More Information?</h3>
-            <p className="mb-6 text-blue-100 text-lg">
-              For detailed quotes, specialized requirements, or bulk booking
-              inquiries:
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="mailto:sic@iiti.ac.in"
-                className="group bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl text-center transform hover:-translate-y-1 duration-300"
-              >
-                <span className="flex items-center justify-center gap-2">
-                  Email SIC
-                </span>
-              </a>
-              <a
-                href="/contact"
-                className="group bg-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition-all shadow-lg hover:shadow-xl text-center border-2 border-blue-400 transform hover:-translate-y-1 duration-300"
-              >
-                <span className="flex items-center justify-center gap-2">
-                  Contact Us
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
+  <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
+  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
+  <div className="relative z-10">
+    <h3 className="text-3xl font-bold mb-3">Need More Information?</h3>
+    <p className="mb-6 text-blue-100 text-lg">
+      For detailed quotes, specialized requirements, or bulk booking inquiries:
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4">
+      
+      
+      {/* Contact Us Link */}
+      <a
+        href="/contact"
+        className="group bg-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition-all shadow-lg hover:shadow-xl text-center border-2 border-blue-400 transform hover:-translate-y-1 duration-300"
+      >
+        <span className="flex items-center justify-center gap-2">
+          Contact Us
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
       </section>
     </div>
   );
