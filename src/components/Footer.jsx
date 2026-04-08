@@ -98,7 +98,9 @@ function Footer() {
             © 2024 Sophisticated Instrumentation Center, IIT Indore. All rights reserved.
           </p>
         </div>
-        <div className="mt-6 text-center">
+        
+      </div>
+      <div className="mt-6 text-center">
   <p className="text-blue-200 text-sm mb-2">Visitors</p>
 
   <a
@@ -114,7 +116,6 @@ function Footer() {
     />
   </a>
 </div>
-      </div>
     </footer>
   );
 }
