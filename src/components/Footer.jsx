@@ -65,6 +65,16 @@ function Footer() {
                 </a>
               </li>
             </ul>
+            <div className="mt-4">
+  <a
+    href="https://www.iiti.ac.in"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-white text-blue-900 font-semibold px-4 py-2 rounded-md text-sm hover:bg-blue-100 transition-all duration-300 shadow-md"
+  >
+    Visit IIT Indore
+  </a>
+</div>
           </div>
 
           {/* Map Section */}
