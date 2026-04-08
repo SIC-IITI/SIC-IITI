@@ -98,6 +98,22 @@ function Footer() {
             © 2024 Sophisticated Instrumentation Center, IIT Indore. All rights reserved.
           </p>
         </div>
+        <div className="mt-6 text-center">
+  <p className="text-blue-200 text-sm mb-2">Visitors</p>
+
+  <a
+    href="https://www.hitwebcounter.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://hitwebcounter.com/counter/counter.php?page=21487857&style=0001&nbdigits=5&type=page&initCount=0"
+      title="Visitor Counter"
+      alt="Visitor Counter"
+      className="mx-auto"
+    />
+  </a>
+</div>
       </div>
     </footer>
   );
