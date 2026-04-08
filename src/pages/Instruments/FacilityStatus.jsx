@@ -6,7 +6,6 @@ import instrumentsData, { categoryDescriptions } from "../../data/instrumentsDat
 export default function FacilityStatus() {
   const [selectedInstrument, setSelectedInstrument] = useState(null);
 
-  // Status logic
   const getInstrumentStatusDetails = (statusString) => {
     if (statusString === "Not Working") {
       return {
@@ -69,16 +68,13 @@ export default function FacilityStatus() {
         </div>
       </section>
 
-      {/* ✅ CATEGORY-WISE RENDERING */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
 
           {Object.entries(groupedInstruments)
-            .sort(([a], [b]) => a.localeCompare(b))
             .map(([category, instruments]) => (
               <div key={category} className="mb-12">
 
-                {/* Category Heading */}
                 <h2
                   className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2"
                   style={{ fontFamily: "Cantata one" }}
@@ -86,14 +82,12 @@ export default function FacilityStatus() {
                   {category}
                 </h2>
 
-                {/* Category Description */}
                 {categoryDescriptions[category] && (
                   <p className="text-gray-500 mb-6 text-sm">
                     {categoryDescriptions[category]}
                   </p>
                 )}
 
-                {/* Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {instruments.map((instrument) => {
                     const status = getInstrumentStatusDetails(
@@ -121,7 +115,6 @@ export default function FacilityStatus() {
                             className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition"
                           />
 
-                          {/* Status Badge */}
                           <div
                             className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 border ${status.bg} ${status.color} ${status.border}`}
                           >
