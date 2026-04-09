@@ -188,11 +188,11 @@ export default function Home() {
                     Explore
                   </button>
                 </Link>
-                <Link to="/booking">
+                <a href="https://sicbooking.iiti.ac.in/">
                   <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                     Book
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -488,9 +488,9 @@ export default function Home() {
                 Easily reserve advanced research instruments for your experiments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/booking" className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors inline-block text-center">
+                <a href="https://sicbooking.iiti.ac.in/" className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors inline-block text-center">
                   Book
-                </Link>
+                </a>
                 <Link to="/instruments" className="px-6 py-3 border-2 border-gray-900 text-gray-900 hover:bg-gray-100 rounded-md font-medium transition-colors inline-block text-center">
                   Explore Instruments
                 </Link>
@@ -499,6 +499,7 @@ export default function Home() {
             <div className="flex justify-center animate-on-scroll stagger-2">
               <Calendar
                 onChange={setDate}
+                onClickDay={() => window.location.href = "https://sicbooking.iiti.ac.in/"}
                 value={date}
                 locale="en-GB"
                 tileClassName={getSundayClassName}
