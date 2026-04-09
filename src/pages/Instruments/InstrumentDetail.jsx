@@ -42,6 +42,11 @@ const InstrumentDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([]);
 
+  // Scroll to top when the component mounts or the id changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
   const instrument = instrumentsData.find((item) => item.id === id);
 
   useEffect(() => {
