@@ -42,12 +42,12 @@ export default function Home() {
   // NEW HERO IMAGES
   const heroImages = [
     { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
-    { src: "/assets/slider/slider1.png", id: "slider1" },
+    { src: "/assets/slider/slider1.png", id: "gemini-360" },
     { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
     { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
     { src: "/assets/slider/clsm.jpeg", id: "clsm" },
     { src: "/assets/slider/bet.jpeg", id: "bet-surface-area" },
-    { src: "/assets/slider/tga.jpeg", id: "tga" },
+    { src: "/assets/slider/tga1.jpeg", id: "tga" },
     { src: "/assets/slider/dsc.jpeg", id: "dsc" },
     { src: "/assets/slider/hplc.png", id: "hplc-rp" },
     { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },

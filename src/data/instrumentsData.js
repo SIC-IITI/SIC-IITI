@@ -797,9 +797,8 @@ export const instrumentsData = [
     position: "Junior Technical Assistant, SIC",
 
     images: [
-      "/bet.png",
       "/assets/instruments/BET-Surface-Analyzer/bet1.jpeg",
-
+      "/assets/instruments/BET-Surface-Analyzer/bet1.png"
     ],
   },
 
