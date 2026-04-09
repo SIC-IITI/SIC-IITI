@@ -1,12 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Mail, Beaker, Calendar, FileText, Phone } from "lucide-react";
+import { Mail, Beaker, Calendar, FileText, Phone, CheckCircle, Wrench, AlertTriangle } from "lucide-react";
 import instrumentsData from "../../data/instrumentsData";
 
 import {
   getImagesFromInstrument,
   getFallbackImages,
 } from "../../utils/imageloader";
+
+const getInstrumentStatusDetails = (statusString) => {
+  if (statusString === "Not Working") {
+    return {
+      label: "Not Working",
+      color: "text-red-700",
+      bg: "bg-red-100",
+      border: "border-red-200",
+      icon: AlertTriangle,
+    };
+  }
+  if (statusString === "Under Maintenance") {
+    return {
+      label: "Under Maintenance",
+      color: "text-orange-700",
+      bg: "bg-orange-100",
+      border: "border-orange-200",
+      icon: Wrench,
+    };
+  }
+  return {
+    label: "Operational",
+    color: "text-green-700",
+    bg: "bg-green-100",
+    border: "border-green-200",
+    icon: CheckCircle,
+  };
+};
 
 const InstrumentDetail = () => {
   const { id } = useParams();
@@ -87,6 +115,9 @@ const InstrumentDetail = () => {
     );
   }
 
+  const statusInfo = getInstrumentStatusDetails(instrument.status || "Operational");
+  const StatusIcon = statusInfo.icon;
+
   return (
     <div className="min-h-screen bg-gray-50 py-8 ">
       {/* Hero Header */}
@@ -110,10 +141,14 @@ const InstrumentDetail = () => {
           </p>
         </div>
 
-        <div className="flex items-center text-black mb-6 sm:mb-8">
+        <div className="flex flex-wrap items-center gap-3 text-black mb-6 sm:mb-8">
           <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-black/10 rounded-full font-semibold text-sm sm:text-base">
             {instrument.category.replace("-", " ")}
           </span>
+          <div className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-sm sm:text-base flex items-center gap-2 border ${statusInfo.bg} ${statusInfo.color} ${statusInfo.border}`}>
+            <StatusIcon className="w-4 h-4" />
+            {statusInfo.label}
+          </div>
         </div>
       </div>
 

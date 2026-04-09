@@ -56,7 +56,7 @@ export const instrumentsData = [
     category: "X-Ray",
     model: "Oxford X-MAX 20",
     showInStatus: true,
-    status: "Under Maintenance",
+    status: "Operational",
     usageCharges: {
       internal: "₹ 800 per hour",
       external: "₹ 1,800 per hour",
@@ -102,7 +102,7 @@ export const instrumentsData = [
     category: "X-Ray",
     model: "Gemini 360",
     showInStatus: true,
-    status: "Not Working",
+    status: "Operational",
     usageCharges: {
       internal: "₹ 600 per hour",
       external: "₹ 1,400 per hour",
