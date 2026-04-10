@@ -65,6 +65,16 @@ function Footer() {
                 </a>
               </li>
             </ul>
+            <div className="mt-4">
+  <a
+    href="https://www.iiti.ac.in"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-white text-blue-900 font-semibold px-4 py-2 rounded-md text-sm hover:bg-blue-100 transition-all duration-300 shadow-md"
+  >
+    Visit IIT Indore
+  </a>
+</div>
           </div>
 
           {/* Map Section */}
@@ -88,7 +98,24 @@ function Footer() {
             © 2024 Sophisticated Instrumentation Center, IIT Indore. All rights reserved.
           </p>
         </div>
+        
       </div>
+      <div className="mt-6 text-center">
+  <p className="text-blue-200 text-sm mb-2">Visitors</p>
+
+  <a
+    href="https://www.hitwebcounter.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="https://hitwebcounter.com/counter/counter.php?page=21487857&style=0001&nbdigits=5&type=page&initCount=0"
+      title="Visitor Counter"
+      alt="Visitor Counter"
+      className="mx-auto"
+    />
+  </a>
+</div>
     </footer>
   );
 }

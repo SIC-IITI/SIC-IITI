@@ -56,7 +56,7 @@ export const instrumentsData = [
     category: "X-Ray",
     model: "Oxford X-MAX 20",
     showInStatus: true,
-    status: "Under Maintenance",
+    status: "Operational",
     usageCharges: {
       internal: "₹ 800 per hour",
       external: "₹ 1,800 per hour",
@@ -102,7 +102,7 @@ export const instrumentsData = [
     category: "X-Ray",
     model: "Gemini 360",
     showInStatus: true,
-    status: "Not Working",
+    status: "Operational",
     usageCharges: {
       internal: "₹ 600 per hour",
       external: "₹ 1,400 per hour",
@@ -231,7 +231,12 @@ export const instrumentsData = [
     handledBy: "Dr. Ravinder  ",
     email: "ravinderk@iiti.ac.in",
     position: "Junior Technical Superintendent, SIC",
-    images: ["/assets/instruments/Microscopy/AFM/ma1.png"],
+    images: [
+      "/assets/instruments/Microscopy/AFM/AFM 1.jpg",
+      "/assets/instruments/Microscopy/AFM/AFM 2.jpg",
+      "/assets/instruments/Microscopy/AFM/AFM 3.jpg",
+      "/assets/instruments/Microscopy/AFM/AFM 4.jpg",
+    ],
   },
 
   {
@@ -262,6 +267,8 @@ export const instrumentsData = [
     email: "ravinderk@iiti.ac.in",
     position: "Junior Technical Superintendent, SIC",
     images: [
+      "/assets/instruments/Microscopy/CLSM/CLSM 1.jpg",
+      "/assets/instruments/Microscopy/CLSM/CLSM 2.jpg",
       "/assets/instruments/Microscopy/CLSM/mc1.jpeg",
     ],
   },
@@ -295,9 +302,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
-    images: [
-      "/assets/instruments/Spectroscopy/NMR-500/snmr500_1.jpeg",
-    ],
+    images: ["/assets/instruments/Spectroscopy/NMR-500/snmr500_1.jpeg"],
   },
 
   {
@@ -325,9 +330,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
-    images: [
-      "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg",
-    ],
+    images: ["/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg"],
   },
 
   {
@@ -468,9 +471,7 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: [
-      "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/s_uvspe1.png",
-      "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/s_uvspe2.png",
-    ],
+     "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/UV VIS SPECTROMETER.jpg" ],
   },
 
   {
@@ -503,8 +504,7 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: [
-      "/assets/instruments/Spectroscopy/UV-VIS-NIR/s_uv_nir1.png",
-      "/assets/instruments/Spectroscopy/UV-VIS-NIR/s_uv_nir2.png",
+    "/assets/instruments/Spectroscopy/UV-VIS-NIR/UV VIS NIR.jpg"
     ],
   },
 
@@ -545,8 +545,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
-      "/assets/instruments/Spectroscopy/Spectrofluorometer/s_sflu1.png",
-      "/assets/instruments/Spectroscopy/Spectrofluorometer/s_sflu2.png",
+    "/assets/instruments/Spectroscopy/Spectrofluorometer/FLUORIMETER.jpg",
     ],
   },
 
@@ -678,9 +677,7 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     location: "LC-MS lab",
     email: "ghanashyam@iiti.ac.in",
-    images: [
-      "/assets/instruments/Chromatography/GC-MS/chro_gc1.jpeg",
-    ],
+    images: ["/assets/instruments/Chromatography/GC-MS/chro_gc1.jpeg"],
   },
   // ==================== THERMAL ANALYSIS ====================
   {
@@ -720,9 +717,7 @@ export const instrumentsData = [
     email: "atul.singh@iiti.ac.in",
     position: "Junior Technical Assistant, SIC",
 
-    images: [
-      "/assets/instruments/Thermal-Analysis/TGA/ta_t1.jpeg",
-    ],
+    images: ["/assets/instruments/Thermal-Analysis/TGA/ta_t1.jpeg"],
   },
   {
     id: "dsc",
@@ -755,9 +750,7 @@ export const instrumentsData = [
     email: "atul.singh@iiti.ac.in",
     position: "Junior Technical Assistant, SIC",
 
-    images: [
-      "/assets/instruments/Thermal-Analysis/DSC/ta_d1.jpeg",
-    ],
+    images: ["/assets/instruments/Thermal-Analysis/DSC/ta_d1.jpeg"],
   },
   // ==================== SPECIALIZED EQUIPMENT ====================
   {
@@ -797,9 +790,8 @@ export const instrumentsData = [
     position: "Junior Technical Assistant, SIC",
 
     images: [
-      "/bet.png",
       "/assets/instruments/BET-Surface-Analyzer/bet1.jpeg",
-
+      "/assets/instruments/BET-Surface-Analyzer/bet1.png",
     ],
   },
 
@@ -838,8 +830,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
-      "/assets/instruments/Microwave-Reactor/mreac1.png",
-      "/assets/instruments/Microwave-Reactor/mreac2.png",
+      "/assets/instruments/Microwave-Reactor/MICROWAVE.jpg"
     ],
   },
   {
@@ -926,11 +917,10 @@ export const instrumentsData = [
     images: ["/assets/instruments/MilliQ-DI-Water/mdw1.png"],
   },
   {
-
-  id: "lyophilizer-labconco",
-  name: "Lyophilizer - Labconco",
-  fullName: "Freeze Dryer (Labconco Lyophilizer)",
-  category: "Freeze Drying",
+    id: "lyophilizer-labconco",
+    name: "Lyophilizer - Labconco",
+    fullName: "Freeze Dryer (Labconco Lyophilizer)",
+    category: "Freeze Drying",
     model: "LABCONCO Lyophilizer",
     showInStatus: true,
     status: "Operational",
@@ -970,37 +960,35 @@ export const instrumentsData = [
     ],
   },
   {
-  id: "lyophilizer-virtis",
-  name: "Lyophilizer - VirTis",
-  fullName: "Freeze Dryer (VirTis Lyophilizer)",
-  category: "Freeze Drying",
-  model: "VirTis Lyophilizer",
-  showInStatus: true,
-  status: "Operational",
-  usageCharges: {
-    internal: "₹ 1,500 per hour",
-    external: "₹ 3,000 per hour",
-    unit: "per hour",
+    id: "lyophilizer-virtis",
+    name: "Lyophilizer - VirTis",
+    fullName: "Freeze Dryer (VirTis Lyophilizer)",
+    category: "Freeze Drying",
+    model: "VirTis Lyophilizer",
+    showInStatus: true,
+    status: "Operational",
+    usageCharges: {
+      internal: "₹ 1,500 per hour",
+      external: "₹ 3,000 per hour",
+      unit: "per hour",
+    },
+    features: [
+      "Advanced freeze-drying system for sensitive biological and chemical samples",
+      "Efficient sublimation under controlled vacuum",
+      "Uniform temperature distribution for consistent drying",
+      "Suitable for pharmaceuticals and research applications",
+    ],
+    applications: [
+      "Freeze drying of biological samples and pharmaceuticals",
+      "Long-term preservation of sensitive materials",
+      "Food and chemical sample dehydration",
+      "Stabilization of compounds for storage and transport",
+    ],
+    handledBy: "Mr. Atul Singh",
+    email: "atul.singh@iiti.ac.in",
+    position: "Junior Technical Assistant, SIC",
+    images: ["/assets/instruments/Lyophilizer/VirTis.jpeg"],
   },
-  features: [
-    "Advanced freeze-drying system for sensitive biological and chemical samples",
-    "Efficient sublimation under controlled vacuum",
-    "Uniform temperature distribution for consistent drying",
-    "Suitable for pharmaceuticals and research applications",
-  ],
-  applications: [
-    "Freeze drying of biological samples and pharmaceuticals",
-    "Long-term preservation of sensitive materials",
-    "Food and chemical sample dehydration",
-    "Stabilization of compounds for storage and transport",
-  ],
-  handledBy: "Mr. Atul Singh",
-  email: "atul.singh@iiti.ac.in",
-  position: "Junior Technical Assistant, SIC",
-  images: [
-    "/assets/instruments/Lyophilizer/VirTis.jpeg"
-  ],
-},
   {
     id: "polarimeter",
     name: "Polarimeter",
@@ -1035,7 +1023,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: ["/assets/instruments/polarimeter-image.png"],
+    images: ["/assets/instruments/POLARIMETER.jpg"],
   },
 
   {
@@ -1072,7 +1060,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: "/assets/instruments/rheometer-image.png",
+    images: ["/assets/instruments/RHEOMETER.jpg"],
   },
   {
     id: "liquid-nitrogen-plant",
@@ -1108,8 +1096,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
-      "/assets/instruments/LN2-plant/ln1.png",
-      "/assets/instruments/LN2-plant/ln2.png",
+     "/assets/instruments/LN2-Plant/LIQUID NITROGEN.jpeg",
     ],
   },
   // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
@@ -1359,7 +1346,8 @@ export const categoryDescriptions = {
   "Chemical Synthesis": "Equipment for accelerated and controlled synthesis",
   "Elemental Analysis": "Quantitative determination of elemental composition",
   "Water Purification": "High-purity water production systems",
-  "Freeze Drying": "Freeze drying (lyophilization) systems for sample preservation and dehydration",
+  "Freeze Drying":
+    "Freeze drying (lyophilization) systems for sample preservation and dehydration",
   "Optical Analysis": "Optical property measurement instruments",
   "Material Testing": "Rheological and mechanical property analysis",
   Facility: "Core facility infrastructure and utilities",

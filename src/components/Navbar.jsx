@@ -61,17 +61,23 @@ function Navbar() {
     (path) => location.pathname === path,
     [location.pathname]
   );
-
+const handleLogoClick = (e) => {
+  if (location.pathname === "/") {
+    e.preventDefault();
+    window.open("https://www.iiti.ac.in", "_blank");
+  }
+};
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3 lg:gap-4">
             {/* Logo */}
-            <Link
-              to="/"
-              className="flex items-center gap-2 hover:opacity-90 transition-opacity"
-            >
+          <Link
+  to="/"
+  onClick={handleLogoClick}
+  className="flex items-center gap-2 hover:opacity-90 transition-opacity"
+>
               <img
                 src="/iiti-logo.png"
                 alt="IIT Indore Logo"

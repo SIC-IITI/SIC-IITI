@@ -38,27 +38,23 @@ export default function Home() {
   }, []);
 
 
-
-  // NEW HERO IMAGES
-  const heroImages = [
-    { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
-    { src: "/assets/slider/slider1.png", id: "slider1" },
-    { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
-    { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
-    { src: "/assets/slider/clsm.jpeg", id: "clsm" },
-    { src: "/assets/slider/bet.jpeg", id: "bet-surface-area" },
-    { src: "/assets/slider/tga.jpeg", id: "tga" },
-    { src: "/assets/slider/dsc.jpeg", id: "dsc" },
-    { src: "/assets/slider/hplc.png", id: "hplc-rp" },
-    { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
-    { src: "/assets/instruments/Microscopy/AFM/ma1.png", id: "afm" },
-    { src: "/assets/instruments/Microscopy/CLSM/mc1.png", id: "clsm" },
-    { src: "/assets/instruments/Microscopy/Supra-55/ms1.png", id: "supra-55" },
-  ]
+const heroImages = [
+  { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
+  { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
+  { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
+  { src: "/assets/slider/clsm.jpeg", id: "clsm" },
+  { src: "/assets/slider/AFM 1.jpg", id: "afm" },
+  { src: "/assets/slider/bet.jpeg", id: "bet" },
+  { src: "/assets/slider/tga1.jpeg", id: "tga" },
+  { src: "/assets/slider/dsc.jpeg", id: "dsc" },
+  { src: "/assets/instruments/Element-Analyzer/elean1.png", id: "element-analyzer" },
+  { src: "/assets/slider/hplc.png", id: "hplc" },
+  { src: "/assets/instruments/Lyophilizer/lyo4.jpeg", id: "lyophilizer-labconco" }
+]
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
-    }, 5000)
+    }, 10000)
 
     return () => clearInterval(interval)
   }, [])
@@ -188,11 +184,11 @@ export default function Home() {
                     Explore
                   </button>
                 </Link>
-                <Link to="/booking">
+                <a href="https://sicbooking.iiti.ac.in/">
                   <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
                     Book
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -213,7 +209,7 @@ export default function Home() {
       )}
 
       {/* --- NEW HERO SECTION (IMAGES ONLY) --- */}
-      <section className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
+     <section className="relative mt-[5mm] h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -488,9 +484,9 @@ export default function Home() {
                 Easily reserve advanced research instruments for your experiments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/booking" className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors inline-block text-center">
+                <a href="https://sicbooking.iiti.ac.in/" className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors inline-block text-center">
                   Book
-                </Link>
+                </a>
                 <Link to="/instruments" className="px-6 py-3 border-2 border-gray-900 text-gray-900 hover:bg-gray-100 rounded-md font-medium transition-colors inline-block text-center">
                   Explore Instruments
                 </Link>
@@ -499,6 +495,7 @@ export default function Home() {
             <div className="flex justify-center animate-on-scroll stagger-2">
               <Calendar
                 onChange={setDate}
+                onClickDay={() => window.location.href = "https://sicbooking.iiti.ac.in/"}
                 value={date}
                 locale="en-GB"
                 tileClassName={getSundayClassName}

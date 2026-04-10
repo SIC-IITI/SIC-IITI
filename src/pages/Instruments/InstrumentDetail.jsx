@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Mail, Beaker, Calendar, FileText, Phone } from "lucide-react";
+import { Mail, Beaker, Calendar, FileText, Phone, CheckCircle, Wrench, AlertTriangle } from "lucide-react";
 import instrumentsData from "../../data/instrumentsData";
 
 import {
@@ -8,11 +8,44 @@ import {
   getFallbackImages,
 } from "../../utils/imageloader";
 
+const getInstrumentStatusDetails = (statusString) => {
+  if (statusString === "Not Working") {
+    return {
+      label: "Not Working",
+      color: "text-red-700",
+      bg: "bg-red-100",
+      border: "border-red-200",
+      icon: AlertTriangle,
+    };
+  }
+  if (statusString === "Under Maintenance") {
+    return {
+      label: "Under Maintenance",
+      color: "text-orange-700",
+      bg: "bg-orange-100",
+      border: "border-orange-200",
+      icon: Wrench,
+    };
+  }
+  return {
+    label: "Operational",
+    color: "text-green-700",
+    bg: "bg-green-100",
+    border: "border-green-200",
+    icon: CheckCircle,
+  };
+};
+
 const InstrumentDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([]);
+
+  // Scroll to top when the component mounts or the id changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const instrument = instrumentsData.find((item) => item.id === id);
 
@@ -87,6 +120,12 @@ const InstrumentDetail = () => {
     );
   }
 
+  const statusInfo = getInstrumentStatusDetails(instrument.status || "Operational");
+  const StatusIcon = statusInfo.icon;
+// const allImages = instruments.flatMap(inst => inst.images || []);
+// const fallbackImage =
+//   allImages[Math.floor(Math.random() * allImages.length)] || "/sic.png";
+const fallbackImage = "/assets/slider/clsm.jpeg";
   return (
     <div className="min-h-screen bg-gray-50 py-8 ">
       {/* Hero Header */}
@@ -110,10 +149,14 @@ const InstrumentDetail = () => {
           </p>
         </div>
 
-        <div className="flex items-center text-black mb-6 sm:mb-8">
+        <div className="flex flex-wrap items-center gap-3 text-black mb-6 sm:mb-8">
           <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-black/10 rounded-full font-semibold text-sm sm:text-base">
             {instrument.category.replace("-", " ")}
           </span>
+          <div className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-semibold text-sm sm:text-base flex items-center gap-2 border ${statusInfo.bg} ${statusInfo.color} ${statusInfo.border}`}>
+            <StatusIcon className="w-4 h-4" />
+            {statusInfo.label}
+          </div>
         </div>
       </div>
 
@@ -129,15 +172,15 @@ const InstrumentDetail = () => {
                     key={index}
                     src={image}
                     alt={`${instrument.name} view ${index + 1}`}
-                    // Added mix-blend-multiply here to remove the white background visually
+
                     className={`absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-opacity duration-1000 p-2 sm:p-4 ${
                       index === currentImageIndex ? "opacity-100" : "opacity-0"
                     }`}
-                    onError={(e) => {
-                      console.error(`Failed to load image: ${image}`);
-                      e.target.src =
-                        "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80";
-                    }}
+                   onError={(e) => {
+  console.error(`Failed to load image: ${image}`);
+  e.target.onerror = null; // prevent infinite loop
+  e.target.src = fallbackImage;
+}}
                   />
                 ))}
               </>
