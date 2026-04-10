@@ -69,16 +69,14 @@ export default function FacilityStatus() {
         </div>
       </section>
 
-      {/* ✅ CATEGORY-WISE RENDERING */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
 
           {Object.entries(groupedInstruments)
-            .sort(([a], [b]) => a.localeCompare(b))
+            
             .map(([category, instruments]) => (
               <div key={category} className="mb-12">
 
-                {/* Category Heading */}
                 <h2
                   className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2"
                   style={{ fontFamily: "Cantata one" }}
@@ -86,7 +84,6 @@ export default function FacilityStatus() {
                   {category}
                 </h2>
 
-                {/* Category Description */}
                 {categoryDescriptions[category] && (
                   <p className="text-gray-500 mb-6 text-sm">
                     {categoryDescriptions[category]}
