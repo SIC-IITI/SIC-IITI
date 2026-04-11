@@ -10,7 +10,7 @@ export default function EventsPage() {
   title: "Workshop & Hands-on Training on Advanced Microscopy",
   image: "/event1.png",
   fullDescription:
-    "A 3-day hands-on workshop on Advanced Microscopy organized by the Sophisticated Instrumentation Centre, IIT Indore. The program covers key microscopy techniques including Atomic Force Microscopy (AFM), Confocal Microscopy, Field-Emission Scanning Electron Microscopy (FESEM), and Fluorescence Microscopy. Participants will gain practical experience through live demonstrations, specimen preparation, and analysis of microscopic structures. The workshop also focuses on real-world applications in materials science and advanced research.",
+    "A 3-day hands-on workshop on Advanced Microscopy organized by the Sophisticated Instrumentation Centre, IIT Indore. The program covers key microscopy techniques including Atomic Force Microscopy (AFM), Confocal Microscopy, Field-Emission Scanning Electron Microscopy (FESEM), and Fluorescence Microscopy. The workshop also focuses on real-world applications in materials science and advanced research.",
   venue: "Sophisticated Instrumentation Centre, IIT Indore",
 }
 ]

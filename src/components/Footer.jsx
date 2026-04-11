@@ -13,7 +13,7 @@ function Footer() {
               <div className="flex gap-3">
                 <MapPin className="w-5 h-5 flex-shrink-0 text-blue-300" />
                 <div className="text-sm">
-                  <p className="font-medium">Sophisticated Instrumentation Center</p>
+                  <p className="font-medium">Sophisticated Instrumentation Centre</p>
                   <p className="text-blue-200">A National Facility</p>
                   <p className="text-blue-200">Indian Institute of Technology Indore</p>
                   <p className="text-blue-200">Khandwa Road, Simrol – 453552</p>
@@ -95,7 +95,7 @@ function Footer() {
 
         <div className="border-t border-blue-700 pt-6">
           <p className="text-center text-blue-200 text-sm">
-            © 2024 Sophisticated Instrumentation Center, IIT Indore. All rights reserved.
+            © 2024 Sophisticated Instrumentation Centre, IIT Indore. All rights reserved.
           </p>
         </div>
         
