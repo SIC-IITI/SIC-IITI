@@ -1,10 +1,10 @@
-
-import React, { useState } from "react";
-import { CheckCircle, Wrench, AlertTriangle, X, Beaker } from "lucide-react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { CheckCircle, Wrench, AlertTriangle } from "lucide-react";
 import instrumentsData, { categoryDescriptions } from "../../data/instrumentsData";
 
 export default function FacilityStatus() {
-  const [selectedInstrument, setSelectedInstrument] = useState(null);
+  const navigate = useNavigate();
 
   const getInstrumentStatusDetails = (statusString) => {
     if (statusString === "Not Working") {
@@ -55,11 +55,13 @@ export default function FacilityStatus() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-
       {/* Header */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-6 text-center sm:text-left">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4" style={{ fontFamily: "Cantata one" }}>
+          <h1
+            className="text-4xl sm:text-5xl font-bold mb-4"
+            style={{ fontFamily: "Cantata one" }}
+          >
             Facility Status
           </h1>
           <p className="text-lg text-blue-100 max-w-2xl">
@@ -70,11 +72,9 @@ export default function FacilityStatus() {
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
-
-          {Object.entries(groupedInstruments)
-            .map(([category, instruments]) => (
+          {Object.entries(groupedInstruments).map(
+            ([category, instruments]) => (
               <div key={category} className="mb-12">
-
                 <h2
                   className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2"
                   style={{ fontFamily: "Cantata one" }}
@@ -103,9 +103,7 @@ export default function FacilityStatus() {
                       <div
                         key={instrument.id}
                         className="group border border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
-                        onClick={() =>
-                          setSelectedInstrument({ ...instrument, status })
-                        }
+                        onClick={() => navigate(`/instruments/${instrument.id}`)}
                       >
                         {/* Image */}
                         <div className="relative h-48 bg-gray-100 p-4 flex items-center justify-center">
@@ -142,92 +140,10 @@ export default function FacilityStatus() {
                   })}
                 </div>
               </div>
-            ))}
+            )
+          )}
         </div>
       </section>
-
-
-       {/* Modal */}
-      {selectedInstrument && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div className="flex justify-between items-center border-b p-5 bg-gray-50 rounded-t-xl">
-              <div className="flex items-center gap-3">
-                <Beaker className="w-6 h-6 text-blue-600" />
-                <h2
-                  className="text-xl font-bold text-gray-900"
-                  style={{ fontFamily: "Cantata one" }}
-                >
-                  {selectedInstrument.name}
-                </h2>
-              </div>
-              <button
-                onClick={() => setSelectedInstrument(null)}
-                className="p-1 hover:bg-gray-200 rounded-full transition-colors"
-              >
-                <X className="w-6 h-6 text-gray-500" />
-              </button>
-            </div>
-
-            <div className="p-6">
-              <div
-                className={`flex items-center gap-3 p-4 rounded-lg mb-6 border ${selectedInstrument.status.bg} ${selectedInstrument.status.border} ${selectedInstrument.status.color}`}
-              >
-                <selectedInstrument.status.icon className="w-6 h-6 flex-shrink-0" />
-                <div>
-                  <h4 className="font-bold text-base">
-                    Status: {selectedInstrument.status.label}
-                  </h4>
-                  <p className="text-sm mt-0.5 opacity-90">
-                    {selectedInstrument.status.message}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4 text-gray-700">
-                <div>
-                  <h4 className="font-semibold text-gray-900">Full Name</h4>
-                  <p>{selectedInstrument.fullName}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Model</h4>
-                  <p>{selectedInstrument.model}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Category</h4>
-                  <p className="inline-block px-3 py-1 bg-gray-100 rounded-full text-sm mt-1">
-                    {selectedInstrument.category}
-                  </p>
-                </div>
-                <div className="pt-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Contact</h4>
-                  <p className="text-sm">
-                    <strong>Handled By:</strong> {selectedInstrument.handledBy}
-                  </p>
-                  <p className="text-sm">
-                    <strong>Email:</strong>{" "}
-                    <a
-                      href={`mailto:${selectedInstrument.email}`}
-                      className="text-blue-600 hover:underline"
-                    >
-                      {selectedInstrument.email}
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-t p-5 bg-gray-50 rounded-b-xl flex justify-end">
-              <button
-                onClick={() => setSelectedInstrument(null)}
-                className="px-6 py-2 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-lg transition-colors"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

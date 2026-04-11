@@ -1197,8 +1197,7 @@ export const instrumentsData = [
     position: "Quality Analyst, SIC",
 
     images: [
-      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
-      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image2.png",
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/pma300.png",
     ],
   },
 
