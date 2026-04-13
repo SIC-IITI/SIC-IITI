@@ -422,7 +422,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: ["/assets/instruments/Spectroscopy/CD/s_cd.png"],
+    images: ["/assets/instruments/Spectroscopy/CD/CD.jpeg"],
   },
 
   {
