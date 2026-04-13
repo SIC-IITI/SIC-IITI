@@ -68,18 +68,31 @@ const BookingPage = () => {
               <span className="font-semibold text-gray-900">
                 Note for External Users:
               </span>{" "}
-              Register on the iSTEM portal to access IIT Indore facilities.
-              Ensure all required details are submitted accurately for
-              processing.
+              Register on the I-STEM portal to access IIT Indore facilities.
             </p>
             <a
               href="https://www.istem.gov.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-3 text-blue-600 font-medium hover:underline"
-            >
-              https://www.istem.gov.in/
+              className="inline-block  text-blue-600 font-medium hover:underline"
+            > https://www.istem.gov.in/
             </a>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              
+              For any query related to I-STEM reg, contact 18004253281 (customer care).
+             
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed">
+               YouTube Video:{" "}
+              <a
+                href="https://www.youtube.com/@ISTEMIndia/videos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 font-medium hover:underline"
+              >
+                https://www.youtube.com/@ISTEMIndia/videos
+              </a>
+            </p>
           </div>
         </div>
       </section>

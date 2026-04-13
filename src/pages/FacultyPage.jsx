@@ -9,20 +9,11 @@ import "./FacultyPage.css";
 
 const teamSlides = [
   {
-    image: "assets/TeamPhotos/Team_4.jpg",
+    image: "assets/TeamPhotos/Team_7.jpg",
     title: "SIC Team",
     subtitle: "A National Facility of IIT Indore",
   },
-  {
-    image: "assets/TeamPhotos/Team_5.jpg",
-    title: "Research & Innovation",
-    subtitle: "Empowering future technologies",
-  },
-  {
-    image: "assets/TeamPhotos/Team_6.jpg",
-    title: "Collaborative Excellence",
-    subtitle: "Where science meets impact",
-  },
+  
 ];
 
 
