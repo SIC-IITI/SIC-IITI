@@ -11,8 +11,9 @@ export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
   const [excellenceIndex, setExcellenceIndex] = useState(0)
   const [date, setDate] = useState(new Date())
-  const [touchStart, setTouchStart] = useState(null)
-  const [touchEnd, setTouchEnd] = useState(null)
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 50;
 
   // UPDATED: Initialize currentImageIndex from sessionStorage
   const [currentImageIndex, setCurrentImageIndex] = useState(() => {
@@ -125,21 +126,25 @@ export default function Home() {
   }
 
   const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX)
+  setTouchEnd(null); // reset
+  setTouchStart(e.targetTouches[0].clientX);
+};
+
+const handleTouchMove = (e) => {
+  setTouchEnd(e.targetTouches[0].clientX);
+};
+
+const handleTouchEnd = () => {
+  if (!touchStart || !touchEnd) return;
+
+  const distance = touchStart - touchEnd;
+
+  if (distance > minSwipeDistance) {
+    nextHeroImage(); // swipe left
+  } else if (distance < -minSwipeDistance) {
+    prevHeroImage(); // swipe right
   }
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX)
-  }
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
-
-    const distance = touchStart - touchEnd
-
-    if (distance > 50) nextHeroImage()   // swipe left
-    if (distance < -50) prevHeroImage()  // swipe right
-  }
+};
 
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
@@ -224,8 +229,8 @@ export default function Home() {
       )}
 
       {/* --- NEW HERO SECTION (IMAGES ONLY) --- */}
-      <section 
-        className="relative mt-[5mm] h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group"
+      <section
+        className="relative mt-[5mm] h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group touch-pan-y select-none"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -272,7 +277,7 @@ export default function Home() {
             <button
               key={index}
               onClick={() => setCurrentImageIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 shadow-sm ${index === currentImageIndex ? 'bg-black w-8' : 'bg-black/30 hover:bg-black/60'
+              className={`w-3 h-3 rounded-full transition-all duration-300 shadow-sm ${index === currentImageIndex ? 'bg-white w-8' : 'bg-white/30 hover:bg-white/60'
                 }`}
               aria-label={`Go to slide ${index + 1}`}
             />
