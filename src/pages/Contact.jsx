@@ -64,13 +64,13 @@ export default function ContactPage() {
             ))}
           </div>
 
-          
+
 
         </div>
       </div>
 
       {/* RIGHT SIDE IMAGE */}
-      <div className="hidden lg:block w-1/2 h-screen relative">
+      <div className="hidden lg:block w-1/2 pt-2 h-screen relative">
         <img
           src="/abhinandan.png"
           alt="SIC Facility"
