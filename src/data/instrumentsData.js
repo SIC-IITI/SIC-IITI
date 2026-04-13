@@ -1188,7 +1188,7 @@ export const instrumentsData = [
   {
     id: "ak-viscometer",
     name: "AK Viscometer",
-    fullName: "Kinematic Viscosity Measurement",
+    fullName: "Brookfield Viscosity Measurement",
     category: "Centre of Excellence",
     model: "Anton Paar – SVM 1101 Sample Fill",
     showInStatus: true,
@@ -1220,8 +1220,8 @@ export const instrumentsData = [
 
   {
     id: "b-viscometer",
-    name: "B Viscometer",
-    fullName: "Brookfield Viscosity Measurement",
+    name: "Brookfield Viscometer",
+    fullName: "Dynamic Viscosity Measurement",
     category: "Centre of Excellence",
     model: "AMETEK DV2T LV",
     showInStatus: true,
