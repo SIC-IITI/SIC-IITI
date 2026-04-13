@@ -848,8 +848,7 @@ export const instrumentsData = [
     email: "atul.singh@iiti.ac.in",
     position: "Junior Technical Assistant, SIC",
     images: [
-      "/assets/instruments/Element-Analyzer/elean1.png",
-      "/assets/instruments/Element-Analyzer/elean2.png",
+      "/assets/instruments/Element-Analyzer/elean.png",
     ],
   },
   {
