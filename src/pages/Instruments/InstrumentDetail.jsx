@@ -122,10 +122,10 @@ const InstrumentDetail = () => {
 
   const statusInfo = getInstrumentStatusDetails(instrument.status || "Operational");
   const StatusIcon = statusInfo.icon;
-// const allImages = instruments.flatMap(inst => inst.images || []);
-// const fallbackImage =
-//   allImages[Math.floor(Math.random() * allImages.length)] || "/sic.png";
-const fallbackImage = "/assets/slider/clsm.jpeg";
+  // const allImages = instruments.flatMap(inst => inst.images || []);
+  // const fallbackImage =
+  //   allImages[Math.floor(Math.random() * allImages.length)] || "/sic.png";
+  const fallbackImage = "/assets/slider/clsm.jpeg";
   return (
     <div className="min-h-screen bg-gray-50 py-8 ">
       {/* Hero Header */}
@@ -173,14 +173,13 @@ const fallbackImage = "/assets/slider/clsm.jpeg";
                     src={image}
                     alt={`${instrument.name} view ${index + 1}`}
 
-                    className={`absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-opacity duration-1000 p-2 sm:p-4 ${
-                      index === currentImageIndex ? "opacity-100" : "opacity-0"
-                    }`}
-                   onError={(e) => {
-  console.error(`Failed to load image: ${image}`);
-  e.target.onerror = null; // prevent infinite loop
-  e.target.src = fallbackImage;
-}}
+                    className={`absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-opacity duration-1000 p-2 sm:p-4 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                      }`}
+                    onError={(e) => {
+                      console.error(`Failed to load image: ${image}`);
+                      e.target.onerror = null; // prevent infinite loop
+                      e.target.src = fallbackImage;
+                    }}
                   />
                 ))}
               </>
@@ -206,6 +205,13 @@ const fallbackImage = "/assets/slider/clsm.jpeg";
           >
             <FileText className="w-4 h-4" />
             View Charges
+          </button>
+          <button
+            onClick={() => window.open("https://sicbooking.iiti.ac.in/", "_blank")}
+            className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
+          >
+            <FileText className="w-4 h-4" />
+            Sample Requirement
           </button>
         </div>
 

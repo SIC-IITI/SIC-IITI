@@ -70,7 +70,7 @@ export default function ExcellencePage() {
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 sm:py-20">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             Excellence in Every Dimension
           </h1>
@@ -82,7 +82,7 @@ export default function ExcellencePage() {
 
       {/* Content Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {excellenceItems.map((item, index) => (
               <div
