@@ -58,7 +58,7 @@ export default function Home() {
     { src: "/assets/slider/bet.jpeg", id: "bet" },
     { src: "/assets/slider/tga1.jpeg", id: "tga" },
     { src: "/assets/slider/dsc.jpeg", id: "dsc" },
-    { src: "/assets/instruments/Element-Analyzer/elean1.png", id: "element-analyzer" },
+    { src: "/assets/instruments/Element-Analyzer/elean.png", id: "element-analyzer" },
     { src: "/assets/instruments/Microscopy/Supra-55/ms1.png", id: "supra-55" },
     { src: "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg", id: "nmr-400" },
     { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
