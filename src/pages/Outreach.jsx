@@ -65,7 +65,7 @@ function Outreach() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-white py-12 sm:py-8  border-gray-200">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Outreach Activities For School and College Students
@@ -79,7 +79,7 @@ function Outreach() {
 
       {/* Main Image Section with Carousel */}
       <section className="py-5 sm:py-7 bg-white">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="max-w-7xl mx-auto">
             {/* New flex wrapper for laptop layout */}
             <div className="flex items-center justify-center gap-2 lg:gap-4">
@@ -151,7 +151,7 @@ function Outreach() {
 
       {/* SIC Visitors & Event Highlights Section */}
       <section className="py-12 sm:py-16 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               SIC Visitors & Event Highlights

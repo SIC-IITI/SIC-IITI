@@ -1,53 +1,1382 @@
+// export const instrumentsData = [
+//   // ==================== X-RAY ANALYSIS ====================
+//   // {
+//   //   id: "scxrd",
+//   //   name: "SCXRD",
+//   //   fullName: "Single Crystal X-Ray Diffractometer",
+//   //   category: "X-Ray",
+//   //   model: "Agilent Technologies Super Nova System",
+//   //   showInStatus: true,
+//   //   status: "Operational",
+//   //   usageCharges: {
+//   //     internal: "₹ 1,200 per sample",
+//   //     external: "₹ 2,500 per sample",
+//   //     unit: "per sample",
+//   //   },
+//   //   features: [
+//   //     "State of the art dual core Agilent Technologies (Oxford Diffraction) Super Nova CCD System",
+//   //     "Access to micro-focus Cu and Mo sources which allows even small-size crystals data collection",
+//   //     "Oxford Cryosystems which enable temperature range from 90 to 400K",
+//   //     "High-definition microscopes for the separation and mounting of crystals",
+//   //     "Dual wavelength capability (Cu Kα and Mo Kα)",
+//   //     "CCD detector for high-sensitivity data collection",
+//   //   ],
+//   //   applications: [
+//   //     "Crystal screening and mounting, including air-sensitive samples",
+//   //     "Diffraction data collection under various conditions, including temperatures as low as 90 K",
+//   //     "Structure solution, refinement, and interpretation up to publication level",
+//   //     "Cambridge Structure Database searching",
+//   //     "Structural evaluation of compounds",
+//   //     "Lattice information and unit cell determination",
+//   //     "X-ray crystallography of proteins and small molecules",
+//   //     "Polymorphism and co-crystal studies",
+//   //   ],
+//   //   handledBy: "Mr. Kinny Pandey",
+//   //   location: " SC-XRD lab",
+//   //   email: "kinny@iiti.ac.in",
+//   //   images: [
+//   //     "/assets/instruments/X-Ray/SCXRD/SC-XRD.jpg",
+//   //     "/assets/instruments/X-Ray/SCXRD/SC-XRD 2.jpg",
+//   //     "/assets/instruments/X-Ray/SCXRD/SC-XRD 1.jpg",
+//   //   ],
+//   // },
+
+//   {
+//     id: "eds-edx",
+//     name: "EDS/EDX",
+//     fullName: "Energy Dispersive X-Ray Spectroscopy",
+//     category: "X-Ray",
+//     model: "Oxford X-MAX 20",
+//     showInStatus: true,
+//     status: "Operational",
+//    usageCharges: {
+//   internal: "2000",
+//   external: "3500",
+// },
+//     features: [
+//       "Integrated with SEM, TEM, or FIB systems",
+//       "Non-destructive elemental analysis",
+//       "Micro and nanoscale compositional mapping",
+//       "Rapid qualitative and quantitative analysis",
+//       "Detection of elements from beryllium (Be) to uranium (U)",
+//       "High spatial resolution for localized analysis",
+//     ],
+//     applications: [
+//       "Phase identification in alloys, ceramics, and composites",
+//       "Failure analysis and impurity detection",
+//       "Microstructural analysis of grain boundaries and inclusions",
+//       "Dopant distribution mapping in semiconductors",
+//       "Contamination analysis on semiconductor wafers",
+//       "Thin film composition analysis",
+//       "Nanomaterial characterization and catalysis research",
+//       "Mineral identification and petrographic studies",
+//       "Environmental analysis of pollutants",
+//       "Elemental mapping in biological tissues",
+//       "Pharmaceutical composition analysis",
+//       "Archaeological artifact authentication",
+//       "Forensic trace evidence analysis",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     location: " EDS/EDX lab",
+
+//     email: "kinny@iiti.ac.in",
+//     images: [
+//       "/assets/instruments/X-Ray/EDS-EDX/xe1.png",
+//       "/assets/instruments/X-Ray/EDS-EDX/xe2.png",
+//     ],
+//   },
+
+//   {
+//     id: "bse-bsd",
+//     name: "BSE/BSD",
+//     fullName: "Backscattered Electron Detector",
+//     category: "X-Ray",
+//     model: "Gemini 360",
+//     showInStatus: true,
+//     status: "Operational",
+// usageCharges: {
+//   internal: "2000",
+//   external: "4000",
+// },
+//     features: [
+//       "Captures high-energy electrons reflected or backscattered from the sample.",
+//       "Provides contrast based on atomic number for compositional analysis.",
+//       "Heavier elements appear brighter, enabling differentiation within the sample.",
+//     ],
+//     applications: [
+//       "Material composition analysis with atomic number contrast",
+//       "Phase identification in multiphase materials",
+//       "Grain boundary and microstructural analysis",
+//       "Inclusion and void detection",
+//       "Semiconductor layered structure examination",
+//       "Mineral differentiation in geological samples",
+//       "Bone and tissue composition analysis",
+//       "Forensic residue analysis",
+//       "Archaeological artifact characterization",
+//       "Corrosion and failure analysis",
+//       "Quality control in coating applications",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/X-Ray/BSE-BSD/xb1.png"],
+//   },
+
+//   // ==================== MICROSCOPY ====================
+//   {
+//     id: "supra-55",
+//     name: "FE-SEM Supra-55",
+//     fullName: "Field Emission Scanning Electron Microscope",
+//     category: "Microscopy",
+//     model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
+//     showInStatus: true,
+//     status: "Operational",
+//  usageCharges: {
+//   internal: "1000",
+//   external: "2000",
+// },
+//     features: [
+//       "GEMINI Technology with high efficiency in-lens detector",
+//       "No magnetic field at specimen level",
+//       "Superb resolution and image quality at high and low voltages",
+//       "Extremely wide operating voltage range from 0.02-20kV",
+//       "Short analytical working distance of 8.5 mm",
+//       "High probe current (up to 100 nA) with excellent stability (<0.2%/h)",
+//       "Integrated SE, InLens, and EDX detectors",
+//     ],
+//     applications: [
+//       "High-resolution imaging of nanostructures and nanomaterials",
+//       "Surface topography analysis for microelectronics",
+//       "Elemental analysis and phase identification with EDX",
+//       "Grain boundary and microstructural studies",
+//       "Catalysis research at nanoscale",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: [
+//       "/assets/instruments/Microscopy/Supra-55/ms1.png",
+//       "/assets/instruments/Microscopy/Supra-55/ms2.png",
+//       "/assets/instruments/Microscopy/Supra-55/ms3.png",
+//     ],
+//   },
+
+//   {
+//     id: "gemini-360",
+//     name: "FE-SEM Gemini 360",
+//     fullName: "Field Emission Scanning Electron Microscope",
+//     category: "Microscopy",
+//     model: "Carl Zeiss Gemini 360",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,800 per hour",
+//       external: "₹ 3,500 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Next-generation GEMINI optics",
+//       "Ultra-high resolution imaging",
+//       "Advanced detector technology",
+//       "Automated imaging and analysis",
+//       "Low vacuum operation capability",
+//     ],
+//     applications: [
+//       "Ultra-high resolution materials characterization",
+//       "Advanced semiconductor inspection",
+//       "Nanomaterial analysis and development",
+//       "3D imaging and surface reconstruction",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: [
+//       "/assets/instruments/Microscopy/Gemini-360/mg1.png",
+//       "/assets/instruments/Microscopy/Gemini-360/mg2.png",
+//     ],
+//   },
+
+//   {
+//     id: "afm",
+//     name: "AFM",
+//     fullName: "Atomic Force Microscope",
+//     category: "Microscopy",
+//     model: "Atomic Force Microscope",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,200 per hour",
+//       external: "₹ 2,500 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Atomic-scale resolution imaging",
+//       "3D surface topography mapping",
+//       "Multiple imaging modes (contact, non-contact, tapping)",
+//       "Force measurements and spectroscopy",
+//     ],
+//     applications: [
+//       "Nanoscale surface topography imaging",
+//       "Thin film thickness and roughness measurement",
+//       "Nanoparticle size and shape characterization",
+//     ],
+//     handledBy: "Dr. Ravinder  ",
+//     email: "ravinderk@iiti.ac.in",
+//     position: "Junior Technical Superintendent, SIC",
+//     images: [
+//       "/assets/instruments/Microscopy/AFM/AFM 1.jpg",
+//       "/assets/instruments/Microscopy/AFM/AFM 2.jpg",
+//       "/assets/instruments/Microscopy/AFM/AFM 3.jpg",
+//       "/assets/instruments/Microscopy/AFM/AFM 4.jpg",
+//     ],
+//   },
+
+//   {
+//     id: "clsm",
+//     name: "CLSM",
+//     fullName: "Confocal Laser Scanning Microscope",
+//     category: "Microscopy",
+//     model: "Confocal Laser Scanning Microscope",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,000 per hour",
+//       external: "₹ 2,200 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "High-resolution 3D imaging",
+//       "Optical sectioning capability",
+//       "Multiple laser wavelengths",
+//       "Fluorescence imaging with multiple channels",
+//     ],
+//     applications: [
+//       "3D reconstruction of biological specimens",
+//       "Live cell imaging and dynamics",
+//       "Fluorescence microscopy of labeled samples",
+//     ],
+//     handledBy: "Dr. Ravinder  ",
+//     email: "ravinderk@iiti.ac.in",
+//     position: "Junior Technical Superintendent, SIC",
+//     images: [
+//       "/assets/instruments/Microscopy/CLSM/CLSM 1.jpg",
+//       "/assets/instruments/Microscopy/CLSM/CLSM 2.jpg",
+//       "/assets/instruments/Microscopy/CLSM/mc1.jpeg",
+//     ],
+//   },
+
+//   // ==================== SPECTROSCOPY ====================
+//   {
+//     id: "nmr-500",
+//     name: "NMR 500",
+//     fullName: "Nuclear Magnetic Resonance(NMR) 500MHz",
+//     category: "Spectroscopy",
+//     model: "AVANCE NEO Ascend 500 Bruker BioSpin International AG",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,000 per hour",
+//       external: "₹ 2,200 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Magnet: 11.764 Tesla (Superconducting),",
+//       "50 mm bore Probes Available: For Solution State NMR 5 mm Broad Band Observe I-Probe",
+//       "& Triple Resonance Inverse Probe with a gradient along Z-axis and Automated Tuning & Matching (ATM).",
+//     ],
+//     applications: [
+//       "The state-of-the-art AVANCE NEO NMR console with digital lock and 3 independent RF channels providing 150 W 1H/19F transmitter and 600 W transmitters and broadband Preamplifier.",
+//       "The system is equipped with a 5 mm TCI CryoProbe that provides enhanced sensitivity for 1H, 13C, and 15N nuclei.",
+//       "In addition 150 W 2H transmitter for deuterium observation and decoupling.",
+//       "The magnet has a high homogeneity of 0.1 ppm over 1 cm DSV and excellent temporal stability of 0.05 ppm/hr.",
+//       "It is also equipped with a BCU I unit for on-demand temperature studies ranging from (-40 to 120℃).",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     location: "NMR lab",
+//     images: ["/assets/instruments/Spectroscopy/NMR-500/snmr500_1.jpeg"],
+//   },
+
+//   {
+//     id: "nmr-400",
+//     name: "NMR 400",
+//     fullName: "Nuclear Magnetic Resonance(NMR) 400MHz",
+//     category: "Spectroscopy",
+//     model: "AVANCE NEO Ascend 400 Bruker BioSpin International AG",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 800 per hour",
+//       external: "₹ 1,800 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Magnet: 8.96 Tesla (Superconducting),",
+//       "50 mm bore Probes Available: For Solution State NMR 5 mm Broad Band Fluorine Observe Probe with a gradient along Z-axis and Automated Tuning",
+//       "& Matching (ATM) accessory. 5 mm Broad Band Inverse Probe with a gradient along Z-axis and Automated Tuning & Matching (ATM) accessory.",
+//     ],
+//     applications: [
+//       "The state-of-the-art Avance III 400 NMR console with digital lock and 2 independent RF channels providing 60 W 1H/19F transmitter and 150 W transmitters and broadband Preamplifier.",
+//       "In addition, a 5 W 2H transmitter for deuterium observation and decoupling.",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     location: "NMR lab",
+//     images: ["/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg"],
+//   },
+
+//   {
+//     id: "ft-ir",
+//     name: "FT-IR",
+//     fullName: "Fourier Transform Infrared Spectrometer ",
+//     category: "Spectroscopy",
+//     model: "Fourier Transform Infrared Spectrometer , Tensor 27, BRUKER",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 400 per sample",
+//       external: "₹ 900 per sample",
+//       unit: "per sample",
+//     },
+//     features: [
+//       "FT-IR is an analytical instrument (with MIR source, ZnSe beam splitter, and DLaTGS detector) dedicated to identifying materials including polymers,",
+//       "based on the relative amount of energy of key functionalities present in the sample.",
+//     ],
+//     applications: [
+//       "It enables us to analyze the sample in the frequency ranges between 4000-400 cm-1.",
+//       "This instrument is made to analyze samples in solid form as well as in liquid/gel form.",
+//       " Samples can be analyzed by transmission and ATR methods.",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/Spectroscopy/FT-IR/s_ft.png"],
+//   },
+
+//   {
+//     id: "tcspc",
+//     name: "TCSPC",
+//     fullName: "Time-Correlated Single Photon Counting",
+//     category: "Spectroscopy",
+//     model: "(TCSPC), Horiba",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 700 per hour",
+//       external: "₹ 1,600 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Cell holder with facility for recirculating liquid temperature control.",
+//       "Picobrite Diode Laser with a repetition rate of 5 MHz with instrument response function 140 picoseconds.",
+//       " The lifetime of the PMT detector (TBX-07C) can be measured at around 140 picoseconds successfully.",
+//     ],
+//     applications: [
+//       "Emission monochromator: Seya-Namioka type, ",
+//       "featuring motorized wavelength drive (200 nm to 800 nm), ",
+//       "integral safety shutters interlocked to the lid of the sample compartment, ",
+//       "and synchronized manually adjustable slits (1nm to 32 nm).",
+//       " DAS6 decay analysis software: Foundation Pack (including 1 to 5 exponentials) + DAS6-8 Anisotropy.",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/Spectroscopy/TCSPC/TCSPC.jpg"],
+//   },
+
+//   {
+//     id: "cd",
+//     name: "CD",
+//     fullName: "Circular Dichroism Spectropolarimeter",
+//     category: "Spectroscopy",
+//     model: "JASCO J-815 Circular Dichroism Spectropolarimeter",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 900 per hour",
+//       external: "₹ 2,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Measurement range from 163–1100 nm with high S/N ratio",
+//       "Traceable calibration for IQ, OQ, and PQ suitable for GLP/GMP labs",
+//       "21 CFR Part 11 compliant software for electronic signatures",
+//       "Auto-response measurement optimizing response to scan speed and signal",
+//       "Auto-scale mode for data acquisition",
+//       "Extremely low stray light (better than 0.0003%) for accurate Far-UV data",
+//       "Compact air-cooled 150W xenon arc source (optional 450W water-cooled source)",
+//       "Peltier temperature-controlled cell holders (single or six-position)",
+//       "Side-entry port for fluorescence or fluorescence-detected CD (FCD)",
+//       "High stability reducing need for frequent calibration",
+//       "Spectra Manager II and CFR software support",
+//     ],
+//     applications: [
+//       "Circular Dichroism measurements",
+//       "UV/Visible absorbance",
+//       "Linear Dichroism of oriented molecules",
+//       "Fluorescence detected CD and total fluorescence",
+//       "Magnetic CD (permanent and electromagnets)",
+//       "Optical Rotation Dispersion",
+//       "Fluorescence measurement",
+//       "Stopped-flow CD",
+//       "Stopped-flow fluorescence and absorbance",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/Spectroscopy/CD/s_cd.png"],
+//   },
+
+//   {
+//     id: "uv-vis",
+//     name: "UV-Visible",
+//     fullName: "UV-Visible Spectrophotometer",
+//     category: "Spectroscopy",
+//     model: "Varian Cary 100 Bio UV-Visible Spectrophotometer",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 300 per sample",
+//       external: "₹ 700 per sample",
+//       unit: "per sample",
+//     },
+//     features: [
+//       "Wavelength range: 190–900 nm",
+//       "Accuracy: ± 2 nm",
+//       "Tungsten halogen light source",
+//       "Large sample compartment with built-in accessory controller",
+//       "Supports temperature control, liquid/solid sample holders, multicell holders, reflectance accessories, and fiber optics",
+//       "Working range past 3.5 absorbance units eliminating dilution for concentrated samples",
+//       "WinUV modular software for multiple applications",
+//       "Variable slit widths for spectral resolution control",
+//       "Phase-Locked wavelength drive to prevent peak shifts at high scan speeds",
+//       "Sealed quartz-coated optics for corrosion protection and easy cleaning",
+//     ],
+//     applications: [
+//       "Bacterial culturing analysis",
+//       "Drug identification",
+//       "Nucleic acid purity assessment",
+//       "Quantitative and qualitative analysis in beverage industry",
+//       "General chemical research measurements",
+//     ],
+//     position: " Technical Superintendent, SIC",
+//     handledBy: "Mr. Ghanashyam Bhavsar",
+//     email: "ghanashyam@iiti.ac.in",
+//     images: [
+//       "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/UV VIS SPECTROMETER.jpg",
+//     ],
+//   },
+
+//   {
+//     id: "uv-vis-nir",
+//     name: "UV-VIS-NIR",
+//     fullName: "UV-VIS-NIR Spectrophotometer",
+//     category: "Spectroscopy",
+//     model: "Perkin-Elmer LAMBDA 750 UV-VIS-NIR Spectrophotometer",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 500 per sample",
+//       external: "₹ 1,100 per sample",
+//       unit: "per sample",
+//     },
+//     features: [
+//       "Measurement range: 190–3300 nm",
+//       "High-performance UV/Vis/NIR spectrophotometry",
+//       "Extremely versatile for a wide range of sample types",
+//       "Interchangeable accessories and detector modules for flexible configurations",
+//       "Suitable for challenging materials and diverse research applications",
+//     ],
+//     applications: [
+//       "Chemical sample analysis",
+//       "Biochemical studies",
+//       "Materials science research",
+//       "Teaching and research lab spectral measurements",
+//       "Flexible spectral acquisition across UV, visible, and NIR regions",
+//     ],
+//     handledBy: "Mr. Ghanashyam Bhavsar",
+//     email: "ghanashyam@iiti.ac.in",
+//     images: ["/assets/instruments/Spectroscopy/UV-VIS-NIR/UV VIS NIR.jpg"],
+//   },
+
+//   {
+//     id: "spectrofluorometer",
+//     name: "Spectrofluorometer",
+//     fullName: "FluoroMax-4 Spectrofluorometer",
+//     category: "Spectroscopy",
+//     model: "FluoroMax SPEX® (FluoroMax-4)",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 600 per hour",
+//       external: "₹ 1,400 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Compact single-module high-sensitivity spectrofluorometer",
+//       "33% higher sensitivity and 20% better S/N ratio compared to previous models",
+//       "TCSPC capability for fluorescence lifetime measurements",
+//       "Fast scanning up to 80 nm/second",
+//       "FluorEssence software with method file support",
+//       "Front-surface detection accessory",
+//       "Fluorescence microscope accessory",
+//       "Polarization and anisotropy measurements",
+//       "Remote measurement capability via optical fibers",
+//       "Phosphor meter for long-lived luminescence",
+//     ],
+//     applications: [
+//       "Water Raman signal-to-noise measurements (3000:1)",
+//       "Fluorescence emission and excitation studies",
+//       "Fluorescence lifetime determination using TCSPC",
+//       "Polarization and anisotropy experiments",
+//       "Microscopy-based fluorescence measurements",
+//       "Remote fiber-based fluorescence detection",
+//       "Long-lived luminescence studies via phosphor meter",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: [
+//       "/assets/instruments/Spectroscopy/Spectrofluorometer/FLUORIMETER.jpg",
+//     ],
+//   },
+
+//   // ==================== CHROMATOGRAPHY ====================
+//   {
+//     id: "lc-hrms",
+//     name: "LC-HRMS",
+//     fullName: "Liquid Chromatography–High Resolution Mass Spectrometer",
+//     category: "Chromatography",
+//     make: "Waters",
+//     model: "ACQUITY H-Class Plus UPLC + Xevo G3 QTOF",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 600 per sample",
+//       external: "₹ 1,500 per sample",
+//       unit: "per sample",
+//     },
+//     description:
+//       "UPLC system with QSM, SM-FTN, column manager, PDA detector, RI detector, and Xevo G3 QTOF configured with ESI/APCI/ASAP probes for nominal and accurate mass detection. Controlled via MassLynx V 4.2.",
+//     features: [
+//       "Mass range (TOF): 20–100,000 m/z",
+//       "Quadrupole resolving mode: 20–4000 m/z",
+//       "Quadrupole non-resolving mode: 20–16,000 m/z",
+//       "Resolving power > 40,000 FWHM",
+//       "Mass accuracy < 1 ppm",
+//       "Sample Manager (SM-FTN) temperature: 4°C to 40°C",
+//       "Column manager temperature: 25°C to 80°C",
+//     ],
+//     sampleRequirements: [
+//       "Powder: 10 mg",
+//       "Liquid: 2 mL at 0.5 mg/mL concentration",
+//     ],
+//     applications: [
+//       "Separation, identification, and quantification of unknown and known compounds",
+//       "Determination of molecular weights, structures, and elemental compositions",
+//       "Drug assay analysis for pharmaceutical industries",
+//       "Pharmacokinetic studies (absorption, metabolism, excretion)",
+//       "Bioanalytical quantitation in plasma, urine, saliva, and serum",
+//       "Analysis of agrochemical and pesticide components",
+//     ],
+//     handledBy: "Mr. Ghanashyam Bhavsar",
+//     email: "ghanashyam@iiti.ac.in",
+//     location: "LC-MS lab",
+//     images: ["/assets/instruments/Chromatography/LC-HRMS/image.png"],
+//   },
+
+//   {
+//     id: "hplc-rp",
+//     name: "HPLC-RP",
+//     fullName: "High Performance Liquid Chromatography (Reversed Phase)",
+//     category: "Chromatography",
+//     make: "Thermo Scientific",
+//     model: "Vanquish Core",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 500 per sample",
+//       external: "₹ 1,200 per sample",
+//       unit: "per sample",
+//     },
+//     description:
+//       "The Vanquish Core system includes a quaternary pump, autosampler, column oven, and PDA detector designed for high-resolution reversed phase chromatography.",
+//     features: [
+//       "Quaternary pump supporting isocratic and gradient modes",
+//       "Maximum system pressure: 700 bar for high-resolution separations",
+//       "Flow range: 0–10 mL/min for diverse sample types",
+//       "Easy transfer of methods from HPLC to sub-2-micron columns",
+//       "pH range: 0–13 with chloride concentration up to 0.1 mol/L",
+//       "Injection volume: 0.01–100 µL",
+//       "Sample cooling: 4–40°C",
+//       "Sample capacity: 216 vials (1.5 mL each)",
+//       "Column compartment temperature: 5–85°C",
+//       "Optimized for reversed phase chromatography",
+//     ],
+//     sampleRequirements: [
+//       "Powder samples: 5 mg",
+//       "Liquid samples: 2 mL (1 mg/mL concentration)",
+//     ],
+//     applications: [
+//       "Drug quality testing, impurity detection, reaction monitoring, qualitative and quantitative analysis, dissolution studies",
+//       "Environmental pollutant analysis including phenolics, air pollution markers, oil spills, and plastic degradation compounds",
+//       "Food and flavor analysis including sugars, preservatives, additives, and contaminants",
+//       "Forensic applications including drug identification, dye analysis, blood drug quantification, and volatile compound analysis",
+//     ],
+//     handledBy: "Mr. Ghanashyam Bhavsar",
+//     location: "LC-MS lab",
+//     email: "ghanashyam@iiti.ac.in",
+//     images: ["/assets/instruments/Chromatography/HPLC-RP/chro_hp.png"],
+//   },
+
+//   {
+//     id: "gc-ms",
+//     name: "GC-MS",
+//     fullName: "Gas Chromatography – Mass Spectrometer",
+//     category: "Chromatography",
+//     model: "Shimadzu GSMS-QP2010 Ultra",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 700 per sample",
+//       external: "₹ 1,600 per sample",
+//       unit: "per sample",
+//     },
+//     features: [
+//       "Versatile system for separation and identification of non-polar and mid-polar compounds",
+
+//       "Electron Ionization (EI) with positive and negative ion modes",
+//       "Helium carrier gas for GC-MS operation",
+//       "High sensitivity detection down to PPM levels",
+//       "Mass range: 10–600 Da",
+//       "NIST mass spectral library for compound identification",
+//        ],
+//     sampleRequirements: [
+//       "Sample quantity: 20 mg",
+//       "Must be soluble in methanol",
+//       "Molecular weight range: 50–600 Da",
+//       "Sample must be volatile for GC-MS analysis",
+//     ],
+//     applications: [
+//       "Identification and quantification of volatile and semi-volatile organic compounds",
+//       "Molecular weight and limited elemental composition determination of unknown organics",
+//       "Structural elucidation via spectral matching with reference libraries",
+//       "Analysis of complex mixtures through GC separation and MS fragmentation patterns",
+//       "Typical analysis time: 20–100 minutes depending on GC method",
+//     ],
+//     handledBy: "Mr. Ghanashyam Bhavsar",
+//     location: "LC-MS lab",
+//     email: "ghanashyam@iiti.ac.in",
+//     images: ["/assets/instruments/Chromatography/GC-MS/chro_gc1.jpeg"],
+//   },
+//   // ==================== THERMAL ANALYSIS ====================
+//   {
+//     id: "tga",
+//     name: "TGA",
+//     fullName: "Thermogravimetric Analyzer",
+//     category: "Thermal Analysis",
+//     model: "METTLER TOLEDO TGA/DSC 1 STARe System",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Measures change in sample weight during heating, cooling, or isothermal conditions",
+//       "Used for material composition analysis",
+//       "Applicable to plastics, elastomers, thermosets, minerals, ceramics, and pharmaceutical materials",
+//       "Thermobalance-based detection",
+//       "Typical upper temperature limit: 800°C",
+//     ],
+//     applications: [
+//       "Weight loss/gain measurement as a function of temperature or time",
+//       "Thermal decomposition and oxidation studies",
+//       "Purity and composition analysis",
+//       "Determination of drying and ignition temperatures",
+//       "Determination of stability temperatures of compounds",
+//       "Quantitative mass loss analysis using thermal curves",
+//     ],
+//     sampleRequirements: [
+//       "Suitable sample forms: crystals, powders, films, particles, gels, solids, liquids",
+//       "Sample size: pieces < 5 mm",
+//       "Typical sample weight: 2–10 mg",
+//     ],
+//     handledBy: "Mr. Atul Singh",
+//     email: "atul.singh@iiti.ac.in",
+//     position: "Junior Technical Assistant, SIC",
+
+//     images: ["/assets/instruments/Thermal-Analysis/TGA/ta_t1.jpeg"],
+//   },
+//   {
+//     id: "dsc",
+//     name: "DSC",
+//     fullName: "Differential Scanning Calorimeter",
+//     category: "Thermal Analysis",
+//     model: "PerkinElmer DSC 8000",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Determines phase transitions including melting, crystallization, crystal-to-crystal transitions, and liquid crystal transitions",
+//       "Measures heat absorbed or released during phase changes",
+//       "Useful for studying glass transitions in polymers",
+//       "Provides quantitative thermal data for phase diagrams and material characterization",
+//     ],
+//     applications: [
+//       "Measurement of fusion and crystallization events",
+//       "Determination of glass transition temperatures",
+//       "Study of oxidation and other thermo-chemical reactions",
+//       "Analysis of changes in heat capacity during transitions",
+//       "Identification of crystallization temperature (Tc) and melting temperature (Tm)",
+//       "Construction of phase diagrams using transition temperatures and enthalpies",
+//     ],
+//     handledBy: "Mr. Atul Singh",
+//     email: "atul.singh@iiti.ac.in",
+//     position: "Junior Technical Assistant, SIC",
+
+//     images: ["/assets/instruments/Thermal-Analysis/DSC/ta_d1.jpeg"],
+//   },
+//   // ==================== SPECIALIZED EQUIPMENT ====================
+//   {
+//     id: "bet",
+//     name: "BET Surface Area Analyzer",
+//     fullName: "BET Surface Area Analyzer (Autosorb iQ2)",
+//     category: "Surface-Analysis",
+//     model: "Quantachrome Autosorb iQ2 (Anton Paar)",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Physorption: Accurate N₂ BET surface area measurements from 0.01 m²/g upwards at liquid nitrogen temperature",
+//       "Chemisorption: Quantitative evaluation of surface active sites via static isotherms and dynamic pulse titrations",
+//       "Determines monolayer uptake, metal area, nanocluster (crystallite) size, and active metal area for heterogeneous catalysts",
+//       "Isothermal data can be used to map surface energetic heterogeneity via heat-of-adsorption calculations",
+//       "Supports multiple sorption and chemisorption experiments for catalyst characterization",
+//     ],
+//     otherOptions: [
+//       "Vapour sorption",
+//       "TPD / TPR / TPO",
+//       "Chemi-batch measurements",
+//     ],
+//     applications: [
+//       "BET (single- and multipoint) surface area determination",
+//       "Langmuir surface area and adsorption/desorption isotherms",
+//       "Pore size and surface area distribution analysis",
+//       "Micropore volume and micropore surface area estimation",
+//       "Mapping surface energetic heterogeneity",
+//     ],
+//     handledBy: "Mr. Atul Singh",
+//     email: "atul.singh@iiti.ac.in",
+//     position: "Junior Technical Assistant, SIC",
+
+//     images: [
+//       "/assets/instruments/BET-Surface-Analyzer/bet1.jpeg",
+//       "/assets/instruments/BET-Surface-Analyzer/bet1.png",
+//     ],
+//   },
+
+//   {
+//     id: "microwave-reactor",
+//     name: "Microwave Reactor",
+//     fullName: "Microwave Reactor (Monowave 200)",
+//     category: "Chemical-Synthesis",
+//     model: "Anton Paar Monowave 200 with MAS 24 Autosampler",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Requires 5.5–6 bar compressed gas for accurate pressure measurement and sealing up to 20 bar",
+//       "High-performance monomode microwave reactor for small- to medium-scale synthesis",
+//       "Supports temperatures up to 300°C and pressures up to 30 bar",
+//       "Advanced safety features for high-speed, high-pressure, and high-temperature reactions",
+//       "Precise heating profiles for improved productivity and product purity",
+//       "Reusable vials, caps, and septa reduce consumable cost and environmental impact",
+//       "Not acid-resistant — corrosive chemicals significantly reduce instrument lifespan",
+//     ],
+//     applications: [
+//       "Academic research synthesis",
+//       "Agrochemical studies",
+//       "Catalyst preparation and testing",
+//       "Emulsion formation",
+//       "Inorganic chemical reactions",
+//       "Liquid crystal synthesis",
+//       "Lubricant testing",
+//       "Organic chemical synthesis",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/Microwave-Reactor/MICROWAVE.jpg"],
+//   },
+//   {
+//     id: "element-analyzer",
+//     name: "Element Analyzer",
+//     fullName: "CHNS Elemental Analyzer",
+//     category: "Elemental Analysis",
+//     model: "Flash 2000",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
+//       "It was designed to operate on the “Dumas method” principle, which calls for “flash combustion” to completely and instantly oxidizing the sample.",
+//       "The combustion products are separated by a chromatography before being detected by a thermal conductivity detector (T.C.D. ), which produces an output signal corresponding to the concentration of each component in the mixture.",
+//       "The purpose of the element analyzer is to estimate the percentages of carbon, hydrogen, nitrogen, and sulfur present in organic and inorganic samples produced both internally at the Institute and externally.",
+//     ],
+//     applications: [
+//       "CHNS elemental analysers have been used in analytical laboratories for over thirty years.",
+//       "The method is used extensively across a wide range of applications, including pharmaceuticals, chemicals, oil-related products, catalysts and food.",
+//       "In the oil industry, an important application is the regular monitoring of coke build-up on refinery catalysts to ensure that regeneration procedures (involving controlled burning of the carbon) are executed at optimal intervals.",
+//       "Since many of these catalyst systems involve large quantities of noble metals such as platinum, palladium and rhenium, mismanagement of this testing would entail serious financial losses.",
+//       "In food analysis, the determination of nitrogen (as a surrogate for protein) is very important for pricing grain and evaluating meat products, and is increasingly undertaken by combustion analysis.",
+//     ],
+//     handledBy: "Mr. Atul Singh",
+//     email: "atul.singh@iiti.ac.in",
+//     position: "Junior Technical Assistant, SIC",
+//     images: [
+//       "/assets/instruments/Element-Analyzer/elean1.png",
+//       "/assets/instruments/Element-Analyzer/elean2.png",
+//     ],
+//   },
+//   {
+//     id: "milliq-system",
+//     name: "MilliQ System",
+//     fullName: "Milli-Q Ultrapure & DI Water System",
+//     category: "Water-Purification",
+//     model: "Merck Millipore Milli-Q System",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 100 per 10 liters",
+//       external: "₹ 300 per 10 liters",
+//       unit: "per 10 liters",
+//     },
+
+//     features: [
+//       "Produces Type 3 RO water and Type 1 ultrapure water (18.2 MΩ·cm)",
+//       "Delivers ultrapure water directly from tap water",
+//       "Intelligent storage solution ensures multi-targeted water quality protection",
+//       "IPAK Meta and IPAK Quanta cartridges remove ions down to trace levels",
+//       "Q-POD dispenser with three adjustable flow rates",
+//       "Check & Dispense indicators ensure system readiness",
+//       "One-touch volumetric dispensing from 100 mL to 25 L",
+//       "Dispenser and touchscreen can be placed up to 3 m away",
+//       "Consistently low TOC (<5 ppb) for ultrapure water",
+//       "User-friendly touchscreen with resistivity, temperature, TOC, and circulation status",
+//       "Inline TOC indicator shows results within 90 seconds of dispensing",
+//       "Full data traceability via e-Sure tags on all consumables",
+//       "Flexible installation: benchtop, under-bench, or wall-mounted",
+//       "Hands-free foot-pedal dispensing option",
+//       "Lab Close mode reduces water and energy use during inactivity",
+//       "Automatic alerts for cartridge replacement",
+//       "Manufactured at ISO 9001 and ISO 14001 certified facility",
+//       "Supports My Milli-Q digital service ecosystem",
+//     ],
+//     applications: [
+//       "Production of pure and ultrapure water for analytical and laboratory use",
+//       "Food and drinking water sample preparation",
+//       "Pharmaceutical manufacturing and quality control",
+//       "PCR and DNA sequencing",
+//       "2-D electrophoresis and blotting (Northern, Southern, Western)",
+//       "Mammalian cell culture",
+//       "MALDI-TOF MS sample preparation",
+//     ],
+//     handledBy: "Mr. Atul Singh",
+//     email: "atul.singh@iiti.ac.in",
+//     position: "Junior Technical Assistant, SIC",
+
+//     images: ["/assets/instruments/MilliQ-DI-Water/mdw1.png"],
+//   },
+//   {
+//     id: "lyophilizer-labconco",
+//     name: "Lyophilizer - Labconco",
+//     fullName: "Freeze Dryer (Labconco Lyophilizer)",
+//     category: "Freeze Drying",
+//     model: "LABCONCO Lyophilizer",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Vacuum break valve prevents oil backstreaming by bleeding air into the system during shutdown",
+//       "Patented moisture sensor prevents refrigeration or vacuum start-up when moisture is detected in the collector chamber",
+//       "Durable steel benchtop cabinet suitable for countertops and lab carts",
+//       "Upright stainless steel collector chamber for fast and easy defrosting",
+//       "Optional PTFE-coated collector coil and chamber for increased corrosion resistance",
+//       "Quick-disconnect drain hose for simplified defrosting",
+//       "Vacuum control valve maintains set-point vacuum level for optimized freeze-drying efficiency",
+//       "Automatic hot gas defrost that shuts off upon completion",
+//     ],
+//     applications: [
+//       "Pharmaceutical and biotechnology freeze-drying of vaccines, biologics, and injectables for increased shelf-life",
+//       "Food industry freeze-drying to preserve quality, flavor, and texture with extended shelf-life",
+//       "ISRO and military rations for lightweight, long-lasting meals",
+//       "Freeze-dried coffee preservation of aroma and flavor",
+//       "Freeze-drying delicate fruits such as berries while retaining color and rehydration ability",
+//       "Preservation of insects for exotic pet food, bird feed, fish bait, and human consumption",
+//       "Chemical synthesis applications for stabilizing or improving solubility of compounds",
+//       "Taxidermy preservation through freeze-dried mounts",
+//     ],
+//     handledBy: "Mr. Atul Singh",
+//     email: "atul.singh@iiti.ac.in",
+//     position: "Junior Technical Assistant, SIC",
+//     images: [
+//       "/assets/instruments/Lyophilizer/lyo4.jpeg",
+//       "/assets/instruments/Lyophilizer/lyo1.png",
+//       "/assets/instruments/Lyophilizer/lyo2.png",
+//       "/assets/instruments/Lyophilizer/lyo3.png",
+//     ],
+//   },
+//   {
+//     id: "lyophilizer-virtis",
+//     name: "Lyophilizer - VirTis",
+//     fullName: "Freeze Dryer (VirTis Lyophilizer)",
+//     category: "Freeze Drying",
+//     model: "VirTis Lyophilizer",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Advanced freeze-drying system for sensitive biological and chemical samples",
+//       "Efficient sublimation under controlled vacuum",
+//       "Uniform temperature distribution for consistent drying",
+//       "Suitable for pharmaceuticals and research applications",
+//     ],
+//     applications: [
+//       "Freeze drying of biological samples and pharmaceuticals",
+//       "Long-term preservation of sensitive materials",
+//       "Food and chemical sample dehydration",
+//       "Stabilization of compounds for storage and transport",
+//     ],
+//     handledBy: "Mr. Atul Singh",
+//     email: "atul.singh@iiti.ac.in",
+//     position: "Junior Technical Assistant, SIC",
+//     images: ["/assets/instruments/Lyophilizer/VirTis.jpeg"],
+//   },
+//   {
+//     id: "polarimeter",
+//     name: "Polarimeter",
+//     fullName: "Optical Rotation Measurement",
+//     category: "Optical Analysis",
+//     model: "Automatic Polarimeter",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 500 per hour",
+//       external: "₹ 1,200 per hour",
+//       unit: "per hour",
+//     },
+
+//     features: [
+//       "Automatic measurement",
+//       "Temperature control",
+//       "High precision rotation angle measurement",
+//       "Specific rotation calculation",
+//       "Multiple wavelength options",
+//       "Digital display and data output",
+//     ],
+//     applications: [
+//       "Chiral compound analysis",
+//       "Enantiomeric purity determination",
+//       "Sugar concentration measurement",
+//       "Pharmaceutical quality control",
+//       "Natural product characterization",
+//       "Amino acid analysis",
+//       "Essential oil analysis",
+//       "Regulatory compliance testing",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/POLARIMETER.jpg"],
+//   },
+
+//   {
+//     id: "rheometer",
+//     name: "Rheometer",
+//     fullName: "Rheological Property Analysis",
+//     category: "Material Testing",
+//     model: "Rotational Rheometer",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 600 per hour",
+//       external: "₹ 1,500 per hour",
+//       unit: "per hour",
+//     },
+
+//     features: [
+//       "Rotational and oscillatory measurements",
+//       "Wide range of viscosity measurement",
+//       "Temperature control system",
+//       "Multiple geometry options",
+//       "Shear rate and stress control",
+//       "Advanced software for data analysis",
+//     ],
+//     applications: [
+//       "Polymer melt and solution rheology",
+//       "Viscosity profiling of fluids",
+//       "Gel characterization",
+//       "Paint and coating flow properties",
+//       "Food texture analysis",
+//       "Pharmaceutical formulation testing",
+//       "Cosmetic product development",
+//       "Viscoelastic property determination",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/RHEOMETER.jpg"],
+//   },
+//   {
+//     id: "liquid-nitrogen-plant",
+//     name: "Liquid Nitrogen Plant",
+//     fullName: "LN500 Liquid Nitrogen Plant (StirLIN)",
+//     category: "Cryogenics",
+//     model: "LN500",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     make: "StirLIN",
+//     features: [
+//       "Produces liquid nitrogen at ~10 L/hour capacity",
+//       "Fully automatic compact StirLIN system — plug-and-produce solution",
+//       "Dispenses liquid via flexible hose & valve",
+//       "Reduces dependency on bulk LN₂ supply logistics",
+//       "UN1977 classified as refrigerated liquid nitrogen (cryogenic)",
+//       "Space-saving design suitable for lab benchtop installation",
+//     ],
+//     applications: [
+//       "Cryopreservation of cells and microbes",
+//       "Lyophilization support",
+//       "NMR magnet cooling (keep superconducting coils below Tc)",
+//       "Single crystal XRD temperature control (≈80 K and above)",
+//       "Magnetic measurements at ultra-low temperatures",
+//       "Low-temperature photoluminescence and Raman spectroscopy (< −77°C)",
+//       "Low-temperature chemical synthesis",
+//     ],
+//     handledBy: "Mr. Kinny Pandey",
+//     email: "kinny@iiti.ac.in",
+//     images: ["/assets/instruments/LN2-Plant/LIQUID NITROGEN.jpeg"],
+//   },
+//   // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
+//   {
+//     id: "icp-oes",
+//     name: "ICP-OES",
+//     fullName: "Inductively Coupled Plasma Optical Emission Spectroscopy",
+//     category: "Centre of Excellence",
+//     model: "Agilent 5800",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Inductively Coupled Plasma Optical Emission spectroscopy (ICP-OES) is an analytical technique used to determine how much of certain elements are in a sample.",
+//       "The ICP-OES principle uses the fact that atoms and ions can absorb energy to move electrons from the ground state to an excited state.",
+//       "In ICP-OES, the source of that energy is heat from an argon plasma that operates at 10,000 kelvin.",
+//     ],
+//     applications: [
+//       "ICP-OES is a powerful tool for the determination of trace and ultra-trace elemental concentrations in a wide variety of samples specifically for multi-element analysis.",
+//       "With the help of ICP-OES we can determine metals in wine, arsenic in food, trace elements bound to proteins and metals contamination in drinking water and wastewater.",
+//       "ICP-OES used for the determination of nutrient levels in agricultural soils. This information is then used to calculate the amount of fertilizer required to maximize crop yield and quality.",
+//       "ICP-OES can determine what amount of certain oil additives remain in motor oils (and other lubricating oils) for quality control and compliance with production and industry specifications.",
+//     ],
+//     handledBy: "Mr. Kunal Bhadra",
+//     email: "kunalb@iiti.ac.in",
+//     position: "Quality Analyst, SIC",
+//     images: [
+//       "assets/instruments/Centre-of-Excellence-ACR-Initiative/ICP-OES/image.png",
+//     ],
+//   },
+
+//   {
+//     id: "ft-ir-coe",
+//     name: "FT-IR ",
+//     fullName: "FT-IR Spectrometer",
+//     category: "Centre of Excellence",
+//     model: "Bruker ALPHA II",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 100 per 10 liters",
+//       external: "₹ 300 per 10 liters",
+//       unit: "per 10 liters",
+//     },
+
+//     features: [
+//       "Fourier Transform Infrared Spectroscopy, also known as FT-IR Spectroscopy, is ananalytical technique used to identify organic, polymeric and in some cases inorganicmaterials.",
+//       "The FT-IR analysis method uses infrared light to scan test samples and observe chemical properties.",
+//       " The Bruker ALPHA II is a compact and modular FT-IR spectrometer for chemically analyze any solid, liquid/gel form of sample.",
+//     ],
+//     applications: [
+//       "This Instrument is used for compound identification by matching the spectra (frequency range between 4000-400 cm-1) of an unknown substance with a reference spectrum.",
+//       "It is used for trace analysis in raw materials or final products.",
+//       "FT-IR is used for characterizing the variation in fuel stability of several biodiesel/antioxidant mixture.",
+//       "It is also utilized for functional group identification in unknown compounds. For example; Ketones, Aldehydes, Carboxylic Acids and so on.",
+//     ],
+//     handledBy: "Mr. Kunal Bhadra",
+//     position: "Quality Analyst, SIC",
+
+//     email: "kunalb@iiti.ac.in",
+//     images: [
+//       "assets/instruments/Centre-of-Excellence-ACR-Initiative/FT-IR/image.png",
+//     ],
+//   },
+
+//   {
+//     id: "flash-point-tester",
+//     name: "Flash Point Tester",
+//     fullName: "Pensky-Martens Flash Point Tester",
+//     category: "Centre of Excellence",
+//     model: "Anton Paar-PMA 300",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Flash Point of a flammable liquid is the lowest temperature at which vapours of that liquid will ignite when close to an ignition source.",
+//       "The PMA 300 Pensky Martens flash point tester used to determine high-precision flash point of petroleum and chemical products automatically.",
+//       "The PMA 300 is a closed-cup flash point tester equipped with premium technology and modern design.",
+//       "It determines flash points above ambient temperature up to 370 °C.",
+//     ],
+//     applications: [
+//       "Petroleum refineries process crude oil into different products such as Diesel, Kerosene, Biodiesel blends and many more.",
+//       "According to product specifications, flash point is a mandatory value.",
+//       "For chemicals, the flash point is important for storage and transport of products as well as for the quality.",
+//       "For lubricating oil, flash and fire point testing is an important parameter within product specifications.",
+//       "Methods it can follow: ISO 2719-A, ISO 2719B, ISO 2719-C, IP 34-A, IP 34-B ASTM D93-A, ASTM D93-B, ASTM D93-C GB T261.",
+//     ],
+//     handledBy: "Mr. Kunal Bhadra",
+//     email: "kunalb@iiti.ac.in",
+//     position: "Quality Analyst, SIC",
+
+//     images: [
+//       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
+//       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image2.png",
+//     ],
+//   },
+
+//   {
+//     id: "ak-viscometer",
+//     name: "AK Viscometer",
+//     fullName: "Kinematic Viscosity Measurement",
+//     category: "Centre of Excellence",
+//     model: "Anton Paar – SVM 1101 Sample Fill",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Viscosity quantifies the internal frictional force between adjacent layers of fluid that are in relative motion.",
+//       "Kinematic Viscosity (ν) is a measure of a fluid’s resistance to flow under the influence of gravity.",
+//       "It can be obtained by dividing the Dynamic (Absolute) Viscosity (μ) of a fluid with the fluid mass Density (ρ).",
+//       "The theoretical unit of Kinematic Viscosity is m2/s or Stoke (St).",
+//     ],
+//     applications: [
+//       "Automatic Kinematic Viscometer determine Kinematic Viscosity (range: 0.3 mm2/s to 1000 mm2/s) and Density (range: 0 g/cm3 to 3 g/cm3) in single run at a particular temperature (range: +15 °C to +100 °C) ",
+//       "The analysis is carried out using standard methods ASTM D4052 and ISO 12185",
+//       "Kinematic Viscosity is a crucial property used across various industries to understand and predict fluid behavior. It’s particularly important in applications where fluids are subjected to gravity, such as in pipeline flow, hydraulic systems and lubrication.",
+//     ],
+//     handledBy: "Mr. Kunal Bhadra",
+//     email: "kunalb@iiti.ac.in",
+//     position: "Quality Analyst, SIC",
+
+//     images: [
+//       "assets/instruments/Centre-of-Excellence-ACR-Initiative/AK-Viscometer/image.png",
+//     ],
+//   },
+
+//   {
+//     id: "b-viscometer",
+//     name: "B Viscometer",
+//     fullName: "Brookfield Viscosity Measurement",
+//     category: "Centre of Excellence",
+//     model: "AMETEK DV2T LV",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "The Brookfield Viscometer measures fluid viscosity by measuring the force to turn the spindle in the solution at a given shear rate.",
+//       "Brookfield deals with liquids and semi-solids.",
+//       "Apparent viscosity in cP (centipoise) is determined by Brookfield viscometer, which measures the torque required to rotate a spindle at constant speed in oil of a given temperature.",
+//     ],
+//     applications: [
+//       "Viscosity is a principal parameter when any flow measurements of fluids, such as liquids, semi-solids, gases and even solids are made.",
+//       "Brookfield has a variety of food application, lubricant viscosity application notes using viscometer.",
+//       "Applicable on different types of beverages test, paints test.",
+//       "High viscosity liquid requires more power to pump than a low viscosity one. Knowing its behavior, therefore, is useful when designing pumping and piping systems.",
+//     ],
+//     handledBy: "Mr. Kunal Bhadra",
+//     email: "kunalb@iiti.ac.in",
+//     position: "Quality Analyst, SIC",
+
+//     images: [
+//       "assets/instruments/Centre-of-Excellence-ACR-Initiative/B-Viscometer/image.png",
+//     ],
+//   },
+
+//   {
+//     id: "millipore",
+//     name: "Millipore",
+//     fullName: "Millipore Test System",
+//     category: "Centre of Excellence",
+//     model: "Millipore (Merck)",
+//     showInStatus: true,
+//     status: "Operational",
+//     usageCharges: {
+//       internal: "₹ 1,500 per hour",
+//       external: "₹ 3,000 per hour",
+//       unit: "per hour",
+//     },
+//     features: [
+//       "Millipore contamination analysis kit consists of assorted Millipore filtration products suited for contamination measurement control.",
+//       "The kit includes the apparatus shown below.",
+//     ],
+//     applications: [
+//       "Millipore Test kit is recommended for ensuring conformance to cleanliness standards popularly known as the Millipore Value.",
+//       "Particle counting and analysis is a critical part of quality assurance in the automotive and electronics industries.",
+//       "Cleanliness analysis is done to quickly determine the particle size, type and the potential to cause damage.",
+//       "This System is used in many fields including forensic science, semiconductor and optical film thickness measurement, biotechnology and the latest in materials science.",
+//     ],
+//     handledBy: "Mr. Kunal Bhadra",
+//     email: "kunalb@iiti.ac.in",
+//     position: "Quality Analyst, SIC",
+
+//     images: [
+//       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Millipore/image.png",
+//     ],
+//   },
+// ];
+
+// // ==================== Helper Functions ====================
+
+// export const getInstrumentsByCategory = (category) => {
+//   return instrumentsData.filter(
+//     (instrument) => instrument.category === category,
+//   );
+// };
+
+// export const getAllCategories = () => {
+//   return [...new Set(instrumentsData.map((instrument) => instrument.category))];
+// };
+
+// export const getInstrumentById = (id) => {
+//   return instrumentsData.find((instrument) => instrument.id === id);
+// };
+
+// export const searchInstruments = (searchTerm) => {
+//   const term = searchTerm.toLowerCase();
+//   return instrumentsData.filter(
+//     (instrument) =>
+//       instrument.name.toLowerCase().includes(term) ||
+//       instrument.fullName.toLowerCase().includes(term) ||
+//       instrument.model.toLowerCase().includes(term) ||
+//       instrument.category.toLowerCase().includes(term) ||
+//       instrument.applications.some((app) => app.toLowerCase().includes(term)) ||
+//       instrument.features.some((feature) =>
+//         feature.toLowerCase().includes(term),
+//       ),
+//   );
+// };
+
+// // ==================== Category Descriptions ====================
+
+// export const categoryDescriptions = {
+//   "X-Ray":
+//     "X-ray based analytical techniques for structural and elemental analysis",
+//   Microscopy: "Advanced imaging techniques from nano to micro scale",
+//   Spectroscopy:
+//     "Spectroscopic methods for molecular and atomic characterization",
+//   Chromatography: "Separation and analysis techniques for complex mixtures",
+//   "Thermal Analysis": "Temperature-dependent property analysis of materials",
+//   "Surface Analysis": "Surface area, porosity, and adsorption characterization",
+//   "Chemical Synthesis": "Equipment for accelerated and controlled synthesis",
+//   "Elemental Analysis": "Quantitative determination of elemental composition",
+//   "Water Purification": "High-purity water production systems",
+//   "Freeze Drying":
+//     "Freeze drying (lyophilization) systems for sample preservation and dehydration",
+//   "Optical Analysis": "Optical property measurement instruments",
+//   "Material Testing": "Rheological and mechanical property analysis",
+//   Facility: "Core facility infrastructure and utilities",
+//   "Centre of Excellence":
+//     "Specialized instruments for automotive and industrial applications",
+// };
+
+// export default instrumentsData;
 export const instrumentsData = [
   // ==================== X-RAY ANALYSIS ====================
-  {
-    id: "scxrd",
-    name: "SCXRD",
-    fullName: "Single Crystal X-Ray Diffractometer",
-    category: "X-Ray",
-    model: "Agilent Technologies Super Nova System",
-    showInStatus: true,
-    status: "Operational",
-    usageCharges: {
-      internal: "₹ 1,200 per sample",
-      external: "₹ 2,500 per sample",
-      unit: "per sample",
-    },
-    features: [
-      "State of the art dual core Agilent Technologies (Oxford Diffraction) Super Nova CCD System",
-      "Access to micro-focus Cu and Mo sources which allows even small-size crystals data collection",
-      "Oxford Cryosystems which enable temperature range from 90 to 400K",
-      "High-definition microscopes for the separation and mounting of crystals",
-      "Dual wavelength capability (Cu Kα and Mo Kα)",
-      "CCD detector for high-sensitivity data collection",
-    ],
-    applications: [
-      "Crystal screening and mounting, including air-sensitive samples",
-      "Diffraction data collection under various conditions, including temperatures as low as 90 K",
-      "Structure solution, refinement, and interpretation up to publication level",
-      "Cambridge Structure Database searching",
-      "Structural evaluation of compounds",
-      "Lattice information and unit cell determination",
-      "X-ray crystallography of proteins and small molecules",
-      "Polymorphism and co-crystal studies",
-    ],
-    handledBy: "Mr. Kinny Pandey",
-    location: " SC-XRD lab",
-    email: "kinny@iiti.ac.in",
-    images: [
-      "/assets/instruments/X-Ray/SCXRD/xs1.png",
-      "/assets/instruments/X-Ray/SCXRD/xs3.png",
-      "/assets/instruments/X-Ray/SCXRD/xs4.png",
-      "/assets/instruments/X-Ray/SCXRD/xs5.png",
-      "/assets/instruments/X-Ray/SCXRD/xs6.png",
-      "/assets/instruments/X-Ray/SCXRD/xs7.png",
-      "/assets/instruments/X-Ray/SCXRD/xs8.png",
-      "/assets/instruments/X-Ray/SCXRD/xs9.png",
-      "/assets/instruments/X-Ray/SCXRD/xs10.png",
-      "/assets/instruments/X-Ray/SCXRD/xs12.png",
-      "/assets/instruments/X-Ray/SCXRD/xs11.png",
-    ],
-  },
+  // {
+  //   id: "scxrd",
+  //   name: "SCXRD",
+  //   fullName: "Single Crystal X-Ray Diffractometer",
+  //   category: "X-Ray",
+  //   model: "Agilent Technologies Super Nova System",
+  //   showInStatus: true,
+  //   status: "Operational",
+  //   usageCharges: {
+  //     internal: "₹ 1,200 per sample",
+  //     external: "₹ 2,500 per sample",
+  //     unit: "per sample",
+  //   },
+  //   features: [
+  //     "State of the art dual core Agilent Technologies (Oxford Diffraction) Super Nova CCD System",
+  //     "Access to micro-focus Cu and Mo sources which allows even small-size crystals data collection",
+  //     "Oxford Cryosystems which enable temperature range from 90 to 400K",
+  //     "High-definition microscopes for the separation and mounting of crystals",
+  //     "Dual wavelength capability (Cu Kα and Mo Kα)",
+  //     "CCD detector for high-sensitivity data collection",
+  //   ],
+  //   applications: [
+  //     "Crystal screening and mounting, including air-sensitive samples",
+  //     "Diffraction data collection under various conditions, including temperatures as low as 90 K",
+  //     "Structure solution, refinement, and interpretation up to publication level",
+  //     "Cambridge Structure Database searching",
+  //     "Structural evaluation of compounds",
+  //     "Lattice information and unit cell determination",
+  //     "X-ray crystallography of proteins and small molecules",
+  //     "Polymorphism and co-crystal studies",
+  //   ],
+  //   handledBy: "Mr. Kinny Pandey",
+  //   location: " SC-XRD lab",
+  //   email: "kinny@iiti.ac.in",
+  //   images: [
+  //     "/assets/instruments/X-Ray/SCXRD/SC-XRD.jpg",
+  //     "/assets/instruments/X-Ray/SCXRD/SC-XRD 2.jpg",
+  //     "/assets/instruments/X-Ray/SCXRD/SC-XRD 1.jpg",
+  //   ],
+  // },
 
   {
     id: "eds-edx",
@@ -58,9 +1387,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 800 per hour",
-      external: "₹ 1,800 per hour",
-      unit: "per hour",
+      internal: "₹ 2,000 per sample",
+      external: "₹ 3,500 per sample",
+      unit: "per sample",
     },
     features: [
       "Integrated with SEM, TEM, or FIB systems",
@@ -104,9 +1433,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 600 per hour",
-      external: "₹ 1,400 per hour",
-      unit: "per hour",
+      internal: "₹ 2,000 per sample",
+      external: "₹ 4,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Captures high-energy electrons reflected or backscattered from the sample.",
@@ -141,8 +1470,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 1,000 per hour",
+      external: "₹ 2,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -179,8 +1508,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,800 per hour",
-      external: "₹ 3,500 per hour",
+      internal: "₹ 1,000 per hour",
+      external: "₹ 2,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -213,8 +1542,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,200 per hour",
-      external: "₹ 2,500 per hour",
+      internal: "₹ 1,000 per hour",
+      external: "₹ 2,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -248,9 +1577,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,200 per hour",
-      unit: "per hour",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 1,500 per sample",
+      unit: "per sample",
     },
     features: [
       "High-resolution 3D imaging",
@@ -283,8 +1612,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,200 per hour",
+      internal: "₹ 500 per hour",
+      external: "₹ 800 per hour",
       unit: "per hour",
     },
     features: [
@@ -314,8 +1643,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 800 per hour",
-      external: "₹ 1,800 per hour",
+      internal: "₹ 500 per hour",
+      external: "₹ 800 per hour",
       unit: "per hour",
     },
     features: [
@@ -342,8 +1671,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 400 per sample",
-      external: "₹ 900 per sample",
+      internal: "₹ 500 per sample",
+      external: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -369,8 +1698,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 700 per hour",
-      external: "₹ 1,600 per hour",
+      internal: "₹ 500 per hour",
+      external: "₹ 1,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -387,9 +1716,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: [
-      "/assets/instruments/Spectroscopy/TCSPC/TCSPC.jpg",
-    ],
+    images: ["/assets/instruments/Spectroscopy/TCSPC/TCSPC.jpg"],
   },
 
   {
@@ -401,7 +1728,7 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 900 per hour",
+      internal: "₹ 1,000 per hour",
       external: "₹ 2,000 per hour",
       unit: "per hour",
     },
@@ -443,8 +1770,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 300 per sample",
-      external: "₹ 700 per sample",
+      internal: "₹ 500 per sample",
+      external: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -470,7 +1797,8 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: [
-     "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/UV VIS SPECTROMETER.jpg" ],
+      "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/UV VIS SPECTROMETER.jpg",
+    ],
   },
 
   {
@@ -483,7 +1811,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       internal: "₹ 500 per sample",
-      external: "₹ 1,100 per sample",
+      external: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -502,9 +1830,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
-    images: [
-    "/assets/instruments/Spectroscopy/UV-VIS-NIR/UV VIS NIR.jpg"
-    ],
+    images: ["/assets/instruments/Spectroscopy/UV-VIS-NIR/UV VIS NIR.jpg"],
   },
 
   {
@@ -516,8 +1842,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 600 per hour",
-      external: "₹ 1,400 per hour",
+      internal: "₹ 500 per hour",
+      external: "₹ 1,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -544,7 +1870,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
-    "/assets/instruments/Spectroscopy/Spectrofluorometer/FLUORIMETER.jpg",
+      "/assets/instruments/Spectroscopy/Spectrofluorometer/FLUORIMETER.jpg",
     ],
   },
 
@@ -559,7 +1885,7 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 600 per sample",
+      internal: "₹ 1,000 per sample",
       external: "₹ 1,500 per sample",
       unit: "per sample",
     },
@@ -602,8 +1928,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,200 per sample",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 1,500 per sample",
       unit: "per sample",
     },
     description:
@@ -645,21 +1971,19 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 700 per sample",
-      external: "₹ 1,600 per sample",
+      internal: "₹ 2,000 per sample",
+      external: "₹ 5,000 per sample",
       unit: "per sample",
     },
     features: [
       "Versatile system for separation and identification of non-polar and mid-polar compounds",
-      "Supports three configurations: GC-MS, GC-TCD, GC-FID",
-      "Electron Ionization (EI) and Chemical Ionization (CI) with positive and negative ion modes",
+
+      "Electron Ionization (EI) with positive and negative ion modes",
       "Helium carrier gas for GC-MS operation",
       "High sensitivity detection down to PPM levels",
-      "Mass range: 10–1000 Da",
+      "Mass range: 10–600 Da",
       "NIST mass spectral library for compound identification",
-      "GC-TCD suitable for gas analysis (H₂, N₂, CO, CO₂, CH₄)",
-      "GC-FID suitable for hydrocarbons and volatile organic compounds",
-    ],
+       ],
     sampleRequirements: [
       "Sample quantity: 20 mg",
       "Must be soluble in methanol",
@@ -688,8 +2012,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 1,000 per hour",
+      external: "₹ 2,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -727,8 +2051,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 3,000 per hour",
+      external: "₹ 5,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -761,8 +2085,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 5,000 per hour",
+      external: "₹ 10,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -803,8 +2127,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 200 per hour",
+      external: "₹ 1,000 per hour",
       unit: "per hour",
     },
     features: [
@@ -828,9 +2152,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: [
-      "/assets/instruments/Microwave-Reactor/MICROWAVE.jpg"
-    ],
+    images: ["/assets/instruments/Microwave-Reactor/MICROWAVE.jpg"],
   },
   {
     id: "element-analyzer",
@@ -841,11 +2163,11 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 1,000 per hour",
+      external: "₹ 2,000 per hour",
       unit: "per hour",
     },
-    features: [
+     features: [
       "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
       "It was designed to operate on the “Dumas method” principle, which calls for “flash combustion” to completely and instantly oxidizing the sample.",
       "The combustion products are separated by a chromatography before being detected by a thermal conductivity detector (T.C.D. ), which produces an output signal corresponding to the concentration of each component in the mixture.",
@@ -924,8 +2246,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 750 per hour",
+      external: "₹ 1,500 per hour",
       unit: "per hour",
     },
     features: [
@@ -967,8 +2289,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
+      internal: "₹ 750 per hour",
+      external: "₹ 1,500 per hour",
       unit: "per hour",
     },
     features: [
@@ -998,7 +2320,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       internal: "₹ 500 per hour",
-      external: "₹ 1,200 per hour",
+      external: "₹ 1,000 per hour",
       unit: "per hour",
     },
 
@@ -1034,8 +2356,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 600 per hour",
-      external: "₹ 1,500 per hour",
+      internal: "₹ 500 per hour",
+      external: "₹ 1,000 per hour",
       unit: "per hour",
     },
 
@@ -1070,9 +2392,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
-      unit: "per hour",
+      internal: "₹ 31 per litre",
+      external: "₹ 37 per litre",
+      unit: "per litre",
     },
     make: "StirLIN",
     features: [
@@ -1094,9 +2416,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: [
-     "/assets/instruments/LN2-Plant/LIQUID NITROGEN.jpeg",
-    ],
+    images: ["/assets/instruments/LN2-Plant/LIQUID NITROGEN.jpeg"],
   },
   // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
   {
@@ -1140,9 +2460,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 100 per 10 liters",
-      external: "₹ 300 per 10 liters",
-      unit: "per 10 liters",
+      internal: "₹ 500 per sample",
+      external: "₹ 1,000 per sample",
+      unit: "per sample",
     },
 
     features: [
@@ -1216,14 +2536,14 @@ export const instrumentsData = [
     },
     features: [
       "Viscosity quantifies the internal frictional force between adjacent layers of fluid that are in relative motion.",
-      "Kinematic Viscosity (ν) is a measure of a fluid’s resistance to flow under the influence of gravity.",
+      "Kinematic Viscosity (ν) is a measure of a fluid's resistance to flow under the influence of gravity.",
       "It can be obtained by dividing the Dynamic (Absolute) Viscosity (μ) of a fluid with the fluid mass Density (ρ).",
       "The theoretical unit of Kinematic Viscosity is m2/s or Stoke (St).",
     ],
     applications: [
       "Automatic Kinematic Viscometer determine Kinematic Viscosity (range: 0.3 mm2/s to 1000 mm2/s) and Density (range: 0 g/cm3 to 3 g/cm3) in single run at a particular temperature (range: +15 °C to +100 °C) ",
       "The analysis is carried out using standard methods ASTM D4052 and ISO 12185",
-      "Kinematic Viscosity is a crucial property used across various industries to understand and predict fluid behavior. It’s particularly important in applications where fluids are subjected to gravity, such as in pipeline flow, hydraulic systems and lubrication.",
+      "Kinematic Viscosity is a crucial property used across various industries to understand and predict fluid behavior. It's particularly important in applications where fluids are subjected to gravity, such as in pipeline flow, hydraulic systems and lubrication.",
     ],
     handledBy: "Mr. Kunal Bhadra",
     email: "kunalb@iiti.ac.in",

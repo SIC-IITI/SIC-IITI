@@ -81,7 +81,7 @@ const InstrumentsPage = () => {
             className="flex flex-wrap gap-4 sm:gap-8 md:gap-16 justify-center w-full max-w-4xl"
             style={{ fontFamily: "Cantata one" }}
           >
-           
+
             <button
               onClick={() => navigate('/facility-status')}
               className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"

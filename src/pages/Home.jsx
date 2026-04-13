@@ -262,7 +262,7 @@ const heroImages = [
 
       {/* About Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="text-center mb-12 md:mb-16 animate-on-scroll">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 sm:w-24 bg-gray-300" />
@@ -292,7 +292,7 @@ const heroImages = [
       </section>
       {/* Message from Head - SIC */}
       <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
 
           {/* Heading */}
           <div className="text-center mb-12 animate-on-scroll">
@@ -357,7 +357,7 @@ const heroImages = [
       </section>
       {/* Events & Workshops Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12 animate-on-scroll">
             Events & Workshops
           </h2>
@@ -422,7 +422,7 @@ const heroImages = [
 
       {/* Impact at a Glance Section */}
       <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 animate-on-scroll">
             Our Impact at a Glance
           </h2>
@@ -472,7 +472,7 @@ const heroImages = [
 
       {/* Calendar Booking Section */}
       <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="animate-on-scroll">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -507,7 +507,7 @@ const heroImages = [
 
       {/* SIC Virtual Tour Section */}
       <section className="py-16 sm:py-20 bg-gray-50">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="text-center mb-12 md:mb-16 animate-on-scroll">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 sm:w-24 bg-gray-300" />
