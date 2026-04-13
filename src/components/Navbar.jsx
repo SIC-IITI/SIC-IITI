@@ -8,7 +8,7 @@ function Navbar() {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/instruments", label: "Instruments" },
-    { path: "https://sicbooking.iiti.ac.in/login", label: "Book Now" },
+    { path: "/booking", label: "Book Now" },
     { path: "/about", label: "About SIC", dropdown: true },
     { path: "/dst-fist", label: "DST-FIST" },
     { path: "/contact", label: "Contact" },

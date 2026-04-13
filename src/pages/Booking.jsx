@@ -1,64 +1,90 @@
-import React from 'react';
+import React from "react";
 
-function Booking() {
+const BookingPage = () => {
   return (
-    <section className="space-y-8 px-4 py-12 max-w-7xl mx-auto ">
-      <div>
-        <h1 className="text-4xl font-bold text-blue-900 mb-4">Book Instrumentation Time</h1>
-        <p className="text-gray-600 leading-relaxed text-lg">
-          Reserve time on any of our advanced instruments via our official request process. Provide project details, required instrument, and preferred time slots. Our staff will confirm availability and verify safety/eligibility.
-        </p>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-4">
+            Facility Booking
+          </h1>
+          <p className="text-lg sm:text-xl text-blue-100 leading-relaxed">
+            Select your user category to proceed with booking. Each instrument
+            requires a separate request submission.
+          </p>
+        </div>
+      </section>
 
-      <div className="rounded-lg border-2 border-blue-200 bg-blue-50 p-8">
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Booking Process</h2>
-        <div className="space-y-4">
-          <div className="flex gap-4">
-            <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold">1</div>
-            <div>
-              <h3 className="font-bold text-blue-900">Review Instrument SOP</h3>
-              <p className="text-gray-600 mt-1">Study the Standard Operating Procedure and training prerequisites for your selected instrument.</p>
+      {/* Cards Section */}
+      <section className="px-6 pb-24">
+        <div className="max-w-5xl mx-auto -mt-16">
+          <div className="grid md:grid-cols-2 gap-8">
+
+            {/* Internal Users */}
+            <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-10 border border-gray-100 flex flex-col">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                Internal Users
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8 flex-grow">
+                For IIT Indore students, faculty, and staff. Use your official
+                institute credentials to access the internal booking system.
+              </p>
+              <a
+                href="https://sicbooking.iiti.ac.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full text-center py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+              >
+                Access SIC Portal
+              </a>
             </div>
+
+            {/* External Users */}
+            <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-10 border border-gray-100 flex flex-col">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                External Users
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8 flex-grow">
+                For users from external institutions, industries, and research
+                organizations. All bookings are processed through the national
+                iSTEM portal.
+              </p>
+              <a
+                href="https://www.istem.gov.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+               className="w-full text-center py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+              >
+                Go to iSTEM Portal
+              </a>
+            </div>
+
           </div>
-          <div className="flex gap-4">
-            <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold">2</div>
-            <div>
-              <h3 className="font-bold text-blue-900">Prepare Experiment Details</h3>
-              <p className="text-gray-600 mt-1">Write a brief description of your experiment, samples, and expected outcomes.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold">3</div>
-            <div>
-              <h3 className="font-bold text-blue-900">Submit Booking Request</h3>
-              <p className="text-gray-600 mt-1">Submit your request with preferred dates, durations, and any special requirements.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-bold">4</div>
-            <div>
-              <h3 className="font-bold text-blue-900">Await Confirmation</h3>
-              <p className="text-gray-600 mt-1">Our team will confirm availability. Bring sample handling PPE and follow safety protocols.</p>
-            </div>
+
+          {/* Note Section */}
+          <div className="mt-12 bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+            <p className="text-gray-700 text-lg leading-relaxed">
+              <span className="font-semibold text-gray-900">
+                Note for External Users:
+              </span>{" "}
+              Register on the iSTEM portal to access IIT Indore facilities.
+              Ensure all required details are submitted accurately for
+              processing.
+            </p>
+            <a
+              href="https://www.istem.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 text-blue-600 font-medium hover:underline"
+            >
+              https://www.istem.gov.in/
+            </a>
           </div>
         </div>
-      </div>
-
-      <div className="rounded-lg border-2 border-dashed border-blue-300 bg-white p-8 text-center">
-        <p className="text-gray-600 mb-4">Ready to book your slot?</p>
-        <a
-        href='/bookingform'
-        className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
-          Open Booking Form
-        </a>
-      </div>
-
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-        <p className="text-yellow-900 font-semibold mb-2">📋 Note:</p>
-        <p className="text-yellow-800">Booking form integration with your preferred system will be added soon. For now, please contact us directly at sic@iiti.ac.in or managersic@iiti.ac.in</p>
-      </div>
-    </section>
+      </section>
+    </div>
   );
-}
+};
 
-export default Booking;
+export default BookingPage;

@@ -11,9 +11,19 @@ export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
   const [excellenceIndex, setExcellenceIndex] = useState(0)
   const [date, setDate] = useState(new Date())
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
+
+  // UPDATED: Initialize currentImageIndex from sessionStorage
+  const [currentImageIndex, setCurrentImageIndex] = useState(() => {
+    const savedIndex = sessionStorage.getItem("heroImageIndex");
+    return savedIndex !== null ? parseInt(savedIndex, 10) : 0;
+  });
+
+  // NEW: Save currentImageIndex to sessionStorage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem("heroImageIndex", currentImageIndex);
+  }, [currentImageIndex]);
 
   useEffect(() => {
     const observerOptions = {
@@ -37,27 +47,32 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  const heroImages = [
+    { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
+    { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
+    { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
+    { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
+    { src: "/assets/slider/clsm.jpeg", id: "clsm" },
+    { src: "/assets/slider/AFM 1.jpg", id: "afm" },
+    { src: "/assets/slider/bet.jpeg", id: "bet" },
+    { src: "/assets/slider/tga1.jpeg", id: "tga" },
+    { src: "/assets/slider/dsc.jpeg", id: "dsc" },
+    { src: "/assets/instruments/Element-Analyzer/elean1.png", id: "element-analyzer" },
+    { src: "/assets/instruments/Microscopy/Supra-55/ms1.png", id: "supra-55" },
+    { src: "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg", id: "nmr-400" },
+    { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
+    { src: "/assets/instruments/Lyophilizer/lyo4.jpeg", id: "lyophilizer-labconco" },
+    { src: "/assets/instruments/Lyophilizer/VirTis.jpeg", id: "lyophilizer-virtis" },
 
-const heroImages = [
-  { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
-  { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
-  { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
-  { src: "/assets/slider/clsm.jpeg", id: "clsm" },
-  { src: "/assets/slider/AFM 1.jpg", id: "afm" },
-  { src: "/assets/slider/bet.jpeg", id: "bet" },
-  { src: "/assets/slider/tga1.jpeg", id: "tga" },
-  { src: "/assets/slider/dsc.jpeg", id: "dsc" },
-  { src: "/assets/instruments/Element-Analyzer/elean1.png", id: "element-analyzer" },
-  { src: "/assets/slider/hplc.png", id: "hplc" },
-  { src: "/assets/instruments/Lyophilizer/lyo4.jpeg", id: "lyophilizer-labconco" }
-]
+  ]
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
     }, 10000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [heroImages.length])
 
   const nextHeroImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
@@ -73,12 +88,9 @@ const heroImages = [
       date: "14-16 May 2025",
       title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
     },
-
   ]
 
-  const excellenceItems = [
-
-  ]
+  const excellenceItems = []
   const canScroll = eventsItems.length > 4
 
   const truncateText = (text, limit) => {
@@ -105,11 +117,13 @@ const heroImages = [
     }
     return visible
   }
+
   const getSundayClassName = ({ date, view }) => {
     if (view === 'month' && date.getDay() === 0) {
       return 'sunday-tile'
     }
   }
+
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX)
   }
@@ -126,6 +140,7 @@ const heroImages = [
     if (distance > 50) nextHeroImage()   // swipe left
     if (distance < -50) prevHeroImage()  // swipe right
   }
+
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
 
@@ -209,7 +224,12 @@ const heroImages = [
       )}
 
       {/* --- NEW HERO SECTION (IMAGES ONLY) --- */}
-     <section className="relative mt-[5mm] h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
+      <section 
+        className="relative mt-[5mm] h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -231,7 +251,7 @@ const heroImages = [
         {/* Left Navigation Arrow */}
         <button
           onClick={prevHeroImage}
-          className="absolute  sm:block left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
+          className="absolute sm:block left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -240,7 +260,7 @@ const heroImages = [
         {/* Right Navigation Arrow */}
         <button
           onClick={nextHeroImage}
-          className="absolute  sm:block right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
+          className="absolute sm:block right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -272,9 +292,9 @@ const heroImages = [
           </div>
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
             <div className="space-y-5 animate-on-scroll">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Sophisticated Instrumentation Center</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Sophisticated Instrumentation Centre</h3>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                The Sophisticated Instrumentation Center (SIC) – A National Facility was established in September 2011 to expedite the research program at IIT Indore. It is now a national facility providing services such as data recording facilities and expertise in different state-of-the-art instruments to academia and industry from all parts of the country and some international centers.
+                The Sophisticated Instrumentation Centre (SIC) – A National Facility was established in September 2011 to expedite the research program at IIT Indore. It is now a national facility providing services such as data recording facilities and expertise in different state-of-the-art instruments to academia and industry from all parts of the country and some international centers.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
                 Furthermore, it is catering to the needs of many educational institutes and industries in and around central India and satisfying the need of scientific world, academia and industries with equal importance and emphasis. It is also engaged in spreading awareness among researchers, academia and industries for the probable use of the facility among diverse users to make the facility a part of our mutual co-existence to enhance quality of researches and products in industries.
@@ -290,6 +310,7 @@ const heroImages = [
           </div>
         </div>
       </section>
+      
       {/* Message from Head - SIC */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -299,12 +320,12 @@ const heroImages = [
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 bg-gray-300" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                Message from Head – SIC
+                Message from Professor Incharge 
               </h2>
               <div className="h-px w-20 bg-gray-300" />
             </div>
             <p className="text-sm text-gray-500">
-              Professor in Charge | Sophisticated Instrumentation Centre – A National Facility
+               Sophisticated Instrumentation Centre – A National Facility
             </p>
           </div>
 
@@ -325,7 +346,7 @@ const heroImages = [
                   Prof. Apurba K. Das
                 </h3>
                 <p className="text-sm text-gray-500">
-                  Professor In Charge, SIC
+                  Professor Incharge, SIC
                 </p>
               </div>
 
@@ -343,18 +364,12 @@ const heroImages = [
                   These advanced facilities are extensively used by undergraduate and postgraduate students, research scholars, and faculty members to support cutting-edge research. In addition, the Centre extends its services to external users such as industries, national laboratories, research organizations, and academic institutions on payment basis.
                 </p>
 
-                {/* Signature */}
-                <div className="pt-4">
-                  <p className="font-semibold text-gray-900">
-                    — Professor In Charge
-                  </p>
-                </div>
-
               </div>
             </div>
           </div>
         </div>
       </section>
+
       {/* Events & Workshops Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -404,7 +419,6 @@ const heroImages = [
                 <button
                   onClick={() => scrollEvents("next")}
                   disabled={!canScroll}
-
                   className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
                   aria-label="Next"
                 >
@@ -418,7 +432,6 @@ const heroImages = [
           </div>
         </div>
       </section>
-
 
       {/* Impact at a Glance Section */}
       <section className="py-16 sm:py-20 bg-gray-50">

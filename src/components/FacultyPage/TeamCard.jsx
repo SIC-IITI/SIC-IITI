@@ -19,7 +19,7 @@ export default function TeamCard({ image, name, designation, researchAreas, emai
      )}
       
       <div className="team-card-image-wrapper">
-        <img src={image} alt={name} className="team-card-image" />
+        <img src={image} alt={name} className="team-card-image object-contain" />
       </div>
 
       <div className="team-card-content">
