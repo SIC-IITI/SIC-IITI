@@ -21,33 +21,38 @@ function Outreach() {
   }
 
   const visitors = [
-    {
-      date: "May 30, 2024",
-      title: "Visit of Dr. K. Sivan",
-      description: "BOG Chairman IIT Indore and Former Chairman ISRO visit to SIC",
-      image:  "/outreach-sic.jpeg"
-    },
+
     {
       date: "Oct 15, 2025",
       title: "Prof Irina A. Kurzina VISIT SIC",
       description: "Professor from Tomsk state university, Russia Visit SIC",
       image: "/visit.png"
+    }, {
+      date: "Oct 14, 2025",
+      title: "Masters students from IPS academy Indore visit to SIC",
+      image: "/masters-visit.png"
+    }, {
+      date: "July 24, 2025",
+      title: "FOREIGN ARMY OFFICERS VISIT SIC",
+      description: "Under MCTE MHOW",
+      image: "/sic-army-visit.png"
     },
-     {
+    {
+      date: "June 6, 2025",
       title: "Visit of Ms. Saumya Gupta IAS",
       description: "Visit of Ms. Saumya Gupta IAS ,Joint secretary Technical Education, MoE , GoI",
       image: "/saumya-gupta.png"
     },
     {
-      date: "Oct 14, 2025",
-      title: "Masters students from IPS academy Indore visit to SIC",
-      image: "/masters-visit.png"
+      date: "July 15, 2024",
+      title: "Send off function for Ms. Mitali Dave",
+      image: "/sic-ppl.png"
     },
     {
-      date: "July 24, 2025",
-      title: "FOREIGN ARMY OFFICERS VISIT SIC",
-      description: "Under MCTE MHOW",
-      image: "/sic-army-visit.png"
+      date: "May 30, 2024",
+      title: "Visit of Dr. K. Sivan",
+      description: "BOG Chairman IIT Indore and Former Chairman ISRO visit to SIC",
+      image: "/outreach-sic.jpeg"
     },
     {
       date: "December 22, 2022",
@@ -55,11 +60,7 @@ function Outreach() {
       description: " Ujjain, visit as 'Ek Bharat Shresht Bharat Abhiyan.'",
       image: "/sic-ppl2.png"
     },
-    {
-      date: "July 15, 2024",
-      title: "Send off function for Ms. Mitali Dave",
-      image: "/sic-ppl.png"
-    },
+
   ]
 
   return (
@@ -126,11 +127,10 @@ function Outreach() {
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentImageIndex
-                          ? 'bg-blue-600 w-6'
-                          : 'bg-white/70 hover:bg-white'
-                      }`}
+                      className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
+                        ? 'bg-blue-600 w-6'
+                        : 'bg-white/70 hover:bg-white'
+                        }`}
                       aria-label={`Go to image ${index + 1}`}
                     />
                   ))}
