@@ -1,99 +1,70 @@
 .team-page {
   min-height: 100vh;
-  background-color: #f9fafb; /* bg-gray-50 */
+  background-color: #f9fafb;
 }
 
 .team-page-main {
-  max-width: 80rem; /* max-w-7xl */
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 4rem 1rem; /* py-16 px-4 */
+  padding: 4rem 1rem;
 }
 
 @media (min-width: 640px) {
   .team-page-main {
-    padding: 4rem 1.5rem; /* sm:px-6 */
+    padding: 4rem 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .team-page-main {
-    padding: 4rem 2rem; /* lg:px-8 */
+    padding: 4rem 2rem;
   }
 }
 
 .team-section {
-  margin-bottom: 5rem; /* mb-20 */
+  margin-bottom: 5rem;
 }
 
-.faculty-advisor {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 4rem; /* mb-16 */
-}
-
-.faculty-advisor .team-card {
-  max-width: 20rem; /* max-w-xs */
-  width: 100%;
-}
-
+/* Headings */
 .team-heading {
-  font-size: 1.875rem; /* text-3xl */
+  font-size: 1.875rem;
   font-weight: 700;
-  color: #111827; /* text-gray-900 */
+  color: #111827;
   text-align: center;
   margin-bottom: 1rem;
 }
 
 .team-subtext {
   text-align: center;
-  color: #4b5563; /* text-gray-600 */
+  color: #4b5563;
   margin-bottom: 3rem;
 }
 
-/* Grid layout for team members */
+/* ✅ MAIN GRID (handles everything) */
 .team-grid {
   display: grid;
-  gap: 2rem; /* gap-8 */
+  gap: 2rem;
+
+  /* 🔥 responsive + auto centering */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+
+  justify-content: center;   /* center whole grid */
+  justify-items: center;     /* center cards inside */
 }
 
-/* Core Team: 1 → 2 → 4 columns */
-@media (min-width: 640px) {
-  .core-team {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .core-team {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Alumni Team: 1 → 2 → 3 columns */
-@media (min-width: 640px) {
-  .alumni-team {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .alumni-team {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.alumni-team {
-  max-width: 64rem; /* max-w-4xl */
+/* OPTIONAL: limit width for nicer layout */
+.team-grid-wrapper {
+  max-width: 1100px;
   margin: 0 auto;
 }
-/* Initial hidden state */
+
+/* Scroll animation */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Visible state */
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);

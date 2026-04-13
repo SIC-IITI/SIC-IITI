@@ -67,7 +67,7 @@ export default function TeamPage() {
           {/* <div className="faculty-advisor">
             <TeamCard {...facultyAdvisor} />
           </div> */}
-          <div className="team-grid faculty-advisors">
+          <div className="team-grid ">
             {facultyAdvisors.map((advisor, index) => (
               <div key={index} className="animate-on-scroll">
               <TeamCard key={index} {...advisor} />
