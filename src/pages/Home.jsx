@@ -272,9 +272,9 @@ const heroImages = [
           </div>
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
             <div className="space-y-5 animate-on-scroll">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Sophisticated Instrumentation Center</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Sophisticated Instrumentation Centre</h3>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                The Sophisticated Instrumentation Center (SIC) – A National Facility was established in September 2011 to expedite the research program at IIT Indore. It is now a national facility providing services such as data recording facilities and expertise in different state-of-the-art instruments to academia and industry from all parts of the country and some international centers.
+                The Sophisticated Instrumentation Centre (SIC) – A National Facility was established in September 2011 to expedite the research program at IIT Indore. It is now a national facility providing services such as data recording facilities and expertise in different state-of-the-art instruments to academia and industry from all parts of the country and some international centers.
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
                 Furthermore, it is catering to the needs of many educational institutes and industries in and around central India and satisfying the need of scientific world, academia and industries with equal importance and emphasis. It is also engaged in spreading awareness among researchers, academia and industries for the probable use of the facility among diverse users to make the facility a part of our mutual co-existence to enhance quality of researches and products in industries.
@@ -299,12 +299,12 @@ const heroImages = [
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 bg-gray-300" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                Message from Head – SIC
+                Message from Professor Incharge 
               </h2>
               <div className="h-px w-20 bg-gray-300" />
             </div>
             <p className="text-sm text-gray-500">
-              Professor in Charge | Sophisticated Instrumentation Centre – A National Facility
+               Sophisticated Instrumentation Centre – A National Facility
             </p>
           </div>
 
@@ -325,7 +325,7 @@ const heroImages = [
                   Prof. Apurba K. Das
                 </h3>
                 <p className="text-sm text-gray-500">
-                  Professor In Charge, SIC
+                  Professor Incharge, SIC
                 </p>
               </div>
 
@@ -343,12 +343,7 @@ const heroImages = [
                   These advanced facilities are extensively used by undergraduate and postgraduate students, research scholars, and faculty members to support cutting-edge research. In addition, the Centre extends its services to external users such as industries, national laboratories, research organizations, and academic institutions on payment basis.
                 </p>
 
-                {/* Signature */}
-                <div className="pt-4">
-                  <p className="font-semibold text-gray-900">
-                    — Professor In Charge
-                  </p>
-                </div>
+                
 
               </div>
             </div>

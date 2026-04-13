@@ -54,7 +54,7 @@ const BookingPage = () => {
                 href="https://www.istem.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3 border border-blue-600 text-blue-700 font-medium rounded-lg hover:bg-blue-50 transition"
+               className="w-full text-center py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
               >
                 Go to iSTEM Portal
               </a>

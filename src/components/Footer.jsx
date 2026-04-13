@@ -66,14 +66,15 @@ function Footer() {
               </li>
             </ul>
             <div className="mt-4">
-  <a
-    href="https://www.iiti.ac.in"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block bg-white text-blue-900 font-semibold px-4 py-2 rounded-md text-sm hover:bg-blue-100 transition-all duration-300 shadow-md"
-  >
-    Visit IIT Indore
-  </a>
+            <a
+              href="https://www.iiti.ac.in"
+              target="_blank"
+              rel="noopener noreferrer"
+                               className="text-blue-100 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
+
+            >
+              IIT Indore Homepage
+            </a>
 </div>
           </div>
 

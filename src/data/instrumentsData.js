@@ -1096,7 +1096,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
-     "/assets/instruments/LN2-Plant/LIQUID NITROGEN.jpeg",
+     "/assets/instruments/LN2-Plant/LIQUID NITROGEN PLANT.jpg",
     ],
   },
   // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
