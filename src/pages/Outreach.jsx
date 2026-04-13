@@ -45,13 +45,13 @@ function Outreach() {
     {
       date: "July 24, 2025",
       title: "FOREIGN ARMY OFFICERS VISIT SIC",
-      description: "As a part of the institute's 'Ek Bharat Shrestha Bharat Abhiyan.'",
+      description: "Under MCTE MHOW",
       image: "/sic-army-visit.png"
     },
     {
       date: "December 22, 2022",
       title: "Foreign students visit under exchange program",
-      description: "Students of JNV Ghattiya, Ujjain, visit as 'Ek Bharat Shresht Bharat Abhiyan.'",
+      description: " Ujjain, visit as 'Ek Bharat Shresht Bharat Abhiyan.'",
       image: "/sic-ppl2.png"
     },
     {

@@ -168,9 +168,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,800 per hour",
-//       external: "₹ 3,500 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,800 per sample",
+//       external: "₹ 3,500 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Next-generation GEMINI optics",
@@ -202,9 +202,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,200 per hour",
-//       external: "₹ 2,500 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,200 per sample",
+//       external: "₹ 2,500 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Atomic-scale resolution imaging",
@@ -237,9 +237,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,000 per hour",
-//       external: "₹ 2,200 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,000 per sample",
+//       external: "₹ 2,200 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "High-resolution 3D imaging",
@@ -272,9 +272,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,000 per hour",
-//       external: "₹ 2,200 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,000 per sample",
+//       external: "₹ 2,200 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Magnet: 11.764 Tesla (Superconducting),",
@@ -303,9 +303,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 800 per hour",
-//       external: "₹ 1,800 per hour",
-//       unit: "per hour",
+//       internal: "₹ 800 per sample",
+//       external: "₹ 1,800 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Magnet: 8.96 Tesla (Superconducting),",
@@ -358,9 +358,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 700 per hour",
-//       external: "₹ 1,600 per hour",
-//       unit: "per hour",
+//       internal: "₹ 700 per sample",
+//       external: "₹ 1,600 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Cell holder with facility for recirculating liquid temperature control.",
@@ -388,9 +388,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 900 per hour",
-//       external: "₹ 2,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 900 per sample",
+//       external: "₹ 2,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Measurement range from 163–1100 nm with high S/N ratio",
@@ -502,9 +502,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 600 per hour",
-//       external: "₹ 1,400 per hour",
-//       unit: "per hour",
+//       internal: "₹ 600 per sample",
+//       external: "₹ 1,400 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Compact single-module high-sensitivity spectrofluorometer",
@@ -672,9 +672,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Measures change in sample weight during heating, cooling, or isothermal conditions",
@@ -711,9 +711,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Determines phase transitions including melting, crystallization, crystal-to-crystal transitions, and liquid crystal transitions",
@@ -745,9 +745,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Physorption: Accurate N₂ BET surface area measurements from 0.01 m²/g upwards at liquid nitrogen temperature",
@@ -787,9 +787,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Requires 5.5–6 bar compressed gas for accurate pressure measurement and sealing up to 20 bar",
@@ -823,9 +823,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
@@ -906,9 +906,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Vacuum break valve prevents oil backstreaming by bleeding air into the system during shutdown",
@@ -949,9 +949,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Advanced freeze-drying system for sensitive biological and chemical samples",
@@ -979,9 +979,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 500 per hour",
-//       external: "₹ 1,200 per hour",
-//       unit: "per hour",
+//       internal: "₹ 500 per sample",
+//       external: "₹ 1,200 per sample",
+//       unit: "per sample",
 //     },
 
 //     features: [
@@ -1016,9 +1016,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 600 per hour",
-//       external: "₹ 1,500 per hour",
-//       unit: "per hour",
+//       internal: "₹ 600 per sample",
+//       external: "₹ 1,500 per sample",
+//       unit: "per sample",
 //     },
 
 //     features: [
@@ -1052,13 +1052,13 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     make: "StirLIN",
 //     features: [
-//       "Produces liquid nitrogen at ~10 L/hour capacity",
+//       "Produces liquid nitrogen at ~10 L/sample capacity",
 //       "Fully automatic compact StirLIN system — plug-and-produce solution",
 //       "Dispenses liquid via flexible hose & valve",
 //       "Reduces dependency on bulk LN₂ supply logistics",
@@ -1088,9 +1088,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Inductively Coupled Plasma Optical Emission spectroscopy (ICP-OES) is an analytical technique used to determine how much of certain elements are in a sample.",
@@ -1154,9 +1154,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Flash Point of a flammable liquid is the lowest temperature at which vapours of that liquid will ignite when close to an ignition source.",
@@ -1190,9 +1190,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Viscosity quantifies the internal frictional force between adjacent layers of fluid that are in relative motion.",
@@ -1223,9 +1223,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "The Brookfield Viscometer measures fluid viscosity by measuring the force to turn the spindle in the solution at a given shear rate.",
@@ -1256,9 +1256,9 @@
 //     showInStatus: true,
 //     status: "Operational",
 //     usageCharges: {
-//       internal: "₹ 1,500 per hour",
-//       external: "₹ 3,000 per hour",
-//       unit: "per hour",
+//       internal: "₹ 1,500 per sample",
+//       external: "₹ 3,000 per sample",
+//       unit: "per sample",
 //     },
 //     features: [
 //       "Millipore contamination analysis kit consists of assorted Millipore filtration products suited for contamination measurement control.",
@@ -1470,9 +1470,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 2,000 per sample",
+      unit: "per sample",
     },
     features: [
       "GEMINI Technology with high efficiency in-lens detector",
@@ -1508,9 +1508,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 2,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Next-generation GEMINI optics",
@@ -1542,9 +1542,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 2,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Atomic-scale resolution imaging",
@@ -1612,9 +1612,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per hour",
-      external: "₹ 800 per hour",
-      unit: "per hour",
+      internal: "₹ 500 per sample",
+      external: "₹ 800 per sample",
+      unit: "per sample",
     },
     features: [
       "Magnet: 11.764 Tesla (Superconducting),",
@@ -1643,9 +1643,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per hour",
-      external: "₹ 800 per hour",
-      unit: "per hour",
+      internal: "₹ 500 per sample",
+      external: "₹ 800 per sample",
+      unit: "per sample",
     },
     features: [
       "Magnet: 8.96 Tesla (Superconducting),",
@@ -1698,9 +1698,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per hour",
-      external: "₹ 1,000 per hour",
-      unit: "per hour",
+      internal: "₹ 500 per sample",
+      external: "₹ 1,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Cell holder with facility for recirculating liquid temperature control.",
@@ -1728,9 +1728,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 2,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Measurement range from 163–1100 nm with high S/N ratio",
@@ -1842,9 +1842,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per hour",
-      external: "₹ 1,000 per hour",
-      unit: "per hour",
+      internal: "₹ 500 per sample",
+      external: "₹ 1,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Compact single-module high-sensitivity spectrofluorometer",
@@ -2012,9 +2012,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 2,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Measures change in sample weight during heating, cooling, or isothermal conditions",
@@ -2051,9 +2051,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 3,000 per hour",
-      external: "₹ 5,000 per hour",
-      unit: "per hour",
+      internal: "₹ 3,000 per sample",
+      external: "₹ 5,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Determines phase transitions including melting, crystallization, crystal-to-crystal transitions, and liquid crystal transitions",
@@ -2085,9 +2085,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 5,000 per hour",
-      external: "₹ 10,000 per hour",
-      unit: "per hour",
+      internal: "₹ 5,000 per sample",
+      external: "₹ 10,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Physorption: Accurate N₂ BET surface area measurements from 0.01 m²/g upwards at liquid nitrogen temperature",
@@ -2127,9 +2127,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 200 per hour",
-      external: "₹ 1,000 per hour",
-      unit: "per hour",
+      internal: "₹ 200 per sample",
+      external: "₹ 1,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Requires 5.5–6 bar compressed gas for accurate pressure measurement and sealing up to 20 bar",
@@ -2163,9 +2163,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per hour",
-      external: "₹ 2,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,000 per sample",
+      external: "₹ 2,000 per sample",
+      unit: "per sample",
     },
      features: [
       "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
@@ -2246,9 +2246,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 750 per hour",
-      external: "₹ 1,500 per hour",
-      unit: "per hour",
+      internal: "₹ 750 per sample",
+      external: "₹ 1,500 per sample",
+      unit: "per sample",
     },
     features: [
       "Vacuum break valve prevents oil backstreaming by bleeding air into the system during shutdown",
@@ -2289,9 +2289,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 750 per hour",
-      external: "₹ 1,500 per hour",
-      unit: "per hour",
+      internal: "₹ 750 per sample",
+      external: "₹ 1,500 per sample",
+      unit: "per sample",
     },
     features: [
       "Advanced freeze-drying system for sensitive biological and chemical samples",
@@ -2319,9 +2319,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per hour",
-      external: "₹ 1,000 per hour",
-      unit: "per hour",
+      internal: "₹ 500 per sample",
+      external: "₹ 1,000 per sample",
+      unit: "per sample",
     },
 
     features: [
@@ -2356,9 +2356,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per hour",
-      external: "₹ 1,000 per hour",
-      unit: "per hour",
+      internal: "₹ 500 per sample",
+      external: "₹ 1,000 per sample",
+      unit: "per sample",
     },
 
     features: [
@@ -2398,7 +2398,7 @@ export const instrumentsData = [
     },
     make: "StirLIN",
     features: [
-      "Produces liquid nitrogen at ~10 L/hour capacity",
+      "Produces liquid nitrogen at ~10 L/sample capacity",
       "Fully automatic compact StirLIN system — plug-and-produce solution",
       "Dispenses liquid via flexible hose & valve",
       "Reduces dependency on bulk LN₂ supply logistics",
@@ -2428,9 +2428,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,500 per sample",
+      external: "₹ 3,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Inductively Coupled Plasma Optical Emission spectroscopy (ICP-OES) is an analytical technique used to determine how much of certain elements are in a sample.",
@@ -2494,9 +2494,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,500 per sample",
+      external: "₹ 3,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Flash Point of a flammable liquid is the lowest temperature at which vapours of that liquid will ignite when close to an ignition source.",
@@ -2530,9 +2530,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,500 per sample",
+      external: "₹ 3,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Viscosity quantifies the internal frictional force between adjacent layers of fluid that are in relative motion.",
@@ -2563,9 +2563,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,500 per sample",
+      external: "₹ 3,000 per sample",
+      unit: "per sample",
     },
     features: [
       "The Brookfield Viscometer measures fluid viscosity by measuring the force to turn the spindle in the solution at a given shear rate.",
@@ -2596,9 +2596,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per hour",
-      external: "₹ 3,000 per hour",
-      unit: "per hour",
+      internal: "₹ 1,500 per sample",
+      external: "₹ 3,000 per sample",
+      unit: "per sample",
     },
     features: [
       "Millipore contamination analysis kit consists of assorted Millipore filtration products suited for contamination measurement control.",
