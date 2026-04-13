@@ -48,7 +48,8 @@
 /* Grid layout for team members */
 .team-grid {
   display: grid;
-  gap: 2rem; /* gap-8 */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 /* Core Team: 1 → 2 → 4 columns */
@@ -107,4 +108,16 @@
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
+}
+@media (max-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 }

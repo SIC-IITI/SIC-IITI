@@ -11,9 +11,19 @@ export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
   const [excellenceIndex, setExcellenceIndex] = useState(0)
   const [date, setDate] = useState(new Date())
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
+
+  // UPDATED: Initialize currentImageIndex from sessionStorage
+  const [currentImageIndex, setCurrentImageIndex] = useState(() => {
+    const savedIndex = sessionStorage.getItem("heroImageIndex");
+    return savedIndex !== null ? parseInt(savedIndex, 10) : 0;
+  });
+
+  // NEW: Save currentImageIndex to sessionStorage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem("heroImageIndex", currentImageIndex);
+  }, [currentImageIndex]);
 
   useEffect(() => {
     const observerOptions = {
@@ -37,27 +47,32 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  const heroImages = [
+    { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
+    { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
+    { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
+    { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
+    { src: "/assets/slider/clsm.jpeg", id: "clsm" },
+    { src: "/assets/slider/AFM 1.jpg", id: "afm" },
+    { src: "/assets/slider/bet.jpeg", id: "bet" },
+    { src: "/assets/slider/tga1.jpeg", id: "tga" },
+    { src: "/assets/slider/dsc.jpeg", id: "dsc" },
+    { src: "/assets/instruments/Element-Analyzer/elean1.png", id: "element-analyzer" },
+    { src: "/assets/instruments/Microscopy/Supra-55/ms1.png", id: "supra-55" },
+    { src: "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg", id: "nmr-400" },
+    { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
+    { src: "/assets/instruments/Lyophilizer/lyo4.jpeg", id: "lyophilizer-labconco" },
+    { src: "/assets/instruments/Lyophilizer/VirTis.jpeg", id: "lyophilizer-virtis" },
 
-const heroImages = [
-  { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
-  { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
-  { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
-  { src: "/assets/slider/clsm.jpeg", id: "clsm" },
-  { src: "/assets/slider/AFM 1.jpg", id: "afm" },
-  { src: "/assets/slider/bet.jpeg", id: "bet" },
-  { src: "/assets/slider/tga1.jpeg", id: "tga" },
-  { src: "/assets/slider/dsc.jpeg", id: "dsc" },
-  { src: "/assets/instruments/Element-Analyzer/elean1.png", id: "element-analyzer" },
-  { src: "/assets/slider/hplc.png", id: "hplc" },
-  { src: "/assets/instruments/Lyophilizer/lyo4.jpeg", id: "lyophilizer-labconco" }
-]
+  ]
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
     }, 10000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [heroImages.length])
 
   const nextHeroImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
@@ -73,12 +88,9 @@ const heroImages = [
       date: "14-16 May 2025",
       title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
     },
-
   ]
 
-  const excellenceItems = [
-
-  ]
+  const excellenceItems = []
   const canScroll = eventsItems.length > 4
 
   const truncateText = (text, limit) => {
@@ -105,11 +117,13 @@ const heroImages = [
     }
     return visible
   }
+
   const getSundayClassName = ({ date, view }) => {
     if (view === 'month' && date.getDay() === 0) {
       return 'sunday-tile'
     }
   }
+
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX)
   }
@@ -126,6 +140,7 @@ const heroImages = [
     if (distance > 50) nextHeroImage()   // swipe left
     if (distance < -50) prevHeroImage()  // swipe right
   }
+
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
 
@@ -209,7 +224,12 @@ const heroImages = [
       )}
 
       {/* --- NEW HERO SECTION (IMAGES ONLY) --- */}
-     <section className="relative mt-[5mm] h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group">
+      <section 
+        className="relative mt-[5mm] h-[500px] sm:h-[600px] lg:h-[700px] bg-white overflow-hidden group"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Image Container with Fade Transitions */}
         <div className="absolute inset-0">
           {heroImages.map((image, index) => (
@@ -231,7 +251,7 @@ const heroImages = [
         {/* Left Navigation Arrow */}
         <button
           onClick={prevHeroImage}
-          className="absolute  sm:block left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
+          className="absolute sm:block left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -240,7 +260,7 @@ const heroImages = [
         {/* Right Navigation Arrow */}
         <button
           onClick={nextHeroImage}
-          className="absolute  sm:block right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
+          className="absolute sm:block right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full bg-black text-white hover:bg-gray-800 transition-all opacity-0 group-hover:opacity-100 shadow-md"
           aria-label="Next image"
         >
           <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -290,6 +310,7 @@ const heroImages = [
           </div>
         </div>
       </section>
+      
       {/* Message from Head - SIC */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
@@ -343,13 +364,12 @@ const heroImages = [
                   These advanced facilities are extensively used by undergraduate and postgraduate students, research scholars, and faculty members to support cutting-edge research. In addition, the Centre extends its services to external users such as industries, national laboratories, research organizations, and academic institutions on payment basis.
                 </p>
 
-                
-
               </div>
             </div>
           </div>
         </div>
       </section>
+
       {/* Events & Workshops Section */}
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
@@ -399,7 +419,6 @@ const heroImages = [
                 <button
                   onClick={() => scrollEvents("next")}
                   disabled={!canScroll}
-
                   className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
                   aria-label="Next"
                 >
@@ -413,7 +432,6 @@ const heroImages = [
           </div>
         </div>
       </section>
-
 
       {/* Impact at a Glance Section */}
       <section className="py-16 sm:py-20 bg-gray-50">

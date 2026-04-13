@@ -57,7 +57,7 @@ export const coreTeam = [
   {
     image: "assets/FacultyPhotos/Team_17.jpg",
     name: "Dr. Pravarthana Dhanapal",
-    designation: "Assistant Professor, Department of Chemical Engineering",
+    designation: "Assistant Professor, Department of Chemistry",
     researchAreas: "Solid-state Chemistry",
     email: "dpravarthana@iiti.ac.in",
     website: "https://chemistry.iiti.ac.in/faculty/dr-pravarthana-dhanapal"
@@ -81,7 +81,7 @@ export const coreTeam = [
   {
     image: "assets/FacultyPhotos/Team_19.jpg",
     name: "Dr. Abhijeet Joshi",
-    designation: "Associate Professor, Department of BSBE",
+    designation: "Associate Professor, Department of MFS-BSBE",
     researchAreas: "Biosensors, Biomaterials, Drug Delivery, Diagnostics, Theranostics",
     email: "abhijeet.joshi@iiti.ac.in",
     website: "https://scholar.google.co.in/citations?user=xphbhZkAAAAJ&hl=en"
