@@ -35,17 +35,9 @@ export const instrumentsData = [
     location: " SC-XRD lab",
     email: "kinny@iiti.ac.in",
     images: [
-      "/assets/instruments/X-Ray/SCXRD/xs1.png",
-      "/assets/instruments/X-Ray/SCXRD/xs3.png",
-      "/assets/instruments/X-Ray/SCXRD/xs4.png",
-      "/assets/instruments/X-Ray/SCXRD/xs5.png",
-      "/assets/instruments/X-Ray/SCXRD/xs6.png",
-      "/assets/instruments/X-Ray/SCXRD/xs7.png",
-      "/assets/instruments/X-Ray/SCXRD/xs8.png",
-      "/assets/instruments/X-Ray/SCXRD/xs9.png",
-      "/assets/instruments/X-Ray/SCXRD/xs10.png",
-      "/assets/instruments/X-Ray/SCXRD/xs12.png",
-      "/assets/instruments/X-Ray/SCXRD/xs11.png",
+      "/assets/instruments/X-Ray/SCXRD/SC-XRD.jpg",
+      "/assets/instruments/X-Ray/SCXRD/SC-XRD 2.jpg",
+      "/assets/instruments/X-Ray/SCXRD/SC-XRD 1.jpg",
     ],
   },
 
@@ -387,10 +379,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: [
-      "/assets/instruments/Spectroscopy/TCSPC/s_tcs1.png",
-      "/assets/instruments/Spectroscopy/TCSPC/s_tcs2.png",
-    ],
+    images: ["/assets/instruments/Spectroscopy/TCSPC/TCSPC.jpg"],
   },
 
   {
@@ -471,7 +460,8 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: [
-     "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/UV VIS SPECTROMETER.jpg" ],
+      "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/UV VIS SPECTROMETER.jpg",
+    ],
   },
 
   {
@@ -503,9 +493,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
-    images: [
-    "/assets/instruments/Spectroscopy/UV-VIS-NIR/UV VIS NIR.jpg"
-    ],
+    images: ["/assets/instruments/Spectroscopy/UV-VIS-NIR/UV VIS NIR.jpg"],
   },
 
   {
@@ -545,7 +533,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
-    "/assets/instruments/Spectroscopy/Spectrofluorometer/FLUORIMETER.jpg",
+      "/assets/instruments/Spectroscopy/Spectrofluorometer/FLUORIMETER.jpg",
     ],
   },
 
@@ -754,7 +742,7 @@ export const instrumentsData = [
   },
   // ==================== SPECIALIZED EQUIPMENT ====================
   {
-    id: "bet-surface-area",
+    id: "bet",
     name: "BET Surface Area Analyzer",
     fullName: "BET Surface Area Analyzer (Autosorb iQ2)",
     category: "Surface-Analysis",
@@ -829,9 +817,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: [
-      "/assets/instruments/Microwave-Reactor/MICROWAVE.jpg"
-    ],
+    images: ["/assets/instruments/Microwave-Reactor/MICROWAVE.jpg"],
   },
   {
     id: "element-analyzer",
@@ -1095,9 +1081,7 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: [
-     "/assets/instruments/LN2-Plant/LIQUID NITROGEN PLANT.jpg",
-    ],
+    images: ["/assets/instruments/LN2-Plant/LIQUID NITROGEN.jpeg"],
   },
   // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
   {
@@ -1197,7 +1181,8 @@ export const instrumentsData = [
     position: "Quality Analyst, SIC",
 
     images: [
-      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/pma300.png",
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image2.png",
     ],
   },
 
