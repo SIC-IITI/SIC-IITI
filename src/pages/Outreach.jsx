@@ -153,14 +153,7 @@ function Outreach() {
       {/* SIC Visitors & Event Highlights Section */}
       <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              SIC Visitors & Event Highlights
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600">
-              An awareness program is initiated by SIC for our SCHOOL AND COLLEGE STUDENTS.
-            </p>
-          </div>
+       
 
           {/* Events Grid */}
           <div className="max-w-6xl mx-auto space-y-6">
