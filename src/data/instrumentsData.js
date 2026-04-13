@@ -388,8 +388,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: [
-      "/assets/instruments/Spectroscopy/TCSPC/s_tcs1.png",
-      "/assets/instruments/Spectroscopy/TCSPC/s_tcs2.png",
+      "/assets/instruments/Spectroscopy/TCSPC/TCSPC.jpg",
     ],
   },
 
