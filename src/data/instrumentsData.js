@@ -753,7 +753,7 @@ export const instrumentsData = [
   },
   // ==================== SPECIALIZED EQUIPMENT ====================
   {
-    id: "bet-surface-area",
+    id: "bet",
     name: "BET Surface Area Analyzer",
     fullName: "BET Surface Area Analyzer (Autosorb iQ2)",
     category: "Surface-Analysis",
