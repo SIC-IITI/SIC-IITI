@@ -10,7 +10,6 @@
 }
 
 .team-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   border: 1px solid #dbeafe; /* soft blue border accent */
 }
@@ -30,7 +29,7 @@
 }
 
 .team-card:hover .team-card-image {
-  transform: scale(1.05);
+  transform: scale(1.00);
 }
 
 /* ===== Content Section ===== */

@@ -1,114 +1,54 @@
 .team-page {
   min-height: 100vh;
-  background-color: #f9fafb; /* bg-gray-50 */
+  background-color: #f9fafb;
 }
 
 .team-page-main {
-  max-width: 80rem; /* max-w-7xl */
+  max-width: 80rem;
   margin: 0 auto;
-  padding: 4rem 1rem; /* py-16 px-4 */
+  padding: 4rem 1rem;
 }
 
 @media (min-width: 640px) {
   .team-page-main {
-    padding: 4rem 1.5rem; /* sm:px-6 */
+    padding: 4rem 1.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .team-page-main {
-    padding: 4rem 2rem; /* lg:px-8 */
+    padding: 4rem 2rem;
   }
 }
 
 .team-section {
-  margin-bottom: 5rem; /* mb-20 */
+  margin-bottom: 5rem;
 }
 
-
-.faculty-advisor .team-card {
-  max-width: 20rem; /* max-w-xs */
-  width: 100%;
-}
-
+/* Headings */
 .team-heading {
-  font-size: 1.875rem; /* text-3xl */
+  font-size: 1.875rem;
   font-weight: 700;
-  color: #111827; /* text-gray-900 */
+  color: #111827;
   text-align: center;
   margin-bottom: 1rem;
 }
 
 .team-subtext {
   text-align: center;
-  color: #4b5563; /* text-gray-600 */
+  color: #4b5563;
   margin-bottom: 3rem;
 }
 
-/* Grid layout for team members */
+/* ✅ MAIN GRID — THIS CONTROLS EVERYTHING */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 🔥 3 per row */
   gap: 24px;
-}
-
-/* Core Team: 1 → 2 → 4 columns */
-@media (min-width: 640px) {
-  .f-core-team {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .f-core-team {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-
-
-.faculty-advisors {
-  display: grid;
-  gap: 2rem;
-  max-width: 42rem; /* keeps cards compact */
-  margin: 0 auto;
-}
-
-/* Tablet: 2 columns */
-@media (min-width: 640px) {
-  .faculty-advisors {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.f-alumni-team {
-  display: grid;
-  gap: 2rem;
-  max-width: 42rem; /* same as faculty */
-  margin: 0 auto;
-}
-
-/* Tablet & above: always 2 columns */
-@media (min-width: 640px) {
-  .f-alumni-team {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-.faculty-advisors,
-.f-alumni-team {
   justify-items: center;
 }
-/* Initial hidden state */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
 
-/* Visible state */
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Tablet */
 @media (max-width: 1024px) {
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -120,4 +60,16 @@
   .team-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Scroll animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
