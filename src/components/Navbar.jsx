@@ -7,9 +7,9 @@ function Navbar() {
 
   const navItems = [
     { path: "/", label: "Home" },
+    { path: "/about", label: "About SIC", dropdown: true },
     { path: "/instruments", label: "Instruments" },
     { path: "/booking", label: "Book Now" },
-    { path: "/about", label: "About SIC", dropdown: true },
     { path: "/dst-fist", label: "DST-FIST" },
     { path: "/contact", label: "Contact" },
   ];
@@ -61,23 +61,23 @@ function Navbar() {
     (path) => location.pathname === path,
     [location.pathname]
   );
-const handleLogoClick = (e) => {
-  if (location.pathname === "/") {
-    e.preventDefault();
-    window.open("https://www.iiti.ac.in", "_blank");
-  }
-};
+  const handleLogoClick = (e) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.open("https://www.iiti.ac.in", "_blank");
+    }
+  };
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3 lg:gap-4">
             {/* Logo */}
-          <Link
-  to="/"
-  onClick={handleLogoClick}
-  className="flex items-center gap-2 hover:opacity-90 transition-opacity"
->
+            <Link
+              to="/"
+              onClick={handleLogoClick}
+              className="flex items-center gap-2 hover:opacity-90 transition-opacity"
+            >
               <img
                 src="/iiti-logo.png"
                 alt="IIT Indore Logo"
@@ -110,75 +110,57 @@ const handleLogoClick = (e) => {
           {/* Desktop Navigation */}
           <div className="hidden xl:flex items-center gap-1 lg:gap-2">
             {/* First 3 items */}
-            {navItems.slice(0, 3).map((item) => {
+            {navItems.map((item) => {
+              if (item.dropdown) {
+                return (
+                  <div key={item.path} className="relative group">
+                    <button className="whitespace-nowrap px-3 py-1.5 rounded-md text-sm font-semibold text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1">
+                      {item.label}
+                      <svg
+                        className="w-4 h-4 transition-transform group-hover:rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
+                      {aboutDropdownItems.map((subItem) => (
+                        <Link
+                          key={subItem.path}
+                          to={subItem.path}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
               const isActive = isActivePath(item.path);
               return (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`whitespace-nowrap px-3 py-1.5 rounded-md text-sm font-semibold transition-colors duration-200 ${
-                    isActive
+                  className={`whitespace-nowrap px-3 py-1.5 rounded-md text-sm font-semibold transition-colors duration-200 ${isActive
                       ? "bg-blue-600 text-white shadow-sm"
                       : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </Link>
               );
             })}
 
-            {/* About SIC Dropdown */}
-            <div className="relative group">
-              <button
-                className="whitespace-nowrap px-3 py-1.5 rounded-md text-sm font-semibold text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                About SIC
-                <svg
-                  className="w-4 h-4 transition-transform group-hover:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-100">
-                {aboutDropdownItems.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 first:rounded-t-lg last:rounded-b-lg transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Remaining items (DST-FIST, Contact) */}
-            {navItems.slice(4).map((item) => {
-              const isActive = isActivePath(item.path);
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`whitespace-nowrap px-3 py-1.5 rounded-md text-sm font-semibold transition-colors duration-200 ${
-                    isActive
-                      ? "bg-blue-600 text-white shadow-sm"
-                      : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -222,17 +204,15 @@ const handleLogoClick = (e) => {
       </div>
 
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 xl:hidden transition-opacity duration-300 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 xl:hidden transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={closeMobileMenu}
         aria-hidden="true"
       >
         {/* Mobile Drawer */}
         <div
-          className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-80 max-w-full bg-white shadow-2xl transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex flex-col h-full p-6">
@@ -250,11 +230,10 @@ const handleLogoClick = (e) => {
                   key={item.path}
                   to={item.path}
                   onClick={closeMobileMenu}
-                  className={`text-lg font-medium transition-colors px-3 py-2 rounded-lg ${
-                    isActivePath(item.path)
+                  className={`text-lg font-medium transition-colors px-3 py-2 rounded-lg ${isActivePath(item.path)
                       ? "bg-blue-50 text-blue-600"
                       : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -270,11 +249,10 @@ const handleLogoClick = (e) => {
                     key={item.path}
                     to={item.path}
                     onClick={closeMobileMenu}
-                    className={`block text-base font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${
-                      isActivePath(item.path)
+                    className={`block text-base font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${isActivePath(item.path)
                         ? "bg-blue-50 text-blue-600"
                         : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>
@@ -288,11 +266,10 @@ const handleLogoClick = (e) => {
                     key={item.path}
                     to={item.path}
                     onClick={closeMobileMenu}
-                    className={`block text-lg font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${
-                      isActivePath(item.path)
+                    className={`block text-lg font-medium transition-colors px-3 py-2 rounded-lg mb-2 ${isActivePath(item.path)
                         ? "bg-blue-50 text-blue-600"
                         : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>

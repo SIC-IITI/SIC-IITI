@@ -31,39 +31,14 @@ export default function AboutPage() {
      {/* Hero Section */}
       <section className="relative h-auto md:h-96 bg-gradient-to-r from-blue-900 to-blue-700">
         <div className="absolute inset-0 bg-cover opacity-20" style={{ backgroundImage: 'url("/sic.png")' }} />
-        <div className="relative container mx-auto px-6 sm:px-8 lg:px-12 xl:px-28 py-12 md:py-0 md:h-full flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div className="max-w-2xl">
+    <div className="relative container mx-auto px-6 sm:px-8 lg:px-12 xl:px-28 py-12 md:py-0 md:h-full flex items-center justify-center text-center">
+  <div className="max-w-2xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               About SIC
             </h1>
             <p className="text-xl text-blue-100">A National Facility of IIT Indore</p>
           </div>
-          <div className="flex flex-col gap-3 md:items-end">
-            <span className="text-blue-100 font-medium text-sm">Quick Navigation</span>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to="/faculty"
-                className="group px-5 py-2.5 bg-white hover:bg-blue-600 text-blue-700 hover:text-white rounded-md text-sm font-medium transition-all shadow-md flex items-center gap-2"
-              >
-                Faculty
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/team"
-                className="group px-5 py-2.5 bg-white hover:bg-blue-600 text-blue-700 hover:text-white rounded-md text-sm font-medium transition-all shadow-md flex items-center gap-2"
-              >
-                SIC Team
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/outreach"
-                className="group px-5 py-2.5 bg-white hover:bg-blue-600 text-blue-700 hover:text-white rounded-md text-sm font-medium transition-all shadow-md flex items-center gap-2"
-              >
-                Outreach
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
+
         </div>
       </section>
 
