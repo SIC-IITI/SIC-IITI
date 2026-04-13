@@ -12,7 +12,7 @@ export default function DstFist() {
       title: "Raman Spectroscopy",
       department: "Department of Physics",
       image: "/assets/dst/raman.png",
-      link: "https://physics.iiti.ac.in/", // Physics Dept
+      link: "https://physics.iiti.ac.in/research-facility/", // Physics Dept
     },
     {
       title: "Universal Testing Machine",
@@ -82,8 +82,6 @@ export default function DstFist() {
 
                   <a
                     href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="text-sm text-blue-600 hover:underline font-medium mt-auto"
                   >
                     Read more →
