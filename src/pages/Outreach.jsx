@@ -5,11 +5,14 @@ function Outreach() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const carouselImages = [
+"/visit.png",
+"/masters-visit.png",
+"/sic-army-visit.png",
+"/saumya-gupta.png",
+"/sic-ppl.png",
+"/outreach-sic.jpeg",
+"/sic-ppl2.png"
 
-    "/director.png",
-    "/sic-ppl2.png",
-    "/close-sic.png",
-    "/sic.png"
   ]
 
   const nextImage = () => {
@@ -57,8 +60,7 @@ function Outreach() {
     {
       date: "December 22, 2022",
       title: "Foreign students visit under exchange program",
-      description: " Ujjain, visit as 'Ek Bharat Shresht Bharat Abhiyan.'",
-      image: "/sic-ppl2.png"
+           image: "/sic-ppl2.png"
     },
 
   ]
@@ -128,8 +130,8 @@ function Outreach() {
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
                       className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
-                        ? 'bg-blue-600 w-6'
-                        : 'bg-white/70 hover:bg-white'
+                          ? 'bg-blue-600 w-6'
+                          : 'bg-white/70 hover:bg-white'
                         }`}
                       aria-label={`Go to image ${index + 1}`}
                     />
@@ -153,7 +155,14 @@ function Outreach() {
       {/* SIC Visitors & Event Highlights Section */}
       <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-       
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              SIC Visitors & Event Highlights
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600">
+              An awareness program is initiated by SIC for our SCHOOL AND COLLEGE STUDENTS.
+            </p>
+          </div>
 
           {/* Events Grid */}
           <div className="max-w-6xl mx-auto space-y-6">
