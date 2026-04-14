@@ -28,8 +28,8 @@ export default function ContactPage() {
     <div className="min-h-screen flex bg-white">
 
       {/* LEFT SIDE */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center px-10 py-20">
-        <div className="max-w-md w-full">
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-10 py-10">
+        <div className="max-w-md w-full pb-[10rem]">
 
           {/* Subheading */}
           <p className="text-sm uppercase tracking-widest text-gray-400 mb-3">

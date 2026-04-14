@@ -270,7 +270,7 @@ export const instrumentsData = [
   {
     id: "nmr-500",
     name: "NMR 500",
-    fullName: "Nuclear Magnetic Resonance(NMR) 500MHz",
+    fullName: "Nuclear Magnetic Resonance 500MHz",
     category: "Spectroscopy",
     model: "AVANCE NEO Ascend 500 Bruker BioSpin International AG",
     showInStatus: true,
@@ -301,7 +301,7 @@ export const instrumentsData = [
   {
     id: "nmr-400",
     name: "NMR 400",
-    fullName: "Nuclear Magnetic Resonance(NMR) 400MHz",
+    fullName: "Nuclear Magnetic Resonance 400MHz",
     category: "Spectroscopy",
     model: "AVANCE NEO Ascend 400 Bruker BioSpin International AG",
     showInStatus: true,
@@ -585,7 +585,7 @@ export const instrumentsData = [
   {
     id: "hplc-rp",
     name: "HPLC-RP",
-    fullName: "High Performance Liquid Chromatography (Reversed Phase)",
+    fullName: "High Performance Liquid Chromatography (Reverse Phase)",
     category: "Chromatography",
     make: "Thermo Scientific",
     model: "Vanquish Core",
@@ -743,7 +743,7 @@ export const instrumentsData = [
   {
     id: "bet",
     name: "BET Surface Area Analyzer",
-    fullName: "BET Surface Area Analyzer (Autosorb iQ2)",
+    fullName: "BET Surface Area Analyzer",
     category: "Surface-Analysis",
     model: "Quantachrome Autosorb iQ2 (Anton Paar)",
     showInStatus: true,
@@ -785,7 +785,7 @@ export const instrumentsData = [
   {
     id: "microwave-reactor",
     name: "Microwave Reactor",
-    fullName: "Microwave Reactor (Monowave 200)",
+    fullName: "Monowave 200",
     category: "Chemical-Synthesis",
     model: "Anton Paar Monowave 200 with MAS 24 Autosampler",
     showInStatus: true,
@@ -821,7 +821,7 @@ export const instrumentsData = [
   {
     id: "element-analyzer",
     name: "Element Analyzer",
-    fullName: "CHNS Elemental Analyzer",
+    fullName: "CHNS-O Elemental Analyzer",
     category: "Elemental Analysis",
     model: "Flash 2000",
     showInStatus: true,
@@ -903,7 +903,7 @@ export const instrumentsData = [
   {
     id: "lyophilizer-labconco",
     name: "Lyophilizer - Labconco",
-    fullName: "Freeze Dryer (Labconco Lyophilizer)",
+    fullName: "Freeze Dryer",
     category: "Freeze Drying",
     model: "LABCONCO Lyophilizer",
     showInStatus: true,
@@ -946,7 +946,7 @@ export const instrumentsData = [
   {
     id: "lyophilizer-virtis",
     name: "Lyophilizer - VirTis",
-    fullName: "Freeze Dryer (VirTis Lyophilizer)",
+    fullName: "Freeze Dryer",
     category: "Freeze Drying",
     model: "VirTis Lyophilizer",
     showInStatus: true,
@@ -1049,7 +1049,7 @@ export const instrumentsData = [
   {
     id: "liquid-nitrogen-plant",
     name: "Liquid Nitrogen Plant",
-    fullName: "LN500 Liquid Nitrogen Plant (StirLIN)",
+    fullName: "StirLIN",
     category: "Cryogenics",
     model: "LN500",
     showInStatus: true,

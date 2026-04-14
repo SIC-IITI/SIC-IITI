@@ -356,11 +356,10 @@ const handleTouchEnd = () => {
               </div>
 
               {/* RIGHT: Message */}
-              <div className="md:col-span-2 text-gray-700 leading-relaxed text-justify space-y-4">
+              <div className="md:col-span-2 text-gray-700 leading-relaxed text-justify space-y-1 pb-16">
 
                 {/* Quote icon */}
-                <p className="text-4xl text-gray-300 leading-none">“</p>
-
+                
                 <p>
                   The Sophisticated Instrumentation Centre (SIC) at IIT Indore, Simrol campus, is equipped with state-of-the-art, high-end instruments facilities that enable researchers to explore advanced instruments in all disciplines. The facility houses well-established facilities including chromatography, microscopy, spectroscopy, X-ray characterization, thermal analysis, optical and physical property characterization.
                 </p>
