@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import GoogleTranslate from './GoogleTranslate';
 
 function Footer() {
   return (
@@ -93,6 +94,7 @@ function Footer() {
             </div>
           </div>
         </div>
+        <GoogleTranslate />
 
         <div className="border-t border-blue-700 pt-6">
           <p className="text-center text-blue-200 text-sm">
@@ -117,6 +119,7 @@ function Footer() {
     />
   </a>
 </div>
+  
     </footer>
   );
 }
