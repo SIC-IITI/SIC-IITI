@@ -67,26 +67,51 @@ function UsageCharges() {
   }, [highlightedId]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-[#f4f7fb]">
+
       <section className="space-y-8 px-4 py-12 max-w-7xl mx-auto">
-        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 rounded-2xl p-8 md:p-12 shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-4">
-              <TrendingUp className="w-10 h-10 text-white" />
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Usage Charges
-              </h1>
-            </div>
-            <p className="text-blue-100 leading-relaxed text-lg max-w-3xl">
+
+        <section
+          className="relative w-full h-[60vh] flex items-center justify-center text-white"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60"></div>
+
+          {/* Stars Effect */}
+          <div className="absolute inset-0 opacity-40">
+            {[...Array(200)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 3}s`,
+                  animationDuration: `${2 + Math.random() * 3}s`,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center px-6 max-w-4xl">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              Usage Charges
+            </h1>
+
+            <p className="text-lg md:text-xl text-blue-100 mb-8">
               Standardized charges for sustainable operation. Rates may vary
               based on sample type, complexity, and specialized requirements.
-              Contact us for detailed quotes.
             </p>
-          </div>
-        </div>
 
+          </div>
+        </section>
         {/* Search and Filter Section */}
         <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 overflow-visible">
           <div className="flex flex-col lg:flex-row gap-4">

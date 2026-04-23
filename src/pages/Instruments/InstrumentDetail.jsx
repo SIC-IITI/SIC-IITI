@@ -122,9 +122,6 @@ const InstrumentDetail = () => {
 
   const statusInfo = getInstrumentStatusDetails(instrument.status || "Operational");
   const StatusIcon = statusInfo.icon;
-  // const allImages = instruments.flatMap(inst => inst.images || []);
-  // const fallbackImage =
-  //   allImages[Math.floor(Math.random() * allImages.length)] || "/sic.png";
   const fallbackImage = "/assets/slider/clsm.jpeg";
   return (
     <div className="min-h-screen bg-gray-50 py-8 ">
