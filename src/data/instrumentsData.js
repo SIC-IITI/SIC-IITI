@@ -10,8 +10,8 @@ export const instrumentsData = [
   //   showInStatus: true,
   //   status: "Operational",
   //   usageCharges: {
-  //     internal: "₹ 1,200 per sample",
-  //     external: "₹ 2,500 per sample",
+  //     academic: "₹ 1,200 per sample",
+  //    industrial: "₹ 2,500 per sample",
   //     unit: "per sample",
   //   },
   //   features: [
@@ -51,8 +51,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 2,000 per sample",
-      external: "₹ 3,500 per sample",
+      academic: "₹ 2,000 per sample",
+     industrial: "₹ 3,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -97,8 +97,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 2,000 per sample",
-      external: "₹ 4,000 per sample",
+      academic: "₹ 2,000 per sample",
+     industrial: "₹ 4,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -134,8 +134,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 2,000 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -172,8 +172,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 2,000 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -206,8 +206,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 2,000 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -241,8 +241,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 1,500 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -276,8 +276,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 800 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 800 per sample",
       unit: "per sample",
     },
     features: [
@@ -307,8 +307,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 800 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 800 per sample",
       unit: "per sample",
     },
     features: [
@@ -335,8 +335,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -362,8 +362,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -392,8 +392,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 2,000 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -434,8 +434,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -474,8 +474,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -506,8 +506,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -549,8 +549,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 1,500 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     description:
@@ -579,7 +579,7 @@ export const instrumentsData = [
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     location: "LC-MS lab",
-    images: ["/assets/instruments/Chromatography/LC-HRMS/image.png"],
+    images: ["/assets/instruments/Chromatography/LC-HRMS/LC-HRMS 2.jpg"],
   },
 
   {
@@ -592,8 +592,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 1,500 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     description:
@@ -635,8 +635,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 2,000 per sample",
-      external: "₹ 5,000 per sample",
+      academic: "₹ 2,000 per sample",
+     industrial: "₹ 5,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -676,8 +676,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 2,000 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -715,8 +715,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 3,000 per sample",
-      external: "₹ 5,000 per sample",
+      academic: "₹ 3,000 per sample",
+     industrial: "₹ 5,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -749,8 +749,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 5,000 per sample",
-      external: "₹ 10,000 per sample",
+      academic: "₹ 5,000 per sample",
+     industrial: "₹ 10,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -791,8 +791,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 200 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 200 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -827,8 +827,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,000 per sample",
-      external: "₹ 2,000 per sample",
+      academic: "₹ 1,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
      features: [
@@ -860,8 +860,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 100 per 10 liters",
-      external: "₹ 300 per 10 liters",
+      academic: "₹ 100 per 10 liters",
+     industrial: "₹ 300 per 10 liters",
       unit: "per 10 liters",
     },
 
@@ -909,8 +909,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 750 per sample",
-      external: "₹ 1,500 per sample",
+      academic: "₹ 750 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -938,9 +938,8 @@ export const instrumentsData = [
     position: "Junior Technical Assistant, SIC",
     images: [
       "/assets/instruments/Lyophilizer/lyo4.jpeg",
-      "/assets/instruments/Lyophilizer/lyo1.png",
-      "/assets/instruments/Lyophilizer/lyo2.png",
-      "/assets/instruments/Lyophilizer/lyo3.png",
+      "/assets/instruments/Lyophilizer/Lyophilizer Labconco.jpg",
+      "/assets/instruments/Lyophilizer/VirTis.jpeg"
     ],
   },
   {
@@ -952,8 +951,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 750 per sample",
-      external: "₹ 1,500 per sample",
+      academic: "₹ 750 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -982,8 +981,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1019,8 +1018,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1055,8 +1054,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 31 per litre",
-      external: "₹ 37 per litre",
+      academic: "₹ 31 per litre",
+     industrial: "₹ 37 per litre",
       unit: "per litre",
     },
     make: "StirLIN",
@@ -1091,8 +1090,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per sample",
-      external: "₹ 3,000 per sample",
+      academic: "₹ 1,500 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1123,8 +1122,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 500 per sample",
-      external: "₹ 1,000 per sample",
+      academic: "₹ 500 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1157,8 +1156,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per sample",
-      external: "₹ 3,000 per sample",
+      academic: "₹ 1,500 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1193,8 +1192,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per sample",
-      external: "₹ 3,000 per sample",
+      academic: "₹ 1,500 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1226,8 +1225,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per sample",
-      external: "₹ 3,000 per sample",
+      academic: "₹ 1,500 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1259,8 +1258,8 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      internal: "₹ 1,500 per sample",
-      external: "₹ 3,000 per sample",
+      academic: "₹ 1,500 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1282,6 +1281,61 @@ export const instrumentsData = [
     ],
   },
 ];
+
+export const sampleAnalysisInfo = {
+  contact: {
+    title: "Sophisticated Instrumentation Centre (SIC) - A National Facility",
+    institute: "Indian Institute of Technology Indore",
+    address: "IIT Indore, Khandwa Road, Simrol - 453552, Indore (MP)",
+    email: "sic@iiti.ac.in",
+    phone: "+91-731-660-3311",
+    labPhone: "+91-731-660-3541 / 3543 / 3311",
+  },
+  submissionSteps: [
+    "Register via the i-STEM portal for external sample analysis.",
+    "Send samples by post with the filled requisition form, payment receipt, institution/company cover letter or valid institutional ID card, and i-STEM documents.",
+    "Payment must be made online in advance for sample analysis.",
+  ],
+  resources: [
+    {
+      label: "i-STEM Portal",
+      href: "https://www.istem.gov.in/",
+    },
+    {
+      label: "Public User Registration",
+      href: "https://www.istem.gov.in/register/user/",
+    },
+    {
+      label: "Book Sample Analysis Slot",
+      href: "https://sicbooking.iiti.ac.in/",
+    },
+  ],
+  billing: {
+    gst: "18%",
+    gstin: "23AAAAI7115H1Z2",
+    notes: [
+      "All costs are per sample and exclusive of taxes.",
+      "Please send an Institute Cover Letter signed by the appropriate authority to get the academic institution discount.",
+      "Report/bill issued by SIC will be used for information purpose only and will not be used as proof in any dispute or legal matter.",
+    ],
+  },
+  accountDetails: [
+    { label: "Account Name", value: "Registrar IIT Indore" },
+    {
+      label: "Address",
+      value: "IIT Indore, Khandwa Road, Simrol-453552, Indore",
+    },
+    { label: "Bank Name", value: "Canara Bank" },
+    { label: "Branch", value: "Simrol Campus Branch" },
+    { label: "Account No.", value: "1476101027440" },
+    { label: "Account Type", value: "Saving A/C" },
+    { label: "MICR Code", value: "452015003" },
+    { label: "IFSC Code", value: "CNRB0006223" },
+    { label: "Swift Code", value: "CNRBINBBISG" },
+    { label: "PAN No.", value: "AAAAI7115H" },
+    { label: "TAN No.", value: "BPLI01163B" },
+  ],
+};
 
 // ==================== Helper Functions ====================
 

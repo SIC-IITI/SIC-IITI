@@ -22,8 +22,8 @@ import TeamPage from "./pages/TeamPage";
 import Events from "./pages/Events";
 import Outreach from "./pages/Outreach";
 import ExcellencePage from "./pages/Excellence";
-import DstFist from "./pages/DstFist"; 
-
+import DstFist from "./pages/DstFist";
+import SampleAnalysisCharges from "./pages/SampleAnalysisCharges";
 
 export default function App() {
   return (
@@ -43,12 +43,13 @@ export default function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/sample-analysis-charges" element={<SampleAnalysisCharges />} />
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/events" element={<Events />} />
           <Route path="/outreach" element={<Outreach />} />
           <Route path="/excellence" element={<ExcellencePage />} />
-          <Route path="/dst-fist" element={<DstFist />} /> 
+          <Route path="/dst-fist" element={<DstFist />} />
           <Route path="/facility-status" element={<FacilityStatus />} />
         </Routes>
       </main>

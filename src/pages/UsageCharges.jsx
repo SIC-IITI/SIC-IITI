@@ -176,15 +176,14 @@ function UsageCharges() {
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
                     <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4" />
-                      Internal Users
+                    <Users className="w-4 h-4" />
+Academic Charges
                     </div>
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
                     <div className="flex items-center gap-2">
-                      <Building2 className="w-4 h-4" />
-                      External Users
-                    </div>
+                 <Building2 className="w-4 h-4" />
+Industrial Charges                    </div>
                   </th>
                 </tr>
               </thead>
@@ -217,12 +216,12 @@ function UsageCharges() {
                       </td>
                       <td className="px-6 py-5">
                         <span className="text-green-700 font-bold text-lg">
-                          {instrument.usageCharges.internal}
+                          {instrument.usageCharges.academic}
                         </span>
                       </td>
                       <td className="px-6 py-5">
                         <span className="text-orange-700 font-bold text-lg">
-                          {instrument.usageCharges.external}
+                          {instrument.usageCharges.industrial}
                         </span>
                       </td>
                     </tr>
@@ -257,11 +256,11 @@ function UsageCharges() {
             {[
               {
                 icon: Users,
-                text: "Internal users include students, faculty, and staff of IIT Indore",
+                text: "Academic charges apply to students, faculty, and academic institutions",
               },
               {
                 icon: Building2,
-                text: "External users include academia, industries, and research institutions",
+                text: "Industrial charges apply to industries and research institutions",
               },
               {
                 icon: TrendingUp,

@@ -49,21 +49,21 @@ export default function Home() {
   }, []);
 
   const heroImages = [
-    { src: "/assets/slider/nmr500.jpeg", id: "nmr-500" },
+    { src: "/assets/instruments/Spectroscopy/NMR-500/nmr500.jpeg", id: "nmr-500" },
     { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
-    { src: "/assets/slider/lc-hrms.png", id: "lc-hrms" },
+    { src: "/assets/slider/LC-HRMS 2.jpg", id: "lc-hrms" },
     { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
     { src: "/assets/slider/clsm.jpeg", id: "clsm" },
     { src: "/assets/slider/AFM 1.jpg", id: "afm" },
-    { src: "/assets/slider/bet.jpeg", id: "bet" },
+    { src: "/assets/instruments/BET-Surface-Analyzer/BET.jpg", id: "bet" },
     { src: "/assets/slider/tga1.jpeg", id: "tga" },
     { src: "/assets/slider/dsc.jpeg", id: "dsc" },
     { src: "/assets/instruments/Element-Analyzer/elean.png", id: "element-analyzer" },
     { src: "/assets/instruments/Microscopy/Supra-55/ms1.png", id: "supra-55" },
-    { src: "/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg", id: "nmr-400" },
+    { src: "/assets/instruments/Spectroscopy/NMR-400/NMR 400.jpg", id: "nmr-400" },
     { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
-    { src: "/assets/instruments/Lyophilizer/lyo4.jpeg", id: "lyophilizer-labconco" },
-    { src: "/assets/instruments/Lyophilizer/VirTis.jpeg", id: "lyophilizer-virtis" },
+    { src: "/assets/instruments/Lyophilizer/Lyophilizer Labconco.jpg", id: "lyophilizer-labconco" },
+    { src: "/assets/instruments/Lyophilizer/Lyophilizer VirTis.jpg", id: "lyophilizer-virtis" },
 
   ]
 
@@ -315,7 +315,7 @@ const handleTouchEnd = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Message from Head - SIC */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
@@ -325,7 +325,7 @@ const handleTouchEnd = () => {
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 bg-gray-300" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                Message from Professor Incharge 
+                Message from Professor Incharge
               </h2>
               <div className="h-px w-20 bg-gray-300" />
             </div>
@@ -359,7 +359,7 @@ const handleTouchEnd = () => {
               <div className="md:col-span-2 text-gray-700 leading-relaxed text-justify space-y-1 pb-16">
 
                 {/* Quote icon */}
-                
+
                 <p>
                   The Sophisticated Instrumentation Centre (SIC) at IIT Indore, Simrol campus, is equipped with state-of-the-art, high-end instruments facilities that enable researchers to explore advanced instruments in all disciplines. The facility houses well-established facilities including chromatography, microscopy, spectroscopy, X-ray characterization, thermal analysis, optical and physical property characterization.
                 </p>

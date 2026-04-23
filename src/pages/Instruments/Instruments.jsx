@@ -34,6 +34,25 @@ const InstrumentsPage = () => {
     console.log("Searching for:", searchQuery);
   };
 
+  const quickAccessTabs = [
+    {
+      label: "Sample Analysis Charges",
+      description: "Charges, billing, contact and payment details",
+      action: () => navigate("/sample-analysis-charges"),
+      isPrimary: true,
+    },
+    {
+      label: "Facility Status",
+      description: "Check live operational status",
+      action: () => navigate("/facility-status"),
+    },
+    {
+      label: "Book Your Instrument",
+      description: "Open the SIC booking portal",
+      action: () => window.open("https://sicbooking.iiti.ac.in/", "_blank"),
+    },
+  ];
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#D9D9D9" }}>
       {/* Hero Section */}
@@ -95,9 +114,17 @@ const InstrumentsPage = () => {
                 Book Your Instrument
               </a>
             </button>
+            <button
+              onClick={() => navigate('/sample-analysis-charges')}
+              className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
+            >
+              Sample Analysis Charges
+            </button>
           </div>
         </div>
       </div>
+
+  
 
       {/* Search Section */}
       <div
