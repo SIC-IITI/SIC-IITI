@@ -124,7 +124,7 @@ const InstrumentsPage = () => {
         </div>
       </div>
 
-  
+
 
       {/* Search Section */}
       <div

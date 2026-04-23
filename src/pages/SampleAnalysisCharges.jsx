@@ -48,15 +48,33 @@ const SampleAnalysisCharges = () => {
 
   return (
     <div className="min-h-screen bg-[#f4f7fb]">
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-teal-900 px-4 py-14 text-white sm:px-8 lg:px-16">
+      <section className="relative overflow-hidden px-4 py-14 text-white sm:px-8 lg:px-16"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80')",
+        }}
+        >
+           {/* Stars Effect */}
+        <div className="absolute inset-0 opacity-40">
+          {[...Array(200)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 3}s`,
+              }}
+            />
+          ))}
+        </div>
         <div className="absolute left-8 top-8 h-36 w-36 rounded-full bg-teal-300/20 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-56 w-56 rounded-full bg-blue-300/20 blur-3xl" />
 
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.28em] text-teal-200">
-              SIC-IITI sample services
-            </p>
+
             <h1
               className="text-4xl font-bold leading-tight sm:text-5xl"
               style={{ fontFamily: "Cantata one, serif" }}

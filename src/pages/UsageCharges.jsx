@@ -14,8 +14,7 @@ function UsageCharges() {
   const location = useLocation();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredByInstrument, setFilteredByInstrument] = useState(null);
-
+  const [highlightedId, setHighlightedId] = useState(null);
   const categories = ["All", ...getAllCategories()];
 
   useEffect(() => {
@@ -27,43 +26,45 @@ function UsageCharges() {
         (item) => item.id === instrumentId
       );
       if (instrument) {
-        setFilteredByInstrument(instrument);
-        setSearchTerm(instrument.name);
+        setHighlightedId(instrumentId);
       }
     }
   }, [location]);
 
   const filteredInstruments = instrumentsData.filter((instrument) => {
-    if (filteredByInstrument) {
-      return (
-        instrument.id === filteredByInstrument.id && instrument.usageCharges
-      );
-    }
-
     const matchesCategory =
       selectedCategory === "All" || instrument.category === selectedCategory;
+
     const matchesSearch =
       instrument.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       instrument.fullName.toLowerCase().includes(searchTerm.toLowerCase());
+
     return matchesCategory && matchesSearch && instrument.usageCharges;
   });
 
+
   const handleSearch = () => {
     console.log("Searching for:", searchTerm);
-    setFilteredByInstrument(null);
+
   };
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    setFilteredByInstrument(null);
+    setHighlightedId(null);
   };
 
   const handleSearchChange = (value) => {
     setSearchTerm(value);
-    if (filteredByInstrument) {
-      setFilteredByInstrument(null);
-    }
+    setHighlightedId(null);
   };
+  useEffect(() => {
+    if (highlightedId) {
+      const element = document.getElementById(`row-${highlightedId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  }, [highlightedId]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -176,14 +177,14 @@ function UsageCharges() {
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
                     <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" />
-Academic Charges
+                      <Users className="w-4 h-4" />
+                      Academic Charges
                     </div>
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
                     <div className="flex items-center gap-2">
-                 <Building2 className="w-4 h-4" />
-Industrial Charges                    </div>
+                      <Building2 className="w-4 h-4" />
+                      Industrial Charges                    </div>
                   </th>
                 </tr>
               </thead>
@@ -192,9 +193,16 @@ Industrial Charges                    </div>
                   filteredInstruments.map((instrument, idx) => (
                     <tr
                       key={instrument.id}
-                      className={`${
-                        idx % 2 === 0 ? "bg-white" : "bg-blue-50/50"
-                      } hover:bg-blue-100/50 transition-colors duration-200`}
+                      id={`row-${instrument.id}`}
+                      className={`
+  ${instrument.id === highlightedId
+                          ? "bg-yellow-100 border-l-4 border-yellow-500 scale-[1.01]"
+                          : idx % 2 === 0
+                            ? "bg-white"
+                            : "bg-blue-50/50"
+                        }
+  hover:bg-blue-100/50 transition-all duration-300
+`}
                     >
                       <td className="px-6 py-5">
                         <div className="font-bold text-blue-900 text-lg">
@@ -298,28 +306,28 @@ Industrial Charges                    </div>
 
         {/* Enhanced Contact Information */}
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white rounded-2xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-  <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
-  <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
-  <div className="relative z-10">
-    <h3 className="text-3xl font-bold mb-3">Need More Information?</h3>
-    <p className="mb-6 text-blue-100 text-lg">
-      For detailed quotes, specialized requirements, or bulk booking inquiries:
-    </p>
-    <div className="flex flex-col sm:flex-row gap-4">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
+          <div className="relative z-10">
+            <h3 className="text-3xl font-bold mb-3">Need More Information?</h3>
+            <p className="mb-6 text-blue-100 text-lg">
+              For detailed quotes, specialized requirements, or bulk booking inquiries:
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
 
 
-      {/* Contact Us Link */}
-      <a
-        href="/contact"
-        className="group bg-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition-all shadow-lg hover:shadow-xl text-center border-2 border-blue-400 transform hover:-translate-y-1 duration-300"
-      >
-        <span className="flex items-center justify-center gap-2">
-          Contact Us
-        </span>
-      </a>
-    </div>
-  </div>
-</div>
+              {/* Contact Us Link */}
+              <a
+                href="/contact"
+                className="group bg-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition-all shadow-lg hover:shadow-xl text-center border-2 border-blue-400 transform hover:-translate-y-1 duration-300"
+              >
+                <span className="flex items-center justify-center gap-2">
+                  Contact Us
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
