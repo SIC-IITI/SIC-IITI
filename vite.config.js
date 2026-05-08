@@ -5,7 +5,13 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000,
+    host: "0.0.0.0",
+    allowedHosts: ["sic.iiti.ac.in"],
+  },
+
+  preview: {
+    host: "0.0.0.0",
+    allowedHosts: ["sic.iiti.ac.in"],
   },
   // Add this 'resolve' block
   resolve: {
