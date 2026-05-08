@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import FacilityStatus from './pages/Instruments/FacilityStatus';
 import Home from "./pages/Home";
 import Instruments from "./pages/Instruments/Instruments";
+import InstrumentForms from "./pages/Instruments/InstrumentForms";
 import About from "./pages/About";
 import Booking from "./pages/Booking";
 import UsageCharges from "./pages/UsageCharges";
@@ -33,6 +34,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/instruments" element={<Instruments />} />
+          <Route path="/instruments/forms" element={<InstrumentForms />} />
           <Route path="/instruments/:id" element={<InstrumentDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/booking" element={<Booking />} />

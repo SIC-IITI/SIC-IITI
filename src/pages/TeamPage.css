@@ -52,10 +52,33 @@
   justify-items: center;     /* center cards inside */
 }
 
-/* OPTIONAL: limit width for nicer layout */
+/* Optional: limit width for nicer layout */
 .team-grid-wrapper {
   max-width: 1100px;
   margin: 0 auto;
+}
+
+/* Core committee should show 4 columns on large screens */
+.team-grid.core-team {
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+}
+
+@media (max-width: 1200px) {
+  .team-grid.core-team {
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .team-grid.core-team {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .team-grid.core-team {
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+  }
 }
 
 /* Scroll animation */

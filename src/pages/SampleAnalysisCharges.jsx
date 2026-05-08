@@ -103,6 +103,14 @@ const SampleAnalysisCharges = () => {
                 Book Sample Slot
                 <ExternalLink className="h-4 w-4" />
               </a>
+              <a
+                href={sampleAnalysisInfo.documents.feeStructure}
+                download
+                className="inline-flex items-center gap-2 rounded-xl border border-white/50 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-slate-950"
+              >
+                Download Fee Structure
+                <ExternalLink className="h-4 w-4" />
+              </a>
             </div>
           </div>
 

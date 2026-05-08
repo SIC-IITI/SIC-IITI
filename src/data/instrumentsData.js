@@ -205,6 +205,7 @@ export const instrumentsData = [
     model: "Atomic Force Microscope",
     showInStatus: true,
     status: "Operational",
+     form: "/documents/AFM requisition form.pdf",
     usageCharges: {
       academic: "₹ 1,000 per sample",
      industrial: "₹ 2,000 per sample",
@@ -264,6 +265,7 @@ export const instrumentsData = [
       "/assets/instruments/Microscopy/CLSM/CLSM 2.jpg",
       "/assets/instruments/Microscopy/CLSM/mc1.jpeg",
     ],
+    form: "/documents/Confocal.pdf"
   },
 
   // ==================== SPECTROSCOPY ====================
@@ -296,6 +298,7 @@ export const instrumentsData = [
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
     images: ["/assets/instruments/Spectroscopy/NMR-500/snmr500_1.jpeg"],
+    form: "/documents/500_NMR_request_form.pdf",
   },
 
   {
@@ -324,6 +327,7 @@ export const instrumentsData = [
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
     images: ["/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg"],
+    form: "/documents/NMR.pdf",
   },
 
   {
@@ -351,6 +355,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: ["/assets/instruments/Spectroscopy/FT-IR/s_ft.png"],
+    form: "/documents/FTIR (1).pdf",
   },
 
   {
@@ -423,6 +428,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     images: ["/assets/instruments/Spectroscopy/CD/CD.jpeg"],
+    form: "/documents/CD.pdf"
   },
 
   {
@@ -535,7 +541,9 @@ export const instrumentsData = [
     email: "kinny@iiti.ac.in",
     images: [
       "/assets/instruments/Spectroscopy/Spectrofluorometer/FLUORIMETER.jpg",
+
     ],
+    form: "/documents/FLUORESCENCE SPECTROSCOPY.pdf",
   },
 
   // ==================== CHROMATOGRAPHY ====================
@@ -580,6 +588,7 @@ export const instrumentsData = [
     email: "ghanashyam@iiti.ac.in",
     location: "LC-MS lab",
     images: ["/assets/instruments/Chromatography/LC-HRMS/LC-HRMS 2.jpg"],
+  form: "/documents/LCMS.pdf",
   },
 
   {
@@ -624,6 +633,7 @@ export const instrumentsData = [
     location: "LC-MS lab",
     email: "ghanashyam@iiti.ac.in",
     images: ["/assets/instruments/Chromatography/HPLC-RP/chro_hp.png"],
+  form: "/documents/RP-HPLC.pdf",
   },
 
   {
@@ -665,6 +675,7 @@ export const instrumentsData = [
     location: "LC-MS lab",
     email: "ghanashyam@iiti.ac.in",
     images: ["/assets/instruments/Chromatography/GC-MS/chro_gc1.jpeg"],
+  form: "/documents/GCMS (3).pdf",
   },
   // ==================== THERMAL ANALYSIS ====================
   {
@@ -780,6 +791,7 @@ export const instrumentsData = [
       "/assets/instruments/BET-Surface-Analyzer/bet1.jpeg",
       "/assets/instruments/BET-Surface-Analyzer/bet1.png",
     ],
+    form: "/documents/BET Surface Analyzer.pdf",
   },
 
   {
@@ -850,6 +862,7 @@ export const instrumentsData = [
     images: [
       "/assets/instruments/Element-Analyzer/elean.png",
     ],
+    form: "/documents/Elemental Analysis_CHNS.pdf",
   },
   {
     id: "milliq-system",
@@ -1178,8 +1191,9 @@ export const instrumentsData = [
     position: "Quality Analyst, SIC",
 
     images: [
-      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/pma300.png",
       "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image2.png",
+      "assets/instruments/Centre-of-Excellence-ACR-Initiative/Flash-Point-Tester/image.png",
     ],
   },
 
@@ -1335,8 +1349,61 @@ export const sampleAnalysisInfo = {
     { label: "PAN No.", value: "AAAAI7115H" },
     { label: "TAN No.", value: "BPLI01163B" },
   ],
+  documents: {
+    feeStructure: "/documents/SIC-Fee-Structure-29.09.2025.pdf",
+    instrumentForm: "/documents/SIC-Fee-Structure-29.09.2025.pdf",
+  },
 };
-
+export const instrumentForms = [
+  {
+    name: "NMR",
+    file: "/documents/NMR.pdf",
+  },
+  {
+    name: "500 MHz NMR",
+    file: "/documents/500_NMR_request_form.pdf",
+  },
+  {
+    name: "LCMS",
+    file: "/documents/LCMS.pdf",
+  },
+  {
+    name: "GCMS",
+    file: "/documents/GCMS (3).pdf",
+  },
+  {
+    name: "Circular Dichroism",
+    file: "/documents/CD.pdf",
+  },
+  {
+    name: "Confocal",
+    file: "/documents/Confocal.pdf",
+  },
+  {
+    name: "CHNS Elemental Analysis",
+    file: "/documents/Elemental Analysis_CHNS.pdf",
+  },
+  {
+    name: "BET Surface Analyzer",
+    file: "/documents/BET Surface Analyzer.pdf",
+  },
+  {
+    name: "AFM",
+    file: "/documents/AFM requisition form.pdf",
+  },
+  {
+    name: "Fluorescence Spectroscopy",
+    file: "/documents/FLUORESCENCE SPECTROSCOPY.pdf",
+  },
+  {
+    name: "FTIR",
+    file: "/documents/FTIR (1).pdf",
+  },
+  {
+    name: "RP-HPLC",
+    file: "/documents/RP-HPLC.pdf",
+  },
+];
 // ==================== Helper Functions ====================
 
 export const getInstrumentsByCategory = (category) => {

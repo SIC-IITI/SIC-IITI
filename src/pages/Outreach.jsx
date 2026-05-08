@@ -146,14 +146,7 @@ function Outreach() {
       <section className="py-10 sm:py-14 bg-gray-50">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
 
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              SIC Visitors & Event Highlights
-            </h2>
-            <p className="text-sm sm:text-base text-gray-600">
-              An awareness program is initiated by SIC for our SCHOOL AND COLLEGE STUDENTS.
-            </p>
-          </div>
+         
 
           <div className="max-w-6xl mx-auto space-y-6">
             {visitors.map((visitor, index) => (

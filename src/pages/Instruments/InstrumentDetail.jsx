@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Mail, Beaker, Calendar, FileText, Phone, CheckCircle, Wrench, AlertTriangle } from "lucide-react";
-import instrumentsData from "../../data/instrumentsData";
+import { Mail, Beaker, Calendar, FileText, Phone, CheckCircle, Wrench, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react";
+import instrumentsData, { sampleAnalysisInfo } from "../../data/instrumentsData";
 
 import {
   getImagesFromInstrument,
@@ -41,6 +41,16 @@ const InstrumentDetail = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([]);
+
+  const prevImage = () => {
+    if (images.length <= 1) return;
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const nextImage = () => {
+    if (images.length <= 1) return;
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
 
   // Scroll to top when the component mounts or the id changes
   useEffect(() => {
@@ -169,9 +179,7 @@ const InstrumentDetail = () => {
                     key={index}
                     src={image}
                     alt={`${instrument.name} view ${index + 1}`}
-
-                    className={`absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-opacity duration-1000 p-2 sm:p-4 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
-                      }`}
+                    className={`absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-opacity duration-1000 p-2 sm:p-4 ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}
                     onError={(e) => {
                       console.error(`Failed to load image: ${image}`);
                       e.target.onerror = null; // prevent infinite loop
@@ -179,6 +187,39 @@ const InstrumentDetail = () => {
                     }}
                   />
                 ))}
+                {images.length > 1 && (
+                  <>
+                    <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none">
+                      <button
+                        type="button"
+                        onClick={prevImage}
+                        className="pointer-events-auto rounded-full bg-black/30 p-3 text-white shadow-lg transition hover:bg-black/50"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={nextImage}
+                        className="pointer-events-auto rounded-full bg-black/30 p-3 text-white shadow-lg transition hover:bg-black/50"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="w-5 h-5" />
+                      </button>
+                    </div>
+                    <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+                      {images.map((_, index) => (
+                        <button
+                          key={index}
+                          type="button"
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`h-2.5 w-2.5 rounded-full transition ${index === currentImageIndex ? 'bg-white' : 'bg-white/60 hover:bg-white'}`}
+                          aria-label={`Show image ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </>
             ) : (
               <div className="flex items-center justify-center h-full">
@@ -204,7 +245,40 @@ const InstrumentDetail = () => {
             View Charges
           </button>
           <button
-            onClick={() => window.open("https://sicbooking.iiti.ac.in/", "_blank")}
+            onClick={() => window.open(sampleAnalysisInfo.documents.instrumentForm, "_blank")}
+            className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
+          >
+            <FileText className="w-4 h-4" />
+            Fee Structure
+          </button>
+          {instrument.form && (
+            <button
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = instrument.form;
+                link.download = "";
+                link.click();
+              }}
+              className="flex items-center gap-2 px-6 py-2.5 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition-all shadow-md active:scale-95"
+            >
+              <FileText className="w-4 h-4" />
+              Download Form
+            </button>
+          )}
+          <button
+            onClick={() => navigate('/instruments/forms')}
+            className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
+          >
+            <FileText className="w-4 h-4" />
+            View All Forms
+          </button>
+          <button
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/documents/Sample Requirement.docx"
+              link.download = "";
+              link.click();
+            }}
             className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
           >
             <FileText className="w-4 h-4" />
