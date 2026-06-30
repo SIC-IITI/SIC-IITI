@@ -1349,10 +1349,6 @@ export const sampleAnalysisInfo = {
     { label: "PAN No.", value: "AAAAI7115H" },
     { label: "TAN No.", value: "BPLI01163B" },
   ],
-  documents: {
-    feeStructure: "/documents/SIC-Fee-Structure-29.09.2025.pdf",
-    instrumentForm: "/documents/SIC-Fee-Structure-29.09.2025.pdf",
-  },
 };
 export const instrumentForms = [
   {
