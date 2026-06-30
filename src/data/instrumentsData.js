@@ -586,9 +586,9 @@ export const instrumentsData = [
     ],
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
-    location: "LC-MS lab",
+    location: "LC-HRMS lab",
     images: ["/assets/instruments/Chromatography/LC-HRMS/LC-HRMS 2.jpg"],
-  form: "/documents/LCMS.pdf",
+  form: "/documents/LC-HRMS.pdf",
   },
 
   {
@@ -1360,8 +1360,8 @@ export const instrumentForms = [
     file: "/documents/500_NMR_request_form.pdf",
   },
   {
-    name: "LCMS",
-    file: "/documents/LCMS.pdf",
+    name: "LC-HRMS",
+    file: "/documents/LC-HRMS.pdf",
   },
   {
     name: "GCMS",
