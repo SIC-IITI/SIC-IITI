@@ -97,26 +97,33 @@ const InstrumentsPage = () => {
 
           {/* Action Buttons */}
           <div
-            className="flex flex-wrap gap-4 sm:gap-8 md:gap-16 justify-center w-full max-w-4xl"
+            className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center w-full max-w-6xl"
             style={{ fontFamily: "Cantata one" }}
           >
 
             <button
               onClick={() => navigate('/facility-status')}
-              className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
             >
               View Facility Status
             </button>
             <button
-
-              className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto">
-              <a href="https://sicbooking.iiti.ac.in/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-900">
-                Book Your Instrument
-              </a>
+              onClick={() => navigate('/instruments/forms')}
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
+            >
+              Instrument Forms
             </button>
+            <a
+              href="https://sicbooking.iiti.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto text-center block sm:inline-block"
+            >
+              Book Your Instrument
+            </a>
             <button
               onClick={() => navigate('/sample-analysis-charges')}
-              className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
             >
               Sample Analysis Charges
             </button>
