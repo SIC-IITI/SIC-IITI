@@ -179,6 +179,10 @@ const InstrumentDetail = () => {
                     key={index}
                     src={image}
                     alt={`${instrument.name} view ${index + 1}`}
+                    // Only the first slide loads eagerly; the rest are lazy since
+                    // they are not visible until the user cycles to them.
+                    loading={index === 0 ? "eager" : "lazy"}
+                    decoding="async"
                     className={`absolute inset-0 w-full h-full object-contain mix-blend-multiply transition-opacity duration-1000 p-2 sm:p-4 ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`}
                     onError={(e) => {
                       console.error(`Failed to load image: ${image}`);

@@ -1,10 +1,10 @@
-
 export const getInstrumentImages = (instrumentId) => {
   return [];
 };
+
 export const normalizeImagePath = (imagePath) => {
   if (Array.isArray(imagePath)) {
-    return imagePath.map(path => {
+    return imagePath.map((path) => {
       return path.startsWith('/') ? path : `/${path}`;
     });
   }
@@ -12,7 +12,16 @@ export const normalizeImagePath = (imagePath) => {
   return imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
 };
 
-export const getImagesFromInstrument = (instrument) => {
+// Converts an original path like "/assets/instruments/X-Ray/SCXRD/SC-XRD.jpg"
+// into its optimized WebP counterpart produced by scripts/optimize-images.js.
+// variant: "full" -> "<name>.webp", "thumb" -> "<name>-thumb.webp"
+export const toOptimizedPath = (imagePath, variant = "full") => {
+  if (!imagePath || typeof imagePath !== "string") return imagePath;
+  const suffix = variant === "thumb" ? "-thumb.webp" : ".webp";
+  return imagePath.replace(/\.(jpe?g|png)$/i, suffix);
+};
+
+export const getImagesFromInstrument = (instrument, variant = "full") => {
   if (!instrument) return [];
   let images = [];
 
@@ -22,7 +31,7 @@ export const getImagesFromInstrument = (instrument) => {
     images = Array.isArray(instrument.image) ? instrument.image : [instrument.image];
   }
 
-  return normalizeImagePath(images);
+  return normalizeImagePath(images).map((p) => toOptimizedPath(p, variant));
 };
 
 export const imageExists = (imagePath) => {
@@ -40,6 +49,7 @@ export const getFallbackImages = () => {
 export default {
   getInstrumentImages,
   normalizeImagePath,
+  toOptimizedPath,
   getImagesFromInstrument,
   imageExists,
   getFallbackImages,
