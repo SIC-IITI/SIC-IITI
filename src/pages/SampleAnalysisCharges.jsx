@@ -20,6 +20,53 @@ import {
 const formatCharge = (charge = "") =>
   charge.replace(/^[^\d]+/, "Rs. ").replace(/\s+/g, " ").trim();
 
+// Instrument ids that are duplicated across the catalogue but should be
+// shown as a single merged row on the Sample Analysis Charges page only.
+// (They still appear individually on the Instruments page.)
+const MERGE_GROUPS = [
+  { displayName: "NMR", ids: ["nmr-500", "nmr-400"] },
+  { displayName: "FT-IR", ids: ["ft-ir", "ft-ir-coe"] },
+  { displayName: "FE-SEM", ids: ["supra-55", "gemini-360"] },
+  { displayName: "Lyophilizer", ids: ["lyophilizer-labconco", "lyophilizer-virtis"] },
+];
+
+const mergeDuplicateInstruments = (instruments) => {
+  const idToGroup = new Map();
+  MERGE_GROUPS.forEach((group) => {
+    group.ids.forEach((id) => idToGroup.set(id, group));
+  });
+
+  const result = [];
+  const seenGroups = new Set();
+
+  instruments.forEach((instrument) => {
+    const group = idToGroup.get(instrument.id);
+
+    if (!group) {
+      result.push(instrument);
+      return;
+    }
+
+    if (seenGroups.has(group.displayName)) {
+      return;
+    }
+
+    // Use the first matching instrument in this group as the representative
+    // row (for its id/link/charges), but relabel it with the merged name.
+    const representative = instruments.find((i) => group.ids.includes(i.id));
+    if (representative) {
+      seenGroups.add(group.displayName);
+      result.push({
+        ...representative,
+        name: group.displayName,
+        fullName: "",
+      });
+    }
+  });
+
+  return result;
+};
+
 const SampleAnalysisCharges = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -29,7 +76,7 @@ const SampleAnalysisCharges = () => {
   const chargeableInstruments = useMemo(() => {
     const query = searchTerm.trim().toLowerCase();
 
-    return instrumentsData.filter((instrument) => {
+    const filtered = instrumentsData.filter((instrument) => {
       if (!instrument.usageCharges) {
         return false;
       }
@@ -44,6 +91,8 @@ const SampleAnalysisCharges = () => {
 
       return matchesCategory && matchesSearch;
     });
+
+    return mergeDuplicateInstruments(filtered);
   }, [searchTerm, selectedCategory]);
 
   return (
@@ -219,12 +268,6 @@ const SampleAnalysisCharges = () => {
                     Instrument
                   </th>
                   <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
-                    Model
-                  </th>
-                  <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
-                    Category
-                  </th>
-                  <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
                     Academic
                   </th>
                   <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
@@ -245,17 +288,11 @@ const SampleAnalysisCharges = () => {
                       >
                         {instrument.name}
                       </Link>
-                      <p className="mt-1 text-sm text-slate-500">
-                        {instrument.fullName}
-                      </p>
-                    </td>
-                    <td className="px-5 py-4 text-sm text-slate-700">
-                      {instrument.model}
-                    </td>
-                    <td className="px-5 py-4">
-                      <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
-                        {instrument.category}
-                      </span>
+                      {instrument.fullName && (
+                        <p className="mt-1 text-sm text-slate-500">
+                          {instrument.fullName}
+                        </p>
+                      )}
                     </td>
                     <td className="px-5 py-4 font-bold text-emerald-700">
                       {formatCharge(instrument.usageCharges.academic)}
@@ -268,7 +305,7 @@ const SampleAnalysisCharges = () => {
 
                 {chargeableInstruments.length === 0 && (
                   <tr>
-                    <td className="px-5 py-12 text-center text-slate-500" colSpan="5">
+                    <td className="px-5 py-12 text-center text-slate-500" colSpan="3">
                       No instruments found for the selected search/filter.
                     </td>
                   </tr>

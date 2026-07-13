@@ -36,10 +36,8 @@ const InstrumentForms = () => {
 
                         {/* Dynamic Instrument Forms */}
                         {instrumentForms.map((form, index) => (
-                            <a
+                            <div
                                 key={index}
-                                href={form.file}
-                               download
                                 className="group rounded-3xl border border-slate-200 bg-white p-8 transition hover:border-blue-400 hover:shadow-lg"
                             >
                                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-white mb-5">
@@ -54,11 +52,15 @@ const InstrumentForms = () => {
                                     Download the requisition/sample submission form.
                                 </p>
 
-                                <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
+                                <a
+                                    href={form.file}
+                                    download
+                                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
+                                >
                                     Download Form
                                     <ArrowRight className="w-4 h-4" />
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         ))}
                     </div>
 
