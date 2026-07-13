@@ -1,4 +1,3 @@
-
 export const instrumentsData = [
   // ==================== X-RAY ANALYSIS ====================
   // {
@@ -42,88 +41,6 @@ export const instrumentsData = [
   //   ],
   // },
 
-  {
-    id: "eds-edx",
-    name: "EDS/EDX",
-    fullName: "Energy Dispersive X-Ray Spectroscopy",
-    category: "X-Ray",
-    model: "Oxford X-MAX 20",
-    showInStatus: true,
-    status: "Operational",
-    usageCharges: {
-      academic: "₹ 2,000 per sample",
-     industrial: "₹ 3,500 per sample",
-      unit: "per sample",
-    },
-    features: [
-      "Integrated with SEM, TEM, or FIB systems",
-      "Non-destructive elemental analysis",
-      "Micro and nanoscale compositional mapping",
-      "Rapid qualitative and quantitative analysis",
-      "Detection of elements from beryllium (Be) to uranium (U)",
-      "High spatial resolution for localized analysis",
-    ],
-    applications: [
-      "Phase identification in alloys, ceramics, and composites",
-      "Failure analysis and impurity detection",
-      "Microstructural analysis of grain boundaries and inclusions",
-      "Dopant distribution mapping in semiconductors",
-      "Contamination analysis on semiconductor wafers",
-      "Thin film composition analysis",
-      "Nanomaterial characterization and catalysis research",
-      "Mineral identification and petrographic studies",
-      "Environmental analysis of pollutants",
-      "Elemental mapping in biological tissues",
-      "Pharmaceutical composition analysis",
-      "Archaeological artifact authentication",
-      "Forensic trace evidence analysis",
-    ],
-    handledBy: "Mr. Sagar Patail",
-    location: " EDS/EDX lab",
-
-    email: "sagarpatail@iiti.ac.in",
-    images: [
-      "/assets/instruments/X-Ray/EDS-EDX/xe1.png",
-      "/assets/instruments/X-Ray/EDS-EDX/xe2.png",
-    ],
-  },
-
-  {
-    id: "bse-bsd",
-    name: "BSE/BSD",
-    fullName: "Backscattered Electron Detector",
-    category: "X-Ray",
-    model: "Gemini 360",
-    showInStatus: true,
-    status: "Operational",
-    usageCharges: {
-      academic: "₹ 2,000 per sample",
-     industrial: "₹ 4,000 per sample",
-      unit: "per sample",
-    },
-    features: [
-      "Captures high-energy electrons reflected or backscattered from the sample.",
-      "Provides contrast based on atomic number for compositional analysis.",
-      "Heavier elements appear brighter, enabling differentiation within the sample.",
-    ],
-    applications: [
-      "Material composition analysis with atomic number contrast",
-      "Phase identification in multiphase materials",
-      "Grain boundary and microstructural analysis",
-      "Inclusion and void detection",
-      "Semiconductor layered structure examination",
-      "Mineral differentiation in geological samples",
-      "Bone and tissue composition analysis",
-      "Forensic residue analysis",
-      "Archaeological artifact characterization",
-      "Corrosion and failure analysis",
-      "Quality control in coating applications",
-    ],
-    handledBy: "Mr. Sagar Patail",
-    email: "sagarpatail@iiti.ac.in",
-    images: ["/assets/instruments/X-Ray/BSE-BSD/xb1.png"],
-  },
-
   // ==================== MICROSCOPY ====================
   {
     id: "supra-55",
@@ -146,6 +63,9 @@ export const instrumentsData = [
       "Short analytical working distance of 8.5 mm",
       "High probe current (up to 100 nA) with excellent stability (<0.2%/h)",
       "Integrated SE, InLens, and EDX detectors",
+      "EDS/EDX (Energy Dispersive X-Ray Spectroscopy) with Oxford X-MAX 20: non-destructive elemental analysis with micro and nanoscale compositional mapping",
+      "Rapid qualitative and quantitative elemental detection from beryllium (Be) to uranium (U) with high spatial resolution",
+      "BSE/BSD (Backscattered Electron Detector): captures high-energy backscattered electrons for atomic-number contrast, with heavier elements appearing brighter",
     ],
     applications: [
       "High-resolution imaging of nanostructures and nanomaterials",
@@ -153,6 +73,18 @@ export const instrumentsData = [
       "Elemental analysis and phase identification with EDX",
       "Grain boundary and microstructural studies",
       "Catalysis research at nanoscale",
+      "Phase identification in alloys, ceramics, and composites (EDS/EDX)",
+      "Failure analysis and impurity detection (EDS/EDX)",
+      "Dopant distribution mapping in semiconductors (EDS/EDX)",
+      "Contamination analysis on semiconductor wafers (EDS/EDX)",
+      "Thin film composition analysis (EDS/EDX)",
+      "Mineral identification and petrographic studies (EDS/EDX)",
+      "Elemental mapping in biological tissues and pharmaceutical composition analysis (EDS/EDX)",
+      "Archaeological artifact authentication and forensic trace evidence analysis (EDS/EDX)",
+      "Material composition analysis with atomic number contrast (BSE/BSD)",
+      "Inclusion and void detection, semiconductor layered structure examination (BSE/BSD)",
+      "Mineral differentiation and bone/tissue composition analysis (BSE/BSD)",
+      "Corrosion, failure analysis, and coating quality control (BSE/BSD)",
     ],
     handledBy: "Mr. Sagar Patail",
     email: "sagarpatail@iiti.ac.in",
@@ -160,6 +92,9 @@ export const instrumentsData = [
       "/assets/instruments/Microscopy/Supra-55/ms1.png",
       "/assets/instruments/Microscopy/Supra-55/ms2.png",
       "/assets/instruments/Microscopy/Supra-55/ms3.png",
+      "/assets/instruments/X-Ray/EDS-EDX/xe1.png",
+      "/assets/instruments/X-Ray/EDS-EDX/xe2.png",
+      "/assets/instruments/X-Ray/BSE-BSD/xb1.png",
     ],
   },
 
@@ -297,7 +232,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
-    images: ["/assets/instruments/Spectroscopy/NMR-500/snmr500_1.jpeg"],
+    images: ["/assets/instruments/Spectroscopy/NMR-500/NMR-500.jpg"],
     form: "/documents/500_NMR_request_form.pdf",
   },
 
@@ -1434,8 +1369,6 @@ export const searchInstruments = (searchTerm) => {
 // ==================== Category Descriptions ====================
 
 export const categoryDescriptions = {
-  "X-Ray":
-    "X-ray based analytical techniques for structural and elemental analysis",
   Microscopy: "Advanced imaging techniques from nano to micro scale",
   Spectroscopy:
     "Spectroscopic methods for molecular and atomic characterization",

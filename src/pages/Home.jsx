@@ -49,7 +49,7 @@ export default function Home() {
   }, []);
 
   const heroImages = [
-    { src: "/assets/instruments/Spectroscopy/NMR-500/nmr500.jpeg", id: "nmr-500" },
+    { src: "/assets/instruments/Spectroscopy/NMR-500/NMR-500.jpg", id: "nmr-500" },
     { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
     { src: "/assets/slider/LC-HRMS 2.jpg", id: "lc-hrms" },
     { src: "/assets/slider/gc-ms.jpeg", id: "gc-ms" },
