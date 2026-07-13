@@ -41,6 +41,88 @@ export const instrumentsData = [
   //   ],
   // },
 
+  // ==================== X-RAY ANALYSIS (moved into FE-SEM Supra-55) ====================
+  // {
+  //   id: "eds-edx",
+  //   name: "EDS/EDX",
+  //   fullName: "Energy Dispersive X-Ray Spectroscopy",
+  //   category: "X-Ray",
+  //   model: "Oxford X-MAX 20",
+  //   showInStatus: true,
+  //   status: "Operational",
+  //   usageCharges: {
+  //     academic: "₹ 2,000 per sample",
+  //     industrial: "₹ 3,500 per sample",
+  //     unit: "per sample",
+  //   },
+  //   features: [
+  //     "Integrated with SEM, TEM, or FIB systems",
+  //     "Non-destructive elemental analysis",
+  //     "Micro and nanoscale compositional mapping",
+  //     "Rapid qualitative and quantitative analysis",
+  //     "Detection of elements from beryllium (Be) to uranium (U)",
+  //     "High spatial resolution for localized analysis",
+  //   ],
+  //   applications: [
+  //     "Phase identification in alloys, ceramics, and composites",
+  //     "Failure analysis and impurity detection",
+  //     "Microstructural analysis of grain boundaries and inclusions",
+  //     "Dopant distribution mapping in semiconductors",
+  //     "Contamination analysis on semiconductor wafers",
+  //     "Thin film composition analysis",
+  //     "Nanomaterial characterization and catalysis research",
+  //     "Mineral identification and petrographic studies",
+  //     "Environmental analysis of pollutants",
+  //     "Elemental mapping in biological tissues",
+  //     "Pharmaceutical composition analysis",
+  //     "Archaeological artifact authentication",
+  //     "Forensic trace evidence analysis",
+  //   ],
+  //   handledBy: "Mr. Sagar Patail",
+  //   location: " EDS/EDX lab",
+  //   email: "sagarpatail@iiti.ac.in",
+  //   images: [
+  //     "/assets/instruments/X-Ray/EDS-EDX/xe1.png",
+  //     "/assets/instruments/X-Ray/EDS-EDX/xe2.png",
+  //   ],
+  // },
+
+  // {
+  //   id: "bse-bsd",
+  //   name: "BSE/BSD",
+  //   fullName: "Backscattered Electron Detector",
+  //   category: "X-Ray",
+  //   model: "Gemini 360",
+  //   showInStatus: true,
+  //   status: "Operational",
+  //   usageCharges: {
+  //     academic: "₹ 2,000 per sample",
+  //     industrial: "₹ 4,000 per sample",
+  //     unit: "per sample",
+  //   },
+  //   features: [
+  //     "Captures high-energy electrons reflected or backscattered from the sample.",
+  //     "Provides contrast based on atomic number for compositional analysis.",
+  //     "Heavier elements appear brighter, enabling differentiation within the sample.",
+  //   ],
+  //   applications: [
+  //     "Material composition analysis with atomic number contrast",
+  //     "Phase identification in multiphase materials",
+  //     "Grain boundary and microstructural analysis",
+  //     "Inclusion and void detection",
+  //     "Semiconductor layered structure examination",
+  //     "Mineral differentiation in geological samples",
+  //     "Bone and tissue composition analysis",
+  //     "Forensic residue analysis",
+  //     "Archaeological artifact characterization",
+  //     "Corrosion and failure analysis",
+  //     "Quality control in coating applications",
+  //   ],
+  //   handledBy: "Mr. Sagar Patail",
+  //   email: "sagarpatail@iiti.ac.in",
+  //   images: ["/assets/instruments/X-Ray/BSE-BSD/xb1.png"],
+  // },
+
   // ==================== MICROSCOPY ====================
   {
     id: "supra-55",
@@ -261,7 +343,7 @@ export const instrumentsData = [
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
     location: "NMR lab",
-    images: ["/assets/instruments/Spectroscopy/NMR-400/snmr400_1.jpeg"],
+    images: ["/assets/instruments/Spectroscopy/NMR-400/NMR-400.jpg"],
     form: "/documents/NMR.pdf",
   },
 
@@ -1369,6 +1451,8 @@ export const searchInstruments = (searchTerm) => {
 // ==================== Category Descriptions ====================
 
 export const categoryDescriptions = {
+  // "X-Ray":
+  //   "X-ray based analytical techniques for structural and elemental analysis",
   Microscopy: "Advanced imaging techniques from nano to micro scale",
   Spectroscopy:
     "Spectroscopic methods for molecular and atomic characterization",

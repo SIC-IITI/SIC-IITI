@@ -60,7 +60,7 @@ export default function Home() {
     { src: "/assets/slider/dsc.jpeg", id: "dsc" },
     { src: "/assets/instruments/Element-Analyzer/elean.png", id: "element-analyzer" },
     { src: "/assets/instruments/Microscopy/Supra-55/ms1.png", id: "supra-55" },
-    { src: "/assets/instruments/Spectroscopy/NMR-400/NMR 400.jpg", id: "nmr-400" },
+    { src: "/assets/instruments/Spectroscopy/NMR-400/NMR-400.jpg", id: "nmr-400" },
     { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer Labconco.jpg", id: "lyophilizer-labconco" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer VirTis.jpg", id: "lyophilizer-virtis" },
