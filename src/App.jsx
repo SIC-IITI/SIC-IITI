@@ -10,7 +10,7 @@ import Instruments from "./pages/Instruments/Instruments";
 import InstrumentForms from "./pages/Instruments/InstrumentForms";
 import About from "./pages/About";
 import Booking from "./pages/Booking";
-import UsageCharges from "./pages/UsageCharges";
+// import UsageCharges from "./pages/UsageCharges";
 import FAQ from "./pages/FAQ";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -41,7 +41,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin/booking" element={<AdminDashboard />} />
           <Route path="/bookingform" element={<Bookingform />} />
-          <Route path="/usage-charges" element={<UsageCharges />} />
+          {/* <Route path="/usage-charges" element={<UsageCharges />} /> */}
           <Route path="/faq" element={<FAQ />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

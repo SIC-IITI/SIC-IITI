@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Banknote,
   Building2,
@@ -68,8 +68,46 @@ const mergeDuplicateInstruments = (instruments) => {
 };
 
 const SampleAnalysisCharges = () => {
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [highlightedId, setHighlightedId] = useState(null);
+
+  // Read ?id= query param and trigger highlight + scroll
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const instrumentId = params.get("id");
+
+    if (instrumentId) {
+      const instrument = instrumentsData.find((item) => item.id === instrumentId);
+      if (instrument) {
+        setHighlightedId(instrumentId);
+      }
+    }
+  }, [location]);
+
+  // Scroll to the highlighted row once it's rendered
+  useEffect(() => {
+    if (highlightedId) {
+      // Small delay to let the DOM render the row
+      const timeout = setTimeout(() => {
+        const element = document.getElementById(`row-${highlightedId}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 300);
+
+      // Auto-clear highlight after 5 seconds
+      const clearTimeout_ = setTimeout(() => {
+        setHighlightedId(null);
+      }, 5000);
+
+      return () => {
+        clearTimeout(timeout);
+        clearTimeout(clearTimeout_);
+      };
+    }
+  }, [highlightedId]);
 
   const categories = useMemo(() => ["All", ...getAllCategories()], []);
 
@@ -97,6 +135,18 @@ const SampleAnalysisCharges = () => {
 
   return (
     <div className="min-h-screen bg-[#f4f7fb]">
+      {/* Blink animation for highlighted instrument row */}
+      <style>{`
+        @keyframes sacRowBlink {
+          0%, 100% { background-color: #fef9c3; }
+          50% { background-color: #fde68a; }
+        }
+        .sac-highlight-blink {
+          animation: sacRowBlink 0.8s ease-in-out 4;
+          border-left: 4px solid #eab308;
+          background-color: #fef9c3;
+        }
+      `}</style>
       <section className="relative overflow-hidden px-4 py-14 text-white sm:px-8 lg:px-16"
         style={{
           backgroundImage:
@@ -136,13 +186,6 @@ const SampleAnalysisCharges = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/usage-charges"
-                className="inline-flex items-center gap-2 rounded-xl bg-teal-400 px-6 py-3 font-bold text-slate-950 shadow-lg transition hover:bg-teal-300"
-              >
-                <FileText className="h-5 w-5" />
-                Open Usage Charges
-              </Link>
               <a
                 href="https://sicbooking.iiti.ac.in/"
                 target="_blank"
@@ -279,7 +322,14 @@ const SampleAnalysisCharges = () => {
                 {chargeableInstruments.map((instrument, index) => (
                   <tr
                     key={instrument.id}
-                    className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}
+                    id={`row-${instrument.id}`}
+                    className={`${
+                      instrument.id === highlightedId
+                        ? "sac-highlight-blink"
+                        : index % 2 === 0
+                          ? "bg-white"
+                          : "bg-slate-50"
+                    } transition-all duration-300`}
                   >
                     <td className="px-5 py-4">
                       <Link
