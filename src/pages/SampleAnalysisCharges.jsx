@@ -229,42 +229,9 @@ const SampleAnalysisCharges = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:px-16">
-        <div className="grid gap-5 md:grid-cols-3">
-          <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
-            <Users className="mb-4 h-9 w-9 text-blue-700" />
-            <h3 className="text-xl font-bold text-slate-900">
-              Academic Charges
-            </h3>
-            <p className="mt-2 text-slate-600">
-              Applicable to academic institutions when the required cover letter
-              or valid institutional ID is submitted.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
-            <Building2 className="mb-4 h-9 w-9 text-orange-600" />
-            <h3 className="text-xl font-bold text-slate-900">
-              Industrial Charges
-            </h3>
-            <p className="mt-2 text-slate-600">
-              Applicable to company and industry users for analysis requested
-              through SIC sample services.
-            </p>
-          </div>
-          <div className="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm">
-            <Banknote className="mb-4 h-9 w-9 text-teal-700" />
-            <h3 className="text-xl font-bold text-slate-900">
-              Advance Payment
-            </h3>
-            <p className="mt-2 text-slate-600">
-              All listed costs are per sample and exclusive of GST at{" "}
-              {sampleAnalysisInfo.billing.gst}.
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
-      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-8 lg:px-16">
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:px-16">
         <div className="rounded-3xl bg-white p-5 shadow-xl sm:p-7">
           <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
@@ -313,8 +280,8 @@ const SampleAnalysisCharges = () => {
                   <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
                     Academic
                   </th>
-                  <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
-                    Industrial
+                  <th className="px-3 py-4 text-sm font-bold uppercase tracking-wide">
+                    Industrial/National Labs
                   </th>
                 </tr>
               </thead>
@@ -362,6 +329,41 @@ const SampleAnalysisCharges = () => {
                 )}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-10 sm:px-8 lg:px-16">
+        <div className="grid gap-5 md:grid-cols-3">
+          <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
+            <Users className="mb-4 h-9 w-9 text-blue-700" />
+            <h3 className="text-xl font-bold text-slate-900">
+              Academic Charges
+            </h3>
+            <p className="mt-2 text-slate-600">
+              Applicable to academic institutions when the required cover letter
+              or valid institutional ID is submitted.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
+            <Building2 className="mb-4 h-9 w-9 text-orange-600" />
+            <h3 className="text-xl font-bold text-slate-900">
+              Industrial Charges
+            </h3>
+            <p className="mt-2 text-slate-600">
+              Applicable to company and industry users for analysis requested
+              through SIC sample services.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm">
+            <Banknote className="mb-4 h-9 w-9 text-teal-700" />
+            <h3 className="text-xl font-bold text-slate-900">
+              Advance Payment
+            </h3>
+            <p className="mt-2 text-slate-600">
+              All listed costs are per sample and exclusive of GST at{" "}
+              {sampleAnalysisInfo.billing.gst}.
+            </p>
           </div>
         </div>
       </section>
