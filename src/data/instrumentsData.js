@@ -169,6 +169,7 @@ export const instrumentsData = [
       "Corrosion, failure analysis, and coating quality control (BSE/BSD)",
     ],
     handledBy: "Mr. Sagar Patail",
+    position: "Junior Technical Assistant",
     email: "sagarpatail@iiti.ac.in",
     images: [
       "/assets/instruments/Microscopy/Supra-55/ms1.png",
@@ -207,6 +208,7 @@ export const instrumentsData = [
       "3D imaging and surface reconstruction",
     ],
     handledBy: "Mr. Sagar Patail",
+    position: "Junior Technical Assistant",
     email: "sagarpatail@iiti.ac.in",
     images: [
       "/assets/instruments/Microscopy/Gemini-360/mg1.png",

@@ -42,6 +42,7 @@ export const coreTeam = [
   {
     image: "assets/FacultyPhotos/Team_13.png",
     name: "Sagar Patail",
+    designation: "Junior Technical Assistant",
     email: "sagarpatail@iiti.ac.in",
   },
   {
