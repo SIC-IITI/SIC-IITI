@@ -1,76 +1,110 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   Banknote,
   Building2,
   ExternalLink,
-  FileText,
   Info,
   Mail,
   Phone,
-  Search,
   Users,
+  Download,
 } from "lucide-react";
 import {
-  getAllCategories,
-  instrumentsData,
   sampleAnalysisInfo,
 } from "../data/instrumentsData";
 
-const formatCharge = (charge = "") =>
-  charge.replace(/^[^\d]+/, "Rs. ").replace(/\s+/g, " ").trim();
-
-// Instrument ids that are duplicated across the catalogue but should be
-// shown as a single merged row on the Sample Analysis Charges page only.
-// (They still appear individually on the Instruments page.)
-const MERGE_GROUPS = [
-  { displayName: "NMR", ids: ["nmr-500", "nmr-400"] },
-  { displayName: "FT-IR", ids: ["ft-ir", "ft-ir-coe"] },
-  { displayName: "FE-SEM", ids: ["supra-55", "gemini-360"] },
-  { displayName: "Lyophilizer", ids: ["lyophilizer-labconco", "lyophilizer-virtis"] },
+const chargesData = [
+  { isCategory: true, name: "1. NMR Spectroscopy", ids: ["nmr-500", "nmr-400"] },
+  { isSubCategory: true, name: "Data in the format of raw file (FID)" },
+  { name: "Proton NMR", academic: "200₹", industry: "500₹" },
+  { name: "13C & other X-Nuclei & 2D NMR (For first hour of data collection)", academic: "300₹", industry: "700₹" },
+  { isSubCategory: true, name: "Report in PDF format" },
+  { name: "Proton NMR", academic: "500₹", industry: "800₹" },
+  { name: "13C & other X-Nuclei & 2D NMR (For first hour of data collection)", academic: "1000₹", industry: "1200₹" },
+  { name: "For subsequent hours", academic: "200₹", industry: "500₹" },
+  { name: "Temperature variability range 25°C to 120°C For high temperature data collection (extra charges)", academic: "500₹", industry: "2000₹" },
+  { name: "Temperature variability range 25°C to -70°C For Low temperature (Liquid Nitrogen) charges", academic: "500₹", industry: "2000₹" },
+  { name: "Structure Elucidation (Detailed report of Peak Assignment based on structure will be given)", academic: "2500₹", industry: "5000₹" },
+  { isSubCategory: true, name: "Solvent charges extra at actual cost" },
+  { name: "D₂O / CDCl₃ / DMSO-d₆ / MeOD / CD₃COCD₃", academic: "200₹", industry: "200₹" },
+  { name: "All other solvents", academic: "300₹", industry: "300₹" },
+  
+  { isCategory: true, name: "2. Chromatography" },
+  { name: "LC-HRMS", academic: "1000₹", industry: "2000₹", ids: ["lc-hrms"] },
+  { name: "GC-MS", academic: "2000₹", industry: "5000₹", ids: ["gc-ms"] },
+  { name: "HPLC", academic: "1000₹", industry: "1500₹", ids: ["hplc"] },
+  
+  { isCategory: true, name: "3. Thermal Analysis" },
+  { name: "Thermo Gravimetric Analysis (TGA)", academic: "1000₹", industry: "2000₹", ids: ["tga"] },
+  { name: "Differential Scanning Calorimetery (DSC)", academic: "3000₹", industry: "5000₹", ids: ["dsc"] },
+  
+  { isCategory: true, name: "4. Elemental Analysis (CHNS-O)", ids: ["chns-o"] },
+  { name: "C,H,N,S Analysis", academic: "1000₹", industry: "2000₹" },
+  
+  { isCategory: true, name: "5. BET Surface Area Analyzer", ids: ["bet"] },
+  { isSubCategory: true, name: "Physisorption/Chemisoprtion" },
+  { name: "Measurement based on N₂ Gas", academic: "5000₹", industry: "10,000₹" },
+  { name: "Measurement based on CO₂ gas", academic: "8000₹", industry: "16,000₹" },
+  
+  { isCategory: true, name: "6. Spectroscopy" },
+  { name: "FT-IR", academic: "500₹", industry: "1000₹", ids: ["ft-ir", "ft-ir-coe"] },
+  { name: "UV-Visible", academic: "500₹", industry: "1000₹", ids: ["uv-vis"] },
+  { name: "UV-Vis-NIR", academic: "500₹", industry: "1000₹", ids: ["uv-vis-nir"] },
+  { name: "Fluorescence", academic: "500₹", industry: "1000₹", ids: ["fluorescence"] },
+  { name: "Circular Dichroism (CD)", academic: "1000₹", industry: "2000₹", ids: ["cd"] },
+  
+  { isCategory: true, name: "7. Atomic Force Microscopy/ Scanning Probe Microscopy (AFM/SPM)", ids: ["afm"] },
+  { isSubCategory: true, name: "Measuring modes (Processed image up to the publication level will be provided)" },
+  { name: "Semi-Contact & Contact Mode", academic: "1000₹", industry: "2000₹" },
+  { name: "Conductive", academic: "5000₹", industry: "15000₹" },
+  { name: "Magnetic Force Microscopy (MFM)", academic: "5000₹", industry: "15000₹" },
+  { name: "Kelvin Probe (Surface Potential Microscopy)", academic: "5000₹", industry: "15000₹" },
+  { name: "Electric Force Microscopy (EFM)", academic: "5000₹", industry: "15000₹" },
+  { name: "Scanning Tunneling Microscopy (STM)", academic: "5000₹", industry: "15000₹" },
+  
+  { isCategory: true, name: "8. Field Emission - Scanning Electron Microscope (FE-SEM)", ids: ["supra-55", "gemini-360"] },
+  { isSubCategory: true, name: "(Per sample for first hour of recording)" },
+  { name: "FE-SEM", academic: "1000₹", industry: "2000₹" },
+  { name: "EDS/EDX", academic: "2000₹", industry: "3500₹" },
+  { name: "BSE/BSD", academic: "2000₹", industry: "4000₹" },
+  { name: "aSTEM", academic: "2500₹", industry: "10,000₹" },
+  
+  { isCategory: true, name: "9. Confocal Laser Scanning Microscope (CLSM)", ids: ["clsm"] },
+  { isSubCategory: true, name: "Operations (Per Sample)" },
+  { name: "Confocal Imaging", academic: "1000₹", industry: "1500₹" },
+  { name: "FLIM/FCS", academic: "1000₹", industry: "3000₹" },
+  { name: "Live Cell Imaging", academic: "4000₹", industry: "10,000₹" },
+  { name: "Multiphoton Imaging", academic: "1500₹", industry: "3000₹" },
+  
+  { isCategory: true, name: "10. Other Equipments" },
+  { name: "Polarimeter", academic: "500₹", industry: "1000₹", ids: ["polarimeter"] },
+  { name: "Lyophilizer", academic: "750₹", industry: "1500₹", ids: ["lyophilizer-labconco", "lyophilizer-virtis"] },
+  { name: "Rheometer", academic: "500₹", industry: "1000₹", ids: ["rheometer"] },
+  
+  { isCategory: true, name: "11. Microwave Reactor" },
+  { name: "Per hour", academic: "200₹", industry: "1000₹" },
+  
+  { isCategory: true, name: "12. Liquid Nitrogen (LN₂)" },
+  { name: "Per Litre at a time Maximum of 400 Litre will be delivered", academic: "70₹", industry: "100₹" },
+  { isSubCategory: true, name: "For \"Liquid Nitrogen\" Transportation to be arranged by the user themselves." },
+  
+  { isCategory: true, name: "13. Millipore Test System" },
+  { isSubCategory: true, name: "Millipore Test System" },
+  { name: "Only Gravimetric Analysis or Particle count measurement", academic: "1000₹", industry: "4000₹" },
+  { name: "Both Gravimetric Analysis and Particle count measurement", academic: "1500₹", industry: "6000₹" },
+  
+  { isCategory: true, name: "14. ICP-OES Spectroscopy" },
+  { name: "Standardisation and Estimation", academic: "500₹", industry: "2000₹" },
+  { name: "Estimation for Subsequent", academic: "180₹", industry: "500₹" },
+  { name: "Sample Preparation", academic: "1200₹", industry: "4500₹" },
+  { name: "Qualitative Scan", academic: "2000₹", industry: "7000₹" },
+  
+  { isSubCategory: true, name: "GST extra at 18% on total cost" }
 ];
-
-const mergeDuplicateInstruments = (instruments) => {
-  const idToGroup = new Map();
-  MERGE_GROUPS.forEach((group) => {
-    group.ids.forEach((id) => idToGroup.set(id, group));
-  });
-
-  const result = [];
-  const seenGroups = new Set();
-
-  instruments.forEach((instrument) => {
-    const group = idToGroup.get(instrument.id);
-
-    if (!group) {
-      result.push(instrument);
-      return;
-    }
-
-    if (seenGroups.has(group.displayName)) {
-      return;
-    }
-
-    // Use the first matching instrument in this group as the representative
-    // row (for its id/link/charges), but relabel it with the merged name.
-    const representative = instruments.find((i) => group.ids.includes(i.id));
-    if (representative) {
-      seenGroups.add(group.displayName);
-      result.push({
-        ...representative,
-        name: group.displayName,
-        fullName: "",
-      });
-    }
-  });
-
-  return result;
-};
 
 const SampleAnalysisCharges = () => {
   const location = useLocation();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [highlightedId, setHighlightedId] = useState(null);
 
   // Read ?id= query param and trigger highlight + scroll
@@ -79,25 +113,25 @@ const SampleAnalysisCharges = () => {
     const instrumentId = params.get("id");
 
     if (instrumentId) {
-      const instrument = instrumentsData.find((item) => item.id === instrumentId);
-      if (instrument) {
-        setHighlightedId(instrumentId);
-      }
+      setHighlightedId(instrumentId);
     }
   }, [location]);
 
   // Scroll to the highlighted row once it's rendered
   useEffect(() => {
     if (highlightedId) {
-      // Small delay to let the DOM render the row
       const timeout = setTimeout(() => {
-        const element = document.getElementById(`row-${highlightedId}`);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        const matchedIndex = chargesData.findIndex(
+          (row) => row.ids && row.ids.includes(highlightedId)
+        );
+        if (matchedIndex !== -1) {
+          const element = document.getElementById(`row-${matchedIndex}`);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
         }
       }, 300);
 
-      // Auto-clear highlight after 5 seconds
       const clearTimeout_ = setTimeout(() => {
         setHighlightedId(null);
       }, 5000);
@@ -109,33 +143,8 @@ const SampleAnalysisCharges = () => {
     }
   }, [highlightedId]);
 
-  const categories = useMemo(() => ["All", ...getAllCategories()], []);
-
-  const chargeableInstruments = useMemo(() => {
-    const query = searchTerm.trim().toLowerCase();
-
-    const filtered = instrumentsData.filter((instrument) => {
-      if (!instrument.usageCharges) {
-        return false;
-      }
-
-      const matchesCategory =
-        selectedCategory === "All" || instrument.category === selectedCategory;
-      const matchesSearch =
-        !query ||
-        instrument.name.toLowerCase().includes(query) ||
-        instrument.fullName.toLowerCase().includes(query) ||
-        instrument.model.toLowerCase().includes(query);
-
-      return matchesCategory && matchesSearch;
-    });
-
-    return mergeDuplicateInstruments(filtered);
-  }, [searchTerm, selectedCategory]);
-
   return (
     <div className="min-h-screen bg-[#f4f7fb]">
-      {/* Blink animation for highlighted instrument row */}
       <style>{`
         @keyframes sacRowBlink {
           0%, 100% { background-color: #fef9c3; }
@@ -143,7 +152,6 @@ const SampleAnalysisCharges = () => {
         }
         .sac-highlight-blink {
           animation: sacRowBlink 0.8s ease-in-out 4;
-          border-left: 4px solid #eab308;
           background-color: #fef9c3;
         }
       `}</style>
@@ -153,7 +161,6 @@ const SampleAnalysisCharges = () => {
             "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80')",
         }}
         >
-           {/* Stars Effect */}
         <div className="absolute inset-0 opacity-40">
           {[...Array(200)].map((_, i) => (
             <div
@@ -173,7 +180,6 @@ const SampleAnalysisCharges = () => {
 
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-
             <h1
               className="text-4xl font-bold leading-tight sm:text-5xl"
               style={{ fontFamily: "Cantata one, serif" }}
@@ -194,6 +200,15 @@ const SampleAnalysisCharges = () => {
               >
                 Book Sample Slot
                 <ExternalLink className="h-4 w-4" />
+              </a>
+              <a
+                href="/documents/SIC-Fee-Structure-15-July-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/50 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-slate-950"
+              >
+                Download PDF
+                <Download className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -229,104 +244,61 @@ const SampleAnalysisCharges = () => {
         </div>
       </section>
 
-      
-
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-8 lg:px-16">
         <div className="rounded-3xl bg-white p-5 shadow-xl sm:p-7">
-          <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-950">
-                Instrument Charges
-              </h2>
-              <p className="mt-2 text-slate-600">
-                Showing {chargeableInstruments.length} chargeable instrument
-                {chargeableInstruments.length === 1 ? "" : "s"}.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="text"
-                  value={searchTerm}
-                  onChange={(event) => setSearchTerm(event.target.value)}
-                  placeholder="Search instrument..."
-                  className="w-full rounded-xl border border-slate-200 py-3 pl-11 pr-4 text-slate-700 outline-none transition focus:border-blue-500 sm:w-72"
-                />
-              </div>
-
-              <select
-                value={selectedCategory}
-                onChange={(event) => setSelectedCategory(event.target.value)}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 outline-none transition focus:border-blue-500"
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="mb-6 flex flex-col gap-4">
+            <h2 className="text-3xl font-bold text-slate-950 text-center sm:text-left">
+              Instrument Charges
+            </h2>
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-slate-200">
-            <table className="w-full min-w-[850px] text-left">
+            <table className="w-full min-w-[850px] text-left border-collapse border border-slate-300">
               <thead className="bg-slate-950 text-white">
                 <tr>
-                  <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
-                    Instrument
+                  <th rowSpan="2" className="px-5 py-4 text-center font-bold uppercase tracking-wide border border-slate-700 w-1/2 align-middle">
+                    Instruments
                   </th>
-                  <th className="px-5 py-4 text-sm font-bold uppercase tracking-wide">
-                    Academic
+                  <th colSpan="2" className="px-5 py-3 text-center font-bold uppercase tracking-wide border border-slate-700">
+                    Analysis Charges for External Users
                   </th>
-                  <th className="px-3 py-4 text-sm font-bold uppercase tracking-wide">
-                    Industrial/National Labs
+                </tr>
+                <tr>
+                  <th className="px-5 py-3 text-center text-sm font-bold uppercase tracking-wide border border-slate-700 w-1/4">
+                    Academic Institution
+                  </th>
+                  <th className="px-5 py-3 text-center text-sm font-bold uppercase tracking-wide border border-slate-700 w-1/4">
+                    Industries User/ National labs
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200">
-                {chargeableInstruments.map((instrument, index) => (
-                  <tr
-                    key={instrument.id}
-                    id={`row-${instrument.id}`}
-                    className={`${
-                      instrument.id === highlightedId
-                        ? "sac-highlight-blink"
-                        : index % 2 === 0
-                          ? "bg-white"
-                          : "bg-slate-50"
-                    } transition-all duration-300`}
-                  >
-                    <td className="px-5 py-4">
-                      <Link
-                        to={`/instruments/${instrument.id}`}
-                        className="font-bold text-blue-800 hover:text-teal-700"
-                      >
-                        {instrument.name}
-                      </Link>
-                      {instrument.fullName && (
-                        <p className="mt-1 text-sm text-slate-500">
-                          {instrument.fullName}
-                        </p>
-                      )}
-                    </td>
-                    <td className="px-5 py-4 font-bold text-emerald-700">
-                      {formatCharge(instrument.usageCharges.academic)}
-                    </td>
-                    <td className="px-5 py-4 font-bold text-orange-700">
-                      {formatCharge(instrument.usageCharges.industrial)}
-                    </td>
-                  </tr>
-                ))}
+              <tbody className="divide-y divide-slate-300 bg-white text-slate-800 font-bold ">
+                {chargesData.map((row, index) => {
+                  const isHighlighted = row.ids && row.ids.includes(highlightedId);
+                  const highlightClass = isHighlighted ? "sac-highlight-blink" : "";
 
-                {chargeableInstruments.length === 0 && (
-                  <tr>
-                    <td className="px-5 py-12 text-center text-slate-500" colSpan="3">
-                      No instruments found for the selected search/filter.
-                    </td>
-                  </tr>
-                )}
+                  if (row.isCategory) {
+                    return (
+                      <tr key={index} id={`row-${index}`} className={`bg-slate-100 font-bold text-center ${highlightClass} transition-all duration-300`}>
+                        <td colSpan="3" className="px-5 py-3 border border-slate-300">{row.name}</td>
+                      </tr>
+                    );
+                  }
+                  if (row.isSubCategory) {
+                    return (
+                      <tr key={index} id={`row-${index}`} className={`bg-slate-50 italic text-slate-600 ${highlightClass} transition-all duration-300`}>
+                        <td colSpan="3" className="px-5 py-2 border border-slate-300">{row.name}</td>
+                      </tr>
+                    );
+                  }
+                  return (
+                    <tr key={index} id={`row-${index}`} className={`hover:bg-slate-50 transition-all duration-300 ${highlightClass}`}>
+                      <td className="px-5 py-3 border border-slate-300">{row.name}</td>
+                      <td className="px-5 py-3 border border-slate-300 font-medium text-emerald-700">{row.academic}</td>
+                      <td className="px-5 py-3 border border-slate-300 font-medium text-orange-700">{row.industry}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

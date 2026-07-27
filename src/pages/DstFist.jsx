@@ -30,7 +30,7 @@ export default function DstFist() {
       title: "Ultracentrifuge",
       department: "Department of BSBE",
       image: "/assets/dst/ult.png",
-      link: "https://bsbe.iiti.ac.in/", // BSBE
+      link: "https://bsbe.iiti.ac.in/main/facilities", // BSBE
     },
     {
       title: "GPU-Server",
