@@ -320,7 +320,7 @@ const SampleAnalysisCharges = () => {
           <div className="rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
             <Building2 className="mb-4 h-9 w-9 text-orange-600" />
             <h3 className="text-xl font-bold text-slate-900">
-              Industrial Charges
+              Industrial / National Lab Charges
             </h3>
             <p className="mt-2 text-slate-600">
               Applicable to company and industry users for analysis requested
@@ -333,8 +333,7 @@ const SampleAnalysisCharges = () => {
               Advance Payment
             </h3>
             <p className="mt-2 text-slate-600">
-              All listed costs are per sample and exclusive of GST at{" "}
-              {sampleAnalysisInfo.billing.gst}.
+             All payments must be made in advance. All listed costs are per sample and exclusive of GST at 18%
             </p>
           </div>
         </div>
