@@ -5,6 +5,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
+  safelist: [
+    "text-amber-700", "bg-amber-100", "border-amber-200",
+    "text-orange-700", "bg-orange-100", "border-orange-200",
+    "text-red-700", "bg-red-100", "border-red-200",
+    "text-green-700", "bg-green-100", "border-green-200",
+  ],
   theme: {
   	extend: {
   		borderRadius: {

@@ -17,6 +17,16 @@ export default function FacilityStatus() {
         message: "Currently out of order. Awaiting spare parts.",
       };
     }
+    if (statusString === "Partially Working") {
+      return {
+        label: "Partially Working",
+        color: "text-amber-700",
+        bg: "bg-amber-100",
+        border: "border-amber-200",
+        icon: AlertTriangle,
+        message: "Instrument is partially operational with limited functionality.",
+      };
+    }
     if (statusString === "Under Maintenance") {
       return {
         label: "Under Maintenance",

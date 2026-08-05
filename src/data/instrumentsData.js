@@ -131,7 +131,7 @@ export const instrumentsData = [
     category: "Microscopy",
     model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
     showInStatus: true,
-    status: "Operational",
+    status: "Under Maintenance",
     usageCharges: {
       academic: "₹ 1,000 per sample",
      industrial: "₹ 2,000 per sample",
@@ -857,7 +857,7 @@ export const instrumentsData = [
     category: "Elemental Analysis",
     model: "Flash 2000",
     showInStatus: true,
-    status: "Operational",
+    status: "Under Maintenance",
     usageCharges: {
       academic: "₹ 1,000 per sample",
      industrial: "₹ 2,000 per sample",
@@ -1085,7 +1085,7 @@ export const instrumentsData = [
     category: "Cryogenics",
     model: "LN500",
     showInStatus: true,
-    status: "Operational",
+    status: "Partially Working",
     usageCharges: {
       academic: "₹ 31 per litre",
      industrial: "₹ 37 per litre",
