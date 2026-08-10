@@ -283,6 +283,51 @@ const InstrumentDetail = () => {
           </button>
         </div>
 
+        {/* Description Section */}
+        {instrument.description && (
+          <div className="px-4 sm:px-6 lg:px-20 py-6 sm:py-8 mb-4 sm:mb-8">
+            <h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
+              style={{ fontFamily: "Cantata one" }}
+            >
+              Instrument Overview
+            </h2>
+            <div className="text-gray-700 text-base sm:text-lg leading-relaxed whitespace-pre-line">
+              {instrument.description}
+            </div>
+          </div>
+        )}
+
+        {/* Specifications Table */}
+        {instrument.specifications && instrument.specifications.length > 0 && (
+          <div className="px-4 sm:px-6 lg:px-20 mb-8 sm:mb-12">
+            <h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
+              style={{ fontFamily: "Cantata one" }}
+            >
+              Technical Specifications
+            </h2>
+            <div className="overflow-x-auto">
+              <table className="w-full max-w-2xl border-collapse border border-gray-200 text-left">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="border border-gray-200 px-4 py-3 text-sm sm:text-base font-semibold text-gray-800">Parameter</th>
+                    <th className="border border-gray-200 px-4 py-3 text-sm sm:text-base font-semibold text-gray-800">Specification</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {instrument.specifications.map((spec, index) => (
+                    <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <td className="border border-gray-200 px-4 py-3 text-sm sm:text-base text-gray-700 font-medium">{spec.parameter}</td>
+                      <td className="border border-gray-200 px-4 py-3 text-sm sm:text-base text-gray-700">{spec.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
         {/* About Section */}
         {instrument.features && instrument.features.length > 0 && (
           <div className="px-4 sm:px-6 lg:px-20 py-6 sm:py-8 mb-8 sm:mb-12">
@@ -290,7 +335,7 @@ const InstrumentDetail = () => {
               className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
               style={{ fontFamily: "Cantata one" }}
             >
-              About the Instrument
+              {instrument.description ? "Key Features" : "About the Instrument"}
             </h2>
 
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
@@ -325,6 +370,36 @@ const InstrumentDetail = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {/* Sample Preparation Suite */}
+        {instrument.samplePreparation && instrument.samplePreparation.length > 0 && (
+          <div className="px-4 sm:px-6 lg:px-20 mb-8 sm:mb-12">
+            <h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
+              style={{ fontFamily: "Cantata one" }}
+            >
+              Comprehensive Sample Preparation Suite
+            </h2>
+            <p className="text-gray-600 text-base sm:text-lg mb-6">
+              Accurate TEM results begin with high-quality sample preparation. SIC's facility includes an extensive array of preparation tools, enabling researchers to produce electron-transparent specimens tailored to their research needs.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {instrument.samplePreparation.map((tool, index) => (
+                <div
+                  key={index}
+                  className="bg-white border border-gray-200 rounded-lg p-5 sm:p-6 hover:shadow-md transition-shadow"
+                >
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                    {tool.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    {tool.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

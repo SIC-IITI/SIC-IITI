@@ -287,6 +287,71 @@ export const instrumentsData = [
     form: "/documents/Confocal.pdf"
   },
 
+  {
+    id: "tem-talos-f200x",
+    name: "TEM",
+    fullName: "Transmission Electron Microscope",
+    category: "Microscopy",
+    model: "Thermo Scientific Talos F200X G2 – Cold FEG",
+    showInStatus: true,
+    status: "Operational",
+    usageCharges: {
+      academic: "₹ 2,000 per sample",
+      industrial: "₹ 4,000 per sample",
+      unit: "per sample",
+    },
+    description:
+      "At the Sophisticated Instrumentation Centre (SIC), we host a state-of-the-art Thermo Scientific Talos F200X (Talos 200) Transmission Electron Microscope (TEM) configured with an ultra-high-brightness Cold Field Emission Gun (Cold FEG), providing researchers with exceptional imaging performance and analytical capability for advanced materials characterization.\n\nThe Talos F200X combines high-resolution TEM and STEM imaging with powerful quantitative elemental analysis, making it a versatile platform for nanoscale research across materials science, chemistry, physics, biology, and engineering.",
+    specifications: [
+      { parameter: "Accelerating Voltage", value: "200 kV" },
+      { parameter: "Electron Source", value: "Cold Field Emission Gun (Cold FEG)" },
+      { parameter: "TEM Resolution", value: "≈0.11 nm" },
+      { parameter: "STEM Resolution", value: "≈0.14 nm" },
+      { parameter: "Analytical Capability", value: "Super-X EDS" },
+      { parameter: "Software Platform", value: "Velox Automation Suite" },
+    ],
+    features: [
+      "High-Resolution Imaging: The Talos F200X delivers superior imaging in both TEM and STEM modes, resolving structural details at sub-nanometer levels with excellent contrast and stability. The Cold FEG enhances brightness and energy resolution, enabling clearer visualization of fine features such as lattice arrangements, interfaces, defects, and nanoparticles.",
+      "Advanced Chemical Analysis: Equipped with a Super-X energy dispersive X-ray spectroscopy (EDS) system, this microscope supports fast and precise compositional mapping, making it ideal for elemental analysis of complex samples.",
+      "Intuitive Software and Automation: The integrated Thermo Scientific Velox Software streamlines data acquisition and analysis, with automated setups that reduce operator workload and support high-throughput workflows.",
+      "Stability and Productivity: The instrument's ultra-stable platform, automated alignments, and remote operation capabilities ensure reproducible results in multi-user environments and enable efficient research outcomes.",
+    ],
+    samplePreparation: [
+      {
+        name: "Precision Ion Polishing System (PIPS)",
+        description:
+          "A Gatan PIPS precision ion polishing system provides final thinning of samples to electron transparency with controlled ion milling. It is essential for preparing uniform, damage-free specimens especially from bulk materials.",
+      },
+      {
+        name: "Dimple Grinder",
+        description:
+          "The Gatan Dimple Grinder enables mechanical thinning of pre-thinned disks, creating a \"dimpled\" region with reduced thickness at the sample center. This focused preparation significantly reduces subsequent ion milling time and improves sample quality.",
+      },
+      {
+        name: "Disk Punch & Diamond Cutter",
+        description:
+          "Mechanical sectioning tools such as disk punches and diamond cutters allow precise cutting of small specimen disks from larger materials. These tools ensure optimal sample size and geometry for efficient TEM processing.",
+      },
+      {
+        name: "Carbon Coater",
+        description:
+          "A Quorum carbon coater is used for applying thin, conductive carbon films on samples, which is critical for minimizing charging and enhancing image quality during TEM imaging.",
+      },
+    ],
+    applications: [
+      "Nanostructure and defect analysis at atomic resolution",
+      "Crystallography and diffraction studies",
+      "Quantitative elemental mapping and phase identification",
+      "Interface and thin-film characterization",
+    ],
+    handledBy: "Mr. Sagar Patail",
+    position: "Junior Technical Assistant",
+    email: "sagarpatail@iiti.ac.in",
+    images: [
+      "/assets/instruments/Microscopy/TEM/tem1.png",
+    ],
+  },
+
   // ==================== SPECTROSCOPY ====================
   {
     id: "nmr-500",
