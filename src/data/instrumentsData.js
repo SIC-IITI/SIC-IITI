@@ -134,7 +134,7 @@ export const instrumentsData = [
     status: "Under Maintenance",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 2,000 per sample",
+      industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -191,7 +191,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 2,000 per sample",
+      industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -224,10 +224,10 @@ export const instrumentsData = [
     model: "Atomic Force Microscope",
     showInStatus: true,
     status: "Operational",
-     form: "/documents/AFM requisition form.pdf",
+    form: "/documents/AFM requisition form.pdf",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 2,000 per sample",
+      industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -262,7 +262,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 1,500 per sample",
+      industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -296,9 +296,9 @@ export const instrumentsData = [
     showInStatus: true,
     status: "Operational",
     usageCharges: {
-      academic: "₹ 2,000 per sample",
-      industrial: "₹ 4,000 per sample",
-      unit: "per sample",
+      academic: "₹ 3,000 - 4,500",
+      industrial: "₹ 9,000 - 13,500",
+      unit: "per analysis/sample",
     },
     description:
       "At the Sophisticated Instrumentation Centre (SIC), we host a state-of-the-art Thermo Scientific Talos F200X (Talos 200) Transmission Electron Microscope (TEM) configured with an ultra-high-brightness Cold Field Emission Gun (Cold FEG), providing researchers with exceptional imaging performance and analytical capability for advanced materials characterization.\n\nThe Talos F200X combines high-resolution TEM and STEM imaging with powerful quantitative elemental analysis, making it a versatile platform for nanoscale research across materials science, chemistry, physics, biology, and engineering.",
@@ -344,11 +344,13 @@ export const instrumentsData = [
       "Quantitative elemental mapping and phase identification",
       "Interface and thin-film characterization",
     ],
-    handledBy: "Mr. Sagar Patail",
-    position: "Junior Technical Assistant",
-    email: "sagarpatail@iiti.ac.in",
-    images: [
+    handledBy: "",
+    position: "",
+    email: "",
+    location: "Room no. 115, School building",
+    images: [ 
       "/assets/instruments/Microscopy/TEM/tem1.png",
+      "/assets/instruments/Microscopy/TEM/tem2.png",
     ],
   },
 
@@ -363,7 +365,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 800 per sample",
+      industrial: "₹ 800 per sample",
       unit: "per sample",
     },
     features: [
@@ -395,7 +397,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 800 per sample",
+      industrial: "₹ 800 per sample",
       unit: "per sample",
     },
     features: [
@@ -424,7 +426,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -483,7 +485,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 2,000 per sample",
+      industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -526,7 +528,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -566,7 +568,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -598,7 +600,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -643,7 +645,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 1,500 per sample",
+      industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     description:
@@ -673,7 +675,7 @@ export const instrumentsData = [
     email: "ghanashyam@iiti.ac.in",
     location: "LC-HRMS lab",
     images: ["/assets/instruments/Chromatography/LC-HRMS/LC-HRMS 2.jpg"],
-  form: "/documents/LC-HRMS.pdf",
+    form: "/documents/LC-HRMS.pdf",
   },
 
   {
@@ -687,7 +689,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 1,500 per sample",
+      industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     description:
@@ -718,7 +720,7 @@ export const instrumentsData = [
     location: "LC-HRMS lab",
     email: "ghanashyam@iiti.ac.in",
     images: ["/assets/instruments/Chromatography/HPLC-RP/chro_hp.png"],
-  form: "/documents/RP-HPLC.pdf",
+    form: "/documents/RP-HPLC.pdf",
   },
 
   {
@@ -731,7 +733,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 2,000 per sample",
-     industrial: "₹ 5,000 per sample",
+      industrial: "₹ 5,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -742,7 +744,7 @@ export const instrumentsData = [
       "High sensitivity detection down to PPM levels",
       "Mass range: 10–600 Da",
       "NIST mass spectral library for compound identification",
-       ],
+    ],
     sampleRequirements: [
       "Sample quantity: 20 mg",
       "Must be soluble in methanol",
@@ -760,7 +762,7 @@ export const instrumentsData = [
     location: "LC-HRMS lab",
     email: "ghanashyam@iiti.ac.in",
     images: ["/assets/instruments/Chromatography/GC-MS/chro_gc1.jpeg"],
-  form: "/documents/GCMS (3).pdf",
+    form: "/documents/GCMS (3).pdf",
   },
   // ==================== THERMAL ANALYSIS ====================
   {
@@ -773,7 +775,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 2,000 per sample",
+      industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -812,7 +814,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 3,000 per sample",
-     industrial: "₹ 5,000 per sample",
+      industrial: "₹ 5,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -846,7 +848,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 5,000 per sample",
-     industrial: "₹ 10,000 per sample",
+      industrial: "₹ 10,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -889,7 +891,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 200 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -925,10 +927,10 @@ export const instrumentsData = [
     status: "Under Maintenance",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-     industrial: "₹ 2,000 per sample",
+      industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
-     features: [
+    features: [
       "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
       "It was designed to operate on the “Dumas method” principle, which calls for “flash combustion” to completely and instantly oxidizing the sample.",
       "The combustion products are separated by a chromatography before being detected by a thermal conductivity detector (T.C.D. ), which produces an output signal corresponding to the concentration of each component in the mixture.",
@@ -1008,7 +1010,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 750 per sample",
-     industrial: "₹ 1,500 per sample",
+      industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -1050,7 +1052,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 750 per sample",
-     industrial: "₹ 1,500 per sample",
+      industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -1080,7 +1082,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1117,7 +1119,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1153,7 +1155,7 @@ export const instrumentsData = [
     status: "Partially Working",
     usageCharges: {
       academic: "₹ 31 per litre",
-     industrial: "₹ 37 per litre",
+      industrial: "₹ 37 per litre",
       unit: "per litre",
     },
     make: "StirLIN",
@@ -1189,7 +1191,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-     industrial: "₹ 3,000 per sample",
+      industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1221,7 +1223,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-     industrial: "₹ 1,000 per sample",
+      industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1255,7 +1257,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-     industrial: "₹ 3,000 per sample",
+      industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1292,7 +1294,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-     industrial: "₹ 3,000 per sample",
+      industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1325,7 +1327,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-     industrial: "₹ 3,000 per sample",
+      industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1358,7 +1360,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-     industrial: "₹ 3,000 per sample",
+      industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [

@@ -100,6 +100,24 @@ const chargesData = [
   { name: "Sample Preparation", academic: "1200₹", industry: "4500₹" },
   { name: "Qualitative Scan", academic: "2000₹", industry: "7000₹" },
   
+  { isCategory: true, name: "15. Transmission Electron Microscope (TEM)", ids: ["tem-talos-f200x"] },
+  { isSubCategory: true, name: "TEM imaging/analysis charges (without GST) - Per analysis or per sample (Max duration: 1 hour)" },
+  { name: "TEM + SAED", academic: "3000₹ (Internal: 600₹)", industry: "Ind: 9000₹ / Nat Labs: 6000₹" },
+  { name: "TEM+ EDS (Spectrum)", academic: "3200₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
+  { name: "TEM + HRTEM", academic: "3500₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
+  { name: "TEM + HRTEM + EDS (spectrum)", academic: "3700₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
+  { name: "STEM (HAADF imaging)", academic: "4000₹ (Internal: 700₹)", industry: "Ind: 12000₹ / Nat Labs: 8000₹" },
+  { name: "STEM (HAADF imaging) + EDS (Spectrum)", academic: "4200₹ (Internal: 800₹)", industry: "Ind: 12600₹ / Nat Labs: 8400₹" },
+  { name: "STEM (HAADF imaging) + EDS (Mapping)", academic: "4500₹ (Internal: 800₹)", industry: "Ind: 13500₹ / Nat Labs: 9000₹" },
+  { isSubCategory: true, name: "TEM Sample Preparation charges (without GST)" },
+  { name: "Ion-Milling (PIPS) [Per Sample (Max duration: 3 hours)]", academic: "2000₹ (Internal: 600₹)", industry: "Ind: 6000₹ / Nat Labs: 4000₹" },
+  { name: "Dimple Grinder [Per Sample (Max duration: 3 hours)]", academic: "400₹ (Internal: 100₹)", industry: "Ind: 1200₹ / Nat Labs: 800₹" },
+  { name: "Low Speed Diamond Saw [Per Hour] (*Internal users should use their own diamond saw)", academic: "100₹ (Internal: 50₹*)", industry: "Ind: 400₹ / Nat Labs: 200₹" },
+  { name: "Disc Grinder [Per sample (Max duration: 3 hours)]", academic: "200₹ (Internal: 50₹)", industry: "Ind: 600₹ / Nat Labs: 400₹" },
+  { name: "Disc Punch [Up to 5 samples]", academic: "100₹ (Internal: 50₹)", industry: "Ind: 400₹ / Nat Labs: 200₹" },
+  { name: "Carbon Membrane Cu Grid [Per Grid]", academic: "500₹ (Internal: 500₹)", industry: "Ind: 500₹ / Nat Labs: 500₹" },
+  { name: "Powder TEM specimen (Non-Magnetic): Sonication + Drop cast on Cu Grid + Dry [Per Sample] (Grid price is not included)", academic: "1000₹ (Internal: 200₹)", industry: "Ind: 3000₹ / Nat Labs: 2000₹" },
+  
   { isSubCategory: true, name: "GST extra at 18% on total cost" }
 ];
 
