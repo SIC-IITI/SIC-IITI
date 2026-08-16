@@ -6,7 +6,7 @@ export default function ExcellencePage() {
 
   const excellenceItems = [
     {
-      image: "/sic-ppl.png",
+      image: "/assets/outreach/sic-ppl.png",
       title: "Research Innovation",
       description:
         "Cutting-edge research initiatives driving technological advancement and scientific discovery.",
@@ -15,7 +15,7 @@ export default function ExcellencePage() {
       icon: Sparkles,
     },
     {
-      image: "/sic-ppl2.png",
+      image: "/assets/outreach/sic-ppl2.png",
       title: "Academic Excellence",
       description:
         "Fostering a culture of academic excellence through state-of-the-art facilities and expert guidance.",
@@ -24,7 +24,7 @@ export default function ExcellencePage() {
       icon: Award,
     },
     {
-      image: "/sic-ppl.png",
+      image: "/assets/outreach/sic-ppl.png",
       title: "Industry Collaboration",
       description:
         "Strengthening partnerships with industry leaders to drive innovation and real-world impact.",
@@ -33,7 +33,7 @@ export default function ExcellencePage() {
       icon: TrendingUp,
     },
     {
-      image: "/sic-ppl2.png",
+      image: "/assets/outreach/sic-ppl2.png",
       title: "Student Development",
       description:
         "Empowering students with hands-on experience and access to advanced instrumentation.",
@@ -42,7 +42,7 @@ export default function ExcellencePage() {
       icon: Target,
     },
     {
-      image: "/sic-ppl.png",
+      image: "/assets/outreach/sic-ppl.png",
       title: "Technical Training",
       description:
         "Comprehensive training programs on advanced analytical techniques and instrumentation.",
@@ -51,7 +51,7 @@ export default function ExcellencePage() {
       icon: BookOpen,
     },
     {
-      image: "/sic-ppl2.png",
+      image: "/assets/outreach/sic-ppl2.png",
       title: "Innovation & Patents",
       description:
         "Supporting innovation through patent filing, technology transfer, and commercialization guidance.",

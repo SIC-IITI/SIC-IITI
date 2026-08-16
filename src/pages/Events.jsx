@@ -1,19 +1,11 @@
 import { useState } from "react"
 import { Calendar, X } from "lucide-react"
+import { eventsData } from "../data/eventsData"
 
 export default function EventsPage() {
   const [selectedEvent, setSelectedEvent] = useState(null)
 
-  const eventsItems = [
-  {
-  date: "14-16 May 2025",
-  title: "Workshop & Hands-on Training on Advanced Microscopy",
-  image: "/event1.png",
-  fullDescription:
-    "A 3-day hands-on workshop on Advanced Microscopy organized by the Sophisticated Instrumentation Centre, IIT Indore. The program covers key microscopy techniques including Atomic Force Microscopy (AFM), Confocal Microscopy, Field-Emission Scanning Electron Microscopy (FESEM), and Fluorescence Microscopy. The workshop also focuses on real-world applications in materials science and advanced research.",
-  venue: "Sophisticated Instrumentation Centre, IIT Indore",
-}
-]
+  const eventsItems = eventsData
 
   const truncateText = (text, limit) => {
     if (text.length <= limit) return text

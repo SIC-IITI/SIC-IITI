@@ -5,13 +5,13 @@ function Outreach() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const carouselImages = [
-    "/visit.png",
-    "/masters-visit.png",
-    "/sic-army-visit.png",
-    "/saumya-gupta.png",
-    "/sic-ppl.png",
-    "/outreach-sic.jpeg",
-    "/sic-ppl2.png"
+    "/assets/outreach/visit.png",
+    "/assets/outreach/masters-visit.png",
+    "/assets/outreach/sic-army-visit.png",
+    "/assets/outreach/saumya-gupta.png",
+    "/assets/outreach/sic-ppl.png",
+    "/assets/outreach/outreach-sic.jpeg",
+    "/assets/outreach/sic-ppl2.png"
   ]
 
   const nextImage = () => {
@@ -24,43 +24,48 @@ function Outreach() {
 
   const visitors = [
     {
+      date: "18-19 June 2026",
+      title: "Workshop on FE-SEM and AFM",
+      image: "/assets/outreach/workshop-fesem.png"
+    },
+    {
       date: "Oct 15, 2025",
       title: "Prof Irina A. Kurzina VISIT SIC",
       description: "Professor from Tomsk state university, Russia Visit SIC",
-      image: "/visit.png"
+      image: "/assets/outreach/visit.png"
     },
     {
       date: "Oct 14, 2025",
       title: "Masters students from IPS academy Indore visit to SIC",
-      image: "/masters-visit.png"
+      image: "/assets/outreach/masters-visit.png"
     },
     {
       date: "July 24, 2025",
       title: "FOREIGN ARMY OFFICERS VISIT SIC",
       description: "Under MCTE MHOW",
-      image: "/sic-army-visit.png"
+      image: "/assets/outreach/sic-army-visit.png"
     },
     {
       date: "June 6, 2025",
       title: "Visit of Ms. Saumya Gupta IAS",
       description: "Visit of Ms. Saumya Gupta IAS ,Joint secretary Technical Education, MoE , GoI",
-      image: "/saumya-gupta.png"
+      image: "/assets/outreach/saumya-gupta.png"
     },
     {
       date: "July 15, 2024",
       title: "Send off function for Ms. Mitali Dave",
-      image: "/sic-ppl.png"
+      image: "/assets/outreach/sic-ppl.png"
     },
     {
       date: "May 30, 2024",
       title: "Visit of Dr. K. Sivan",
       description: "BOG Chairman IIT Indore and Former Chairman ISRO visit to SIC",
-      image: "/outreach-sic.jpeg"
+      image: "/assets/outreach/outreach-sic.jpeg"
     },
     {
       date: "December 22, 2022",
       title: "Foreign students visit under exchange program",
-      image: "/sic-ppl2.png"
+      image: "/assets/outreach/sic-ppl2.png"
     }
   ]
 

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
+import { eventsData } from '../data/eventsData';
 
 export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
@@ -83,13 +84,7 @@ export default function Home() {
     setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)
   }
 
-  const eventsItems = [
-    {
-      image: "/event1.png",
-      date: "14-16 May 2025",
-      title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
-    },
-  ]
+  const eventsItems = eventsData;
 
   const excellenceItems = []
   const canScroll = eventsItems.length > 4
