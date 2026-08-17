@@ -12,11 +12,8 @@ import About from "./pages/About";
 import Booking from "./pages/Booking";
 // import UsageCharges from "./pages/UsageCharges";
 import FAQ from "./pages/FAQ";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import InstrumentDetails from "./pages/Instruments/InstrumentDetail";
 import Bookingform from "./pages/Bookingform";
-import AdminDashboard from "./pages/Admin";
 import Contact from "./pages/Contact";
 import FacultyPage from "./pages/FacultyPage";
 import TeamPage from "./pages/TeamPage";
@@ -39,12 +36,9 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin/booking" element={<AdminDashboard />} />
           <Route path="/bookingform" element={<Bookingform />} />
           {/* <Route path="/usage-charges" element={<UsageCharges />} /> */}
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
           <Route path="/sample-analysis-charges" element={<SampleAnalysisCharges />} />
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/team" element={<TeamPage />} />

@@ -1,32 +1,31 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { FileText, Download, ArrowRight } from "lucide-react";
+import { FileText, Download, ArrowLeft, ArrowRight } from "lucide-react";
 import instrumentsData, {
+    sampleAnalysisInfo,
     instrumentForms,
 } from "../../data/instrumentsData";
 
-// Map each form to its instrument's category (if possible), otherwise "Other"
-const getFormCategory = (formName) => {
-    const normalise = (s) => s.toLowerCase().replace(/[\s\-_]/g, "");
-    const match = instrumentsData.find(
-        (inst) =>
-            normalise(inst.name) === normalise(formName) ||
-            normalise(inst.fullName) === normalise(formName)
-    );
-    return match ? match.category : "Other";
-};
-
 const InstrumentForms = () => {
+
     const groupedForms = useMemo(() => {
-        const groups = {};
+        const grouped = {};
         instrumentForms.forEach((form) => {
-            const category = getFormCategory(form.name);
-            if (!groups[category]) {
-                groups[category] = [];
+            const instrument = instrumentsData.find(
+                (item) => item.id === form.instrumentId
+            );
+            const category = instrument?.category || "Other";
+            const instrumentName = instrument?.name || "Other";
+
+            if (!grouped[category]) {
+                grouped[category] = {};
             }
-            groups[category].push(form);
+            if (!grouped[category][instrumentName]) {
+                grouped[category][instrumentName] = [];
+            }
+            grouped[category][instrumentName].push(form);
         });
-        return groups;
+        return grouped;
     }, []);
 
     return (
@@ -48,43 +47,56 @@ const InstrumentForms = () => {
                                 to="/instruments"
                                 className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                             >
-                                <ArrowRight className="w-4 h-4" />
+                                <ArrowLeft className="w-4 h-4" />
                                 Back to Instruments
                             </Link>
                         </div>
                     </div>
 
-                    {/* Forms grouped by category */}
                     <div className="space-y-12">
-                        {Object.entries(groupedForms).map(([category, forms]) => (
+                        {Object.entries(groupedForms).map(([category, instrumentsMap]) => (
                             <div key={category}>
-                                {/* Category Heading */}
-                                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-3 border-b-2 border-slate-200">
+                                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-3 border-b-2 border-blue-600">
                                     {category}
                                 </h2>
 
-                                {/* 4-column grid */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                                    {forms.map((form, index) => (
-                                        <a
-                                            key={index}
-                                            href={form.file}
-                                            download
-                                            className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-blue-400 hover:shadow-lg flex flex-col items-center text-center"
-                                        >
-                                            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white mb-4 group-hover:bg-blue-700 transition-colors">
-                                                <FileText className="w-5 h-5" />
-                                            </div>
-
-                                            <h3 className="text-sm font-semibold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
-                                                {form.name}
+                                <div className="space-y-10">
+                                    {Object.entries(instrumentsMap).map(([instrumentName, forms]) => (
+                                        <div key={instrumentName}>
+                                            <h3 className="text-lg font-semibold text-blue-700 mb-4">
+                                                {instrumentName}
                                             </h3>
 
-                                            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 group-hover:text-blue-700">
-                                                <Download className="w-3.5 h-3.5" />
-                                                Download Form
-                                            </span>
-                                        </a>
+                                            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                                                {forms.map((form, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className="group rounded-3xl border border-slate-200 bg-white p-8 transition hover:border-blue-400 hover:shadow-lg"
+                                                    >
+                                                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-white mb-5">
+                                                            <FileText className="w-6 h-6" />
+                                                        </div>
+
+                                                        <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                                                            {form.name}
+                                                        </h3>
+
+                                                        <p className="text-slate-600 mb-5">
+                                                            Download the requisition/sample submission form.
+                                                        </p>
+
+                                                        <a
+                                                            href={form.file}
+                                                            download
+                                                            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
+                                                        >
+                                                            Download Form
+                                                            <ArrowRight className="w-4 h-4" />
+                                                        </a>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>

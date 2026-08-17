@@ -131,10 +131,10 @@ export const instrumentsData = [
     category: "Microscopy",
     model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
     showInStatus: true,
-    status: "Under Maintenance",
+    status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 2,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -169,7 +169,6 @@ export const instrumentsData = [
       "Corrosion, failure analysis, and coating quality control (BSE/BSD)",
     ],
     handledBy: "Mr. Sagar Patail",
-    position: "Junior Technical Assistant",
     email: "sagarpatail@iiti.ac.in",
     images: [
       "/assets/instruments/Microscopy/Supra-55/ms1.png",
@@ -191,7 +190,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 2,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -208,7 +207,6 @@ export const instrumentsData = [
       "3D imaging and surface reconstruction",
     ],
     handledBy: "Mr. Sagar Patail",
-    position: "Junior Technical Assistant",
     email: "sagarpatail@iiti.ac.in",
     images: [
       "/assets/instruments/Microscopy/Gemini-360/mg1.png",
@@ -224,10 +222,10 @@ export const instrumentsData = [
     model: "Atomic Force Microscope",
     showInStatus: true,
     status: "Operational",
-    form: "/documents/AFM requisition form.pdf",
+     form: "/documents/AFM requisition form.pdf",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 2,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -253,6 +251,64 @@ export const instrumentsData = [
   },
 
   {
+    id: "tem",
+    name: "TEM",
+    fullName: "Transmission Electron Microscope",
+    category: "Microscopy",
+    model: "Thermo Scientific Talos",
+    showInStatus: true,
+    status: "Operational",
+
+    usageCharges: {
+      academic: "₹ 3,000 – ₹ 4,500 per analysis (imaging); ₹ 400 – ₹ 2,000 per sample (prep) — see full breakdown below",
+      industrial: "₹ 9,000 – ₹ 13,500 per analysis (imaging); ₹ 400 – ₹ 6,000 per sample (prep) — see full breakdown below",
+      unit: "per analysis / per sample",
+    },
+     usageChargesDetail: {
+      note: "All charges exclude GST. Imaging/analysis sessions are capped at 1 hour unless noted; sample-prep durations are listed per item.",
+      tiers: ["IIT Indore (internal)", "Academic Institutes", "National Labs / R&D Labs", "Industry"],
+      imaging: [
+        { service: "TEM + SAED", slot: "Per analysis or per sample (max 1 hr)", iitIndore: "₹600", academic: "₹3,000", nationalLabs: "₹6,000", industry: "₹9,000" },
+        { service: "TEM + EDS (Spectrum)", slot: "Per analysis or per sample (max 1 hr)", iitIndore: "₹700", academic: "₹3,200", nationalLabs: "₹7,000", industry: "₹10,500" },
+        { service: "TEM + HRTEM", slot: "Per analysis or per sample (max 1 hr)", iitIndore: "₹700", academic: "₹3,500", nationalLabs: "₹7,000", industry: "₹10,500" },
+        { service: "TEM + HRTEM + EDS (Spectrum)", slot: "Per analysis or per sample (max 1 hr)", iitIndore: "₹700", academic: "₹3,700", nationalLabs: "₹7,000", industry: "₹10,500" },
+        { service: "STEM (HAADF imaging)", slot: "Per analysis or per sample (max 1 hr)", iitIndore: "₹700", academic: "₹4,000", nationalLabs: "₹8,000", industry: "₹12,000" },
+        { service: "STEM (HAADF imaging) + EDS (Spectrum)", slot: "Per analysis or per sample (max 1 hr)", iitIndore: "₹800", academic: "₹4,200", nationalLabs: "₹8,400", industry: "₹12,600" },
+        { service: "STEM (HAADF imaging) + EDS (Mapping)", slot: "Per analysis or per sample (max 1 hr)", iitIndore: "₹800", academic: "₹4,500", nationalLabs: "₹9,000", industry: "₹13,500" },
+      ],
+      samplePrep: [
+        { service: "Ion-Milling (PIPS)", slot: "Per sample (max 3 hrs)", iitIndore: "₹600", academic: "₹2,000", nationalLabs: "₹4,000", industry: "₹6,000" },
+        { service: "Dimple Grinder", slot: "Per sample (max 3 hrs)", iitIndore: "₹100", academic: "₹400", nationalLabs: "₹800", industry: "₹1,200" },
+        { service: "Low Speed Diamond Saw", slot: "Per hour", iitIndore: "₹50 (internal users should use their own diamond saw)", academic: "₹100", nationalLabs: "₹200", industry: "₹400" },
+        { service: "Disc Grinder", slot: "Per sample (max 3 hrs)", iitIndore: "₹50", academic: "₹200", nationalLabs: "₹400", industry: "₹600" },
+        { service: "Disc Punch", slot: "Up to 5 samples", iitIndore: "₹50", academic: "₹100", nationalLabs: "₹200", industry: "₹400" },
+        { service: "Carbon Membrane Cu Grid", slot: "Per grid", iitIndore: "₹500", academic: "₹500", nationalLabs: "₹500", industry: "₹500" },
+        { service: "Powder TEM specimen (Non-Magnetic): Sonication + Drop cast on Cu Grid + Dry", slot: "Per sample (grid price not included)", iitIndore: "₹200", academic: "₹1,000", nationalLabs: "₹2,000", industry: "₹3,000" },
+      ],
+    },
+    features: [
+      "High-resolution imaging of nanostructures at atomic to nanometer scale",
+      "Bright-field and dark-field imaging modes",
+      "Selected area electron diffraction (SAED) for crystallographic analysis",
+      "High-vacuum electron optics with precision specimen stage control",
+    ],
+    applications: [
+      "Nanoparticle size, shape, and morphology characterization",
+      "Crystal structure and defect analysis via electron diffraction",
+      "Microstructural analysis of thin films, nanomaterials, and composites",
+      "Biological ultrastructure imaging of sectioned specimens",
+    ],
+    handledBy: "Mr. Sagar Patail",
+    email: "sagarpatail@iiti.ac.in",
+    location: "Room no. 115, School building",
+hideSicBuildingLabel: true,
+    images: [
+      "/assets/instruments/Microscopy/TEM/TEM-1.jpg",
+      "/assets/instruments/Microscopy/TEM/TEM-2.jpg"
+    ],
+  },
+
+  {
     id: "clsm",
     name: "CLSM",
     fullName: "Confocal Laser Scanning Microscope",
@@ -262,7 +318,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 1,500 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -276,7 +332,7 @@ export const instrumentsData = [
       "Live cell imaging and dynamics",
       "Fluorescence microscopy of labeled samples",
     ],
-    handledBy: "Dr. Ravinder  ",
+    handledBy: "Dr. Ravinderh",
     email: "ravinderk@iiti.ac.in",
     position: "Junior Technical Superintendent, SIC",
     images: [
@@ -285,73 +341,6 @@ export const instrumentsData = [
       "/assets/instruments/Microscopy/CLSM/mc1.jpeg",
     ],
     form: "/documents/Confocal.pdf"
-  },
-
-  {
-    id: "tem-talos-f200x",
-    name: "TEM",
-    fullName: "Transmission Electron Microscope",
-    category: "Microscopy",
-    model: "Thermo Scientific Talos F200X G2 – Cold FEG",
-    showInStatus: true,
-    status: "Operational",
-    usageCharges: {
-      academic: "₹ 3,000 - 4,500",
-      industrial: "₹ 9,000 - 13,500",
-      unit: "per analysis/sample",
-    },
-    description:
-      "At the Sophisticated Instrumentation Centre (SIC), we host a state-of-the-art Thermo Scientific Talos F200X (Talos 200) Transmission Electron Microscope (TEM) configured with an ultra-high-brightness Cold Field Emission Gun (Cold FEG), providing researchers with exceptional imaging performance and analytical capability for advanced materials characterization.\n\nThe Talos F200X combines high-resolution TEM and STEM imaging with powerful quantitative elemental analysis, making it a versatile platform for nanoscale research across materials science, chemistry, physics, biology, and engineering.",
-    specifications: [
-      { parameter: "Accelerating Voltage", value: "200 kV" },
-      { parameter: "Electron Source", value: "Cold Field Emission Gun (Cold FEG)" },
-      { parameter: "TEM Resolution", value: "≈0.11 nm" },
-      { parameter: "STEM Resolution", value: "≈0.14 nm" },
-      { parameter: "Analytical Capability", value: "Super-X EDS" },
-      { parameter: "Software Platform", value: "Velox Automation Suite" },
-    ],
-    features: [
-      "High-Resolution Imaging: The Talos F200X delivers superior imaging in both TEM and STEM modes, resolving structural details at sub-nanometer levels with excellent contrast and stability. The Cold FEG enhances brightness and energy resolution, enabling clearer visualization of fine features such as lattice arrangements, interfaces, defects, and nanoparticles.",
-      "Advanced Chemical Analysis: Equipped with a Super-X energy dispersive X-ray spectroscopy (EDS) system, this microscope supports fast and precise compositional mapping, making it ideal for elemental analysis of complex samples.",
-      "Intuitive Software and Automation: The integrated Thermo Scientific Velox Software streamlines data acquisition and analysis, with automated setups that reduce operator workload and support high-throughput workflows.",
-      "Stability and Productivity: The instrument's ultra-stable platform, automated alignments, and remote operation capabilities ensure reproducible results in multi-user environments and enable efficient research outcomes.",
-    ],
-    samplePreparation: [
-      {
-        name: "Precision Ion Polishing System (PIPS)",
-        description:
-          "A Gatan PIPS precision ion polishing system provides final thinning of samples to electron transparency with controlled ion milling. It is essential for preparing uniform, damage-free specimens especially from bulk materials.",
-      },
-      {
-        name: "Dimple Grinder",
-        description:
-          "The Gatan Dimple Grinder enables mechanical thinning of pre-thinned disks, creating a \"dimpled\" region with reduced thickness at the sample center. This focused preparation significantly reduces subsequent ion milling time and improves sample quality.",
-      },
-      {
-        name: "Disk Punch & Diamond Cutter",
-        description:
-          "Mechanical sectioning tools such as disk punches and diamond cutters allow precise cutting of small specimen disks from larger materials. These tools ensure optimal sample size and geometry for efficient TEM processing.",
-      },
-      {
-        name: "Carbon Coater",
-        description:
-          "A Quorum carbon coater is used for applying thin, conductive carbon films on samples, which is critical for minimizing charging and enhancing image quality during TEM imaging.",
-      },
-    ],
-    applications: [
-      "Nanostructure and defect analysis at atomic resolution",
-      "Crystallography and diffraction studies",
-      "Quantitative elemental mapping and phase identification",
-      "Interface and thin-film characterization",
-    ],
-    handledBy: "",
-    position: "",
-    email: "",
-    location: "Room no. 115, School building",
-    images: [ 
-      "/assets/instruments/Microscopy/TEM/tem1.png",
-      "/assets/instruments/Microscopy/TEM/tem2.png",
-    ],
   },
 
   // ==================== SPECTROSCOPY ====================
@@ -365,7 +354,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 800 per sample",
+     industrial: "₹ 800 per sample",
       unit: "per sample",
     },
     features: [
@@ -397,7 +386,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 800 per sample",
+     industrial: "₹ 800 per sample",
       unit: "per sample",
     },
     features: [
@@ -426,7 +415,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -485,7 +474,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 2,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -528,7 +517,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -568,7 +557,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -600,7 +589,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -645,7 +634,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 1,500 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     description:
@@ -675,7 +664,7 @@ export const instrumentsData = [
     email: "ghanashyam@iiti.ac.in",
     location: "LC-HRMS lab",
     images: ["/assets/instruments/Chromatography/LC-HRMS/LC-HRMS 2.jpg"],
-    form: "/documents/LC-HRMS.pdf",
+  form: "/documents/LC-HRMS.pdf",
   },
 
   {
@@ -689,7 +678,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 1,500 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     description:
@@ -720,7 +709,7 @@ export const instrumentsData = [
     location: "LC-HRMS lab",
     email: "ghanashyam@iiti.ac.in",
     images: ["/assets/instruments/Chromatography/HPLC-RP/chro_hp.png"],
-    form: "/documents/RP-HPLC.pdf",
+  form: "/documents/RP-HPLC.pdf",
   },
 
   {
@@ -733,7 +722,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 2,000 per sample",
-      industrial: "₹ 5,000 per sample",
+     industrial: "₹ 5,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -744,7 +733,7 @@ export const instrumentsData = [
       "High sensitivity detection down to PPM levels",
       "Mass range: 10–600 Da",
       "NIST mass spectral library for compound identification",
-    ],
+       ],
     sampleRequirements: [
       "Sample quantity: 20 mg",
       "Must be soluble in methanol",
@@ -762,7 +751,7 @@ export const instrumentsData = [
     location: "LC-HRMS lab",
     email: "ghanashyam@iiti.ac.in",
     images: ["/assets/instruments/Chromatography/GC-MS/chro_gc1.jpeg"],
-    form: "/documents/GCMS (3).pdf",
+  form: "/documents/GCMS (3).pdf",
   },
   // ==================== THERMAL ANALYSIS ====================
   {
@@ -775,7 +764,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 2,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -814,7 +803,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 3,000 per sample",
-      industrial: "₹ 5,000 per sample",
+     industrial: "₹ 5,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -848,7 +837,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 5,000 per sample",
-      industrial: "₹ 10,000 per sample",
+     industrial: "₹ 10,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -891,7 +880,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 200 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -924,13 +913,13 @@ export const instrumentsData = [
     category: "Elemental Analysis",
     model: "Flash 2000",
     showInStatus: true,
-    status: "Under Maintenance",
+    status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
-      industrial: "₹ 2,000 per sample",
+     industrial: "₹ 2,000 per sample",
       unit: "per sample",
     },
-    features: [
+     features: [
       "The main instrument for Thermo Fisher scientific FLASH 2000 (formerly the Flash EA1112) is the CHNS-O Elemental Analyzer.",
       "It was designed to operate on the “Dumas method” principle, which calls for “flash combustion” to completely and instantly oxidizing the sample.",
       "The combustion products are separated by a chromatography before being detected by a thermal conductivity detector (T.C.D. ), which produces an output signal corresponding to the concentration of each component in the mixture.",
@@ -1010,7 +999,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 750 per sample",
-      industrial: "₹ 1,500 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -1052,7 +1041,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 750 per sample",
-      industrial: "₹ 1,500 per sample",
+     industrial: "₹ 1,500 per sample",
       unit: "per sample",
     },
     features: [
@@ -1082,7 +1071,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1119,7 +1108,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1152,10 +1141,10 @@ export const instrumentsData = [
     category: "Cryogenics",
     model: "LN500",
     showInStatus: true,
-    status: "Partially Working",
+    status: "Operational",
     usageCharges: {
       academic: "₹ 31 per litre",
-      industrial: "₹ 37 per litre",
+     industrial: "₹ 37 per litre",
       unit: "per litre",
     },
     make: "StirLIN",
@@ -1191,7 +1180,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-      industrial: "₹ 3,000 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1223,7 +1212,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 500 per sample",
-      industrial: "₹ 1,000 per sample",
+     industrial: "₹ 1,000 per sample",
       unit: "per sample",
     },
 
@@ -1257,7 +1246,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-      industrial: "₹ 3,000 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1294,7 +1283,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-      industrial: "₹ 3,000 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1327,7 +1316,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-      industrial: "₹ 3,000 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1360,7 +1349,7 @@ export const instrumentsData = [
     status: "Operational",
     usageCharges: {
       academic: "₹ 1,500 per sample",
-      industrial: "₹ 3,000 per sample",
+     industrial: "₹ 3,000 per sample",
       unit: "per sample",
     },
     features: [
@@ -1441,50 +1430,62 @@ export const instrumentForms = [
   {
     name: "NMR",
     file: "/documents/NMR.pdf",
+    instrumentId: "nmr-400",
   },
   {
     name: "500 MHz NMR",
     file: "/documents/500_NMR_request_form.pdf",
+    instrumentId: "nmr-500",
   },
   {
     name: "LC-HRMS",
     file: "/documents/LC-HRMS.pdf",
+    instrumentId: "lc-hrms",
   },
   {
     name: "GCMS",
     file: "/documents/GCMS (3).pdf",
+    instrumentId: "gc-ms",
   },
   {
     name: "Circular Dichroism",
     file: "/documents/CD.pdf",
+    instrumentId: "cd",
   },
   {
     name: "Confocal",
     file: "/documents/Confocal.pdf",
+    instrumentId: "clsm",
   },
   {
     name: "CHNS Elemental Analysis",
     file: "/documents/Elemental Analysis_CHNS.pdf",
+    instrumentId: "element-analyzer",
   },
   {
     name: "BET Surface Analyzer",
     file: "/documents/BET Surface Analyzer.pdf",
+    instrumentId: "bet",
   },
   {
     name: "AFM",
     file: "/documents/AFM requisition form.pdf",
+    instrumentId: "afm",
   },
   {
     name: "Fluorescence Spectroscopy",
     file: "/documents/FLUORESCENCE SPECTROSCOPY.pdf",
+    instrumentId: "spectrofluorometer",
   },
   {
     name: "FTIR",
     file: "/documents/FTIR (1).pdf",
+    instrumentId: "ft-ir",
   },
   {
     name: "RP-HPLC",
     file: "/documents/RP-HPLC.pdf",
+    instrumentId: "hplc-rp",
   },
 ];
 // ==================== Helper Functions ====================

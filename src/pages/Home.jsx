@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
-import { eventsData } from '../data/eventsData';
 
 export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
@@ -50,6 +49,7 @@ export default function Home() {
   }, []);
 
   const heroImages = [
+
     { src: "/assets/instruments/Spectroscopy/NMR-500/NMR-500.jpg", id: "nmr-500" },
     { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
     { src: "/assets/slider/LC-HRMS 2.jpg", id: "lc-hrms" },
@@ -65,7 +65,7 @@ export default function Home() {
     { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer Labconco.jpg", id: "lyophilizer-labconco" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer VirTis.jpg", id: "lyophilizer-virtis" },
-
+ { src: "/assets/instruments/Microscopy/TEM/TEM-2.jpg", id: "tem" },
   ]
 
   useEffect(() => {
@@ -84,7 +84,13 @@ export default function Home() {
     setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)
   }
 
-  const eventsItems = eventsData;
+  const eventsItems = [
+    {
+      image: "/event1.png",
+      date: "14-16 May 2025",
+      title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
+    },
+  ]
 
   const excellenceItems = []
   const canScroll = eventsItems.length > 4

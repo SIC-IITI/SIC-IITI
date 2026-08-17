@@ -420,7 +420,7 @@ const InstrumentDetail = () => {
                   <h3 className="text-2xl font-bold mb-3">Physical Location</h3>
                   <div className="text-[#111827] ">
                     {instrument.location}
-                    <p>SIC Building</p>
+                    {!instrument.hideSicBuildingLabel && <p>SIC Building</p>}
                     <p>Indian Institute of Technology Indore</p>
                     <p>Khandwa Road, Simrol, Indore – 453552</p>
                   </div>
@@ -429,23 +429,27 @@ const InstrumentDetail = () => {
                 {/* Coordinator */}
                 <div className="bg-[#ececec] p-6 flex flex-col justify-between">
                   <h3 className="text-2xl font-bold mb-3">Facility Manager</h3>
-                  <div className="space-y-1">
-                    <p className="font-medium">{instrument.handledBy}</p>
-                    <p>
-                      {instrument.position ? instrument.position : "Technical Superintendent, SIC"}
-                    </p>
-                    <p>Indian Institute of Technology Indore</p>
+                  {instrument.handledBy ? (
+                    <div className="space-y-1">
+                      <p className="font-medium">{instrument.handledBy}</p>
+                      <p>
+                        {instrument.position ? instrument.position : "Technical Superintendent, SIC"}
+                      </p>
+                      <p>Indian Institute of Technology Indore</p>
 
-                    <div className="flex items-center gap-2">
-                      <Mail className="w-4 h-4" />
-                      <a
-                        href={`mailto:${instrument.email}`}
-                        className="text-sm hover:underline"
-                      >
-                        {instrument.email}
-                      </a>
+                      <div className="flex items-center gap-2">
+                        <Mail className="w-4 h-4" />
+                        <a
+                          href={`mailto:${instrument.email}`}
+                          className="text-sm hover:underline"
+                        >
+                          {instrument.email}
+                        </a>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <p className="text-gray-500 italic">To be announced</p>
+                  )}
                 </div>
               </div>
 
