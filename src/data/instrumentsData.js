@@ -631,7 +631,7 @@ hideSicBuildingLabel: true,
     make: "Waters",
     model: "ACQUITY H-Class Plus UPLC + Xevo G3 QTOF",
     showInStatus: true,
-    status: "Operational",
+    status: "Under Maintenance",
     usageCharges: {
       academic: "₹ 1,000 per sample",
      industrial: "₹ 1,500 per sample",
