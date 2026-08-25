@@ -131,7 +131,7 @@ export const instrumentsData = [
     category: "Microscopy",
     model: "FE-SEM Supra 55 (Carl Zeiss, Germany)",
     showInStatus: true,
-    status: "Operational",
+    status: "Under Maintain",
     usageCharges: {
       academic: "₹ 1,000 per sample",
      industrial: "₹ 2,000 per sample",
