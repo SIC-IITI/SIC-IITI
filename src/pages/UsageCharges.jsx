@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { instrumentsData, getAllCategories } from "../data/instrumentsData";
+import { useInstrumentsData } from "../hooks/useInstrumentsData";
 import {
   Search,
   Filter,
@@ -12,10 +12,12 @@ import {
 
 function UsageCharges() {
   const location = useLocation();
+  const { instruments: instrumentsData, categories: instrumentCategories, loading } =
+    useInstrumentsData();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [highlightedId, setHighlightedId] = useState(null);
-  const categories = ["All", ...getAllCategories()];
+  const categories = ["All", ...instrumentCategories];
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -184,6 +186,10 @@ function UsageCharges() {
             </span>
           </div>
         </div>
+
+        {loading && (
+          <p className="text-center text-gray-500 py-4">Loading instruments…</p>
+        )}
 
         {/* Enhanced Charges Table */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">

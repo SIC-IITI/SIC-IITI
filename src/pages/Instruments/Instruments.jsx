@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import instrumentsData from "../../data/instrumentsData";
+import { useInstrumentsData } from "../../hooks/useInstrumentsData";
 
 const InstrumentsPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+  const { instruments: instrumentsData, loading } = useInstrumentsData();
 
   const groupedInstruments = useMemo(() => {
     const filtered = instrumentsData.filter(
@@ -24,7 +25,7 @@ const InstrumentsPage = () => {
     });
 
     return grouped;
-  }, [searchQuery]);
+  }, [searchQuery, instrumentsData]);
 
   const handleInstrumentClick = (instrumentId) => {
     navigate(`/instruments/${instrumentId}`);
@@ -174,7 +175,11 @@ const InstrumentsPage = () => {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16"
         style={{ backgroundColor: "#D9D9D9" }}
       >
-        {Object.keys(groupedInstruments).length === 0 ? (
+        {loading ? (
+          <div className="text-center py-16">
+            <p className="text-xl sm:text-2xl text-gray-500">Loading instruments…</p>
+          </div>
+        ) : Object.keys(groupedInstruments).length === 0 ? (
           <div className="text-center py-16">
             <p className="text-xl sm:text-2xl text-gray-500">
               No instruments found matching your search.

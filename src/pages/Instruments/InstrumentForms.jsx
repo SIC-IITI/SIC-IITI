@@ -1,12 +1,14 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { FileText, Download, ArrowLeft, ArrowRight } from "lucide-react";
-import instrumentsData, {
+import {
     sampleAnalysisInfo,
     instrumentForms,
 } from "../../data/instrumentsData";
+import { useInstrumentsData } from "../../hooks/useInstrumentsData";
 
 const InstrumentForms = () => {
+    const { instruments: instrumentsData } = useInstrumentsData();
 
     const groupedForms = useMemo(() => {
         const grouped = {};
@@ -26,7 +28,7 @@ const InstrumentForms = () => {
             grouped[category][instrumentName].push(form);
         });
         return grouped;
-    }, []);
+    }, [instrumentsData]);
 
     return (
         <div className="min-h-screen bg-[#f4f7fb] py-12">

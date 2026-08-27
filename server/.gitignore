@@ -1,0 +1,6 @@
+node_modules
+.env
+uploads/instruments/*
+uploads/events/*
+!uploads/instruments/.gitkeep
+!uploads/events/.gitkeep

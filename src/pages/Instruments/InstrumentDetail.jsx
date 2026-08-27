@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Mail, Beaker, Calendar, FileText, Phone, CheckCircle, Wrench, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react";
-import instrumentsData, { sampleAnalysisInfo } from "../../data/instrumentsData";
+import { sampleAnalysisInfo } from "../../data/instrumentsData";
+import { fetchInstrumentById } from "../../lib/api";
 
 import {
   getImagesFromInstrument,
@@ -41,6 +42,9 @@ const InstrumentDetail = () => {
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([]);
+  const [instrument, setInstrument] = useState(null);
+  const [notFound, setNotFound] = useState(false);
+  const [loadingInstrument, setLoadingInstrument] = useState(true);
 
   const prevImage = () => {
     if (images.length <= 1) return;
@@ -57,7 +61,24 @@ const InstrumentDetail = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  const instrument = instrumentsData.find((item) => item.id === id);
+  useEffect(() => {
+    let cancelled = false;
+    setLoadingInstrument(true);
+    setNotFound(false);
+    fetchInstrumentById(id)
+      .then((data) => {
+        if (!cancelled) setInstrument(data);
+      })
+      .catch(() => {
+        if (!cancelled) setNotFound(true);
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingInstrument(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [id]);
 
   useEffect(() => {
     if (!instrument) return;
@@ -105,6 +126,14 @@ const InstrumentDetail = () => {
   };
 
   const parsedApplications = parseApplications(instrument?.applications);
+
+  if (loadingInstrument) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <p className="text-gray-500 text-lg">Loading instrument…</p>
+      </div>
+    );
+  }
 
   if (!instrument) {
     return (

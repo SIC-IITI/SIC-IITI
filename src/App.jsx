@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import Navbar from "./components/Navbar";
@@ -23,11 +23,22 @@ import ExcellencePage from "./pages/Excellence";
 import DstFist from "./pages/DstFist";
 import SampleAnalysisCharges from "./pages/SampleAnalysisCharges";
 
+import AdminLogin from "./pages/Admin/AdminLogin";
+import AdminLayout from "./pages/Admin/AdminLayout";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import InstrumentsAdmin from "./pages/Admin/InstrumentsAdmin";
+import InstrumentForm from "./pages/Admin/InstrumentForm";
+import EventsAdmin from "./pages/Admin/EventsAdmin";
+import EventForm from "./pages/Admin/EventForm";
+
 export default function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
-    <div className="min-h-screen flex flex-col bg-white w-full max-w-8xl mx-auto px-1 md:px-6 lg:px-12 xl:px-20">
-      <Navbar />
-      <main className="flex-1 max-w-full w-full mx-auto ">
+    <div className={isAdminRoute ? "min-h-screen bg-gray-50" : "min-h-screen flex flex-col bg-white w-full max-w-8xl mx-auto px-1 md:px-6 lg:px-12 xl:px-20"}>
+      {!isAdminRoute && <Navbar />}
+      <main className={isAdminRoute ? "" : "flex-1 max-w-full w-full mx-auto "}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/instruments" element={<Instruments />} />
@@ -47,9 +58,21 @@ export default function App() {
           <Route path="/excellence" element={<ExcellencePage />} />
           <Route path="/dst-fist" element={<DstFist />} />
           <Route path="/facility-status" element={<FacilityStatus />} />
+
+          {/* Admin */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="instruments" element={<InstrumentsAdmin />} />
+            <Route path="instruments/new" element={<InstrumentForm />} />
+            <Route path="instruments/:id/edit" element={<InstrumentForm />} />
+            <Route path="events" element={<EventsAdmin />} />
+            <Route path="events/new" element={<EventForm />} />
+            <Route path="events/:id/edit" element={<EventForm />} />
+          </Route>
         </Routes>
       </main>
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </div>
   );
 }

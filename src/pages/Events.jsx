@@ -1,11 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Calendar, X } from "lucide-react"
-import { eventsData } from "../data/eventsData"
+import { fetchEvents } from "../lib/api"
 
 export default function EventsPage() {
   const [selectedEvent, setSelectedEvent] = useState(null)
+  const [eventsItems, setEventsItems] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  const eventsItems = eventsData
+  useEffect(() => {
+    fetchEvents()
+      .then(setEventsItems)
+      .finally(() => setLoading(false))
+  }, [])
 
   const truncateText = (text, limit) => {
     if (text.length <= limit) return text
@@ -27,10 +33,13 @@ export default function EventsPage() {
       {/* Cards */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
+          {loading && (
+            <p className="text-center text-gray-500 py-12">Loading events…</p>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {eventsItems.map((item, index) => (
+            {eventsItems.map((item) => (
               <div
-                key={index}
+                key={item.id}
                 className="group border border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-xl transition-all duration-300 flex flex-col"
               >
                 {/* Image */}

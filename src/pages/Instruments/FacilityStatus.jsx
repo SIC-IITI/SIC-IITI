@@ -1,10 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle, Wrench, AlertTriangle } from "lucide-react";
-import instrumentsData, { categoryDescriptions } from "../../data/instrumentsData";
+import { categoryDescriptions } from "../../data/instrumentsData";
+import { useInstrumentsData } from "../../hooks/useInstrumentsData";
 
 export default function FacilityStatus() {
   const navigate = useNavigate();
+  const { instruments: instrumentsData, loading } = useInstrumentsData();
 
   const getInstrumentStatusDetails = (statusString) => {
     if (statusString === "Not Working") {
@@ -82,6 +84,9 @@ export default function FacilityStatus() {
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
+          {loading && (
+            <p className="text-center text-gray-500 py-12">Loading facility status…</p>
+          )}
           {Object.entries(groupedInstruments).map(
             ([category, instruments]) => (
               <div key={category} className="mb-12">
