@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, AlertCircle, Loader2 } from "lucide-react";
 import { fetchEventById } from "../../lib/api";
 import { createEvent, updateEvent } from "../../lib/adminApi";
 import { API_BASE } from "../../lib/config";
-import { FormField, inputClass } from "./components/FormField";
-import { ImageDropzone, ImageThumb } from "./components/ImageDropzone";
-import { SkeletonForm } from "./components/Skeleton";
+import FormSheet from "./components/FormSheet";
+import FormField from "./components/FormField";
+import ImageDropzone from "./components/ImageDropzone";
+import {
+  inputClass,
+  inputErrorClass,
+  primaryButtonClass,
+  secondaryButtonClass,
+} from "./components/ui";
 
 function resolveImageUrl(path) {
   if (!path) return "";
@@ -19,6 +24,7 @@ export default function EventForm() {
   const { id } = useParams();
   const isEdit = !!id;
   const navigate = useNavigate();
+  const close = () => navigate("/admin/events");
 
   const [form, setForm] = useState(emptyForm);
   const [existingImage, setExistingImage] = useState("");
@@ -50,11 +56,9 @@ export default function EventForm() {
     setFieldErrors((fe) => ({ ...fe, [field]: undefined }));
   };
 
-  const handleImageFiles = (fileList) => {
-    const file = fileList[0];
-    if (!file) return;
+  const handleImageSelect = (file) => {
     setImageFile(file);
-    setImagePreview(URL.createObjectURL(file));
+    setImagePreview(file ? URL.createObjectURL(file) : "");
   };
 
   const validate = () => {
@@ -69,6 +73,7 @@ export default function EventForm() {
     e.preventDefault();
     setError("");
     if (!validate()) return;
+
     setSaving(true);
     try {
       if (isEdit) {
@@ -84,95 +89,103 @@ export default function EventForm() {
     }
   };
 
-  const title = isEdit ? "Edit Event" : "Add Event";
+  if (loading) {
+    return (
+      <FormSheet title="Edit Event" onClose={close}>
+        <div className="space-y-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="h-11 animate-pulse rounded-xl bg-gray-100" />
+          ))}
+        </div>
+      </FormSheet>
+    );
+  }
 
   return (
-    <div className="max-w-2xl">
-      {/* Sheet-style sticky header — reads as a slide-up sheet on mobile */}
-      <div className="sticky top-14 md:top-0 z-10 -mx-4 sm:-mx-6 px-4 sm:px-6 py-4 mb-6 bg-gray-50/90 backdrop-blur border-b border-gray-200 flex items-center gap-3">
-        <button
-          type="button"
-          onClick={() => navigate("/admin/events")}
-          className="w-9 h-9 -ml-1.5 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100"
-          aria-label="Back"
-        >
-          <ArrowLeft size={19} />
-        </button>
-        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{title}</h1>
-      </div>
+    <FormSheet
+      title={isEdit ? "Edit Event" : "Add Event"}
+      onClose={close}
+      footer={
+        <>
+          <button type="button" onClick={close} className={`${secondaryButtonClass} flex-1 md:flex-none`}>
+            Cancel
+          </button>
+          <button
+            type="submit"
+            form="event-form"
+            disabled={saving}
+            className={`${primaryButtonClass} flex-1 md:flex-none`}
+          >
+            {saving ? "Saving…" : isEdit ? "Save Changes" : "Create Event"}
+          </button>
+        </>
+      }
+    >
+      {error && (
+        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
+        </div>
+      )}
 
-      {loading ? (
-        <SkeletonForm />
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-4 pb-24 md:pb-0">
-          {error && (
-            <div className="flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3">
-              <AlertCircle size={16} className="shrink-0" />
-              {error}
+      <form id="event-form" onSubmit={handleSubmit} className="space-y-6">
+        <FormField label="Date" required error={fieldErrors.date} hint="e.g. 18-19 June 2026">
+          <input
+            value={form.date}
+            onChange={(e) => update("date", e.target.value)}
+            placeholder="18-19 June 2026"
+            className={`${inputClass} ${fieldErrors.date ? inputErrorClass : ""}`}
+          />
+        </FormField>
+
+        <FormField label="Title" required error={fieldErrors.title}>
+          <textarea
+            value={form.title}
+            onChange={(e) => update("title", e.target.value)}
+            rows={2}
+            className={`${inputClass} ${fieldErrors.title ? inputErrorClass : ""}`}
+          />
+        </FormField>
+
+        <FormField label="Full Description">
+          <textarea
+            value={form.fullDescription}
+            onChange={(e) => update("fullDescription", e.target.value)}
+            rows={5}
+            className={inputClass}
+          />
+        </FormField>
+
+        <FormField label="Venue">
+          <input
+            value={form.venue}
+            onChange={(e) => update("venue", e.target.value)}
+            className={inputClass}
+          />
+        </FormField>
+
+        <FormField label="Image">
+          <ImageDropzone
+            existingImages={imagePreview ? [] : existingImage ? [existingImage] : []}
+            onRemoveExisting={() => setExistingImage("")}
+            onFiles={handleImageSelect}
+            resolveUrl={resolveImageUrl}
+            label="Click to upload"
+            hint="PNG, JPG, WEBP up to 8MB"
+          />
+          {imagePreview && (
+            <div className="relative mt-3 h-24 w-40 overflow-hidden rounded-xl border border-gray-200">
+              <img src={imagePreview} alt="" className="h-full w-full object-cover" />
+              <button
+                type="button"
+                onClick={() => handleImageSelect(null)}
+                className="absolute right-1 top-1 rounded-full bg-black/60 px-2 py-0.5 text-xs font-semibold text-white"
+              >
+                Remove
+              </button>
             </div>
           )}
-
-          <div className="bg-white border border-gray-200 rounded-xl p-5 space-y-4">
-            <FormField label="Date" required error={fieldErrors.date}>
-              <input
-                value={form.date}
-                onChange={(e) => update("date", e.target.value)}
-                placeholder="e.g. 18-19 June 2026"
-                className={inputClass}
-              />
-            </FormField>
-
-            <FormField label="Title" required error={fieldErrors.title}>
-              <textarea
-                value={form.title}
-                onChange={(e) => update("title", e.target.value)}
-                rows={2}
-                className={inputClass}
-              />
-            </FormField>
-
-            <FormField label="Full Description">
-              <textarea
-                value={form.fullDescription}
-                onChange={(e) => update("fullDescription", e.target.value)}
-                rows={5}
-                className={inputClass}
-              />
-            </FormField>
-
-            <FormField label="Venue">
-              <input value={form.venue} onChange={(e) => update("venue", e.target.value)} className={inputClass} />
-            </FormField>
-          </div>
-
-          <div className="bg-white border border-gray-200 rounded-xl p-5 space-y-3">
-            <label className="block text-sm font-semibold text-gray-700">Image</label>
-            {(imagePreview || existingImage) && (
-              <ImageThumb src={imagePreview || resolveImageUrl(existingImage)} size="md" />
-            )}
-            <ImageDropzone onFiles={handleImageFiles} label="Drag & drop an image, or click to browse" />
-          </div>
-
-          {/* Action bar: inline on desktop, sticky bottom sheet-footer on mobile */}
-          <div className="fixed md:static bottom-0 inset-x-0 md:inset-auto bg-white md:bg-transparent border-t md:border-0 border-gray-200 p-4 md:p-0 flex gap-3 z-20 pb-[calc(env(safe-area-inset-bottom)+1rem)] md:pb-0">
-            <button
-              type="submit"
-              disabled={saving}
-              className="flex-1 md:flex-none flex items-center justify-center gap-2 min-h-[44px] bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold px-6 rounded-xl transition-colors"
-            >
-              {saving && <Loader2 size={16} className="animate-spin" />}
-              {saving ? "Saving…" : isEdit ? "Save Changes" : "Create Event"}
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate("/admin/events")}
-              className="min-h-[44px] px-6 rounded-xl border border-gray-300 text-gray-700 font-semibold hover:bg-gray-50"
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
-      )}
-    </div>
+        </FormField>
+      </form>
+    </FormSheet>
   );
 }

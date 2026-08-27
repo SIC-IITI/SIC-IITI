@@ -1,23 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { CalendarDays, MapPin, Pencil, Trash2 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { CalendarDays, Pencil, Trash2 } from "lucide-react";
 import { fetchEvents } from "../../lib/api";
 import { deleteEvent } from "../../lib/adminApi";
 import { API_BASE } from "../../lib/config";
 import PageHeader from "./components/PageHeader";
-import { SkeletonCardGrid } from "./components/Skeleton";
 import EmptyState from "./components/EmptyState";
+import { SkeletonTableRows, SkeletonCards } from "./components/Skeleton";
+import { iconButtonClass } from "./components/ui";
 
 function resolveImageUrl(path) {
   if (!path) return "";
   return path.startsWith("/uploads/") ? `${API_BASE}${path}` : path;
 }
 
+function Thumb({ event, size = "h-11 w-11" }) {
+  if (event.image) {
+    return (
+      <img
+        src={resolveImageUrl(event.image)}
+        alt=""
+        className={`${size} shrink-0 rounded-xl object-cover`}
+      />
+    );
+  }
+  return (
+    <div className={`${size} flex shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-600`}>
+      <CalendarDays className="h-5 w-5" />
+    </div>
+  );
+}
+
 export default function EventsAdmin() {
-  const navigate = useNavigate();
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const load = () => {
     setLoading(true);
@@ -39,72 +57,130 @@ export default function EventsAdmin() {
     }
   };
 
+  const showEmpty = !loading && events.length === 0;
+
   return (
     <div>
-      <PageHeader title="Events" actionLabel="Add Event" onAction={() => navigate("/admin/events/new")} />
+      <PageHeader
+        title="Events"
+        subtitle={loading ? undefined : `${events.length} total`}
+        actionLabel="Add Event"
+        onAction={() => navigate("/admin/events/new")}
+      />
 
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3 mb-4">
+        <div className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
           {error}
         </div>
       )}
 
-      {loading ? (
-        <SkeletonCardGrid count={6} />
-      ) : events.length === 0 ? (
+      {showEmpty ? (
         <EmptyState
           icon={CalendarDays}
           title="No events yet"
-          description="Events and workshops you add will show up here."
-          actionLabel="Add your first event"
+          message="Add your first event to get started."
+          actionLabel="Add Event"
           onAction={() => navigate("/admin/events/new")}
         />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {events.map((event) => (
-            <div
-              key={event.id}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow"
-            >
-              {event.image ? (
-                <img src={resolveImageUrl(event.image)} alt="" className="w-full h-36 object-cover" />
-              ) : (
-                <div className="w-full h-36 bg-gray-50 flex items-center justify-center">
-                  <CalendarDays size={28} className="text-gray-300" />
-                </div>
-              )}
-              <div className="p-4 flex flex-col flex-1">
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 mb-1.5">
-                  <CalendarDays size={13} />
-                  {event.date}
-                </span>
-                <p className="text-sm text-gray-800 font-medium flex-1 line-clamp-3">{event.title}</p>
-                {event.venue && (
-                  <span className="flex items-center gap-1 text-xs text-gray-400 mt-2">
-                    <MapPin size={12} />
-                    {event.venue}
-                  </span>
+        <>
+          {/* Desktop table */}
+          <div className="hidden overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm md:block">
+            <table className="w-full text-sm">
+              <thead className="bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
+                <tr>
+                  <th className="px-5 py-3 text-left font-semibold">Event</th>
+                  <th className="px-5 py-3 text-left font-semibold">Date</th>
+                  <th className="px-5 py-3 text-left font-semibold">Venue</th>
+                  <th className="px-5 py-3" />
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {loading ? (
+                  <SkeletonTableRows rows={5} cols={4} />
+                ) : (
+                  events.map((event) => (
+                    <tr key={event.id} className="transition-colors hover:bg-gray-50">
+                      <td className="px-5 py-3">
+                        <div className="flex items-center gap-3">
+                          <Thumb event={event} />
+                          <p className="line-clamp-2 max-w-md font-semibold text-gray-900">
+                            {event.title}
+                          </p>
+                        </div>
+                      </td>
+                      <td className="px-5 py-3 whitespace-nowrap text-gray-600">{event.date}</td>
+                      <td className="px-5 py-3 text-gray-600">{event.venue || "—"}</td>
+                      <td className="px-5 py-3">
+                        <div className="flex justify-end gap-1">
+                          <Link
+                            to={`/admin/events/${event.id}/edit`}
+                            className={iconButtonClass}
+                            aria-label="Edit"
+                          >
+                            <Pencil className="h-4 w-4" />
+                          </Link>
+                          <button
+                            onClick={() => handleDelete(event)}
+                            className={`${iconButtonClass} hover:bg-red-50 hover:text-red-600`}
+                            aria-label="Delete"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
                 )}
-                <div className="flex gap-4 mt-3 pt-3 border-t border-gray-100">
-                  <button
-                    onClick={() => navigate(`/admin/events/${event.id}/edit`)}
-                    className="flex items-center gap-1.5 text-blue-600 hover:text-blue-700 text-sm font-semibold min-h-[36px]"
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile cards */}
+          <div className="md:hidden">
+            {loading ? (
+              <SkeletonCards count={4} />
+            ) : (
+              <div className="space-y-3">
+                {events.map((event) => (
+                  <div
+                    key={event.id}
+                    className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm"
                   >
-                    <Pencil size={14} />
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(event)}
-                    className="flex items-center gap-1.5 text-red-600 hover:text-red-700 text-sm font-semibold min-h-[36px]"
-                  >
-                    <Trash2 size={14} />
-                    Delete
-                  </button>
-                </div>
+                    <div className="flex items-start gap-3">
+                      <Thumb event={event} size="h-12 w-12" />
+                      <div className="min-w-0 flex-1">
+                        <p className="line-clamp-2 font-semibold text-gray-900">{event.title}</p>
+                        <p className="mt-0.5 text-xs font-medium text-blue-600">{event.date}</p>
+                        <div className="mt-3 flex items-center justify-between border-t border-gray-100 pt-3">
+                          <span className="truncate text-xs text-gray-400">
+                            {event.venue || "No venue set"}
+                          </span>
+                          <div className="flex gap-1">
+                            <Link
+                              to={`/admin/events/${event.id}/edit`}
+                              className={iconButtonClass}
+                              aria-label="Edit"
+                            >
+                              <Pencil className="h-4 w-4" />
+                            </Link>
+                            <button
+                              onClick={() => handleDelete(event)}
+                              className={`${iconButtonClass} hover:bg-red-50 hover:text-red-600`}
+                              aria-label="Delete"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
-          ))}
-        </div>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

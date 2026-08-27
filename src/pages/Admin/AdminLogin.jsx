@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ShieldCheck, AlertCircle, Loader2 } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { verifyAdminSecret } from "../../lib/adminApi";
 import { setAdminSecret } from "../../lib/adminAuth";
-import { inputClass } from "./components/FormField";
+import { inputClass, inputErrorClass, primaryButtonClass } from "./components/ui";
 
 export default function AdminLogin() {
   const [secret, setSecret] = useState("");
@@ -33,42 +33,37 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-2xl shadow-sm p-8 w-full max-w-sm border border-gray-200"
+        className="w-full max-w-sm rounded-2xl border border-gray-200 bg-white p-8 shadow-sm"
       >
-        <div className="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-          <ShieldCheck size={22} strokeWidth={2} />
+        <div className="mb-6 flex flex-col items-center text-center">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50">
+            <ShieldCheck className="h-7 w-7 text-blue-600" />
+          </div>
+          <h1 className="text-xl font-bold text-gray-900">SIC Admin</h1>
+          <p className="mt-1 text-sm text-gray-500">
+            Enter the admin secret to manage events and instruments.
+          </p>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">SIC Admin</h1>
-        <p className="text-sm text-gray-500 mb-6">
-          Enter the admin secret to manage events and instruments.
-        </p>
 
-        <label className="block text-sm font-semibold text-gray-700 mb-1.5">Admin secret</label>
+        <label className="mb-1.5 block text-sm font-semibold text-gray-700">Admin Secret</label>
         <input
           type="password"
           autoFocus
           value={secret}
           onChange={(e) => setSecret(e.target.value)}
-          className={`${inputClass} mb-4`}
+          className={`${inputClass} ${error ? inputErrorClass : ""} mb-1`}
           placeholder="••••••••••••"
         />
-
-        {error && (
-          <p className="flex items-center gap-1.5 text-sm font-medium text-red-600 mb-4">
-            <AlertCircle size={15} />
-            {error}
-          </p>
-        )}
+        {error && <p className="mb-4 mt-1.5 text-xs font-medium text-red-600">{error}</p>}
 
         <button
           type="submit"
           disabled={checking || !secret}
-          className="w-full flex items-center justify-center gap-2 min-h-[44px] bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold rounded-xl transition-colors"
+          className={`${primaryButtonClass} mt-4 w-full`}
         >
-          {checking && <Loader2 size={16} className="animate-spin" />}
           {checking ? "Checking…" : "Log in"}
         </button>
       </form>
