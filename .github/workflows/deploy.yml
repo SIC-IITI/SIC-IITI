@@ -1,0 +1,52 @@
+name: Deploy SIC-IITI site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Deploy
+        run: |
+          set -e
+          SITE_PATH="$HOME/htdocs/sic.iiti.ac.in/SIC-IITI"
+          cd "$SITE_PATH"
+
+          echo "== Recording current commit (for rollback if needed) =="
+          PREV_COMMIT=$(git rev-parse HEAD)
+          echo "$PREV_COMMIT" > /tmp/sic_prev_commit.txt
+
+          echo "== Pulling latest code =="
+          git fetch origin main
+          git reset --hard origin/main
+
+          echo "== Installing dependencies =="
+          npm ci
+
+          echo "== Building (vite build -> dist/) =="
+          npm run build
+
+          echo "== Restarting app via PM2 =="
+          pm2 restart sic
+
+          echo "== Deploy steps finished =="
+          pm2 status
+
+      - name: Rollback on failure
+        if: failure()
+        run: |
+          SITE_PATH="$HOME/htdocs/sic.iiti.ac.in/SIC-IITI"
+          cd "$SITE_PATH"
+          if [ -f /tmp/sic_prev_commit.txt ]; then
+            PREV_COMMIT=$(cat /tmp/sic_prev_commit.txt)
+            echo "Rolling back to $PREV_COMMIT"
+            git reset --hard "$PREV_COMMIT"
+            npm ci
+            npm run build
+            pm2 restart sic
+            echo "Rollback complete, app restarted"
+          else
+            echo "No previous commit recorded, skipping rollback"
+          fi
