@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
+import { fetchEvents } from "../lib/api"
 
 export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
@@ -14,6 +15,16 @@ export default function Home() {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const minSwipeDistance = 50;
+
+  // Events are fetched from the API, same as EventsPage.jsx
+  const [eventsItems, setEventsItems] = useState([])
+  const [eventsLoading, setEventsLoading] = useState(true)
+
+  useEffect(() => {
+    fetchEvents()
+      .then(setEventsItems)
+      .finally(() => setEventsLoading(false))
+  }, [])
 
   // UPDATED: Initialize currentImageIndex from sessionStorage
   const [currentImageIndex, setCurrentImageIndex] = useState(() => {
@@ -83,14 +94,6 @@ export default function Home() {
   const prevHeroImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)
   }
-
-  const eventsItems = [
-    {
-      image: "/event1.png",
-      date: "14-16 May 2025",
-      title: "Workshop & Hands-on Training on Advanced Microscopy at IIT Indore focusing on AFM, FESEM, Confocal and Fluorescence techniques.",
-    },
-  ]
 
   const excellenceItems = []
   const canScroll = eventsItems.length > 4
@@ -382,6 +385,9 @@ const handleTouchEnd = () => {
             Events & Workshops
           </h2>
           <div className="relative max-w-7xl mx-auto">
+            {eventsLoading && (
+              <p className="text-center text-gray-500 py-12">Loading events…</p>
+            )}
             <div className={`grid gap-6
   ${eventsItems.length === 1 ? "grid-cols-1 max-w-md mx-auto" : ""}
   ${eventsItems.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto" : ""}
@@ -389,7 +395,7 @@ const handleTouchEnd = () => {
 `}>
               {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
                 <div
-                  key={index}
+                  key={item.id ?? index}
                   className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6 bg-white animate-on-scroll stagger-${index + 1}`}
                 >
                   <img
