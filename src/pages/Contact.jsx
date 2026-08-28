@@ -8,7 +8,7 @@ export default function ContactPage() {
       email: "head-sic@iiti.ac.in",
     },
     {
-      title: "Technical Support",
+      title: "Technical Superintendent, SIC",
       head: "Ghanashyam Bhavsar",
       email: "ghanashyam@iiti.ac.in",
     },
@@ -16,6 +16,21 @@ export default function ContactPage() {
       title: "Technical Support",
       head: "Kinny Pandey",
       email: "kinny@iiti.ac.in",
+    },
+    {
+      title: "Junior Technical Superintendent, SIC",
+      head: "Ravinder",
+      email: "ravinderk@iiti.ac.in",
+    },
+    {
+      title: "Junior Technical Assistant, SIC",
+      head: "Atul Singh",
+      email: "atul.singh@iiti.ac.in",
+    },
+    {
+      title: "Junior Technical Assistant, SIC",
+      head: "Sagar Patail",
+      email: "sagarpatail@iiti.ac.in",
     },
     {
       title: "Administrative Support",
@@ -64,7 +79,21 @@ export default function ContactPage() {
             ))}
           </div>
 
-
+          {/* For any query */}
+          <div className="mt-10 pt-6 border-t border-gray-200">
+            <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">
+              For any query, please send us an email at
+            </p>
+            <a
+              href="mailto:sic@iiti.ac.in"
+              className="text-base text-blue-600 hover:underline font-medium"
+            >
+              sic@iiti.ac.in
+            </a>
+            <p className="text-base text-gray-900 font-medium mt-2">
+              Phone No: 0731-660-3311
+            </p>
+          </div>
 
         </div>
       </div>
