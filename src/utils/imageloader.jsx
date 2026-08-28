@@ -1,22 +1,29 @@
+import { API_BASE } from "../lib/config";
+
 export const getInstrumentImages = (instrumentId) => {
   return [];
 };
+const isUploadedPath = (path) =>
+  typeof path === "string" && (path.startsWith("/uploads/") || path.startsWith("uploads/"));
 
 export const normalizeImagePath = (imagePath) => {
+  const normalizeOne = (path) => {
+    if (typeof path !== "string") return path;
+    const absolute = path.startsWith("/") ? path : `/${path}`;
+    return isUploadedPath(absolute) ? `${API_BASE}${absolute}` : absolute;
+  };
+
   if (Array.isArray(imagePath)) {
-    return imagePath.map((path) => {
-      return path.startsWith('/') ? path : `/${path}`;
-    });
+    return imagePath.map(normalizeOne);
   }
 
-  return imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+  return normalizeOne(imagePath);
 };
 
-// Converts an original path like "/assets/instruments/X-Ray/SCXRD/SC-XRD.jpg"
-// into its optimized WebP counterpart produced by scripts/optimize-images.js.
-// variant: "full" -> "<name>.webp", "thumb" -> "<name>-thumb.webp"
 export const toOptimizedPath = (imagePath, variant = "full") => {
   if (!imagePath || typeof imagePath !== "string") return imagePath;
+ 
+  if (imagePath.includes("/uploads/")) return imagePath;
   const suffix = variant === "thumb" ? "-thumb.webp" : ".webp";
   return imagePath.replace(/\.(jpe?g|png)$/i, suffix);
 };
