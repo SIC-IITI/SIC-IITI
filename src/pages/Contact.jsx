@@ -4,7 +4,7 @@ export default function ContactPage() {
   const contacts = [
     {
       title: "Professor In-charge, SIC",
-      head: "Apurba K Das",
+      head: "Prof. Apurba K. Das",
       email: "head-sic@iiti.ac.in",
     },
     {
@@ -13,13 +13,13 @@ export default function ContactPage() {
       email: "ghanashyam@iiti.ac.in",
     },
     {
-      title: "Technical Support",
+      title: "Technical Support, SIC",
       head: "Kinny Pandey",
       email: "kinny@iiti.ac.in",
     },
     {
       title: "Junior Technical Superintendent, SIC",
-      head: "Ravinder",
+      head: "Ravinder Kumar",
       email: "ravinderk@iiti.ac.in",
     },
     {
@@ -34,7 +34,7 @@ export default function ContactPage() {
     },
     {
       title: "Administrative Support",
-      head: "Mr. Ranjeet Raghuwanshi",
+      head: "Ranjeet Raghuvanshi",
       email: "managersic@iiti.ac.in",
     },
   ];
@@ -59,6 +59,25 @@ export default function ContactPage() {
           {/* Accent Line */}
           <div className="h-[2px] w-12 bg-blue-600 mb-8"></div>
 
+          {/* General Contact */}
+          <div className="mb-8 space-y-1">
+            <p className="text-sm text-gray-500">
+              For any query, please send us an email at{" "}
+              <a
+                href="mailto:sic@iiti.ac.in"
+                className="text-blue-600 hover:underline"
+              >
+                sic@iiti.ac.in
+              </a>
+            </p>
+            <p className="text-sm text-gray-500">
+              Phone No:{" "}
+              <a href="tel:+917316603311" className="text-blue-600 hover:underline">
+                0731-660-3311
+              </a>
+            </p>
+          </div>
+
           {/* Contact List */}
           <div className="space-y-5">
             {contacts.map((contact, index) => (
@@ -79,21 +98,7 @@ export default function ContactPage() {
             ))}
           </div>
 
-          {/* For any query */}
-          <div className="mt-10 pt-6 border-t border-gray-200">
-            <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">
-              For any query, please send us an email at
-            </p>
-            <a
-              href="mailto:sic@iiti.ac.in"
-              className="text-base text-blue-600 hover:underline font-medium"
-            >
-              sic@iiti.ac.in
-            </a>
-            <p className="text-base text-gray-900 font-medium mt-2">
-              Phone No: 0731-660-3311
-            </p>
-          </div>
+
 
         </div>
       </div>
