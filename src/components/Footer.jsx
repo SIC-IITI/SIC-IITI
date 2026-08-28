@@ -96,6 +96,9 @@ function Footer() {
           </div>
         </div>
         <GoogleTranslate />
+        <div className="mt-6">
+          <FontSizeControl />
+        </div>
 
         <div className="border-t border-blue-700 pt-6">
           <p className="text-center text-blue-200 text-sm">
