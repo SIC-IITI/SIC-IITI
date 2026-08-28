@@ -6,10 +6,12 @@ export default function EventsPage() {
   const [selectedEvent, setSelectedEvent] = useState(null)
   const [eventsItems, setEventsItems] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     fetchEvents()
       .then(setEventsItems)
+      .catch(() => setError(true))
       .finally(() => setLoading(false))
   }, [])
 
@@ -35,6 +37,12 @@ export default function EventsPage() {
         <div className="container mx-auto px-6">
           {loading && (
             <p className="text-center text-gray-500 py-12">Loading events…</p>
+          )}
+          {!loading && error && (
+            <p className="text-center text-gray-500 py-12">Unable to load events right now. Please try again later.</p>
+          )}
+          {!loading && !error && eventsItems.length === 0 && (
+            <p className="text-center text-gray-500 py-12">No events posted yet.</p>
           )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {eventsItems.map((item) => (
