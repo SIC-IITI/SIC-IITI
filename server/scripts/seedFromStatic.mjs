@@ -1,19 +1,3 @@
-// One-time import: reads the EXISTING src/data/instrumentsData.js and
-// src/data/eventsData.js from your frontend and loads them into MySQL,
-// so you don't lose any of the instrument/event content you already have.
-//
-// Usage (from the server/ folder):
-//   INSTRUMENTS_DATA_PATH=/path/to/frontend/src/data/instrumentsData.js \
-//   EVENTS_DATA_PATH=/path/to/frontend/src/data/eventsData.js \
-//   npm run seed
-//
-// Add --reset to wipe existing rows first (safe to re-run):
-//   npm run seed -- --reset
-//
-// Existing image paths like "/assets/instruments/..." are kept as-is —
-// those files already live in the frontend's public folder and don't
-// need to be re-uploaded. New images added later through the admin
-// panel are stored under /uploads and served by this server.
 
 import fs from "fs";
 import os from "os";
@@ -35,8 +19,7 @@ async function importModule(sourcePath) {
         `env vars at your frontend's src/data/*.js files.`
     );
   }
-  // Copy to a .mjs temp file so Node always parses it as ESM,
-  // regardless of the frontend project's own package.json "type" field.
+ 
   const tmpFile = path.join(
     os.tmpdir(),
     `sic-seed-${Date.now()}-${path.basename(sourcePath)}`.replace(/\.js$/, ".mjs")
