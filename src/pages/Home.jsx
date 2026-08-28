@@ -16,7 +16,9 @@ export default function Home() {
   const [touchEnd, setTouchEnd] = useState(null);
   const minSwipeDistance = 50;
 
-  // Events are fetched from the API, same as EventsPage.jsx
+  // Events are now fetched from the same source as the Events page,
+  // instead of a hardcoded local array, so Home always matches Events
+  // and image paths always resolve correctly.
   const [eventsItems, setEventsItems] = useState([])
   const [eventsLoading, setEventsLoading] = useState(true)
 
