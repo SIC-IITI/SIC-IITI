@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import GoogleTranslate from './GoogleTranslate';
+import FontSizeControl from './FontSizeControl';
 
 function Footer() {
   return (
