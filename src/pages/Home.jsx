@@ -50,6 +50,7 @@ export default function Home() {
 
   const heroImages = [
 
+    { src: "/assets/instruments/Microscopy/TEM/TEM-2.jpg", id: "tem" },
     { src: "/assets/instruments/Spectroscopy/NMR-500/NMR-500.jpg", id: "nmr-500" },
     { src: "/assets/instruments/Microscopy/Gemini-360/mg1.png", id: "gemini-360" },
     { src: "/assets/slider/LC-HRMS 2.jpg", id: "lc-hrms" },
@@ -65,7 +66,6 @@ export default function Home() {
     { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer Labconco.jpg", id: "lyophilizer-labconco" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer VirTis.jpg", id: "lyophilizer-virtis" },
- { src: "/assets/instruments/Microscopy/TEM/TEM-2.jpg", id: "tem" },
   ]
 
   useEffect(() => {
