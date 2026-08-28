@@ -8,10 +8,10 @@ import {
   uploadInstrumentImages,
   deleteInstrumentImage,
 } from "../../lib/adminApi";
-import { API_BASE } from "../../lib/config";
 import FormSheet from "./components/FormSheet";
 import FormField from "./components/FormField";
 import ImageDropzone from "./components/ImageDropzone";
+import { resolveImageUrl } from "./components/resolveImageUrl";
 import {
   inputClass,
   inputErrorClass,
@@ -36,11 +36,6 @@ const emptyForm = {
   email: "",
   location: "",
 };
-
-function resolveImageUrl(path) {
-  if (!path) return "";
-  return path.startsWith("/uploads/") ? `${API_BASE}${path}` : path;
-}
 
 export default function InstrumentForm() {
   const { id } = useParams();
