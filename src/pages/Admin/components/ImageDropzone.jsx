@@ -1,10 +1,6 @@
 import React, { useRef, useState } from "react";
-import { UploadCloud, X } from "lucide-react";
+import { UploadCloud, X, ImageOff } from "lucide-react";
 
-// Reusable drag-and-drop image zone. Pass `multiple` for a gallery
-// (instruments) or leave false for a single cover image (events).
-// `existingImages` are already-saved URLs; `onFiles` receives a
-// FileList (multiple) or a single File (single mode) for new uploads.
 export default function ImageDropzone({
   multiple = false,
   onFiles,
@@ -28,22 +24,11 @@ export default function ImageDropzone({
       {existingImages.length > 0 && (
         <div className="flex flex-wrap gap-3">
           {existingImages.map((img) => (
-            <div
+            <ExistingThumb
               key={img}
-              className="group relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-gray-200 shadow-sm sm:h-24 sm:w-24"
-            >
-              <img src={resolveUrl(img)} alt="" className="h-full w-full object-cover" />
-              {onRemoveExisting && (
-                <button
-                  type="button"
-                  onClick={() => onRemoveExisting(img)}
-                  className="absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/60 text-white opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100"
-                  aria-label="Remove image"
-                >
-                  <X className="h-3.5 w-3.5" />
-                </button>
-              )}
-            </div>
+              src={resolveUrl(img)}
+              onRemove={onRemoveExisting ? () => onRemoveExisting(img) : undefined}
+            />
           ))}
         </div>
       )}
@@ -90,6 +75,38 @@ export default function ImageDropzone({
           e.target.value = "";
         }}
       />
+    </div>
+  );
+}
+
+function ExistingThumb({ src, onRemove }) {
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <div className="group relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-gray-200 shadow-sm sm:h-24 sm:w-24">
+      {failed ? (
+        <div className="flex h-full w-full flex-col items-center justify-center gap-1 bg-gray-50 text-gray-400">
+          <ImageOff className="h-5 w-5" />
+          <span className="text-[10px] font-medium">Unavailable</span>
+        </div>
+      ) : (
+        <img
+          src={src}
+          alt=""
+          onError={() => setFailed(true)}
+          className="h-full w-full object-cover"
+        />
+      )}
+      {onRemove && (
+        <button
+          type="button"
+          onClick={onRemove}
+          className="absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-black/60 text-white opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100"
+          aria-label="Remove image"
+        >
+          <X className="h-3.5 w-3.5" />
+        </button>
+      )}
     </div>
   );
 }
