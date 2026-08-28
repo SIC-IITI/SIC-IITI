@@ -1,191 +1,122 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { fetchEventById } from "../../lib/api";
-import { createEvent, updateEvent } from "../../lib/adminApi";
-import { API_BASE } from "../../lib/config";
-import FormSheet from "./components/FormSheet";
-import FormField from "./components/FormField";
-import ImageDropzone from "./components/ImageDropzone";
-import {
-  inputClass,
-  inputErrorClass,
-  primaryButtonClass,
-  secondaryButtonClass,
-} from "./components/ui";
+import { useState } from "react";
+import { X, Loader2 } from "lucide-react";
+import { createEvent, updateEvent, resolveImageUrl } from "../../lib/adminApi";
 
-function resolveImageUrl(path) {
-  if (!path) return "";
-  return path.startsWith("/uploads/") ? `${API_BASE}${path}` : path;
-}
-
-const emptyForm = { date: "", title: "", fullDescription: "", venue: "" };
-
-export default function EventForm() {
-  const { id } = useParams();
-  const isEdit = !!id;
-  const navigate = useNavigate();
-  const close = () => navigate("/admin/events");
-
-  const [form, setForm] = useState(emptyForm);
-  const [existingImage, setExistingImage] = useState("");
+export default function EventFormModal({ event, onClose, onSaved }) {
+  const isEdit = Boolean(event);
+  const [form, setForm] = useState({
+    date: event?.date || "",
+    title: event?.title || "",
+    fullDescription: event?.fullDescription || "",
+    venue: event?.venue || "",
+  });
   const [imageFile, setImageFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState("");
-  const [loading, setLoading] = useState(isEdit);
-  const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
-  const [fieldErrors, setFieldErrors] = useState({});
+  const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    if (!isEdit) return;
-    fetchEventById(id)
-      .then((data) => {
-        setForm({
-          date: data.date,
-          title: data.title,
-          fullDescription: data.fullDescription,
-          venue: data.venue,
-        });
-        setExistingImage(data.image);
-      })
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, [id, isEdit]);
-
-  const update = (field, value) => {
+  function update(field, value) {
     setForm((f) => ({ ...f, [field]: value }));
-    setFieldErrors((fe) => ({ ...fe, [field]: undefined }));
-  };
+  }
 
-  const handleImageSelect = (file) => {
-    setImageFile(file);
-    setImagePreview(file ? URL.createObjectURL(file) : "");
-  };
-
-  const validate = () => {
-    const errs = {};
-    if (!form.date.trim()) errs.date = "Date is required.";
-    if (!form.title.trim()) errs.title = "Title is required.";
-    setFieldErrors(errs);
-    return Object.keys(errs).length === 0;
-  };
-
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     setError("");
-    if (!validate()) return;
+
+    if (!form.date || !form.title) {
+      setError("Date and title are required.");
+      return;
+    }
 
     setSaving(true);
     try {
       if (isEdit) {
-        await updateEvent(id, form, imageFile);
+        await updateEvent(event.id, form, imageFile);
       } else {
         await createEvent(form, imageFile);
       }
-      navigate("/admin/events");
+      onSaved();
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Failed to save event");
     } finally {
       setSaving(false);
     }
-  };
-
-  if (loading) {
-    return (
-      <FormSheet title="Edit Event" onClose={close}>
-        <div className="space-y-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-11 animate-pulse rounded-xl bg-gray-100" />
-          ))}
-        </div>
-      </FormSheet>
-    );
   }
 
   return (
-    <FormSheet
-      title={isEdit ? "Edit Event" : "Add Event"}
-      onClose={close}
-      footer={
-        <>
-          <button type="button" onClick={close} className={`${secondaryButtonClass} flex-1 md:flex-none`}>
-            Cancel
+    <div className="fixed inset-0 bg-black/40 z-50 flex items-end sm:items-center justify-center">
+      <div className="bg-white w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl max-h-[92vh] sm:max-h-[88vh] overflow-y-auto">
+        <div className="flex justify-between items-center px-5 py-4 border-b border-gray-100 sticky top-0 bg-white rounded-t-2xl">
+          <h2 className="text-lg font-bold text-gray-900">{isEdit ? "Edit Event" : "Add Event"}</h2>
+          <button onClick={onClose} aria-label="Close" className="p-1 text-gray-400 hover:text-gray-600">
+            <X className="w-5 h-5" />
           </button>
-          <button
-            type="submit"
-            form="event-form"
-            disabled={saving}
-            className={`${primaryButtonClass} flex-1 md:flex-none`}
-          >
-            {saving ? "Saving…" : isEdit ? "Save Changes" : "Create Event"}
-          </button>
-        </>
-      }
-    >
-      {error && (
-        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          {error}
         </div>
-      )}
 
-      <form id="event-form" onSubmit={handleSubmit} className="space-y-6">
-        <FormField label="Date" required error={fieldErrors.date} hint="e.g. 18-19 June 2026">
-          <input
-            value={form.date}
-            onChange={(e) => update("date", e.target.value)}
-            placeholder="18-19 June 2026"
-            className={`${inputClass} ${fieldErrors.date ? inputErrorClass : ""}`}
-          />
-        </FormField>
-
-        <FormField label="Title" required error={fieldErrors.title}>
-          <textarea
-            value={form.title}
-            onChange={(e) => update("title", e.target.value)}
-            rows={2}
-            className={`${inputClass} ${fieldErrors.title ? inputErrorClass : ""}`}
-          />
-        </FormField>
-
-        <FormField label="Full Description">
-          <textarea
-            value={form.fullDescription}
-            onChange={(e) => update("fullDescription", e.target.value)}
-            rows={5}
-            className={inputClass}
-          />
-        </FormField>
-
-        <FormField label="Venue">
-          <input
-            value={form.venue}
-            onChange={(e) => update("venue", e.target.value)}
-            className={inputClass}
-          />
-        </FormField>
-
-        <FormField label="Image">
-          <ImageDropzone
-            existingImages={imagePreview ? [] : existingImage ? [existingImage] : []}
-            onRemoveExisting={() => setExistingImage("")}
-            onFiles={handleImageSelect}
-            resolveUrl={resolveImageUrl}
-            label="Click to upload"
-            hint="PNG, JPG, WEBP up to 8MB"
-          />
-          {imagePreview && (
-            <div className="relative mt-3 h-24 w-40 overflow-hidden rounded-xl border border-gray-200">
-              <img src={imagePreview} alt="" className="h-full w-full object-cover" />
-              <button
-                type="button"
-                onClick={() => handleImageSelect(null)}
-                className="absolute right-1 top-1 rounded-full bg-black/60 px-2 py-0.5 text-xs font-semibold text-white"
-              >
-                Remove
-              </button>
+        <form onSubmit={handleSubmit} className="p-5 space-y-4">
+          {error && (
+            <div className="rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm px-3 py-2.5">
+              {error}
             </div>
           )}
-        </FormField>
-      </form>
-    </FormSheet>
+
+          <Field label="Date (free text, e.g. '18-19 June 2026')*">
+            <input className="input" value={form.date} onChange={(e) => update("date", e.target.value)} required />
+          </Field>
+
+          <Field label="Title*">
+            <input className="input" value={form.title} onChange={(e) => update("title", e.target.value)} required />
+          </Field>
+
+          <Field label="Venue">
+            <input className="input" value={form.venue} onChange={(e) => update("venue", e.target.value)} />
+          </Field>
+
+          <Field label="Full description">
+            <textarea
+              className="input"
+              rows={5}
+              value={form.fullDescription}
+              onChange={(e) => update("fullDescription", e.target.value)}
+            />
+          </Field>
+
+          {isEdit && event.image && !imageFile && (
+            <img src={resolveImageUrl(event.image)} alt="" className="w-full h-32 object-cover rounded-xl border border-gray-200" />
+          )}
+
+          <Field label={isEdit ? "Replace image" : "Image"}>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImageFile(e.target.files[0])}
+              className="block w-full text-sm text-gray-600 file:mr-3 file:h-9 file:px-3 file:rounded-lg file:border-0 file:bg-gray-100 file:text-gray-700 file:font-medium"
+            />
+          </Field>
+
+          <div className="flex justify-end gap-3 pt-2 sticky bottom-0 bg-white -mx-5 px-5 pb-1 border-t border-gray-100 pt-4">
+            <button type="button" onClick={onClose} className="h-11 px-4 rounded-xl border border-gray-300 font-medium text-gray-700">
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={saving}
+              className="h-11 px-5 rounded-xl bg-teal-500 hover:bg-teal-600 disabled:opacity-60 text-white font-semibold flex items-center gap-2"
+            >
+              {saving && <Loader2 className="w-4 h-4 animate-spin" />}
+              {isEdit ? "Save Changes" : "Create Event"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function Field({ label, children }) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1.5">{label}</label>
+      {children}
+    </div>
   );
 }
