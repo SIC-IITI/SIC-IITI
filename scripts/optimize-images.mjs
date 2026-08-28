@@ -1,13 +1,3 @@
-// scripts/optimize-images.js
-//
-// Batch-converts every jpg/jpeg/png under `inputDir` into two WebP variants:
-//   - <name>-thumb.webp  (480px wide, quality 75)  -> grid/card thumbnails
-//   - <name>.webp        (1200px wide, quality 82) -> detail page images
-//
-// Run with:  node scripts/optimize-images.js
-//
-// Requires:  npm install sharp --save-dev
-//   (if npm install fails on this box, use: npm install sharp --save-dev --break-system-packages)
 
 import sharp from "sharp";
 import { readdirSync, mkdirSync, statSync } from "fs";
@@ -16,8 +6,6 @@ import path from "path";
 const inputDir = "public/assets/instruments";
 const outputDir = "public/assets/instruments";
 
-// How many files to process at once. Sharp is CPU/memory heavy per image,
-// so keep this modest on small servers (2-4). Raise it on a beefier machine.
 const CONCURRENCY = 3;
 
 const stats = { converted: 0, skipped: 0, failed: 0, bytesIn: 0, bytesOut: 0 };
@@ -47,11 +35,13 @@ async function processFile(srcPath) {
     const inputSize = statSync(srcPath).size;
 
     await sharp(srcPath)
+      .rotate() // auto-orient using EXIF before resizing, then strip the tag
       .resize({ width: 480, withoutEnlargement: true })
       .webp({ quality: 75 })
       .toFile(`${base}-thumb.webp`);
 
     const fullInfo = await sharp(srcPath)
+      .rotate() // auto-orient using EXIF before resizing, then strip the tag
       .resize({ width: 1200, withoutEnlargement: true })
       .webp({ quality: 82 })
       .toFile(`${base}.webp`);
