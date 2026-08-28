@@ -6,27 +6,33 @@ import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
-import { fetchEvents } from "../lib/api"
+import { fetchEvents } from '../lib/api';
 
 export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
+  const [eventsItems, setEventsItems] = useState([])
+  const [eventsLoading, setEventsLoading] = useState(true)
+  const [eventsError, setEventsError] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    fetchEvents()
+      .then((data) => {
+        if (!cancelled) setEventsItems(Array.isArray(data) ? data : [])
+      })
+      .catch(() => {
+        if (!cancelled) setEventsError(true)
+      })
+      .finally(() => {
+        if (!cancelled) setEventsLoading(false)
+      })
+    return () => { cancelled = true }
+  }, [])
   const [excellenceIndex, setExcellenceIndex] = useState(0)
   const [date, setDate] = useState(new Date())
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const minSwipeDistance = 50;
-
-  // Events are now fetched from the same source as the Events page,
-  // instead of a hardcoded local array, so Home always matches Events
-  // and image paths always resolve correctly.
-  const [eventsItems, setEventsItems] = useState([])
-  const [eventsLoading, setEventsLoading] = useState(true)
-
-  useEffect(() => {
-    fetchEvents()
-      .then(setEventsItems)
-      .finally(() => setEventsLoading(false))
-  }, [])
 
   // UPDATED: Initialize currentImageIndex from sessionStorage
   const [currentImageIndex, setCurrentImageIndex] = useState(() => {
@@ -388,14 +394,21 @@ const handleTouchEnd = () => {
           </h2>
           <div className="relative max-w-7xl mx-auto">
             {eventsLoading && (
-              <p className="text-center text-gray-500 py-12">Loading events…</p>
+              <p className="text-center text-gray-500 py-8">Loading events…</p>
             )}
+            {!eventsLoading && eventsError && (
+              <p className="text-center text-gray-500 py-8">Unable to load events right now.</p>
+            )}
+            {!eventsLoading && !eventsError && eventsItems.length === 0 && (
+              <p className="text-center text-gray-500 py-8">No upcoming events at the moment.</p>
+            )}
+            {!eventsLoading && !eventsError && eventsItems.length > 0 && (
             <div className={`grid gap-6
   ${eventsItems.length === 1 ? "grid-cols-1 max-w-md mx-auto" : ""}
   ${eventsItems.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto" : ""}
   ${eventsItems.length >= 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" : ""}
 `}>
-              {getVisibleItems(eventsItems, eventsIndex).map((item, index) => (
+              {getVisibleItems(eventsItems, eventsIndex).slice(0, 4).map((item, index) => (
                 <div
                   key={item.id ?? index}
                   className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6 bg-white animate-on-scroll stagger-${index + 1}`}
@@ -419,6 +432,7 @@ const handleTouchEnd = () => {
                 </div>
               ))}
             </div>
+            )}
             <div className="flex flex-col sm:flex-row items-center justify-between mt-6 sm:mt-8 gap-4 animate-on-scroll">
               <div className="flex gap-2">
                 <button
