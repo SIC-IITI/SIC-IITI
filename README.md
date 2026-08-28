@@ -22,7 +22,11 @@ The **Sophisticated Instrument Centre (SIC)** web portal is a modern, responsive
    ```bash
    npm run dev
    ```
-<!-- Folder structure  -->
+
+
+## Project Structure
+
+```text
 C:.
 │   .gitignore
 │   components.json
@@ -491,4 +495,4 @@ C:.
     └───utils
             imageloader.jsx
 
-PS C:\Users\ANAND VIVEK IITI\SIC-IITI> 
+```
