@@ -3,24 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { CalendarDays, Pencil, Trash2 } from "lucide-react";
 import { fetchEvents } from "../../lib/api";
 import { deleteEvent } from "../../lib/adminApi";
-import { API_BASE } from "../../lib/config";
 import PageHeader from "./components/PageHeader";
 import EmptyState from "./components/EmptyState";
 import { SkeletonTableRows, SkeletonCards } from "./components/Skeleton";
+import { resolveImageUrl } from "./components/resolveImageUrl";
 import { iconButtonClass } from "./components/ui";
 
-function resolveImageUrl(path) {
-  if (!path) return "";
-  return path.startsWith("/uploads/") ? `${API_BASE}${path}` : path;
-}
-
 function Thumb({ event, size = "h-11 w-11" }) {
-  if (event.image) {
+  const [failed, setFailed] = useState(false);
+
+  if (event.image && !failed) {
     return (
       <img
         src={resolveImageUrl(event.image)}
         alt=""
-        className={`${size} shrink-0 rounded-xl object-cover`}
+        onError={() => setFailed(true)}
+        className={`${size} shrink-0 rounded-xl object-cover bg-gray-100`}
       />
     );
   }
