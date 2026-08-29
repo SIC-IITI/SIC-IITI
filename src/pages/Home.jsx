@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
-import { fetchEvents } from '../lib/api';
+import { fetchOutreach } from '../lib/api';
 
 export default function Home() {
   const [eventsIndex, setEventsIndex] = useState(0)
@@ -16,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     let cancelled = false
-    fetchEvents()
+    fetchOutreach()
       .then((data) => {
         if (!cancelled) setEventsItems(Array.isArray(data) ? data : [])
       })
@@ -390,17 +390,17 @@ const handleTouchEnd = () => {
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12 animate-on-scroll">
-            Events & Workshops
+            Outreach Activities
           </h2>
           <div className="relative max-w-7xl mx-auto">
             {eventsLoading && (
-              <p className="text-center text-gray-500 py-8">Loading events…</p>
+              <p className="text-center text-gray-500 py-8">Loading outreach activities…</p>
             )}
             {!eventsLoading && eventsError && (
-              <p className="text-center text-gray-500 py-8">Unable to load events right now.</p>
+              <p className="text-center text-gray-500 py-8">Unable to load outreach activities right now.</p>
             )}
             {!eventsLoading && !eventsError && eventsItems.length === 0 && (
-              <p className="text-center text-gray-500 py-8">No upcoming events at the moment.</p>
+              <p className="text-center text-gray-500 py-8">No outreach activities at the moment.</p>
             )}
             {!eventsLoading && !eventsError && eventsItems.length > 0 && (
             <div className={`grid gap-6
@@ -423,7 +423,7 @@ const handleTouchEnd = () => {
                   </div>
                   <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4 leading-relaxed">{truncateText(item.title, 100)}</p>
                   <Link
-                    to="/events"
+                    to="/outreach"
                     className="text-xs sm:text-sm text-blue-600 hover:underline font-medium"
                     aria-label={`Read more about ${item.title}`}
                   >
@@ -452,7 +452,7 @@ const handleTouchEnd = () => {
                   <ChevronRight className="h-5 w-5" />
                 </button>
               </div>
-              <Link to="/events" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
+              <Link to="/outreach" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
                 View More
               </Link>
             </div>

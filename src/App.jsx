@@ -30,6 +30,8 @@ import InstrumentsAdmin from "./pages/Admin/InstrumentsAdmin";
 import InstrumentForm from "./pages/Admin/InstrumentForm";
 import EventsAdmin from "./pages/Admin/EventsAdmin";
 import EventForm from "./pages/Admin/EventForm";
+import OutreachAdmin from "./pages/Admin/OutreachAdmin";
+import OutreachForm from "./pages/Admin/OutreachForm";
 
 export default function App() {
   const location = useLocation();
@@ -69,6 +71,9 @@ export default function App() {
             <Route path="events" element={<EventsAdmin />} />
             <Route path="events/new" element={<EventForm />} />
             <Route path="events/:id/edit" element={<EventForm />} />
+            <Route path="outreach" element={<OutreachAdmin />} />
+            <Route path="outreach/new" element={<OutreachForm />} />
+            <Route path="outreach/:id/edit" element={<OutreachForm />} />
           </Route>
         </Routes>
       </main>

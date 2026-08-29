@@ -6,6 +6,7 @@ import { ensureSchema } from "./db.js";
 import { UPLOADS_DIR } from "./uploads.js";
 import instrumentsRouter from "./routes/instruments.js";
 import eventsRouter from "./routes/events.js";
+import outreachRouter from "./routes/outreach.js";
 import adminRouter from "./routes/admin.js";
 
 const app = express();
@@ -22,6 +23,7 @@ app.get("/health", (req, res) => res.json({ ok: true }));
 
 app.use("/api/instruments", instrumentsRouter);
 app.use("/api/events", eventsRouter);
+app.use("/api/outreach", outreachRouter);
 app.use("/api/admin", adminRouter);
 
 // Multer / general error handler so bad uploads return JSON, not a stack trace

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Microscope, CalendarDays, ArrowRight } from "lucide-react";
-import { fetchInstruments, fetchEvents } from "../../lib/api";
+import { Microscope, CalendarDays, Users, ArrowRight } from "lucide-react";
+import { fetchInstruments, fetchEvents, fetchOutreach } from "../../lib/api";
 
 export default function AdminDashboard() {
-  const [counts, setCounts] = useState({ instruments: null, events: null });
+  const [counts, setCounts] = useState({ instruments: null, events: null, outreach: null });
 
   useEffect(() => {
     fetchInstruments()
@@ -13,6 +13,9 @@ export default function AdminDashboard() {
     fetchEvents()
       .then((data) => setCounts((c) => ({ ...c, events: data.length })))
       .catch(() => setCounts((c) => ({ ...c, events: 0 })));
+    fetchOutreach()
+      .then((data) => setCounts((c) => ({ ...c, outreach: data.length })))
+      .catch(() => setCounts((c) => ({ ...c, outreach: 0 })));
   }, []);
 
   const cards = [
@@ -31,6 +34,14 @@ export default function AdminDashboard() {
       description: "Add, edit, or remove events and workshops.",
       icon: CalendarDays,
       accent: "bg-violet-50 text-violet-600",
+    },
+    {
+      to: "/admin/outreach",
+      label: "Outreach",
+      count: counts.outreach,
+      description: "Add, edit, or remove outreach visits — also shown on the Home page.",
+      icon: Users,
+      accent: "bg-amber-50 text-amber-600",
     },
   ];
 

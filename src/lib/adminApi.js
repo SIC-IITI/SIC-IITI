@@ -63,3 +63,20 @@ export const updateEvent = (id, data, imageFile) => {
 };
 
 export const deleteEvent = (id) => adminRequest(`/api/events/${id}`, { method: "DELETE" });
+
+// Outreach
+export const createOutreach = (data, imageFile) => {
+  const form = new FormData();
+  Object.entries(data).forEach(([k, v]) => form.append(k, v ?? ""));
+  if (imageFile) form.append("imageFile", imageFile);
+  return adminRequest("/api/outreach", { method: "POST", body: form });
+};
+
+export const updateOutreach = (id, data, imageFile) => {
+  const form = new FormData();
+  Object.entries(data).forEach(([k, v]) => form.append(k, v ?? ""));
+  if (imageFile) form.append("imageFile", imageFile);
+  return adminRequest(`/api/outreach/${id}`, { method: "PUT", body: form });
+};
+
+export const deleteOutreach = (id) => adminRequest(`/api/outreach/${id}`, { method: "DELETE" });

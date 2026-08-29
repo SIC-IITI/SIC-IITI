@@ -1,8 +1,27 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { fetchOutreach } from "../lib/api"
 
 function Outreach() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [visitors, setVisitors] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    fetchOutreach()
+      .then((data) => {
+        if (!cancelled) setVisitors(Array.isArray(data) ? data : [])
+      })
+      .catch(() => {
+        if (!cancelled) setError(true)
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => { cancelled = true }
+  }, [])
 
   const carouselImages = [
     "/assets/outreach/visit.png",
@@ -21,53 +40,6 @@ function Outreach() {
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)
   }
-
-  const visitors = [
-    {
-      date: "18-19 June 2026",
-      title: "Workshop on FE-SEM and AFM",
-      image: "/assets/outreach/workshop-fesem.png"
-    },
-    {
-      date: "Oct 15, 2025",
-      title: "Prof Irina A. Kurzina VISIT SIC",
-      description: "Professor from Tomsk state university, Russia Visit SIC",
-      image: "/assets/outreach/visit.png"
-    },
-    {
-      date: "Oct 14, 2025",
-      title: "Masters students from IPS academy Indore visit to SIC",
-      image: "/assets/outreach/masters-visit.png"
-    },
-    {
-      date: "July 24, 2025",
-      title: "FOREIGN ARMY OFFICERS VISIT SIC",
-      description: "Under MCTE MHOW",
-      image: "/assets/outreach/sic-army-visit.png"
-    },
-    {
-      date: "June 6, 2025",
-      title: "Visit of Ms. Saumya Gupta IAS",
-      description: "Visit of Ms. Saumya Gupta IAS ,Joint secretary Technical Education, MoE , GoI",
-      image: "/assets/outreach/saumya-gupta.png"
-    },
-    {
-      date: "July 15, 2024",
-      title: "Send off function for Ms. Mitali Dave",
-      image: "/assets/outreach/sic-ppl.png"
-    },
-    {
-      date: "May 30, 2024",
-      title: "Visit of Dr. K. Sivan",
-      description: "BOG Chairman IIT Indore and Former Chairman ISRO visit to SIC",
-      image: "/assets/outreach/outreach-sic.jpeg"
-    },
-    {
-      date: "December 22, 2022",
-      title: "Foreign students visit under exchange program",
-      image: "/assets/outreach/sic-ppl2.png"
-    }
-  ]
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -153,8 +125,18 @@ function Outreach() {
 
          
 
+          {loading && (
+            <p className="text-center text-gray-500 py-8">Loading outreach activities…</p>
+          )}
+          {!loading && error && (
+            <p className="text-center text-gray-500 py-8">Unable to load outreach activities right now.</p>
+          )}
+          {!loading && !error && visitors.length === 0 && (
+            <p className="text-center text-gray-500 py-8">No outreach activities posted yet.</p>
+          )}
+
           <div className="max-w-6xl mx-auto space-y-6">
-            {visitors.map((visitor, index) => (
+            {!loading && !error && visitors.map((visitor, index) => (
               <div
                 key={index}
                 className={`bg-white border-2 ${

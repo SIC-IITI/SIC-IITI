@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   Microscope,
   CalendarDays,
+  Users,
   LogOut,
   ExternalLink,
   Menu,
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
   { to: "/admin/instruments", label: "Instruments", icon: Microscope },
   { to: "/admin/events", label: "Events", icon: CalendarDays },
+  { to: "/admin/outreach", label: "Outreach", icon: Users },
 ];
 
 export default function AdminLayout() {

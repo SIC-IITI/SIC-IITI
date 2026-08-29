@@ -11,3 +11,5 @@ export const fetchInstrumentCategories = () => getJson("/api/instruments/categor
 export const fetchInstrumentById = (id) => getJson(`/api/instruments/${id}`);
 export const fetchEvents = () => getJson("/api/events");
 export const fetchEventById = (id) => getJson(`/api/events/${id}`);
+export const fetchOutreach = () => getJson("/api/outreach");
+export const fetchOutreachById = (id) => getJson(`/api/outreach/${id}`);

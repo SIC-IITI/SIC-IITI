@@ -8,7 +8,7 @@ import "dotenv/config";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const UPLOADS_DIR = path.join(__dirname, "uploads");
 
-for (const sub of ["instruments", "events"]) {
+for (const sub of ["instruments", "events", "outreach"]) {
   const dir = path.join(UPLOADS_DIR, sub);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 }
@@ -38,6 +38,12 @@ export const uploadInstrumentImages = multer({
 
 export const uploadEventImage = multer({
   storage: storageFor("events"),
+  fileFilter: imageFileFilter,
+  limits: { fileSize: 8 * 1024 * 1024, files: 1 },
+});
+
+export const uploadOutreachImage = multer({
+  storage: storageFor("outreach"),
   fileFilter: imageFileFilter,
   limits: { fileSize: 8 * 1024 * 1024, files: 1 },
 });
