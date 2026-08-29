@@ -61,11 +61,15 @@ export default function Home() {
       });
     }, observerOptions);
 
-    const elements = document.querySelectorAll('.animate-on-scroll');
+    // Re-scan whenever eventsItems changes: those cards render after an
+    // async fetch, so they don't exist in the DOM yet on initial mount and
+    // would otherwise never get observed (staying invisible forever, since
+    // .animate-on-scroll starts at opacity: 0 until .is-visible is added).
+    const elements = document.querySelectorAll('.animate-on-scroll:not(.is-visible)');
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [eventsItems]);
 
   const heroImages = [
 
