@@ -9,12 +9,12 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid gap-8 md:grid-cols-4 mb-8">
           {/* Contact Section */}
-          <div>
+          <div className="min-w-0">
             <h3 className="text-lg font-semibold mb-4 text-blue-100">Get in Touch</h3>
             <div className="space-y-3">
               <div className="flex gap-3">
                 <MapPin className="w-5 h-5 flex-shrink-0 text-blue-300" />
-                <div className="text-sm">
+                <div className="text-sm break-words">
                   <p className="font-medium">Sophisticated Instrumentation Centre</p>
                   <p className="text-blue-200">A National Facility</p>
                   <p className="text-blue-200">Indian Institute of Technology Indore</p>
@@ -25,13 +25,13 @@ function Footer() {
           </div>
 
           {/* Phone Section */}
-          <div>
+          <div className="min-w-0">
             <h3 className="text-lg font-semibold mb-4 text-blue-100">Contact Information</h3>
             <div className="space-y-3">
 
               <div className="flex gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0 text-blue-300" />
-                <div className="text-sm">
+                <div className="text-sm break-words">
                   <p className="text-blue-200">sic@iiti.ac.in</p>
                   <p className="text-blue-200">managersic@iiti.ac.in</p>
                 </div>
@@ -39,7 +39,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 min-w-0">
             <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
