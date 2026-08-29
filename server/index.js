@@ -21,12 +21,16 @@ app.use("/uploads", express.static(UPLOADS_DIR));
 
 app.get("/health", (req, res) => res.json({ ok: true }));
 
+app.use("/api", (req, res, next) => {
+  res.set("Cache-Control", "no-store");
+  next();
+});
+
 app.use("/api/instruments", instrumentsRouter);
 app.use("/api/events", eventsRouter);
 app.use("/api/outreach", outreachRouter);
 app.use("/api/admin", adminRouter);
 
-// Multer / general error handler so bad uploads return JSON, not a stack trace
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(err.status || 500).json({ error: err.message || "Server error" });
