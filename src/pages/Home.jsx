@@ -61,10 +61,6 @@ export default function Home() {
       });
     }, observerOptions);
 
-    // Re-scan whenever eventsItems changes: those cards render after an
-    // async fetch, so they don't exist in the DOM yet on initial mount and
-    // would otherwise never get observed (staying invisible forever, since
-    // .animate-on-scroll starts at opacity: 0 until .is-visible is added).
     const elements = document.querySelectorAll('.animate-on-scroll:not(.is-visible)');
     elements.forEach((el) => observer.observe(el));
 
@@ -108,7 +104,7 @@ export default function Home() {
   }
 
   const excellenceItems = []
-  const canScroll = eventsItems.length > 4
+  const canScroll = eventsItems.length > 1
 
   const truncateText = (text, limit) => {
     if (text.length <= limit) return text
@@ -116,23 +112,13 @@ export default function Home() {
   }
 
   const scrollEvents = (direction) => {
-    if (eventsItems.length <= 4) return
+    if (eventsItems.length <= 1) return
 
     if (direction === "next") {
       setEventsIndex((prev) => (prev + 1) % eventsItems.length)
     } else {
       setEventsIndex((prev) => (prev - 1 + eventsItems.length) % eventsItems.length)
     }
-  }
-
-  const getVisibleItems = (items, currentIndex) => {
-    if (items.length <= 4) return items
-
-    const visible = []
-    for (let i = 0; i < 4; i++) {
-      visible.push(items[(currentIndex + i) % items.length])
-    }
-    return visible
   }
 
   const getSundayClassName = ({ date, view }) => {
@@ -394,11 +380,11 @@ const handleTouchEnd = () => {
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12 animate-on-scroll">
-            Outreach Activities
+           Events
           </h2>
-          <div className="relative max-w-7xl mx-auto">
+          <div className="relative max-w-4xl mx-auto">
             {eventsLoading && (
-              <p className="text-center text-gray-500 py-8">Loading outreach activities…</p>
+              <p className="text-center text-gray-500 py-8">Loading Events…</p>
             )}
             {!eventsLoading && eventsError && (
               <p className="text-center text-gray-500 py-8">Unable to load outreach activities right now.</p>
@@ -406,56 +392,73 @@ const handleTouchEnd = () => {
             {!eventsLoading && !eventsError && eventsItems.length === 0 && (
               <p className="text-center text-gray-500 py-8">No outreach activities at the moment.</p>
             )}
-            {!eventsLoading && !eventsError && eventsItems.length > 0 && (
-            <div className={`grid gap-6
-  ${eventsItems.length === 1 ? "grid-cols-1 max-w-md mx-auto" : ""}
-  ${eventsItems.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto" : ""}
-  ${eventsItems.length >= 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" : ""}
-`}>
-              {getVisibleItems(eventsItems, eventsIndex).slice(0, 4).map((item, index) => (
-                <div
-                  key={item.id ?? index}
-                  className={`border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow p-4 sm:p-5 md:p-6 bg-white animate-on-scroll stagger-${index + 1}`}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-40 object-cover rounded-lg mb-4"
-                  />
-                  <div className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
-                    {item.date}
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4 leading-relaxed">{truncateText(item.title, 100)}</p>
-                  <Link
-                    to="/outreach"
-                    className="text-xs sm:text-sm text-blue-600 hover:underline font-medium"
-                    aria-label={`Read more about ${item.title}`}
+            {!eventsLoading && !eventsError && eventsItems.length > 0 && (() => {
+              const item = eventsItems[eventsIndex % eventsItems.length]
+              return (
+                <div className="flex items-center gap-3 sm:gap-6">
+                  <button
+                    onClick={() => scrollEvents("prev")}
+                    disabled={!canScroll}
+                    aria-label="Previous"
+                    className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center
+    ${canScroll ? "bg-black hover:bg-gray-800 text-white" : "bg-gray-200 text-gray-400 cursor-not-allowed"}`}
                   >
-                    Read more
-                  </Link>
+                    <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </button>
+
+                  <div
+                    key={item.id ?? eventsIndex}
+                    className="flex-1 border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow overflow-hidden bg-white grid grid-cols-1 sm:grid-cols-2"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-48 sm:h-full object-cover"
+                    />
+                    <div className="p-5 sm:p-6 md:p-8 flex flex-col justify-center">
+                      <div className="inline-block bg-blue-600 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 self-start">
+                        {item.date}
+                      </div>
+                      <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 leading-relaxed">
+                        {truncateText(item.title, 120)}
+                      </p>
+                      <Link
+                        to="/outreach"
+                        className="text-sm text-blue-600 hover:underline font-medium"
+                        aria-label={`Read more about ${item.title}`}
+                      >
+                        Read more
+                      </Link>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => scrollEvents("next")}
+                    disabled={!canScroll}
+                    aria-label="Next"
+                    className={`shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center
+    ${canScroll ? "bg-black hover:bg-gray-800 text-white" : "bg-gray-200 text-gray-400 cursor-not-allowed"}`}
+                  >
+                    <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+                  </button>
                 </div>
-              ))}
-            </div>
-            )}
-            <div className="flex flex-col sm:flex-row items-center justify-between mt-6 sm:mt-8 gap-4 animate-on-scroll">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => scrollEvents("prev")}
-                  disabled={!canScroll}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center
-    ${canScroll ? "bg-black hover:bg-gray-800 text-white" : "bg-gray-300 text-gray-500 cursor-not-allowed"}`}
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => scrollEvents("next")}
-                  disabled={!canScroll}
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-                  aria-label="Next"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
+              )
+            })()}
+            {!eventsLoading && !eventsError && eventsItems.length > 0 && (
+              <div className="flex items-center justify-center gap-2 mt-6">
+                {eventsItems.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setEventsIndex(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className={`h-2 rounded-full transition-all ${
+                      index === eventsIndex % eventsItems.length ? "bg-blue-600 w-6" : "bg-gray-300 w-2"
+                    }`}
+                  />
+                ))}
               </div>
+            )}
+            <div className="flex justify-center mt-6 sm:mt-8 animate-on-scroll">
               <Link to="/outreach" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
                 View More
               </Link>
