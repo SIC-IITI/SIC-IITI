@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "seed": "node scripts/seedFromStatic.mjs"
+    "seed": "node scripts/seedFromStatic.mjs",
+    "seed:outreach": "node scripts/seedOutreach.mjs"
   },
   "dependencies": {
     "cors": "^2.8.5",
