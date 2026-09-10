@@ -18,7 +18,7 @@ export default function Home() {
     let cancelled = false
     fetchOutreach()
       .then((data) => {
-        if (!cancelled) setEventsItems(Array.isArray(data) ? data : [])
+        if (!cancelled) setEventsItems(Array.isArray(data) ? [...data].reverse() : [])
       })
       .catch(() => {
         if (!cancelled) setEventsError(true)

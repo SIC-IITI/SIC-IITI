@@ -12,7 +12,7 @@ function Outreach() {
     let cancelled = false
     fetchOutreach()
       .then((data) => {
-        if (!cancelled) setVisitors(Array.isArray(data) ? data : [])
+        if (!cancelled) setVisitors(Array.isArray(data) ? [...data].reverse() : [])
       })
       .catch(() => {
         if (!cancelled) setError(true)
@@ -24,13 +24,13 @@ function Outreach() {
   }, [])
 
   const carouselImages = [
-    "/assets/outreach/visit.png",
-    "/assets/outreach/masters-visit.png",
-    "/assets/outreach/sic-army-visit.png",
-    "/assets/outreach/saumya-gupta.png",
-    "/assets/outreach/sic-ppl.png",
+    "/assets/outreach/sic-ppl2.png",
     "/assets/outreach/outreach-sic.jpeg",
-    "/assets/outreach/sic-ppl2.png"
+    "/assets/outreach/sic-ppl.png",
+    "/assets/outreach/saumya-gupta.png",
+    "/assets/outreach/sic-army-visit.png",
+    "/assets/outreach/masters-visit.png",
+    "/assets/outreach/visit.png"
   ]
 
   const nextImage = () => {

@@ -178,6 +178,7 @@ export const instrumentsData = [
       "/assets/instruments/X-Ray/EDS-EDX/xe2.png",
       "/assets/instruments/X-Ray/BSE-BSD/xb1.png",
     ],
+    form: "/documents/FE-SEM.pdf",
   },
 
   {
@@ -212,6 +213,7 @@ export const instrumentsData = [
       "/assets/instruments/Microscopy/Gemini-360/mg1.png",
       "/assets/instruments/Microscopy/Gemini-360/mg2.png",
     ],
+    form: "/documents/FE-SEM.pdf",
   },
 
   {
@@ -306,6 +308,7 @@ hideSicBuildingLabel: true,
       "/assets/instruments/Microscopy/TEM/TEM-1.jpg",
       "/assets/instruments/Microscopy/TEM/TEM-2.jpg"
     ],
+    form: "/documents/TEM Form (1).pdf",
   },
 
   {
@@ -545,6 +548,7 @@ hideSicBuildingLabel: true,
     images: [
       "/assets/instruments/Spectroscopy/UV-Visible-Spectrometer/UV VIS SPECTROMETER.jpg",
     ],
+    form: "/documents/UV-Vis Form.pdf",
   },
 
   {
@@ -577,6 +581,7 @@ hideSicBuildingLabel: true,
     handledBy: "Mr. Ghanashyam Bhavsar",
     email: "ghanashyam@iiti.ac.in",
     images: ["/assets/instruments/Spectroscopy/UV-VIS-NIR/UV VIS NIR.jpg"],
+    form: "/documents/UV-VIS-NIR Request Form.pdf",
   },
 
   {
@@ -631,7 +636,7 @@ hideSicBuildingLabel: true,
     make: "Waters",
     model: "ACQUITY H-Class Plus UPLC + Xevo G3 QTOF",
     showInStatus: true,
-    status: "Under Maintenance",
+    status: "Operational",
     usageCharges: {
       academic: "₹ 1,000 per sample",
      industrial: "₹ 1,500 per sample",
@@ -792,6 +797,7 @@ hideSicBuildingLabel: true,
     position: "Junior Technical Assistant, SIC",
 
     images: ["/assets/instruments/Thermal-Analysis/TGA/ta_t1.jpeg"],
+    form: "/documents/TGA form.pdf",
   },
   {
     id: "dsc",
@@ -825,6 +831,7 @@ hideSicBuildingLabel: true,
     position: "Junior Technical Assistant, SIC",
 
     images: ["/assets/instruments/Thermal-Analysis/DSC/ta_d1.jpeg"],
+    form: "/documents/DSC Form.pdf",
   },
   // ==================== SPECIALIZED EQUIPMENT ====================
   {
@@ -1167,7 +1174,7 @@ hideSicBuildingLabel: true,
     ],
     handledBy: "Mr. Kinny Pandey",
     email: "kinny@iiti.ac.in",
-    images: ["/assets/instruments/LN2-Plant/LIQUID NITROGEN.jpeg"],
+    images: ["/assets/instruments/LN2-Plant/LIQUID NITROGEN PLANT.jpg"],
   },
   // ==================== CENTRE OF EXCELLENCE (ACR INITIATIVE) ====================
   {
@@ -1486,6 +1493,36 @@ export const instrumentForms = [
     name: "RP-HPLC",
     file: "/documents/RP-HPLC.pdf",
     instrumentId: "hplc-rp",
+  },
+  {
+    name: "TGA",
+    file: "/documents/TGA form.pdf",
+    instrumentId: "tga",
+  },
+  {
+    name: "DSC",
+    file: "/documents/DSC Form.pdf",
+    instrumentId: "dsc",
+  },
+  {
+    name: "UV-Vis",
+    file: "/documents/UV-Vis Form.pdf",
+    instrumentId: "uv-vis",
+  },
+  {
+    name: "UV-VIS-NIR",
+    file: "/documents/UV-VIS-NIR Request Form.pdf",
+    instrumentId: "uv-vis-nir",
+  },
+  {
+    name: "FE-SEM",
+    file: "/documents/FE-SEM.pdf",
+    instrumentId: "supra-55",
+  },
+  {
+    name: "TEM",
+    file: "/documents/TEM Form (1).pdf",
+    instrumentId: "tem",
   },
 ];
 // ==================== Helper Functions ====================
