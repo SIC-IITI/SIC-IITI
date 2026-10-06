@@ -4,31 +4,31 @@ export default function ContactPage() {
   const contacts = [
     {
       title: "Professor In-charge, SIC",
-      head: "Prof. Apurba K. Das",
+      head: "Prof. Krushna R. Mavani",
       email: "head-sic@iiti.ac.in",
     },
     {
-      title: "Technical Superintendent, SIC",
+      title: "Technical Superintendent",
       head: "Ghanashyam Bhavsar",
       email: "ghanashyam@iiti.ac.in",
     },
     {
-      title: "Technical Support, SIC",
+      title: "Technical Superintendent",
       head: "Kinny Pandey",
       email: "kinny@iiti.ac.in",
     },
     {
-      title: "Junior Technical Superintendent, SIC",
+      title: "Junior Technical Superintendent",
       head: "Ravinder Kumar",
       email: "ravinderk@iiti.ac.in",
     },
     {
-      title: "Junior Technical Assistant, SIC",
+      title: "Junior Technical Assistant",
       head: "Atul Singh",
       email: "atul.singh@iiti.ac.in",
     },
     {
-      title: "Junior Technical Assistant, SIC",
+      title: "Junior Technical Assistant",
       head: "Sagar Patail",
       email: "sagarpatail@iiti.ac.in",
     },
