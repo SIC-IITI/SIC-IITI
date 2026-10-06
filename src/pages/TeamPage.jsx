@@ -94,7 +94,7 @@ export default function TeamPage() {
         {/* Core Team */}
         <div className="team-section">
           <h3 className="team-heading">Core Committee</h3>
-          <p className="team-subtext">The backbone of our organization</p>
+          <p className="team-subtext">The backbone of our SIC</p>
 
           <div className="team-grid core-team">
             {coreTeam.map((member, index) => (

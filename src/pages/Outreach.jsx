@@ -24,9 +24,10 @@ function Outreach() {
   }, [])
 
   const carouselImages = [
-    "/assets/outreach/sic-ppl2.png",
+    // "/assets/outreach/sic-ppl2.png",
     "/assets/outreach/outreach-sic.jpeg",
-    "/assets/outreach/sic-ppl.png",
+    "/assets/TeamPhotos/armyvisit.png",
+    // "/assets/outreach/sic-ppl.png",
     "/assets/outreach/saumya-gupta.png",
     "/assets/outreach/sic-army-visit.png",
     "/assets/outreach/masters-visit.png",

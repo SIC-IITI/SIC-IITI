@@ -354,7 +354,7 @@ const handleTouchEnd = () => {
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 bg-gray-300" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                Message from Professor Incharge
+                Message from Professor In-charge
               </h2>
               <div className="h-px w-20 bg-gray-300" />
             </div>
@@ -380,7 +380,7 @@ const handleTouchEnd = () => {
                   Prof. Krushna R. Mavani
                 </h3>
                 <p className="text-sm text-gray-500">
-                  Professor Incharge, SIC
+                  Professor In-charge, SIC
                 </p>
               </div>
 

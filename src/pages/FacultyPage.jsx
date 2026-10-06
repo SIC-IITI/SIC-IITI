@@ -73,7 +73,7 @@ export default function FacultyPage() {
         {/* Core Team */}
         <div className="team-section">
           <h3 className="team-heading">Technical Team</h3>
-          <p className="team-subtext">The backbone of our organization</p>
+          <p className="team-subtext">The backbone of our SIC</p>
 
           <div className="team-grid f-core-team">
             {coreTeam.map((member, index) => (
