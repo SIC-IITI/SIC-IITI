@@ -10,7 +10,7 @@ import "./TeamPage.css";
 
 const teamSlides = [
   {
-    image: "assets/TeamPhotos/Team_1.jpg",
+    image: "assets/TeamPhotos/armyvisit.png",
     title: "SIC Committee",
     subtitle: "A National Facility of IIT Indore",
   },

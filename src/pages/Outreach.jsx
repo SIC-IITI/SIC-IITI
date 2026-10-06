@@ -44,17 +44,11 @@ function Outreach() {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      {/* HERO */}
-      <section className="bg-white py-10 sm:py-12 border-gray-200">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Outreach Activities For School and College Students
-            </h1>
-            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-              To create awareness of recent developments in Science and Technology and the applications of sophisticated instruments in basic and applied research.
-            </p>
-          </div>
+      {/* Header */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div className="container mx-auto px-6">
+          <h1 className="text-5xl font-bold mb-4">Outreach</h1>
+          
         </div>
       </section>
 

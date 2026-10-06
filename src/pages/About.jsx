@@ -58,8 +58,8 @@ export default function AboutPage() {
 
         {/* Prof-in-Charge */}
         <div className="mb-16 bg-blue-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Prof-in-Charge</h2>
-          <p className="text-lg text-gray-800">Prof. Apurba K. Das</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Professor-in-Charge</h2>
+          <p className="text-lg text-gray-800">Prof. Krushna R Mavani</p>
         </div>
 
         {/* Vision & Mission */}
