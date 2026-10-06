@@ -1,22 +1,32 @@
 // All team-related data centralized here
 
 export const facultyAdvisors = [
+
   {
-  image: "assets/FacultyPhotos/Team_1.png",
-  name: "Prof. Apurba K. Das",
-  designation: "Professor-In-Charge, SIC",
-  email: "apurba.das@iiti.ac.in",
-  website: "https://chemistry.iiti.ac.in/faculty/prof-apurba-k-das"
- },
- {
-  image: "assets/FacultyPhotos/Team_2.png",
-  name: "Prof. Krushna R. Mavani",
-  designation: "Co-Convener SIC",
-  email: "krushna@iiti.ac.in",
-  website: "https://physics.iiti.ac.in/dr-krushna-r-mavani/"
- },
+    image: "assets/FacultyPhotos/Team_2.png",
+    name: "Prof. Krushna R. Mavani",
+    designation: "Professor-In-Charge, SIC",
+    email: "head-sic@iiti.ac.in",
+    website: "https://physics.iiti.ac.in/dr-krushna-r-mavani/"
+  },
 ];
 
+export const co_convenor = [
+  {
+    image: "assets/FacultyPhotos/Team_17.jpg",
+    name: "Dr. Pravarthana Dhanapal",
+    designation: "Co-Convener SIC",
+    email: "dpravarthana@iiti.ac.in",
+    website: "https://chemistry.iiti.ac.in/faculty/dr-pravarthana-dhanapal"
+  },
+  {
+    image: "assets/FacultyPhotos/Team_3.jpg",
+    name: "Prof. Kazi Sabiruddin",
+    designation: "Co-Convener SIC",
+    email: "skazi@iiti.ac.in",
+    website: "https://people.iiti.ac.in/~meiiti/index.php/dr-kazi-sabiruddin/"
+  }
+]
 export const coreTeam = [
   {
     image: "assets/FacultyPhotos/Team_6.png",
@@ -38,11 +48,10 @@ export const coreTeam = [
     name: "Atul Singh",
     email: "atul.singh@iiti.ac.in",
   },
-  
+
   {
     image: "assets/FacultyPhotos/Team_13.png",
     name: "Sagar Patail",
-    designation: "Junior Technical Assistant",
     email: "sagarpatail@iiti.ac.in",
   },
   {
@@ -50,10 +59,16 @@ export const coreTeam = [
     name: "Ranjeet Raghuvanshi",
     email: "managersic@iiti.ac.in",
   },
-  
+
 ];
 
 export const alumni = [
+  {
+    image: "assets/FacultyPhotos/Team_1.png",
+    name: "Prof. Apurba K. Das",
+    designation: "Head SIC,  2022 -2026",
+    website: "https://chemistry.iiti.ac.in/faculty/prof-apurba-k-das"
+  },
   {
     image: "assets/FacultyPhotos/Team_11.png",
     name: "Prof. Suman Mukhopadhyay",
@@ -64,7 +79,7 @@ export const alumni = [
     image: "assets/FacultyPhotos/Team_10.png",
     name: "Prof. Shaikh M. Mobin",
     designation: "Incharge SIC, 2012 -2019",
-    website:"https://chemistry.iiti.ac.in/faculty/prof-shaikh-m-mobin"
+    website: "https://chemistry.iiti.ac.in/faculty/prof-shaikh-m-mobin"
   },
-  
+
 ];

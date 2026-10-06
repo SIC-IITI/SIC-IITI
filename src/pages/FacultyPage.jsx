@@ -2,7 +2,8 @@ import React from "react";
 import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
-import { facultyAdvisors, coreTeam, alumni } from "@/data/FacultyData";
+import { facultyAdvisors, coreTeam, alumni, co_convenor } from "@/data/FacultyData";
+import HeroSlider from "@/components/HeroSlider";
 import { useEffect } from "react";
 import "./FacultyPage.css";
 
@@ -54,6 +55,19 @@ export default function FacultyPage() {
             ))}
           </div>
 
+        </div>
+        {/* Co-convenor Team */}
+        <div className="team-section">
+          <h3 className="team-heading">Co-Conveners</h3>
+          {/* <p className="team-subtext">The backbone of our organization</p> */}
+
+          <div className="team-grid f-core-team">
+            {co_convenor.map((member, index) => (
+              <div key={index} className="animate-on-scroll">
+                <TeamCard key={index} {...member} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Core Team */}
