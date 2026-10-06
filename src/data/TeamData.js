@@ -1,33 +1,39 @@
 // All team-related data centralized here
 
 export const facultyAdvisors = [
+
   {
-  image: "assets/FacultyPhotos/Team_1.png",
-  name: "Prof. Apurba K. Das",
-  designation: "Professor-In-Charge, SIC",
-  researchAreas: "Renewable Energy, photovoltaics, Biophysical Chemistry",
-  email: "apurba.das@iiti.ac.in",
-  website: "https://chemistry.iiti.ac.in/faculty/prof-apurba-k-das"
- },
- {
-  image: "assets/FacultyPhotos/Team_2.png",
-  name: "Prof. Krushna R. Mavani",
-  designation: "Co-Convener SIC",
-  researchAreas: "Experimental Condensed Matter Physics",
-  email: "krushna@iiti.ac.in",
-  website: "https://physics.iiti.ac.in/dr-krushna-r-mavani/"
- },
+    image: "assets/FacultyPhotos/Team_2.png",
+    name: "Prof. Krushna R. Mavani",
+    designation: "Professor-In-Charge, SIC",
+    researchAreas: "Experimental Condensed Matter Physics",
+    email: "head-sic@iiti.ac.in",
+    website: "https://physics.iiti.ac.in/dr-krushna-r-mavani/"
+  },
 ];
 
-export const coreTeam = [
+
+export const co_convenor = [
+  {
+    image: "assets/FacultyPhotos/Team_17.jpg",
+    name: "Dr. Pravarthana Dhanapal",
+    designation: "Co-Convener SIC",
+    researchAreas: "Solid-state Chemistry",
+    email: "dpravarthana@iiti.ac.in",
+    website: "https://chemistry.iiti.ac.in/faculty/dr-pravarthana-dhanapal"
+  },
   {
     image: "assets/FacultyPhotos/Team_3.jpg",
     name: "Prof. Kazi Sabiruddin",
-    designation: "Professor, Department of Mechanical Engineering",
+    designation: "Co-Convener SIC",
     researchAreas: "Surface Engineering, Manufacturing",
     email: "skazi@iiti.ac.in",
     website: "https://people.iiti.ac.in/~meiiti/index.php/dr-kazi-sabiruddin/"
   },
+];
+
+export const coreTeam = [
+
   {
     image: "assets/FacultyPhotos/Team_14.jpg",
     name: "Dr. Onkar Game",
@@ -36,7 +42,7 @@ export const coreTeam = [
     email: "ogame@iiti.ac.in",
     website: "https://physics.iiti.ac.in/dr-onkar-game/"
   },
-  
+
   {
     image: "assets/FacultyPhotos/Team_15.jpg",
     name: "Dr. Dudekula A. Basha",
@@ -54,14 +60,7 @@ export const coreTeam = [
     phone: "+91-731-2438 700 (Ext. 5268)",
     website: "https://scholar.google.com/citations?user=-fH7jhgAAAAJ&hl=en"
   },
-  {
-    image: "assets/FacultyPhotos/Team_17.jpg",
-    name: "Dr. Pravarthana Dhanapal",
-    designation: "Assistant Professor, Department of Chemistry",
-    researchAreas: "Solid-state Chemistry",
-    email: "dpravarthana@iiti.ac.in",
-    website: "https://chemistry.iiti.ac.in/faculty/dr-pravarthana-dhanapal"
-  },
+
   {
     image: "assets/FacultyPhotos/Team_9.jpeg",
     name: "Dr. Dan Sathiaraj",
@@ -86,6 +85,14 @@ export const coreTeam = [
     email: "abhijeet.joshi@iiti.ac.in",
     website: "https://scholar.google.co.in/citations?user=xphbhZkAAAAJ&hl=en"
   },
-  
+  {
+    image: "assets/FacultyPhotos/Team_1.png",
+    name: "Prof. Apurba K. Das",
+    designation: "Professor, Department of Chemistry",
+    researchAreas: "Organic Synthesis, Peptide & DNA-Based Nanomaterials, Supramolecular Chemistry, Systems Chemistry, Biosensors",
+    email: "apurba.das@iiti.ac.in",
+    website: "https://chemistry.iiti.ac.in/faculty/prof-apurba-k-das"
+  },
+
 ];
 
