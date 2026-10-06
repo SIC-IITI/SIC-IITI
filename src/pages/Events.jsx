@@ -25,10 +25,8 @@ export default function EventsPage() {
       {/* Header */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-4">Events & Workshops</h1>
-          <p className="text-lg text-blue-100 max-w-2xl">
-            Stay updated with the latest conferences, workshops, and events.
-          </p>
+          <h1 className="text-5xl font-bold mb-4">Events </h1>
+         
         </div>
       </section>
 
