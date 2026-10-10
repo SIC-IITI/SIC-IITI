@@ -13,6 +13,16 @@ function slugify(text) {
     .replace(/(^-|-$)+/g, "");
 }
 
+// The admin form sends displayOrder; it is stored in the existing sort_order column.
+// Blank / invalid -> placed after every other instrument.
+async function resolveSortOrder(value) {
+  if (value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value))) {
+    return Math.trunc(Number(value));
+  }
+  const [[row]] = await pool.query("SELECT COALESCE(MAX(sort_order), 0) + 10 AS next FROM instruments");
+  return row.next;
+}
+
 // DB row -> shape the frontend already expects (matches the old
 // static instrumentsData.js entries field-for-field).
 function toApiShape(row) {
@@ -24,6 +34,7 @@ function toApiShape(row) {
     model: row.model,
     showInStatus: !!row.show_in_status,
     status: row.status,
+    displayOrder: row.sort_order,
     usageCharges: {
       academic: row.usage_academic || "",
       industrial: row.usage_industrial || "",
@@ -43,14 +54,14 @@ function toApiShape(row) {
 
 router.get("/", async (req, res) => {
   const [rows] = await pool.query(
-    "SELECT * FROM instruments ORDER BY category, sort_order, name"
+    "SELECT * FROM instruments ORDER BY sort_order, category, name"
   );
   res.json(rows.map(toApiShape));
 });
 
 router.get("/categories", async (req, res) => {
   const [instrumentRows] = await pool.query(
-    "SELECT DISTINCT category FROM instruments ORDER BY category"
+    "SELECT category FROM instruments GROUP BY category ORDER BY MIN(sort_order), category"
   );
   const [descRows] = await pool.query("SELECT * FROM category_descriptions");
   const descMap = Object.fromEntries(descRows.map((d) => [d.category, d.description]));
@@ -82,12 +93,14 @@ router.post("/", requireAdmin, async (req, res) => {
     id = `${id}-${Date.now().toString(36)}`;
   }
 
+  const sortOrder = await resolveSortOrder(b.displayOrder);
+
   await pool.query(
     `INSERT INTO instruments
       (id, name, full_name, category, model, show_in_status, status,
        usage_academic, usage_industrial, usage_unit, features, applications,
-       handled_by, email, location, images)
-     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+       handled_by, email, location, images, sort_order)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
     [
       id,
       b.name,
@@ -105,6 +118,7 @@ router.post("/", requireAdmin, async (req, res) => {
       b.email || "",
       b.location || "",
       JSON.stringify(b.images || []),
+      sortOrder,
     ]
   );
 
@@ -119,11 +133,15 @@ router.put("/:id", requireAdmin, async (req, res) => {
   const current = existing[0];
   const b = req.body;
 
+  // Field not sent at all -> keep current. Sent blank/null -> move to the end.
+  const sortOrder =
+    b.displayOrder === undefined ? current.sort_order : await resolveSortOrder(b.displayOrder);
+
   await pool.query(
     `UPDATE instruments SET
       name=?, full_name=?, category=?, model=?, show_in_status=?, status=?,
       usage_academic=?, usage_industrial=?, usage_unit=?, features=?, applications=?,
-      handled_by=?, email=?, location=?, images=?
+      handled_by=?, email=?, location=?, images=?, sort_order=?
      WHERE id=?`,
     [
       b.name ?? current.name,
@@ -141,6 +159,7 @@ router.put("/:id", requireAdmin, async (req, res) => {
       b.email ?? current.email,
       b.location ?? current.location,
       JSON.stringify(b.images ?? current.images),
+      sortOrder,
       req.params.id,
     ]
   );
