@@ -29,6 +29,7 @@ const emptyForm = {
   model: "",
   status: "Operational",
   showInStatus: true,
+  displayOrder: "",
   usageCharges: { academic: "", industrial: "", unit: "per sample" },
   features: [""],
   applications: [""],
@@ -68,6 +69,7 @@ export default function InstrumentForm() {
           model: data.model,
           status: data.status,
           showInStatus: data.showInStatus,
+          displayOrder: data.displayOrder ?? "",
           usageCharges: data.usageCharges,
           features: data.features.length ? data.features : [""],
           applications: data.applications.length ? data.applications : [""],
@@ -116,6 +118,7 @@ export default function InstrumentForm() {
     setSaving(true);
     const payload = {
       ...form,
+      displayOrder: form.displayOrder === "" ? null : Number(form.displayOrder),
       features: form.features.map((s) => s.trim()).filter(Boolean),
       applications: form.applications.map((s) => s.trim()).filter(Boolean),
     };
@@ -246,6 +249,17 @@ export default function InstrumentForm() {
                   </option>
                 ))}
               </select>
+            </FormField>
+            <FormField label="Display Order">
+              <input
+                type="number"
+                min="1"
+                step="1"
+                placeholder="1, 2, 3… (blank = last)"
+                value={form.displayOrder}
+                onChange={(e) => update("displayOrder", e.target.value)}
+                className={inputClass}
+              />
             </FormField>
             <label className="mt-1 flex min-h-[44px] items-center gap-2.5 text-sm font-medium text-gray-700 sm:mt-6">
               <input

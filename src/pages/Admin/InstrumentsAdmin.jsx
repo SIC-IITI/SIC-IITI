@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Search, Microscope, Pencil, Trash2, ImageIcon } from "lucide-react";
 import { fetchInstruments } from "../../lib/api";
+import { sortInstruments } from "../../lib/sortInstruments";
 import { deleteInstrument } from "../../lib/adminApi";
 import PageHeader from "./components/PageHeader";
 import EmptyState from "./components/EmptyState";
@@ -19,7 +20,7 @@ export default function InstrumentsAdmin() {
   const load = () => {
     setLoading(true);
     fetchInstruments()
-      .then(setInstruments)
+      .then((data) => setInstruments(sortInstruments(data)))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   };
@@ -89,6 +90,7 @@ export default function InstrumentsAdmin() {
             <table className="w-full text-sm">
               <thead className="bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
                 <tr>
+                  <th className="px-5 py-3 text-left font-semibold">Order</th>
                   <th className="px-5 py-3 text-left font-semibold">Name</th>
                   <th className="px-5 py-3 text-left font-semibold">Category</th>
                   <th className="px-5 py-3 text-left font-semibold">Status</th>
@@ -98,10 +100,11 @@ export default function InstrumentsAdmin() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {loading ? (
-                  <SkeletonTableRows rows={6} cols={5} />
+                  <SkeletonTableRows rows={6} cols={6} />
                 ) : (
                   filtered.map((instrument) => (
                     <tr key={instrument.id} className="transition-colors hover:bg-gray-50">
+                      <td className="px-5 py-4 text-gray-500">{instrument.displayOrder ?? "—"}</td>
                       <td className="px-5 py-4">
                         <div className="font-semibold text-gray-900">{instrument.name}</div>
                         <div className="text-xs text-gray-400">{instrument.id}</div>

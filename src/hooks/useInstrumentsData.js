@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchInstruments } from "../lib/api";
+import { sortInstruments } from "../lib/sortInstruments";
 
 // Replaces the old `import instrumentsData from "../data/instrumentsData"`
 // static import. Every page that lists/filters instruments now reads
@@ -14,7 +15,7 @@ export function useInstrumentsData() {
     let cancelled = false;
     fetchInstruments()
       .then((data) => {
-        if (!cancelled) setInstruments(data);
+        if (!cancelled) setInstruments(sortInstruments(data));
       })
       .catch((err) => {
         if (!cancelled) setError(err);

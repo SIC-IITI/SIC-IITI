@@ -12,7 +12,17 @@ const InstrumentForms = () => {
 
     const groupedForms = useMemo(() => {
         const grouped = {};
-        instrumentForms.forEach((form) => {
+        const orderOf = (form) => {
+            const idx = instrumentsData.findIndex((item) => item.id === form.instrumentId);
+            return idx === -1 ? Infinity : idx;
+        };
+        const orderedForms = [...instrumentForms].sort((a, b) => {
+            const oa = orderOf(a);
+            const ob = orderOf(b);
+            if (oa === ob) return 0;
+            return oa === Infinity ? 1 : ob === Infinity ? -1 : oa - ob;
+        });
+        orderedForms.forEach((form) => {
             const instrument = instrumentsData.find(
                 (item) => item.id === form.instrumentId
             );
