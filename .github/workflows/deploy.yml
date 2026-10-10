@@ -29,7 +29,7 @@ jobs:
           npm run build
 
           echo "== Restarting app via PM2 =="
-          pm2 restart sic
+          pm2 restart sic sic-backend
 
           echo "== Deploy steps finished =="
           pm2 status
@@ -45,7 +45,7 @@ jobs:
             git reset --hard "$PREV_COMMIT"
             npm ci
             npm run build
-            pm2 restart sic
+            pm2 restart sic sic-backend
             echo "Rollback complete, app restarted"
           else
             echo "No previous commit recorded, skipping rollback"
