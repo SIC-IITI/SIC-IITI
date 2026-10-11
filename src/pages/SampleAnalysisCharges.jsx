@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import {
   Banknote,
@@ -14,116 +15,102 @@ import {
   sampleAnalysisInfo,
 } from "../data/instrumentsData";
 
-const chargesData = [
-  { isCategory: true, name: "1. NMR Spectroscopy", ids: ["nmr-500", "nmr-400"] },
-  { isSubCategory: true, name: "Data in the format of raw file (FID)" },
-  { name: "Proton NMR", academic: "200₹", industry: "500₹" },
-  { name: "13C & other X-Nuclei & 2D NMR (For first hour of data collection)", academic: "300₹", industry: "700₹" },
-  { isSubCategory: true, name: "Report in PDF format" },
-  { name: "Proton NMR", academic: "500₹", industry: "800₹" },
-  { name: "13C & other X-Nuclei & 2D NMR (For first hour of data collection)", academic: "1000₹", industry: "1200₹" },
-  { name: "For subsequent hours", academic: "200₹", industry: "500₹" },
-  { name: "Temperature variability range 25°C to 120°C For high temperature data collection (extra charges)", academic: "500₹", industry: "2000₹" },
-  { name: "Temperature variability range 25°C to -70°C For Low temperature (Liquid Nitrogen) charges", academic: "500₹", industry: "2000₹" },
-  { name: "Structure Elucidation (Detailed report of Peak Assignment based on structure will be given)", academic: "2500₹", industry: "5000₹" },
-  { isSubCategory: true, name: "Solvent charges extra at actual cost" },
-  { name: "D₂O / CDCl₃ / DMSO-d₆ / MeOD / CD₃COCD₃", academic: "200₹", industry: "200₹" },
-  { name: "All other solvents", academic: "300₹", industry: "300₹" },
-  
-  { isCategory: true, name: "2. Chromatography" },
-  { name: "LC-HRMS", academic: "1000₹", industry: "2000₹", ids: ["lc-hrms"] },
-  { name: "GC-MS", academic: "2000₹", industry: "5000₹", ids: ["gc-ms"] },
-  { name: "HPLC", academic: "1000₹", industry: "1500₹", ids: ["hplc"] },
-  
-  { isCategory: true, name: "3. Thermal Analysis" },
-  { name: "Thermo Gravimetric Analysis (TGA)", academic: "1000₹", industry: "2000₹", ids: ["tga"] },
-  { name: "Differential Scanning Calorimetery (DSC)", academic: "3000₹", industry: "5000₹", ids: ["dsc"] },
-  
-  { isCategory: true, name: "4. Elemental Analysis (CHNS-O)", ids: ["chns-o"] },
-  { name: "C,H,N,S Analysis", academic: "1000₹", industry: "2000₹" },
-  
-  { isCategory: true, name: "5. BET Surface Area Analyzer", ids: ["bet"] },
-  { isSubCategory: true, name: "Physisorption/Chemisoprtion" },
-  { name: "Measurement based on N₂ Gas", academic: "5000₹", industry: "10,000₹" },
-  { name: "Measurement based on CO₂ gas", academic: "8000₹", industry: "16,000₹" },
-  
-  { isCategory: true, name: "6. Spectroscopy" },
-  { name: "FT-IR", academic: "500₹", industry: "1000₹", ids: ["ft-ir", "ft-ir-coe"] },
-  { name: "UV-Visible", academic: "500₹", industry: "1000₹", ids: ["uv-vis"] },
-  { name: "UV-Vis-NIR", academic: "500₹", industry: "1000₹", ids: ["uv-vis-nir"] },
-  { name: "Fluorescence", academic: "500₹", industry: "1000₹", ids: ["fluorescence"] },
-  { name: "Circular Dichroism (CD)", academic: "1000₹", industry: "2000₹", ids: ["cd"] },
-  
-  { isCategory: true, name: "7. Atomic Force Microscopy/ Scanning Probe Microscopy (AFM/SPM)", ids: ["afm"] },
-  { isSubCategory: true, name: "Measuring modes (Processed image up to the publication level will be provided)" },
-  { name: "Semi-Contact & Contact Mode", academic: "1000₹", industry: "2000₹" },
-  { name: "Conductive", academic: "5000₹", industry: "15000₹" },
-  { name: "Magnetic Force Microscopy (MFM)", academic: "5000₹", industry: "15000₹" },
-  { name: "Kelvin Probe (Surface Potential Microscopy)", academic: "5000₹", industry: "15000₹" },
-  { name: "Electric Force Microscopy (EFM)", academic: "5000₹", industry: "15000₹" },
-  { name: "Scanning Tunneling Microscopy (STM)", academic: "5000₹", industry: "15000₹" },
-  
-  { isCategory: true, name: "8. Field Emission - Scanning Electron Microscope (FE-SEM)", ids: ["supra-55", "gemini-360"] },
-  { isSubCategory: true, name: "(Per sample for first hour of recording)" },
-  { name: "FE-SEM", academic: "1000₹", industry: "2000₹" },
-  { name: "EDS/EDX", academic: "2000₹", industry: "3500₹" },
-  { name: "BSE/BSD", academic: "2000₹", industry: "4000₹" },
-  { name: "aSTEM", academic: "2500₹", industry: "10,000₹" },
-  
-  { isCategory: true, name: "9. Confocal Laser Scanning Microscope (CLSM)", ids: ["clsm"] },
-  { isSubCategory: true, name: "Operations (Per Sample)" },
-  { name: "Confocal Imaging", academic: "1000₹", industry: "1500₹" },
-  { name: "FLIM/FCS", academic: "1000₹", industry: "3000₹" },
-  { name: "Live Cell Imaging", academic: "4000₹", industry: "10,000₹" },
-  { name: "Multiphoton Imaging", academic: "1500₹", industry: "3000₹" },
-  
-  { isCategory: true, name: "10. Other Equipments" },
-  { name: "Polarimeter", academic: "500₹", industry: "1000₹", ids: ["polarimeter"] },
-  { name: "Lyophilizer", academic: "750₹", industry: "1500₹", ids: ["lyophilizer-labconco", "lyophilizer-virtis"] },
-  { name: "Rheometer", academic: "500₹", industry: "1000₹", ids: ["rheometer"] },
-  
-  { isCategory: true, name: "11. Microwave Reactor" },
-  { name: "Per hour", academic: "200₹", industry: "1000₹" },
-  
-  { isCategory: true, name: "12. Liquid Nitrogen (LN₂)" },
-  { name: "Per Litre at a time Maximum of 400 Litre will be delivered", academic: "70₹", industry: "100₹" },
-  { isSubCategory: true, name: "For \"Liquid Nitrogen\" Transportation to be arranged by the user themselves." },
-  
-  { isCategory: true, name: "13. Millipore Test System" },
-  { isSubCategory: true, name: "Millipore Test System" },
-  { name: "Only Gravimetric Analysis or Particle count measurement", academic: "1000₹", industry: "4000₹" },
-  { name: "Both Gravimetric Analysis and Particle count measurement", academic: "1500₹", industry: "6000₹" },
-  
-  { isCategory: true, name: "14. ICP-OES Spectroscopy" },
-  { name: "Standardisation and Estimation", academic: "500₹", industry: "2000₹" },
-  { name: "Estimation for Subsequent", academic: "180₹", industry: "500₹" },
-  { name: "Sample Preparation", academic: "1200₹", industry: "4500₹" },
-  { name: "Qualitative Scan", academic: "2000₹", industry: "7000₹" },
-  
-  { isCategory: true, name: "15. Transmission Electron Microscope (TEM)", ids: ["tem-talos-f200x"] },
-  { isSubCategory: true, name: "TEM imaging/analysis charges (without GST) - Per analysis or per sample (Max duration: 1 hour)" },
-  { name: "TEM + SAED", academic: "3000₹ (Internal: 600₹)", industry: "Ind: 9000₹ / Nat Labs: 6000₹" },
-  { name: "TEM+ EDS (Spectrum)", academic: "3200₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
-  { name: "TEM + HRTEM", academic: "3500₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
-  { name: "TEM + HRTEM + EDS (spectrum)", academic: "3700₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
-  { name: "STEM (HAADF imaging)", academic: "4000₹ (Internal: 700₹)", industry: "Ind: 12000₹ / Nat Labs: 8000₹" },
-  { name: "STEM (HAADF imaging) + EDS (Spectrum)", academic: "4200₹ (Internal: 800₹)", industry: "Ind: 12600₹ / Nat Labs: 8400₹" },
-  { name: "STEM (HAADF imaging) + EDS (Mapping)", academic: "4500₹ (Internal: 800₹)", industry: "Ind: 13500₹ / Nat Labs: 9000₹" },
-  { isSubCategory: true, name: "TEM Sample Preparation charges (without GST)" },
-  { name: "Ion-Milling (PIPS) [Per Sample (Max duration: 3 hours)]", academic: "2000₹ (Internal: 600₹)", industry: "Ind: 6000₹ / Nat Labs: 4000₹" },
-  { name: "Dimple Grinder [Per Sample (Max duration: 3 hours)]", academic: "400₹ (Internal: 100₹)", industry: "Ind: 1200₹ / Nat Labs: 800₹" },
-  { name: "Low Speed Diamond Saw [Per Hour] (*Internal users should use their own diamond saw)", academic: "100₹ (Internal: 50₹*)", industry: "Ind: 400₹ / Nat Labs: 200₹" },
-  { name: "Disc Grinder [Per sample (Max duration: 3 hours)]", academic: "200₹ (Internal: 50₹)", industry: "Ind: 600₹ / Nat Labs: 400₹" },
-  { name: "Disc Punch [Up to 5 samples]", academic: "100₹ (Internal: 50₹)", industry: "Ind: 400₹ / Nat Labs: 200₹" },
-  { name: "Carbon Membrane Cu Grid [Per Grid]", academic: "500₹ (Internal: 500₹)", industry: "Ind: 500₹ / Nat Labs: 500₹" },
-  { name: "Powder TEM specimen (Non-Magnetic): Sonication + Drop cast on Cu Grid + Dry [Per Sample] (Grid price is not included)", academic: "1000₹ (Internal: 200₹)", industry: "Ind: 3000₹ / Nat Labs: 2000₹" },
-  
-  { isSubCategory: true, name: "GST extra at 18% on total cost" }
-];
-
 const SampleAnalysisCharges = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [highlightedId, setHighlightedId] = useState(null);
+
+  const chargesData = [
+    { isCategory: true, name: t('sac.nmrSpectroscopy'), ids: ["nmr-500", "nmr-400"] },
+    { isSubCategory: true, name: t('sac.rawFileFormat') },
+    { name: t('sac.protonNmr'), academic: "200₹", industry: "500₹" },
+    { name: t('sac.nuclei2dNmr'), academic: "300₹", industry: "700₹" },
+    { isSubCategory: true, name: t('sac.reportPdf') },
+    { name: t('sac.protonNmr'), academic: "500₹", industry: "800₹" },
+    { name: t('sac.nuclei2dNmr'), academic: "1000₹", industry: "1200₹" },
+    { name: t('sac.subsequentHours'), academic: "200₹", industry: "500₹" },
+    { name: t('sac.highTemp'), academic: "500₹", industry: "2000₹" },
+    { name: t('sac.lowTemp'), academic: "500₹", industry: "2000₹" },
+    { name: t('sac.structureElucidation'), academic: "2500₹", industry: "5000₹" },
+    { isSubCategory: true, name: t('sac.solventCharges') },
+    { name: t('sac.commonSolvents'), academic: "200₹", industry: "200₹" },
+    { name: t('sac.otherSolvents'), academic: "300₹", industry: "300₹" },
+    { isCategory: true, name: t('sac.chromatography') },
+    { name: t('sac.lcHrms'), academic: "1000₹", industry: "2000₹", ids: ["lc-hrms"] },
+    { name: t('sac.gcMs'), academic: "2000₹", industry: "5000₹", ids: ["gc-ms"] },
+    { name: t('sac.hplc'), academic: "1000₹", industry: "1500₹", ids: ["hplc"] },
+    { isCategory: true, name: t('sac.thermalAnalysis') },
+    { name: t('sac.tga'), academic: "1000₹", industry: "2000₹", ids: ["tga"] },
+    { name: t('sac.dsc'), academic: "3000₹", industry: "5000₹", ids: ["dsc"] },
+    { isCategory: true, name: t('sac.elementalAnalysis'), ids: ["chns-o"] },
+    { name: t('sac.chnsAnalysis'), academic: "1000₹", industry: "2000₹" },
+    { isCategory: true, name: t('sac.betSurfaceArea'), ids: ["bet"] },
+    { isSubCategory: true, name: t('sac.sorption') },
+    { name: t('sac.n2Gas'), academic: "5000₹", industry: "10,000₹" },
+    { name: t('sac.co2Gas'), academic: "8000₹", industry: "16,000₹" },
+    { isCategory: true, name: t('sac.spectroscopy') },
+    { name: t('sac.ftIr'), academic: "500₹", industry: "1000₹", ids: ["ft-ir", "ft-ir-coe"] },
+    { name: t('sac.uvVisible'), academic: "500₹", industry: "1000₹", ids: ["uv-vis"] },
+    { name: t('sac.uvVisNir'), academic: "500₹", industry: "1000₹", ids: ["uv-vis-nir"] },
+    { name: t('sac.fluorescence'), academic: "500₹", industry: "1000₹", ids: ["fluorescence"] },
+    { name: t('sac.circularDichroism'), academic: "1000₹", industry: "2000₹", ids: ["cd"] },
+    { isCategory: true, name: t('sac.afmSpm'), ids: ["afm"] },
+    { isSubCategory: true, name: t('sac.measuringModes') },
+    { name: t('sac.semiContactMode'), academic: "1000₹", industry: "2000₹" },
+    { name: t('sac.conductive'), academic: "5000₹", industry: "15000₹" },
+    { name: t('sac.mfm'), academic: "5000₹", industry: "15000₹" },
+    { name: t('sac.kelvinProbe'), academic: "5000₹", industry: "15000₹" },
+    { name: t('sac.efm'), academic: "5000₹", industry: "15000₹" },
+    { name: t('sac.stm'), academic: "5000₹", industry: "15000₹" },
+    { isCategory: true, name: t('sac.feSem'), ids: ["supra-55", "gemini-360"] },
+    { isSubCategory: true, name: t('sac.perSampleFirstHour') },
+    { name: t('sac.feSem'), academic: "1000₹", industry: "2000₹" },
+    { name: t('sac.edsEdx'), academic: "2000₹", industry: "3500₹" },
+    { name: t('sac.bseBsd'), academic: "2000₹", industry: "4000₹" },
+    { name: t('sac.astem'), academic: "2500₹", industry: "10,000₹" },
+    { isCategory: true, name: t('sac.clsm'), ids: ["clsm"] },
+    { isSubCategory: true, name: t('sac.operationsPerSample') },
+    { name: t('sac.confocalImaging'), academic: "1000₹", industry: "1500₹" },
+    { name: t('sac.flimFcs'), academic: "1000₹", industry: "3000₹" },
+    { name: t('sac.liveCellImaging'), academic: "4000₹", industry: "10,000₹" },
+    { name: t('sac.multiphotonImaging'), academic: "1500₹", industry: "3000₹" },
+    { isCategory: true, name: t('sac.otherEquipments') },
+    { name: t('sac.polarimeter'), academic: "500₹", industry: "1000₹", ids: ["polarimeter"] },
+    { name: t('sac.lyophilizer'), academic: "750₹", industry: "1500₹", ids: ["lyophilizer-labconco", "lyophilizer-virtis"] },
+    { name: t('sac.rheometer'), academic: "500₹", industry: "1000₹", ids: ["rheometer"] },
+    { isCategory: true, name: t('sac.microwaveReactor') },
+    { name: t('sac.perHour'), academic: "200₹", industry: "1000₹" },
+    { isCategory: true, name: t('sac.liquidNitrogen') },
+    { name: t('sac.perLitreMax400'), academic: "70₹", industry: "100₹" },
+    { isSubCategory: true, name: t('sac.ln2Transport') },
+    { isCategory: true, name: t('sac.milliporeTestSystem') },
+    { isSubCategory: true, name: t('sac.milliporeTestSystem') },
+    { name: t('sac.gravimetricOnly'), academic: "1000₹", industry: "4000₹" },
+    { name: t('sac.gravimetricAndParticle'), academic: "1500₹", industry: "6000₹" },
+    { isCategory: true, name: t('sac.icpOes') },
+    { name: t('sac.standardisationEstimation'), academic: "500₹", industry: "2000₹" },
+    { name: t('sac.estimationSubsequent'), academic: "180₹", industry: "500₹" },
+    { name: t('sac.samplePreparation'), academic: "1200₹", industry: "4500₹" },
+    { name: t('sac.qualitativeScan'), academic: "2000₹", industry: "7000₹" },
+    { isCategory: true, name: t('sac.tem'), ids: ["tem-talos-f200x"] },
+    { isSubCategory: true, name: t('sac.temImagingCharges') },
+    { name: t('sac.temSaed'), academic: "3000₹ (Internal: 600₹)", industry: "Ind: 9000₹ / Nat Labs: 6000₹" },
+    { name: t('sac.temEds'), academic: "3200₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
+    { name: t('sac.temHrtem'), academic: "3500₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
+    { name: t('sac.temHrtemEds'), academic: "3700₹ (Internal: 700₹)", industry: "Ind: 10500₹ / Nat Labs: 7000₹" },
+    { name: t('sac.stemHaadf'), academic: "4000₹ (Internal: 700₹)", industry: "Ind: 12000₹ / Nat Labs: 8000₹" },
+    { name: t('sac.stemHaadfEdsSpectrum'), academic: "4200₹ (Internal: 800₹)", industry: "Ind: 12600₹ / Nat Labs: 8400₹" },
+    { name: t('sac.stemHaadfEdsMapping'), academic: "4500₹ (Internal: 800₹)", industry: "Ind: 13500₹ / Nat Labs: 9000₹" },
+    { isSubCategory: true, name: t('sac.temSamplePrepCharges') },
+    { name: t('sac.ionMilling'), academic: "2000₹ (Internal: 600₹)", industry: "Ind: 6000₹ / Nat Labs: 4000₹" },
+    { name: t('sac.dimpleGrinder'), academic: "400₹ (Internal: 100₹)", industry: "Ind: 1200₹ / Nat Labs: 800₹" },
+    { name: t('sac.diamondSaw'), academic: "100₹ (Internal: 50₹*)", industry: "Ind: 400₹ / Nat Labs: 200₹" },
+    { name: t('sac.discGrinder'), academic: "200₹ (Internal: 50₹)", industry: "Ind: 600₹ / Nat Labs: 400₹" },
+    { name: t('sac.discPunch'), academic: "100₹ (Internal: 50₹)", industry: "Ind: 400₹ / Nat Labs: 200₹" },
+    { name: t('sac.carbonMembraneGrid'), academic: "500₹ (Internal: 500₹)", industry: "Ind: 500₹ / Nat Labs: 500₹" },
+    { name: t('sac.powderTemSpecimen'), academic: "1000₹ (Internal: 200₹)", industry: "Ind: 3000₹ / Nat Labs: 2000₹" },
+    { isSubCategory: true, name: t('sac.gstExtra') }
+  ];
 
   // Read ?id= query param and trigger highlight + scroll
   useEffect(() => {
@@ -202,11 +189,10 @@ const SampleAnalysisCharges = () => {
               className="text-4xl font-bold leading-tight sm:text-5xl"
               style={{ fontFamily: "Cantata one, serif" }}
             >
-              Sample Analysis Charges
+              {t('sac.title')}
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-blue-50">
-              Find instrument-wise charges, billing notes, SIC contact details,
-              and bank-transfer information for external sample analysis.
+              {t('sac.subtitle')}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -216,7 +202,7 @@ const SampleAnalysisCharges = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/50 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-slate-950"
               >
-                Book Sample Slot
+                {t('sac.bookSlot')}
                 <ExternalLink className="h-4 w-4" />
               </a>
               <a
@@ -225,14 +211,14 @@ const SampleAnalysisCharges = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/50 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-slate-950"
               >
-                Download PDF
+                {t('sac.downloadPdf')}
                 <Download className="h-4 w-4" />
               </a>
             </div>
           </div>
 
           <div className="rounded-3xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur">
-            <h2 className="mb-5 text-2xl font-bold">Quick Contact</h2>
+            <h2 className="mb-5 text-2xl font-bold">{t('sac.quickContact')}</h2>
             <div className="space-y-4 text-blue-50">
               <p className="font-semibold text-white">
                 {sampleAnalysisInfo.contact.title}
@@ -266,7 +252,7 @@ const SampleAnalysisCharges = () => {
         <div className="rounded-3xl bg-white p-5 shadow-xl sm:p-7">
           <div className="mb-6 flex flex-col gap-4">
             <h2 className="text-3xl font-bold text-slate-950 text-center sm:text-left">
-              Instrument Charges
+              {t('sac.instrumentCharges')}
             </h2>
           </div>
 
@@ -275,18 +261,18 @@ const SampleAnalysisCharges = () => {
               <thead className="bg-slate-950 text-white">
                 <tr>
                   <th rowSpan="2" className="px-5 py-4 text-center font-bold uppercase tracking-wide border border-slate-700 w-1/2 align-middle">
-                    Instruments
+                    {t('sac.instruments')}
                   </th>
                   <th colSpan="2" className="px-5 py-3 text-center font-bold uppercase tracking-wide border border-slate-700">
-                    Analysis Charges for External Users
+                    {t('sac.externalCharges')}
                   </th>
                 </tr>
                 <tr>
                   <th className="px-5 py-3 text-center text-sm font-bold uppercase tracking-wide border border-slate-700 w-1/4">
-                    Academic Institution
+                    {t('sac.academicInstitution')}
                   </th>
                   <th className="px-5 py-3 text-center text-sm font-bold uppercase tracking-wide border border-slate-700 w-1/4">
-                    Industries User/ National labs
+                    {t('sac.industryUser')}
                   </th>
                 </tr>
               </thead>
@@ -328,30 +314,28 @@ const SampleAnalysisCharges = () => {
           <div className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
             <Users className="mb-4 h-9 w-9 text-blue-700" />
             <h3 className="text-xl font-bold text-slate-900">
-              Academic Charges
+              {t('sac.academicCharges')}
             </h3>
             <p className="mt-2 text-slate-600">
-              Applicable to academic institutions when the required cover letter
-              or valid institutional ID is submitted.
+              {t('sac.academicChargesDesc')}
             </p>
           </div>
           <div className="rounded-2xl border border-orange-100 bg-white p-6 shadow-sm">
             <Building2 className="mb-4 h-9 w-9 text-orange-600" />
             <h3 className="text-xl font-bold text-slate-900">
-              Industrial / National Lab Charges
+              {t('sac.industrialCharges')}
             </h3>
             <p className="mt-2 text-slate-600">
-              Applicable to company and industry users for analysis requested
-              through SIC sample services.
+              {t('sac.industrialChargesDesc')}
             </p>
           </div>
           <div className="rounded-2xl border border-teal-100 bg-white p-6 shadow-sm">
             <Banknote className="mb-4 h-9 w-9 text-teal-700" />
             <h3 className="text-xl font-bold text-slate-900">
-              Advance Payment
+              {t('sac.advancePayment')}
             </h3>
             <p className="mt-2 text-slate-600">
-             All payments must be made in advance. All listed costs are per sample and exclusive of GST at 18%
+              {t('sac.advancePaymentDesc')}
             </p>
           </div>
         </div>
@@ -361,7 +345,7 @@ const SampleAnalysisCharges = () => {
         <div className="rounded-3xl border border-blue-100 bg-white p-7 shadow-lg">
           <h2 className="mb-5 flex items-center gap-3 text-2xl font-bold text-slate-950">
             <Info className="h-7 w-7 text-blue-700" />
-            Submission & Billing Notes
+            {t('sac.submissionBilling')}
           </h2>
 
           <ol className="space-y-3">
@@ -376,7 +360,7 @@ const SampleAnalysisCharges = () => {
           </ol>
 
           <div className="mt-7 rounded-2xl bg-blue-50 p-5">
-            <p className="font-bold text-blue-950">Bill Settlement</p>
+            <p className="font-bold text-blue-950">{t('sac.billSettlement')}</p>
             <p className="mt-2 text-slate-700">
               GSTIN: {sampleAnalysisInfo.billing.gstin}
             </p>

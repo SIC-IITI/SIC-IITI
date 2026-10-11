@@ -1,42 +1,44 @@
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 function FAQ() {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(null);
 
   const faqs = [
     {
-      q: "How do I get trained to use an instrument?",
-      a: "Submit a training request through our website or contact us directly. Our staff will schedule a session, assess prerequisites, and provide comprehensive training including safety protocols and operation procedures.",
+      q: t('faq.q1'),
+      a: t('faq.a1'),
     },
     {
-      q: "Can external users access SIC?",
-      a: "Yes! External users from academia, industry, and international centers are welcome. Access is subject to availability and applicable charges. We have flexible fee structures for students, academics, and commercial users.",
+      q: t('faq.q2'),
+      a: t('faq.a2'),
     },
     {
-      q: "Where can I find SOPs (Standard Operating Procedures)?",
-      a: "SOPs are shared during training sessions. You can request sample SOPs from the facility office via email or phone. Most instruments have detailed digital and printed documentation available.",
+      q: t('faq.q3'),
+      a: t('faq.a3'),
     },
     {
-      q: "What are the charges for using instruments?",
-      a: "Charges are tiered based on user category (internal, academic, industry) and instrument type. Contact our office for detailed pricing. We aim to keep costs transparent and affordable for all users.",
+      q: t('faq.q4'),
+      a: t('faq.a4'),
     },
     {
-      q: "How long does the booking process take?",
-      a: "Typically, bookings are confirmed within 2-3 business days, subject to equipment availability. Emergency requests may be accommodated with advance notice.",
+      q: t('faq.q5'),
+      a: t('faq.a5'),
     },
     {
-      q: "Do you provide sample analysis services?",
-      a: "Yes, our expert technical team can analyze samples using our instruments. Contact us to discuss your requirements and get a quote.",
+      q: t('faq.q6'),
+      a: t('faq.a6'),
     },
   ];
 
   return (
     <section className="space-y-8 px-4 py-12 max-w-7xl mx-auto">
       <div>
-        <h1 className="text-4xl font-bold text-blue-900 mb-4">Frequently Asked Questions</h1>
+        <h1 className="text-4xl font-bold text-blue-900 mb-4">{t('faq.title')}</h1>
         <p className="text-gray-600 leading-relaxed text-lg">
-          Find answers to common questions about our facility, instruments, and booking process.
+          {t('faq.subtitle')}
         </p>
       </div>
 
@@ -62,10 +64,10 @@ function FAQ() {
       </div>
 
       <div className="rounded-lg bg-blue-600 text-white p-8 text-center">
-        <h2 className="text-2xl font-bold mb-3">Didn't find your answer?</h2>
-        <p className="mb-6">Contact our team directly. We're here to help!</p>
+        <h2 className="text-2xl font-bold mb-3">{t('faq.ctaTitle')}</h2>
+        <p className="mb-6">{t('faq.ctaSubtitle')}</p>
         <button className="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50">
-          Contact Us
+          {t('faq.ctaButton')}
         </button>
       </div>
     </section>

@@ -7,8 +7,10 @@ import CountUp from 'react-countup';
 import Calendar from 'react-calendar';
 import '../components/CustomCalendar.css';
 import { fetchEvents, fetchOutreach } from '../lib/api';
+import { useTranslation } from "react-i18next"
 
 export default function Home() {
+  const { t } = useTranslation();
   const [eventsIndex, setEventsIndex] = useState(0)
   const [eventsItems, setEventsItems] = useState([])
   const [eventsLoading, setEventsLoading] = useState(true)
@@ -100,7 +102,7 @@ export default function Home() {
     { src: "/assets/instruments/Chromatography/HPLC-RP/chro_hp.png", id: "hplc-rp" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer Labconco.jpg", id: "lyophilizer-labconco" },
     { src: "/assets/instruments/Lyophilizer/Lyophilizer VirTis.jpg", id: "lyophilizer-virtis" },
- { src: "/assets/instruments/Microscopy/TEM/TEM-1.jpg", id: "tem" },
+    { src: "/assets/instruments/Microscopy/TEM/TEM-1.jpg", id: "tem" },
   ]
 
   useEffect(() => {
@@ -155,25 +157,25 @@ export default function Home() {
   }
 
   const handleTouchStart = (e) => {
-  setTouchEnd(null); // reset
-  setTouchStart(e.targetTouches[0].clientX);
-};
+    setTouchEnd(null); // reset
+    setTouchStart(e.targetTouches[0].clientX);
+  };
 
-const handleTouchMove = (e) => {
-  setTouchEnd(e.targetTouches[0].clientX);
-};
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
-const handleTouchEnd = () => {
-  if (!touchStart || !touchEnd) return;
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
 
-  const distance = touchStart - touchEnd;
+    const distance = touchStart - touchEnd;
 
-  if (distance > minSwipeDistance) {
-    nextHeroImage(); // swipe left
-  } else if (distance < -minSwipeDistance) {
-    prevHeroImage(); // swipe right
-  }
-};
+    if (distance > minSwipeDistance) {
+      nextHeroImage(); // swipe left
+    } else if (distance < -minSwipeDistance) {
+      prevHeroImage(); // swipe right
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white home-page-wrapper">
@@ -217,25 +219,22 @@ const handleTouchEnd = () => {
           <div className="relative z-20 container mx-auto px-6 sm:px-8 lg:px-12 xl:px-28 h-full flex items-center">
             <div className="max-w-3xl animate-on-scroll">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow">
-                Welcome To
+                {t('home.heroWelcome')}
                 <br />
-                Sophisticated
-                <br />
-                Instrumentation Centre
+                {t('home.heroTitle')}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-2xl drop-shadow">
-                Empowering minds, fostering innovation, and shaping the future through world-class education and
-                groundbreaking research.
+                {t('home.heroTagline')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/instruments">
                   <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                    Explore
+                    {t('home.heroExplore')}
                   </button>
                 </Link>
                 <a href="https://sicbooking.iiti.ac.in/">
                   <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors">
-                    Book
+                    {t('home.heroBook')}
                   </button>
                 </a>
               </div>
@@ -320,18 +319,18 @@ const handleTouchEnd = () => {
           <div className="text-center mb-12 md:mb-16 animate-on-scroll">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 sm:w-24 bg-gray-300" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">About</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t('home.aboutTitle')}</h2>
               <div className="h-px w-20 sm:w-24 bg-gray-300" />
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
             <div className="space-y-5 animate-on-scroll">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Sophisticated Instrumentation Centre</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('home.aboutHeading')}</h3>
               <p className="text-base text-gray-700 leading-relaxed mb-4">
-                The Sophisticated Instrumentation Centre (SIC) – A National Facility was established in September 2011 to expedite the research program at IIT Indore. It is now a national facility providing services such as data recording facilities and expertise in different state-of-the-art instruments to academia and industry from all parts of the country and some international centers.
+                {t('home.aboutP1')}
               </p>
               <p className="text-base text-gray-700 leading-relaxed">
-                Furthermore, it is catering to the needs of many educational institutes and industries in and around central India and satisfying the need of scientific world, academia and industries with equal importance and emphasis. It is also engaged in spreading awareness among researchers, academia and industries for the probable use of the facility among diverse users to make the facility a part of our mutual co-existence to enhance quality of researches and products in industries.
+                {t('home.aboutP2')}
               </p>
             </div>
             <div className="flex justify-center lg:justify-end animate-on-scroll stagger-2">
@@ -354,12 +353,12 @@ const handleTouchEnd = () => {
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 bg-gray-300" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                Message from Professor In-charge
+                {t('home.messageTitle')}
               </h2>
               <div className="h-px w-20 bg-gray-300" />
             </div>
             <p className="text-sm text-gray-500">
-               Sophisticated Instrumentation Centre – A National Facility
+              {t('home.messageSubtitle')}
             </p>
           </div>
 
@@ -377,10 +376,10 @@ const handleTouchEnd = () => {
                 />
 
                 <h3 className="font-semibold text-gray-900">
-                  Prof. Krushna R. Mavani
+                  {t('home.messageName')}
                 </h3>
                 <p className="text-sm text-gray-500">
-                  Professor In-charge, SIC
+                  {t('home.messagePosition')}
                 </p>
               </div>
 
@@ -390,11 +389,11 @@ const handleTouchEnd = () => {
                 {/* Quote icon */}
 
                 <p>
-                  The Sophisticated Instrumentation Centre (SIC) at IIT Indore, Simrol campus, is equipped with state-of-the-art, high-end instruments facilities that enable researchers to explore advanced instruments in all disciplines. The facility houses well-established facilities including chromatography, microscopy, spectroscopy, X-ray characterization, thermal analysis, optical and physical property characterization.
+                  {t('home.messageP1')}
                 </p>
 
                 <p>
-                  These advanced facilities are extensively used by undergraduate and postgraduate students, research scholars, and faculty members to support cutting-edge research. In addition, the Centre extends its services to external users such as industries, national laboratories, research organizations, and academic institutions on payment basis.
+                  {t('home.messageP2')}
                 </p>
 
               </div>
@@ -407,17 +406,17 @@ const handleTouchEnd = () => {
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12 animate-on-scroll">
-           Events
+            {t('home.eventsTitle')}
           </h2>
           <div className="relative max-w-4xl mx-auto">
             {eventsLoading && (
-              <p className="text-center text-gray-500 py-8">Loading Events…</p>
+              <p className="text-center text-gray-500 py-8">{t('home.eventsLoading')}</p>
             )}
             {!eventsLoading && eventsError && (
-              <p className="text-center text-gray-500 py-8">Unable to load events right now.</p>
+              <p className="text-center text-gray-500 py-8">{t('home.eventsError')}</p>
             )}
             {!eventsLoading && !eventsError && eventsItems.length === 0 && (
-              <p className="text-center text-gray-500 py-8">No events at the moment.</p>
+              <p className="text-center text-gray-500 py-8">{t('home.eventsEmpty')}</p>
             )}
             {!eventsLoading && !eventsError && eventsItems.length > 0 && (() => {
               const item = eventsItems[eventsIndex % eventsItems.length]
@@ -454,7 +453,7 @@ const handleTouchEnd = () => {
                         className="text-sm text-blue-600 hover:underline font-medium"
                         aria-label={`Read more about ${item.title}`}
                       >
-                        Read more
+                        {t('home.eventsReadMore')}
                       </Link>
                     </div>
                   </div>
@@ -487,7 +486,7 @@ const handleTouchEnd = () => {
             )}
             <div className="flex justify-center mt-6 sm:mt-8 animate-on-scroll">
               <Link to="/events" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
-                View More
+                {t('home.eventsViewMore')}
               </Link>
             </div>
           </div>
@@ -498,17 +497,17 @@ const handleTouchEnd = () => {
       <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-gray-50">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12 animate-on-scroll">
-           Outreach
+            {t('home.outreachTitle')}
           </h2>
           <div className="relative max-w-4xl mx-auto">
             {outreachLoading && (
-              <p className="text-center text-gray-500 py-8">Loading Outreach Activities…</p>
+              <p className="text-center text-gray-500 py-8">{t('home.outreachLoading')}</p>
             )}
             {!outreachLoading && outreachError && (
-              <p className="text-center text-gray-500 py-8">Unable to load outreach activities right now.</p>
+              <p className="text-center text-gray-500 py-8">{t('home.outreachError')}</p>
             )}
             {!outreachLoading && !outreachError && outreachItems.length === 0 && (
-              <p className="text-center text-gray-500 py-8">No outreach activities at the moment.</p>
+              <p className="text-center text-gray-500 py-8">{t('home.outreachEmpty')}</p>
             )}
             {!outreachLoading && !outreachError && outreachItems.length > 0 && (() => {
               const item = outreachItems[outreachIndex % outreachItems.length]
@@ -545,7 +544,7 @@ const handleTouchEnd = () => {
                         className="text-sm text-blue-600 hover:underline font-medium"
                         aria-label={`Read more about ${item.title}`}
                       >
-                        Read more
+                        {t('home.outreachReadMore')}
                       </Link>
                     </div>
                   </div>
@@ -578,7 +577,7 @@ const handleTouchEnd = () => {
             )}
             <div className="flex justify-center mt-6 sm:mt-8 animate-on-scroll">
               <Link to="/outreach" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors inline-block">
-                View More
+                {t('home.outreachViewMore')}
               </Link>
             </div>
           </div>
@@ -589,7 +588,7 @@ const handleTouchEnd = () => {
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 animate-on-scroll">
-            Our Impact at a Glance
+            {t('home.impactTitle')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div className="text-center animate-on-scroll stagger-1">
@@ -599,7 +598,7 @@ const handleTouchEnd = () => {
               <div className="text-4xl font-bold text-gray-900 mb-2">
                 <CountUp end={1500} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
-              <div className="text-gray-600">Students Users</div>
+              <div className="text-gray-600">{t('home.impactStudents')}</div>
             </div>
 
             <div className="text-center animate-on-scroll stagger-2">
@@ -609,7 +608,7 @@ const handleTouchEnd = () => {
               <div className="text-4xl font-bold text-gray-900 mb-2">
                 <CountUp end={7} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
-              <div className="text-gray-600">Total departments</div>
+              <div className="text-gray-600">{t('home.impactDepartments')}</div>
             </div>
 
             <div className="text-center animate-on-scroll stagger-3">
@@ -619,7 +618,7 @@ const handleTouchEnd = () => {
               <div className="text-4xl font-bold text-gray-900 mb-2">
                 <CountUp end={200} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
-              <div className="text-gray-600">Faculty Users</div>
+              <div className="text-gray-600">{t('home.impactFaculty')}</div>
             </div>
 
             <div className="text-center animate-on-scroll stagger-4">
@@ -629,7 +628,7 @@ const handleTouchEnd = () => {
               <div className="text-4xl font-bold text-gray-900 mb-2">
                 <CountUp end={14} duration={1} enableScrollSpy scrollSpyOnce />+
               </div>
-              <div className="text-gray-600">Year of Excellence</div>
+              <div className="text-gray-600">{t('home.impactYears')}</div>
             </div>
           </div>
         </div>
@@ -641,19 +640,17 @@ const handleTouchEnd = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="animate-on-scroll">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Book Your
-                <br />
-                Instrument
+                {t('home.bookTitle')}
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Easily reserve advanced research instruments for your experiments.
+                {t('home.bookSubtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://sicbooking.iiti.ac.in/" className="px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent rounded-md font-medium transition-colors inline-block text-center">
-                  Book
+                  {t('home.bookBook')}
                 </a>
                 <Link to="/instruments" className="px-6 py-3 border-2 border-gray-900 text-gray-900 hover:bg-gray-100 rounded-md font-medium transition-colors inline-block text-center">
-                  Explore Instruments
+                  {t('home.bookExplore')}
                 </Link>
               </div>
             </div>
@@ -676,11 +673,11 @@ const handleTouchEnd = () => {
           <div className="text-center mb-12 md:mb-16 animate-on-scroll">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="h-px w-20 sm:w-24 bg-gray-300" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">SIC Virtual Tour</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t('home.tourTitle')}</h2>
               <div className="h-px w-20 sm:w-24 bg-gray-300" />
             </div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-              Take a virtual walk through our state-of-the-art facilities and explore the advanced instrumentation available for research and innovation.
+              {t('home.tourSubtitle')}
             </p>
           </div>
           <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl animate-on-scroll stagger-2">
@@ -688,7 +685,7 @@ const handleTouchEnd = () => {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube.com/embed/IDo-YS_Bq-w?si=Slpj7ejr45PwZDk1"
-                title="SIC Virtual Tour"
+                title={t('home.tourTitle')}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"

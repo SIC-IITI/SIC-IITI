@@ -1,18 +1,19 @@
 import React from "react";
 import { sampleAnalysisInfo } from "../data/instrumentsData";
+import { useTranslation } from "react-i18next";
 
 const BookingPage = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-4">
-            Facility Booking
+            {t('booking.heroTitle')}
           </h1>
           <p className="text-lg sm:text-xl text-blue-100 leading-relaxed">
-            Select your user category to proceed with booking. Each instrument
-            requires a separate request submission.
+            {t('booking.heroSubtitle')}
           </p>
         </div>
       </section>
@@ -25,11 +26,10 @@ const BookingPage = () => {
             {/* Internal Users */}
             <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-10 border border-gray-100 flex flex-col">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                Internal Users
+                {t('booking.internalTitle')}
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8 flex-grow">
-                For IIT Indore students, faculty, and staff. Use your official
-                institute credentials to access the internal booking system.
+                {t('booking.internalDesc')}
               </p>
               <a
                 href="https://sicbooking.iiti.ac.in"
@@ -37,27 +37,25 @@ const BookingPage = () => {
                 rel="noopener noreferrer"
                 className="w-full text-center py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
               >
-                Access SIC Portal
+                {t('booking.internalButton')}
               </a>
             </div>
 
             {/* External Users */}
             <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-10 border border-gray-100 flex flex-col">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                External Users
+                {t('booking.externalTitle')}
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8 flex-grow">
-                For users from external institutions, industries, and research
-                organizations. All bookings are processed through the national
-                iSTEM portal.
+                {t('booking.externalDesc')}
               </p>
               <a
                 href="https://www.istem.gov.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-               className="w-full text-center py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+                className="w-full text-center py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
               >
-                Go to iSTEM Portal
+                {t('booking.externalButton')}
               </a>
             </div>
 
@@ -67,9 +65,9 @@ const BookingPage = () => {
           <div className="mt-12 bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
             <p className="text-gray-700 text-lg leading-relaxed">
               <span className="font-semibold text-gray-900">
-                Note for External Users:
+                {t('booking.noteTitle')}
               </span>{" "}
-              Register on the I-STEM portal to access IIT Indore facilities.
+              {t('booking.noteText')}
             </p>
             <a
               href="https://www.istem.gov.in/"
@@ -80,11 +78,11 @@ const BookingPage = () => {
             </a>
             <p className="text-gray-700 text-lg leading-relaxed">
 
-              For any query related to I-STEM reg, contact 18004253281 (customer care).
+              {t('booking.noteQuery')}
 
             </p>
             <p className="text-gray-700 text-lg leading-relaxed">
-               YouTube Video:{" "}
+               {t('booking.noteYoutube')}{" "}
               <a
                 href="https://www.youtube.com/@ISTEMIndia/videos"
                 target="_blank"
@@ -104,13 +102,13 @@ const BookingPage = () => {
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-1 w-12 bg-blue-600 rounded-full"></div>
-                <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">Payment Information</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-blue-600">{t('booking.paymentLabel')}</h2>
               </div>
               <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Bank Account Details
+                {t('booking.bankDetailsTitle')}
               </h3>
               <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
-                For all SIC facility bookings and services, use the following bank account details. Please send the payment receipt along with your submission documents.
+                {t('booking.bankDetailsDesc')}
               </p>
             </div>
 
@@ -153,9 +151,9 @@ const BookingPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-2">Important Note</h4>
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{t('booking.importantNoteTitle')}</h4>
                   <p className="text-gray-700 leading-relaxed">
-                    Always retain the payment receipt and transaction reference number. Include these with your facility booking submission for verification and record-keeping purposes.
+                  {t('booking.importantNoteText')}
                   </p>
                 </div>
               </div>

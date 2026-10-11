@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { fetchOutreach } from "../lib/api"
+import { useTranslation } from "react-i18next"
 
 function Outreach() {
+  const { t } = useTranslation()
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [visitors, setVisitors] = useState([])
   const [loading, setLoading] = useState(true)
@@ -48,8 +50,8 @@ function Outreach() {
       {/* Header */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-4">Outreach</h1>
-          
+          <h1 className="text-5xl font-bold mb-4">{t('outreach.title')}</h1>
+
         </div>
       </section>
 
@@ -118,16 +120,16 @@ function Outreach() {
       <section className="py-10 sm:py-14 bg-gray-50">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
 
-         
+
 
           {loading && (
-            <p className="text-center text-gray-500 py-8">Loading outreach activities…</p>
+            <p className="text-center text-gray-500 py-8">{t('outreach.loading')}</p>
           )}
           {!loading && error && (
-            <p className="text-center text-gray-500 py-8">Unable to load outreach activities right now.</p>
+            <p className="text-center text-gray-500 py-8">{t('outreach.error')}</p>
           )}
           {!loading && !error && visitors.length === 0 && (
-            <p className="text-center text-gray-500 py-8">No outreach activities posted yet.</p>
+            <p className="text-center text-gray-500 py-8">{t('outreach.empty')}</p>
           )}
 
           <div className="max-w-6xl mx-auto space-y-6">

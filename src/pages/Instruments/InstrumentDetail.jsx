@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Mail, Beaker, Calendar, FileText, Phone, CheckCircle, Wrench, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import { sampleAnalysisInfo } from "../../data/instrumentsData";
 import { fetchInstrumentById } from "../../lib/api";
 
@@ -12,7 +14,7 @@ import {
 const getInstrumentStatusDetails = (statusString) => {
   if (statusString === "Not Working") {
     return {
-      label: "Not Working",
+      label: i18next.t('detail.notWorking'),
       color: "text-red-700",
       bg: "bg-red-100",
       border: "border-red-200",
@@ -21,7 +23,7 @@ const getInstrumentStatusDetails = (statusString) => {
   }
   if (statusString === "Under Maintenance") {
     return {
-      label: "Under Maintenance",
+      label: i18next.t('detail.underMaintenance'),
       color: "text-orange-700",
       bg: "bg-orange-100",
       border: "border-orange-200",
@@ -29,7 +31,7 @@ const getInstrumentStatusDetails = (statusString) => {
     };
   }
   return {
-    label: "Operational",
+    label: i18next.t('detail.operational'),
     color: "text-green-700",
     bg: "bg-green-100",
     border: "border-green-200",
@@ -38,6 +40,7 @@ const getInstrumentStatusDetails = (statusString) => {
 };
 
 const InstrumentDetail = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -56,7 +59,6 @@ const InstrumentDetail = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
-  // Scroll to top when the component mounts or the id changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -130,7 +132,7 @@ const InstrumentDetail = () => {
   if (loadingInstrument) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <p className="text-gray-500 text-lg">Loading instrument…</p>
+        <p className="text-gray-500 text-lg">{t('detail.loading')}</p>
       </div>
     );
   }
@@ -143,16 +145,16 @@ const InstrumentDetail = () => {
             <Beaker className="w-24 h-24 text-gray-400 mx-auto mb-4" />
           </div>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Instrument Not Found
+            {t('detail.notFound')}
           </h2>
           <p className="text-gray-600 mb-6">
-            The instrument you're looking for doesn't exist.
+            {t('detail.notFoundDesc')}
           </p>
           <button
             onClick={() => navigate("/instruments")}
             className="px-8 py-3 bg-teal-400 hover:bg-teal-500 text-white font-bold rounded-md transition-colors shadow-lg"
           >
-            Back to Instruments
+            {t('detail.backToInstruments')}
           </button>
         </div>
       </div>
@@ -256,7 +258,7 @@ const InstrumentDetail = () => {
               </>
             ) : (
               <div className="flex items-center justify-center h-full">
-                <p className="text-gray-400">Loading images...</p>
+                <p className="text-gray-400">{t('detail.loadingImages')}</p>
               </div>
             )}
           </div>
@@ -268,14 +270,14 @@ const InstrumentDetail = () => {
             className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
           >
             <Calendar className="w-4 h-4" />
-            Book Now
+            {t('detail.bookNow')}
           </button>
           <button
             onClick={() => navigate(`/sample-analysis-charges?id=${instrument.id}`)}
             className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
           >
             <FileText className="w-4 h-4" />
-            View Charges
+            {t('detail.viewCharges')}
           </button>
           {instrument.form && (
             <button
@@ -288,7 +290,7 @@ const InstrumentDetail = () => {
               className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
             >
               <FileText className="w-4 h-4" />
-              Download Form
+              {t('detail.downloadForm')}
             </button>
           )}
           <button
@@ -296,7 +298,7 @@ const InstrumentDetail = () => {
             className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
           >
             <FileText className="w-4 h-4" />
-            View All Forms
+            {t('detail.viewAllForms')}
           </button>
           <button
             onClick={() => {
@@ -308,7 +310,7 @@ const InstrumentDetail = () => {
             className="flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-gray-200 hover:border-teal-500 hover:text-teal-600 text-gray-700 font-bold rounded-lg transition-all active:scale-95"
           >
             <FileText className="w-4 h-4" />
-            Sample Requirement
+            {t('detail.sampleRequirement')}
           </button>
         </div>
 
@@ -319,7 +321,7 @@ const InstrumentDetail = () => {
               className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
               style={{ fontFamily: "Cantata one" }}
             >
-              Instrument Overview
+              {t('detail.overview')}
             </h2>
             <div className="text-gray-700 text-base sm:text-lg leading-relaxed whitespace-pre-line">
               {instrument.description}
@@ -334,14 +336,14 @@ const InstrumentDetail = () => {
               className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
               style={{ fontFamily: "Cantata one" }}
             >
-              Technical Specifications
+              {t('detail.specifications')}
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full max-w-2xl border-collapse border border-gray-200 text-left">
                 <thead>
                   <tr className="bg-gray-100">
-                    <th className="border border-gray-200 px-4 py-3 text-sm sm:text-base font-semibold text-gray-800">Parameter</th>
-                    <th className="border border-gray-200 px-4 py-3 text-sm sm:text-base font-semibold text-gray-800">Specification</th>
+                    <th className="border border-gray-200 px-4 py-3 text-sm sm:text-base font-semibold text-gray-800">{t('detail.parameter')}</th>
+                    <th className="border border-gray-200 px-4 py-3 text-sm sm:text-base font-semibold text-gray-800">{t('detail.spec')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -364,7 +366,7 @@ const InstrumentDetail = () => {
               className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
               style={{ fontFamily: "Cantata one" }}
             >
-              {instrument.description ? "Key Features" : "About the Instrument"}
+              {instrument.description ? t('detail.keyFeatures') : t('detail.aboutInstrument')}
             </h2>
 
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
@@ -387,7 +389,7 @@ const InstrumentDetail = () => {
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
               style={{ fontFamily: "Cantata one" }}
             >
-              Applications
+              {t('detail.applications')}
             </h2>
             <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-gray-700">
               {instrument.applications.map((app, index) => (
@@ -409,10 +411,10 @@ const InstrumentDetail = () => {
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
               style={{ fontFamily: "Cantata one" }}
             >
-              Comprehensive Sample Preparation Suite
+              {t('detail.samplePrepSuite')}
             </h2>
             <p className="text-gray-600 text-base sm:text-lg mb-6">
-              Accurate TEM results begin with high-quality sample preparation. SIC's facility includes an extensive array of preparation tools, enabling researchers to produce electron-transparent specimens tailored to their research needs.
+              {t('detail.samplePrepDesc')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {instrument.samplePreparation.map((tool, index) => (
@@ -440,31 +442,31 @@ const InstrumentDetail = () => {
                 className="text-3xl font-bold text-center mb-10"
                 style={{ fontFamily: "Cantata one, serif" }}
               >
-                How to Contact
+                {t('detail.howToContact')}
               </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
                 {/* Physical Location */}
                 <div className="bg-[#ececec] p-6 flex flex-col justify-start">
-                  <h3 className="text-2xl font-bold mb-3">Physical Location</h3>
+                  <h3 className="text-2xl font-bold mb-3">{t('detail.physicalLocation')}</h3>
                   <div className="text-[#111827] ">
                     {instrument.location}
-                    {!instrument.hideSicBuildingLabel && <p>SIC Building</p>}
-                    <p>Indian Institute of Technology Indore</p>
-                    <p>Khandwa Road, Simrol, Indore – 453552</p>
+                    {!instrument.hideSicBuildingLabel && <p>{t('detail.sicBuilding')}</p>}
+                    <p>{t('detail.iitiAddress')}</p>
+                    <p>{t('detail.iitiAddressLine2')}</p>
                   </div>
                 </div>
 
                 {/* Coordinator */}
                 <div className="bg-[#ececec] p-6 flex flex-col justify-between">
-                  <h3 className="text-2xl font-bold mb-3">Facility Manager</h3>
+                  <h3 className="text-2xl font-bold mb-3">{t('detail.facilityManager')}</h3>
                   {instrument.handledBy ? (
                     <div className="space-y-1">
                       <p className="font-medium">{instrument.handledBy}</p>
                       <p>
                         {instrument.position ? instrument.position : "Technical Superintendent, SIC"}
                       </p>
-                      <p>Indian Institute of Technology Indore</p>
+                      <p>{t('detail.iitiAddress')}</p>
 
                       <div className="flex items-center gap-2">
                         <Mail className="w-4 h-4" />
@@ -477,11 +479,11 @@ const InstrumentDetail = () => {
                       </div>
                     </div>
                   ) : (
-                    <p className="text-gray-500 italic">To be announced</p>
+                    <p className="text-gray-500 italic">{t('detail.toBeAnnounced')}</p>
                   )}
                 </div>
-              </div>
 
+              </div>
             </div>
           </section>
         </div>

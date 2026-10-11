@@ -1,39 +1,42 @@
 import React from 'react';
+import { useTranslation } from "react-i18next"
 
 export default function ContactPage() {
+  const { t } = useTranslation();
+
   const contacts = [
     {
-      title: "Professor In-charge, SIC",
+      title: t('contact.titleProfessor'),
       head: "Prof. Krushna R. Mavani",
       email: "head-sic@iiti.ac.in",
     },
     {
-      title: "Technical Superintendent",
+      title: t('contact.titleTechnicalSuperintendent'),
       head: "Ghanashyam Bhavsar",
       email: "ghanashyam@iiti.ac.in",
     },
     {
-      title: "Technical Superintendent",
+      title: t('contact.titleTechnicalSuperintendent'),
       head: "Kinny Pandey",
       email: "kinny@iiti.ac.in",
     },
     {
-      title: "Junior Technical Superintendent",
+      title: t('contact.titleJuniorTechnicalSuperintendent'),
       head: "Ravinder Kumar",
       email: "ravinderk@iiti.ac.in",
     },
     {
-      title: "Junior Technical Assistant",
+      title: t('contact.titleJuniorTechnicalAssistant'),
       head: "Atul Singh",
       email: "atul.singh@iiti.ac.in",
     },
     {
-      title: "Junior Technical Assistant",
+      title: t('contact.titleJuniorTechnicalAssistant'),
       head: "Sagar Patail",
       email: "sagarpatail@iiti.ac.in",
     },
     {
-      title: "Administrative Support",
+      title: t('contact.titleAdministrativeSupport'),
       head: "Ranjeet Raghuvanshi",
       email: "managersic@iiti.ac.in",
     },
@@ -48,12 +51,12 @@ export default function ContactPage() {
 
           {/* Subheading */}
           <p className="text-sm uppercase tracking-widest text-gray-400 mb-3">
-            Sophisticated Instrumentation Centre
+            {t('contact.subtitle')}
           </p>
 
           {/* Title */}
           <h1 className="text-4xl font-semibold text-gray-900 mb-6 leading-tight">
-            Our Team
+            {t('contact.title')}
           </h1>
 
           {/* Accent Line */}
@@ -62,7 +65,7 @@ export default function ContactPage() {
           {/* General Contact */}
           <div className="mb-8 space-y-1">
             <p className="text-sm text-gray-500">
-              For any query, please send us an email at{" "}
+              {t('contact.generalEmail')}{" "}
               <a
                 href="mailto:sic@iiti.ac.in"
                 className="text-blue-600 hover:underline"
@@ -71,7 +74,7 @@ export default function ContactPage() {
               </a>
             </p>
             <p className="text-sm text-gray-500">
-              Phone No:{" "}
+              {t('contact.phoneLabel')}{" "}
               <a href="tel:+917316603311" className="text-blue-600 hover:underline">
                 0731-660-3311
               </a>

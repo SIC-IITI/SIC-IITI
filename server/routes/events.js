@@ -5,27 +5,40 @@ import { uploadEventImage, toPublicPath, deleteUploadedFile } from "../uploads.j
 
 const router = express.Router();
 
-function toApiShape(row) {
+function getLang(req) {
+  return req.query.lang === "hi" ? "hi" : "en";
+}
+
+function pick(row, field, lang) {
+  if (lang === "hi" && row[`${field}_hi`] != null && row[`${field}_hi`] !== "") {
+    return row[`${field}_hi`];
+  }
+  return row[field];
+}
+
+function toApiShape(row, lang = "en") {
   return {
     id: row.id,
     date: row.date_label,
-    title: row.title,
+    title: pick(row, "title", lang),
     image: row.image || "",
-    fullDescription: row.full_description || "",
-    venue: row.venue || "",
+    fullDescription: pick(row, "full_description", lang),
+    venue: pick(row, "venue", lang),
     updatedAt: row.updated_at,
   };
 }
 
 router.get("/", async (req, res) => {
+  const lang = getLang(req);
   const [rows] = await pool.query("SELECT * FROM events ORDER BY sort_order, id DESC");
-  res.json(rows.map(toApiShape));
+  res.json(rows.map((r) => toApiShape(r, lang)));
 });
 
 router.get("/:id", async (req, res) => {
+  const lang = getLang(req);
   const [rows] = await pool.query("SELECT * FROM events WHERE id = ?", [req.params.id]);
   if (rows.length === 0) return res.status(404).json({ error: "Event not found" });
-  res.json(toApiShape(rows[0]));
+  res.json(toApiShape(rows[0], lang));
 });
 
 router.post("/", requireAdmin, uploadEventImage.single("imageFile"), async (req, res) => {
@@ -37,9 +50,9 @@ router.post("/", requireAdmin, uploadEventImage.single("imageFile"), async (req,
   const image = req.file ? toPublicPath("events", req.file.filename) : b.image || "";
 
   const [result] = await pool.query(
-    `INSERT INTO events (date_label, title, image, full_description, venue)
-     VALUES (?,?,?,?,?)`,
-    [b.date, b.title, image, b.fullDescription || "", b.venue || ""]
+    `INSERT INTO events (date_label, title, title_hi, image, full_description, full_description_hi, venue, venue_hi)
+     VALUES (?,?,?,?,?,?,?,?)`,
+    [b.date, b.title, b.titleHi || null, image, b.fullDescription || "", b.fullDescriptionHi || null, b.venue || "", b.venueHi || null]
   );
 
   const [rows] = await pool.query("SELECT * FROM events WHERE id = ?", [result.insertId]);
@@ -59,13 +72,16 @@ router.put("/:id", requireAdmin, uploadEventImage.single("imageFile"), async (re
   }
 
   await pool.query(
-    `UPDATE events SET date_label=?, title=?, image=?, full_description=?, venue=? WHERE id=?`,
+    `UPDATE events SET date_label=?, title=?, title_hi=?, image=?, full_description=?, full_description_hi=?, venue=?, venue_hi=? WHERE id=?`,
     [
       b.date ?? current.date_label,
       b.title ?? current.title,
+      b.titleHi !== undefined ? b.titleHi : current.title_hi,
       image,
       b.fullDescription ?? current.full_description,
+      b.fullDescriptionHi !== undefined ? b.fullDescriptionHi : current.full_description_hi,
       b.venue ?? current.venue,
+      b.venueHi !== undefined ? b.venueHi : current.venue_hi,
       req.params.id,
     ]
   );

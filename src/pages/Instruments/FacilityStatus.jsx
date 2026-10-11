@@ -1,51 +1,53 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle, Wrench, AlertTriangle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { categoryDescriptions } from "../../data/instrumentsData";
 import { useInstrumentsData } from "../../hooks/useInstrumentsData";
 
 export default function FacilityStatus() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { instruments: instrumentsData, loading } = useInstrumentsData();
 
   const getInstrumentStatusDetails = (statusString) => {
     if (statusString === "Not Working") {
       return {
-        label: "Not Working",
+        label: t('status.notWorking'),
         color: "text-red-700",
         bg: "bg-red-100",
         border: "border-red-200",
         icon: AlertTriangle,
-        message: "Currently out of order. Awaiting spare parts.",
+        message: t('status.notWorkingMsg'),
       };
     }
     if (statusString === "Partially Working") {
       return {
-        label: "Partially Working",
+        label: t('status.partiallyWorking'),
         color: "text-amber-700",
         bg: "bg-amber-100",
         border: "border-amber-200",
         icon: AlertTriangle,
-        message: "Instrument is partially operational with limited functionality.",
+        message: t('status.partiallyWorkingMsg'),
       };
     }
     if (statusString === "Under Maintenance") {
       return {
-        label: "Under Maintenance",
+        label: t('status.underMaintenance'),
         color: "text-orange-700",
         bg: "bg-orange-100",
         border: "border-orange-200",
         icon: Wrench,
-        message: "Scheduled maintenance in progress.",
+        message: t('status.underMaintenanceMsg'),
       };
     }
     return {
-      label: "Operational",
+      label: t('status.operational'),
       color: "text-green-700",
       bg: "bg-green-100",
       border: "border-green-200",
       icon: CheckCircle,
-      message: "Instrument is working perfectly.",
+      message: t('status.operationalMsg'),
     };
   };
 
@@ -74,10 +76,10 @@ export default function FacilityStatus() {
             className="text-4xl sm:text-5xl font-bold mb-4"
             style={{ fontFamily: "Cantata one" }}
           >
-            Facility Status
+            {t('status.title')}
           </h1>
           <p className="text-lg text-blue-100 max-w-2xl">
-            Check the real-time operational status of all instruments.
+            {t('status.subtitle')}
           </p>
         </div>
       </section>
@@ -85,7 +87,7 @@ export default function FacilityStatus() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 max-w-7xl">
           {loading && (
-            <p className="text-center text-gray-500 py-12">Loading facility status…</p>
+            <p className="text-center text-gray-500 py-12">{t('status.loading')}</p>
           )}
           {Object.entries(groupedInstruments).map(
             ([category, instruments]) => (
@@ -147,7 +149,7 @@ export default function FacilityStatus() {
                           </p>
 
                           <button className="text-sm text-blue-600 hover:underline">
-                            View Details
+                            {t('status.viewDetails')}
                           </button>
                         </div>
                       </div>

@@ -67,21 +67,15 @@
   }
 }
 
-.goog-te-banner-frame.skiptranslate {
-  display: none !important;
+/* Hindi / Devanagari support (applies when <html lang="hi"> or any lang="hi" element) */
+html[lang="hi"] body,
+[lang="hi"] {
+  font-family: "Noto Sans Devanagari", system-ui, sans-serif;
 }
-body {
-  top: 0 !important;
-  position: static !important;
+html[lang="hi"] body {
+  line-height: 1.7;
+  overflow-wrap: break-word;
 }
-.goog-te-gadget-icon {
-  display: none !important;
-}
-.goog-text-highlight {
-  background: none !important;
-  box-shadow: none !important;
-}
-.goog-tooltip,
-.goog-tooltip:hover {
-  display: none !important;
-}
+html[lang="hi"] .leading-none { line-height: 1.3; }
+html[lang="hi"] .leading-tight { line-height: 1.45; }
+html[lang="hi"] .leading-snug { line-height: 1.55; }

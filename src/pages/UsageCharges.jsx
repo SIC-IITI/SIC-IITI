@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useInstrumentsData } from "../hooks/useInstrumentsData";
 import {
   Search,
@@ -11,6 +12,7 @@ import {
 } from "lucide-react";
 
 function UsageCharges() {
+  const { t } = useTranslation();
   const location = useLocation();
   const { instruments: instrumentsData, categories: instrumentCategories, loading } =
     useInstrumentsData();
@@ -104,12 +106,11 @@ function UsageCharges() {
           {/* Content */}
           <div className="relative z-10 text-center px-6 max-w-4xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Usage Charges
+              {t('usage.title')}
             </h1>
 
             <p className="text-lg md:text-xl text-blue-100 mb-8">
-              Standardized charges for sustainable operation. Rates may vary
-              based on sample type, complexity, and specialized requirements.
+              {t('usage.subtitle')}
             </p>
 
           </div>
@@ -123,7 +124,7 @@ function UsageCharges() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
-                  placeholder="Search instruments by name or description..."
+                  placeholder={t('usage.searchPlaceholder')}
                   value={searchTerm}
                   onChange={(e) => handleSearchChange(e.target.value)}
                   className="flex-1 w-full pl-12 pr-4 py-4 text-base focus:outline-none text-gray-700 placeholder-gray-400 bg-transparent"
@@ -132,7 +133,7 @@ function UsageCharges() {
                   onClick={handleSearch}
                   className="px-8 py-4 bg-gradient-to-r from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 text-white font-semibold rounded-r-xl transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  Search
+                  {t('usage.search')}
                 </button>
               </div>
             </div>
@@ -178,17 +179,17 @@ function UsageCharges() {
           <div className="mt-4 flex items-center gap-2 text-gray-600 font-medium">
             <Info className="w-5 h-5 text-blue-500" />
             <span>
-              Showing{" "}
+              {t('usage.showing')}{" "}
               <span className="font-bold text-blue-600">
                 {filteredInstruments.length}
               </span>{" "}
-              instrument{filteredInstruments.length !== 1 ? "s" : ""}
+              {filteredInstruments.length !== 1 ? t('usage.instruments') : t('usage.instrument')}
             </span>
           </div>
         </div>
 
         {loading && (
-          <p className="text-center text-gray-500 py-4">Loading instruments…</p>
+          <p className="text-center text-gray-500 py-4">{t('usage.loading')}</p>
         )}
 
         {/* Enhanced Charges Table */}
@@ -198,24 +199,25 @@ function UsageCharges() {
               <thead>
                 <tr className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
-                    Instrument
+                    {t('usage.instrument')}
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
-                    Model
+                    {t('usage.model')}
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
-                    Category
+                    {t('usage.category')}
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4" />
-                      Academic Charges
+                      {t('usage.academicCharges')}
                     </div>
                   </th>
                   <th className="px-6 py-5 text-left font-bold text-sm uppercase tracking-wider">
                     <div className="flex items-center gap-2">
                       <Building2 className="w-4 h-4" />
-                      Industrial Charges                    </div>
+                      {t('usage.industrialCharges')}
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -271,10 +273,10 @@ function UsageCharges() {
                       <div className="flex flex-col items-center gap-3">
                         <Search className="w-16 h-16 text-gray-300" />
                         <p className="text-gray-500 text-lg font-medium">
-                          No instruments found matching your criteria.
+                          {t('usage.noResults')}
                         </p>
                         <p className="text-gray-400 text-sm">
-                          Try adjusting your search or filter settings.
+                          {t('usage.noResultsHint')}
                         </p>
                       </div>
                     </td>
@@ -289,37 +291,37 @@ function UsageCharges() {
         <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl p-8 shadow-lg">
           <h3 className="text-2xl font-bold text-blue-900 mb-5 flex items-center gap-3">
             <Info className="w-7 h-7 text-blue-600" />
-            Important Notes
+            {t('usage.importantNotes')}
           </h3>
           <div className="grid md:grid-cols-1 gap-4">
             {[
               {
                 icon: Users,
-                text: "Academic charges apply to students, faculty, and academic institutions",
+                text: t('usage.note1'),
               },
               {
                 icon: Building2,
-                text: "Industrial charges apply to industries and research institutions",
+                text: t('usage.note2'),
               },
               {
                 icon: TrendingUp,
-                text: "Discounts available for bulk bookings and long-term collaborations",
+                text: t('usage.note3'),
               },
               {
                 icon: Info,
-                text: "Sample preparation charges may apply separately",
+                text: t('usage.note4'),
               },
               {
                 icon: Users,
-                text: "For custom analysis requirements, contact the respective instrument Facility Manager",
+                text: t('usage.note5'),
               },
               {
                 icon: TrendingUp,
-                text: "Charges are subject to periodic revision based on operational costs",
+                text: t('usage.note6'),
               },
               {
                 icon: Info,
-                text: "Advanced booking is recommended to ensure equipment availability",
+                text: t('usage.note7'),
               },
             ].map((item, idx) => (
               <div
@@ -340,12 +342,11 @@ function UsageCharges() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
           <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-3">Need More Information?</h3>
+            <h3 className="text-3xl font-bold mb-3">{t('usage.needMoreInfo')}</h3>
             <p className="mb-6 text-blue-100 text-lg">
-              For detailed quotes, specialized requirements, or bulk booking inquiries:
+              {t('usage.needMoreInfoDesc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-
 
               {/* Contact Us Link */}
               <a
@@ -353,7 +354,7 @@ function UsageCharges() {
                 className="group bg-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition-all shadow-lg hover:shadow-xl text-center border-2 border-blue-400 transform hover:-translate-y-1 duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
-                  Contact Us
+                  {t('usage.contactUs')}
                 </span>
               </a>
             </div>

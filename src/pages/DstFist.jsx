@@ -1,6 +1,9 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 
 export default function DstFist() {
+  const { t } = useTranslation()
+
   const instruments = [
     {
       title: "500 MHz NMR",
@@ -45,9 +48,9 @@ export default function DstFist() {
       {/* Header */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold mb-4">DST-FIST Facilities</h1>
+          <h1 className="text-5xl font-bold mb-4">{t('dstfist.title')}</h1>
           <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-            State-of-the-art sponsored instruments available across various departments.
+            {t('dstfist.subtitle')}
           </p>
         </div>
       </section>
@@ -84,7 +87,7 @@ export default function DstFist() {
                     href={item.link}
                     className="text-sm text-blue-600 hover:underline font-medium mt-auto"
                   >
-                    Read more →
+                    {t('dstfist.readMore')} →
                   </a>
                 </div>
               </div>

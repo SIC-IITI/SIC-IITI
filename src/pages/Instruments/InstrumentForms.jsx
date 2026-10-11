@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { FileText, Download, ArrowLeft, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import {
     sampleAnalysisInfo,
     instrumentForms,
@@ -8,6 +9,7 @@ import {
 import { useInstrumentsData } from "../../hooks/useInstrumentsData";
 
 const InstrumentForms = () => {
+    const { t } = useTranslation();
     const { instruments: instrumentsData } = useInstrumentsData();
 
     const groupedForms = useMemo(() => {
@@ -47,11 +49,11 @@ const InstrumentForms = () => {
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-10">
                         <div>
                             <p className="text-sm font-semibold uppercase tracking-widest text-teal-600">
-                                Instruments
+                                {t('forms.label')}
                             </p>
-                            <h1 className="mt-3 text-4xl font-bold text-slate-900">Download Forms</h1>
+                            <h1 className="mt-3 text-4xl font-bold text-slate-900">{t('forms.title')}</h1>
                             <p className="mt-4 max-w-2xl text-base text-slate-600">
-                                Download the latest SIC instrument forms for sample submission and booking.
+                                {t('forms.subtitle')}
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-3">
@@ -60,7 +62,7 @@ const InstrumentForms = () => {
                                 className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                             >
                                 <ArrowLeft className="w-4 h-4" />
-                                Back to Instruments
+                                {t('forms.backToInstruments')}
                             </Link>
                         </div>
                     </div>
@@ -94,7 +96,7 @@ const InstrumentForms = () => {
                                                         </h3>
 
                                                         <p className="text-slate-600 mb-5">
-                                                            Download the requisition/sample submission form.
+                                                            {t('forms.downloadDesc')}
                                                         </p>
 
                                                         <a
@@ -102,7 +104,7 @@ const InstrumentForms = () => {
                                                             download
                                                             className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
                                                         >
-                                                            Download Form
+                                                            {t('forms.downloadForm')}
                                                             <ArrowRight className="w-4 h-4" />
                                                         </a>
                                                     </div>
@@ -116,12 +118,12 @@ const InstrumentForms = () => {
                     </div>
 
                     <div className="mt-12 rounded-3xl bg-slate-900 p-8 text-white">
-                        <h2 className="text-2xl font-semibold mb-4">How to use these forms</h2>
+                        <h2 className="text-2xl font-semibold mb-4">{t('forms.howToUse')}</h2>
                         <ul className="space-y-3 text-slate-200">
-                            <li>1. Download the relevant form from the links above.</li>
-                            <li>2. Fill in the required instrument details, sample information, and payment reference.</li>
-                            <li>3. Submit the completed form to SIC along with the payment receipt as directed.</li>
-                            <li>4. For instrument-specific help, open the instrument detail page and click the Download Forms button there.</li>
+                            <li>{t('forms.step1')}</li>
+                            <li>{t('forms.step2')}</li>
+                            <li>{t('forms.step3')}</li>
+                            <li>{t('forms.step4')}</li>
                         </ul>
                     </div>
                 </div>

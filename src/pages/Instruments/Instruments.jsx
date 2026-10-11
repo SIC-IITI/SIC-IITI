@@ -1,9 +1,11 @@
 import React, { useState, useMemo } from "react";
 import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useInstrumentsData } from "../../hooks/useInstrumentsData";
 
 const InstrumentsPage = () => {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const { instruments: instrumentsData, loading } = useInstrumentsData();
@@ -37,19 +39,19 @@ const InstrumentsPage = () => {
 
   const quickAccessTabs = [
     {
-      label: "Sample Analysis Charges",
-      description: "Charges, billing, contact and payment details",
+      label: t('instruments.quickAccessSampleAnalysis'),
+      description: t('instruments.quickAccessSampleAnalysisDesc'),
       action: () => navigate("/sample-analysis-charges"),
       isPrimary: true,
     },
     {
-      label: "Facility Status",
-      description: "Check live operational status",
+      label: t('instruments.quickAccessFacilityStatus'),
+      description: t('instruments.quickAccessFacilityStatusDesc'),
       action: () => navigate("/facility-status"),
     },
     {
-      label: "Book Your Instrument",
-      description: "Open the SIC booking portal",
+      label: t('instruments.quickAccessBook'),
+      description: t('instruments.quickAccessBookDesc'),
       action: () => window.open("https://sicbooking.iiti.ac.in/", "_blank"),
     },
   ];
@@ -86,14 +88,13 @@ const InstrumentsPage = () => {
             className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-wide"
             style={{ fontFamily: "Cantata one" }}
           >
-            Research Instruments
+            {t('instruments.title')}
           </h1>
           <p
             className="text-base sm:text-lg md:text-2xl text-gray-200 mb-10 sm:mb-12 max-w-4xl"
             style={{ fontFamily: "Cantata one" }}
           >
-            State-of-the-art laboratory and research equipment for scientific
-            excellence
+            {t('instruments.subtitle')}
           </p>
 
           {/* Action Buttons */}
@@ -101,18 +102,17 @@ const InstrumentsPage = () => {
             className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center w-full max-w-6xl"
             style={{ fontFamily: "Cantata one" }}
           >
-
             <button
               onClick={() => navigate('/facility-status')}
               className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
             >
-              View Facility Status
+              {t('instruments.viewFacilityStatus')}
             </button>
             <button
               onClick={() => navigate('/instruments/forms')}
               className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
             >
-              Instrument Forms
+              {t('instruments.instrumentForms')}
             </button>
             <a
               href="https://sicbooking.iiti.ac.in/"
@@ -120,13 +120,13 @@ const InstrumentsPage = () => {
               rel="noopener noreferrer"
               className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto text-center block sm:inline-block"
             >
-              Book Your Instrument
+              {t('instruments.bookYourInstrument')}
             </a>
             <button
               onClick={() => navigate('/sample-analysis-charges')}
               className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 w-full sm:w-auto"
             >
-              Sample Analysis Charges
+              {t('instruments.sampleAnalysisCharges')}
             </button>
           </div>
         </div>
@@ -146,7 +146,7 @@ const InstrumentsPage = () => {
 
             <input
               type="text"
-              placeholder="Search.."
+              placeholder={t('instruments.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="flex-1 w-full pl-4 sm:pl-12 pr-4 py-3 sm:py-4 font-bold rounded-md text-base sm:text-xl focus:outline-none text-gray-700 placeholder-gray-400 bg-white sm:placeholder:before:content-['Search_your_Instruments']"
@@ -157,7 +157,7 @@ const InstrumentsPage = () => {
               onClick={handleSearch}
               className="hidden sm:block px-8 md:px-12 py-3 m-1 sm:py-4 md:bg-teal-400 md:hover:bg-teal-500 sm:text-xl text-white border-1 border-gray-700 font-bold rounded-md transition-colors duration-300"
             >
-              Submit
+              {t('instruments.submit')}
             </button>
 
             {/* Mobile Search Icon Button */}
@@ -177,12 +177,12 @@ const InstrumentsPage = () => {
       >
         {loading ? (
           <div className="text-center py-16">
-            <p className="text-xl sm:text-2xl text-gray-500">Loading instruments…</p>
+            <p className="text-xl sm:text-2xl text-gray-500">{t('instruments.loading')}</p>
           </div>
         ) : Object.keys(groupedInstruments).length === 0 ? (
           <div className="text-center py-16">
             <p className="text-xl sm:text-2xl text-gray-500">
-              No instruments found matching your search.
+              {t('instruments.noResults')}
             </p>
           </div>
         ) : (

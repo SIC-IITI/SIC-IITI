@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Booking() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     instrumentName: "",
     experimentTitle: "",
@@ -25,7 +27,7 @@ function Booking() {
     const token = localStorage.getItem("token");
     if (!token) {
       setIsAuthenticated(false);
-      setMessage("❌ Please login to access booking system");
+      setMessage(t('bookingform.authMessage'));
       // Uncomment to redirect to login
       navigate("/login");
       return;
@@ -64,7 +66,7 @@ function Booking() {
         // Token is invalid or expired
         localStorage.removeItem("token");
         setIsAuthenticated(false);
-        setMessage("❌ Session expired. Please login again.");
+        setMessage(t('bookingform.sessionExpired'));
         // Uncomment to redirect to login
         // navigate("/login");
       }
@@ -83,7 +85,7 @@ function Booking() {
     } catch (error) {
       console.error("Error fetching bookings:", error);
       if (error.response?.status !== 401 && error.response?.status !== 403) {
-        setMessage(`⚠️ ${error.response?.data?.message || "Error loading bookings"}`);
+        setMessage(`⚠️ ${error.response?.data?.message || t('bookingform.loadError')}`);
       }
     } finally {
       setLoadingBookings(false);
@@ -98,7 +100,7 @@ function Booking() {
     e.preventDefault();
 
     if (!isAuthenticated) {
-      setMessage("❌ Please login to make a booking");
+      setMessage(t('bookingform.loginToBook'));
       return;
     }
 
@@ -108,7 +110,7 @@ function Booking() {
     try {
       const res = await api.post("/bookings", formData);
 
-      setMessage("✅ Booking request submitted successfully!");
+      setMessage(t('bookingform.submitSuccess'));
       setFormData({
         instrumentName: "",
         experimentTitle: "",
@@ -123,7 +125,7 @@ function Booking() {
       console.error("Booking error:", error);
       const errorMsg = error.response?.data?.message ||
                        error.response?.data?.errors?.join(", ") ||
-                       "Error submitting booking";
+                       t('bookingform.submitError');
       setMessage(`❌ ${errorMsg}`);
     } finally {
       setLoading(false);
@@ -156,16 +158,16 @@ function Booking() {
       <section className="space-y-8 px-4 py-12 max-w-3xl mx-auto">
         <div className="rounded-lg border-2 border-red-200 bg-red-50 p-8 text-center">
           <h1 className="text-2xl font-bold text-red-900 mb-4">
-            Authentication Required
+            {t('bookingform.authRequired')}
           </h1>
           <p className="text-red-700 mb-6">
-            Please login to access the booking system.
+            {t('bookingform.loginRequired')}
           </p>
           <button
             onClick={() => window.location.href = "/login"} // Adjust path as needed
             className="bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition-all"
           >
-            Go to Login
+            {t('bookingform.goToLogin')}
           </button>
         </div>
       </section>
@@ -176,11 +178,10 @@ function Booking() {
     <section className="space-y-8 px-4 py-12 max-w-6xl mx-auto">
       <div>
         <h1 className="text-4xl font-bold text-blue-900 mb-4">
-          Book Instrumentation Time
+          {t('bookingform.title')}
         </h1>
         <p className="text-gray-600 leading-relaxed text-lg">
-          Fill out this form to request access to an instrument. Provide all
-          relevant details so our staff can verify and schedule your session.
+          {t('bookingform.subtitle')}
         </p>
       </div>
 
@@ -188,7 +189,7 @@ function Booking() {
         {/* Booking Form */}
         <div>
           <h2 className="text-2xl font-bold text-blue-900 mb-4">
-            New Booking Request
+            {t('bookingform.newBooking')}
           </h2>
           <form
             onSubmit={handleSubmit}
@@ -199,7 +200,7 @@ function Booking() {
                 htmlFor="instrumentName"
                 className="block text-sm font-semibold text-blue-900 mb-2"
               >
-                Instrument Name *
+                {t('bookingform.instrumentName')}
               </label>
               <input
                 id="instrumentName"
@@ -209,7 +210,7 @@ function Booking() {
                 onChange={handleChange}
                 required
                 className="w-full rounded-lg border border-blue-300 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="e.g., NMR Spectrometer"
+                placeholder={t('bookingform.instrumentNamePlaceholder')}
               />
             </div>
 
@@ -218,7 +219,7 @@ function Booking() {
                 htmlFor="experimentTitle"
                 className="block text-sm font-semibold text-blue-900 mb-2"
               >
-                Experiment Title *
+                {t('bookingform.experimentTitle')}
               </label>
               <input
                 id="experimentTitle"
@@ -228,7 +229,7 @@ function Booking() {
                 onChange={handleChange}
                 required
                 className="w-full rounded-lg border border-blue-300 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="e.g., Structural Analysis of Compounds"
+                placeholder={t('bookingform.experimentTitlePlaceholder')}
               />
             </div>
 
@@ -237,7 +238,7 @@ function Booking() {
                 htmlFor="description"
                 className="block text-sm font-semibold text-blue-900 mb-2"
               >
-                Experiment Description *
+                {t('bookingform.experimentDesc')}
               </label>
               <textarea
                 id="description"
@@ -247,7 +248,7 @@ function Booking() {
                 onChange={handleChange}
                 required
                 className="w-full rounded-lg border border-blue-300 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="Describe your experiment, samples, and expected outcomes"
+                placeholder={t('bookingform.experimentDescPlaceholder')}
               />
             </div>
 
@@ -257,7 +258,7 @@ function Booking() {
                   htmlFor="preferredDate"
                   className="block text-sm font-semibold text-blue-900 mb-2"
                 >
-                  Preferred Date *
+                  {t('bookingform.preferredDate')}
                 </label>
                 <input
                   id="preferredDate"
@@ -275,7 +276,7 @@ function Booking() {
                   htmlFor="durationHours"
                   className="block text-sm font-semibold text-blue-900 mb-2"
                 >
-                  Duration (hours) *
+                  {t('bookingform.duration')}
                 </label>
                 <input
                   id="durationHours"
@@ -287,7 +288,7 @@ function Booking() {
                   onChange={handleChange}
                   required
                   className="w-full rounded-lg border border-blue-300 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  placeholder="e.g., 2"
+                  placeholder={t('bookingform.durationPlaceholder')}
                 />
               </div>
             </div>
@@ -309,7 +310,7 @@ function Booking() {
               disabled={loading}
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-3 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {loading ? "Submitting..." : "Submit Booking Request"}
+              {loading ? t('bookingform.submitting') : t('bookingform.submit')}
             </button>
           </form>
         </div>
@@ -318,26 +319,26 @@ function Booking() {
         <div>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold text-blue-900">
-              My Booking Requests
+              {t('bookingform.myBookings')}
             </h2>
             <button
               onClick={fetchUserBookings}
               disabled={loadingBookings}
               className="text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded hover:bg-blue-200 transition-colors disabled:opacity-50"
             >
-              {loadingBookings ? "Refreshing..." : "🔄 Refresh"}
+              {loadingBookings ? t('bookingform.refreshing') : t('bookingform.refresh')}
             </button>
           </div>
           <div className="space-y-4">
             {loadingBookings ? (
               <div className="text-center py-8">
                 <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-                <p className="text-gray-600 mt-2">Loading bookings...</p>
+                <p className="text-gray-600 mt-2">{t('bookingform.loadingBookings')}</p>
               </div>
             ) : userBookings.length === 0 ? (
               <div className="rounded-lg border-2 border-gray-200 bg-gray-50 p-8 text-center">
                 <p className="text-gray-600">
-                  No booking requests yet. Submit your first booking above!
+                  {t('bookingform.noBookings')}
                 </p>
               </div>
             ) : (
@@ -369,7 +370,7 @@ function Booking() {
                     <span>⏱️ {booking.durationHours} hours</span>
                   </div>
                   <p className="text-xs text-gray-400">
-                    Requested: {formatDate(booking.createdAt)}
+                    {t('bookingform.requested')} {formatDate(booking.createdAt)}
                   </p>
                 </div>
               ))

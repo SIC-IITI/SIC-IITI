@@ -5,26 +5,39 @@ import { uploadOutreachImage, toPublicPath, deleteUploadedFile } from "../upload
 
 const router = express.Router();
 
-function toApiShape(row) {
+function getLang(req) {
+  return req.query.lang === "hi" ? "hi" : "en";
+}
+
+function pick(row, field, lang) {
+  if (lang === "hi" && row[`${field}_hi`] != null && row[`${field}_hi`] !== "") {
+    return row[`${field}_hi`];
+  }
+  return row[field];
+}
+
+function toApiShape(row, lang = "en") {
   return {
     id: row.id,
     date: row.date_label,
-    title: row.title,
+    title: pick(row, "title", lang),
     image: row.image || "",
-    description: row.description || "",
+    description: pick(row, "description", lang),
     updatedAt: row.updated_at,
   };
 }
 
 router.get("/", async (req, res) => {
+  const lang = getLang(req);
   const [rows] = await pool.query("SELECT * FROM outreach ORDER BY sort_order, id DESC");
-  res.json(rows.map(toApiShape));
+  res.json(rows.map((r) => toApiShape(r, lang)));
 });
 
 router.get("/:id", async (req, res) => {
+  const lang = getLang(req);
   const [rows] = await pool.query("SELECT * FROM outreach WHERE id = ?", [req.params.id]);
   if (rows.length === 0) return res.status(404).json({ error: "Outreach entry not found" });
-  res.json(toApiShape(rows[0]));
+  res.json(toApiShape(rows[0], lang));
 });
 
 router.post("/", requireAdmin, uploadOutreachImage.single("imageFile"), async (req, res) => {
@@ -36,9 +49,9 @@ router.post("/", requireAdmin, uploadOutreachImage.single("imageFile"), async (r
   const image = req.file ? toPublicPath("outreach", req.file.filename) : b.image || "";
 
   const [result] = await pool.query(
-    `INSERT INTO outreach (date_label, title, image, description)
-     VALUES (?,?,?,?)`,
-    [b.date, b.title, image, b.description || ""]
+    `INSERT INTO outreach (date_label, title, title_hi, image, description, description_hi)
+     VALUES (?,?,?,?,?,?)`,
+    [b.date, b.title, b.titleHi || null, image, b.description || "", b.descriptionHi || null]
   );
 
   const [rows] = await pool.query("SELECT * FROM outreach WHERE id = ?", [result.insertId]);
@@ -58,12 +71,14 @@ router.put("/:id", requireAdmin, uploadOutreachImage.single("imageFile"), async 
   }
 
   await pool.query(
-    `UPDATE outreach SET date_label=?, title=?, image=?, description=? WHERE id=?`,
+    `UPDATE outreach SET date_label=?, title=?, title_hi=?, image=?, description=?, description_hi=? WHERE id=?`,
     [
       b.date ?? current.date_label,
       b.title ?? current.title,
+      b.titleHi !== undefined ? b.titleHi : current.title_hi,
       image,
       b.description ?? current.description,
+      b.descriptionHi !== undefined ? b.descriptionHi : current.description_hi,
       req.params.id,
     ]
   );

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
 import { Calendar, X } from "lucide-react"
 import { fetchEvents } from "../lib/api"
+import { useTranslation } from "react-i18next"
 
 export default function EventsPage() {
+  const { t } = useTranslation()
   const [selectedEvent, setSelectedEvent] = useState(null)
   const [eventsItems, setEventsItems] = useState([])
   const [loading, setLoading] = useState(true)
@@ -25,8 +27,8 @@ export default function EventsPage() {
       {/* Header */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-bold mb-4">Events </h1>
-         
+          <h1 className="text-5xl font-bold mb-4">{t('events.title')} </h1>
+
         </div>
       </section>
 
@@ -34,13 +36,13 @@ export default function EventsPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           {loading && (
-            <p className="text-center text-gray-500 py-12">Loading events…</p>
+            <p className="text-center text-gray-500 py-12">{t('events.loading')}</p>
           )}
           {!loading && error && (
-            <p className="text-center text-gray-500 py-12">Unable to load events right now. Please try again later.</p>
+            <p className="text-center text-gray-500 py-12">{t('events.error')}</p>
           )}
           {!loading && !error && eventsItems.length === 0 && (
-            <p className="text-center text-gray-500 py-12">No events posted yet.</p>
+            <p className="text-center text-gray-500 py-12">{t('events.empty')}</p>
           )}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {eventsItems.map((item) => (
@@ -69,7 +71,7 @@ export default function EventsPage() {
                     onClick={() => setSelectedEvent(item)}
                     className="text-sm text-blue-600 hover:underline font-medium text-left"
                   >
-                    Read more
+                    {t('events.readMore')}
                   </button>
                 </div>
               </div>
@@ -106,7 +108,7 @@ export default function EventsPage() {
               </p>
 
               <p className="text-sm text-gray-500">
-                <strong>Venue:</strong> {selectedEvent.venue}
+                <strong>{t('events.venue')}</strong> {selectedEvent.venue}
               </p>
             </div>
           </div>

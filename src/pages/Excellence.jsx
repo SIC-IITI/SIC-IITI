@@ -1,62 +1,52 @@
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { X, Sparkles, Award, TrendingUp, Target, BookOpen, Lightbulb } from "lucide-react"
 
 export default function ExcellencePage() {
+  const { t } = useTranslation()
   const [selectedItem, setSelectedItem] = useState(null)
 
   const excellenceItems = [
     {
       image: "/assets/outreach/sic-ppl.png",
-      title: "Research Innovation",
-      description:
-        "Cutting-edge research initiatives driving technological advancement and scientific discovery.",
-      fullDescription:
-        "Our Research Innovation program represents the pinnacle of scientific excellence at the Sophisticated Instrumentation Centre. We are committed to pushing the boundaries of knowledge through groundbreaking research in materials science, nanotechnology, biotechnology, and advanced manufacturing. Our state-of-the-art facilities house cutting-edge instruments including electron microscopes, spectroscopy equipment, and advanced imaging systems that enable researchers to explore phenomena at the molecular and atomic level.\n\nOur interdisciplinary approach brings together experts from various fields to tackle complex challenges facing society today. From developing new materials for renewable energy to advancing medical diagnostics, our research has real-world impact. We have published over 500 research papers in top-tier international journals and hold numerous patents for innovative technologies.\n\nThe centre fosters collaboration between faculty, students, and industry partners, creating an ecosystem where ideas flourish and transform into tangible solutions. Our researchers have access to extensive computational resources, specialized laboratories, and mentorship from leading scientists in their fields.",
+      title: t('excellence.item1Title'),
+      description: t('excellence.item1Desc'),
+      fullDescription: t('excellence.item1Full'),
       icon: Sparkles,
     },
     {
       image: "/assets/outreach/sic-ppl2.png",
-      title: "Academic Excellence",
-      description:
-        "Fostering a culture of academic excellence through state-of-the-art facilities and expert guidance.",
-      fullDescription:
-        "Academic Excellence at SIC is built on a foundation of rigorous training, world-class infrastructure, and dedicated faculty mentorship. We offer comprehensive training programs that combine theoretical knowledge with hands-on practical experience on advanced instrumentation. Our curriculum is designed to prepare students and researchers for careers in academia, industry, and research organizations.\n\nWe conduct regular workshops, seminars, and training sessions on sophisticated analytical techniques, data interpretation, and instrument operation. Our faculty members are recognized experts in their respective fields, bringing decades of experience and cutting-edge knowledge to the classroom and laboratory.\n\nThe centre has trained over 5,000 students and researchers from across India and internationally. Our alumni hold prestigious positions in leading universities, research institutions, and Fortune 500 companies worldwide. We maintain strong industry connections that provide students with internship opportunities, collaborative research projects, and placement assistance.\n\nOur commitment to academic excellence extends beyond technical training to include research ethics, scientific communication, and professional development, ensuring our graduates are well-rounded professionals ready to make significant contributions to their fields.",
+      title: t('excellence.item2Title'),
+      description: t('excellence.item2Desc'),
+      fullDescription: t('excellence.item2Full'),
       icon: Award,
     },
     {
       image: "/assets/outreach/sic-ppl.png",
-      title: "Industry Collaboration",
-      description:
-        "Strengthening partnerships with industry leaders to drive innovation and real-world impact.",
-      fullDescription:
-        "Our Industry Collaboration initiatives bridge the gap between academic research and industrial applications. We work closely with leading companies across sectors including pharmaceuticals, electronics, materials, automotive, and energy to solve real-world technical challenges. These partnerships enable technology transfer, joint research projects, and consultancy services that benefit both academia and industry.\n\nThe SIC serves as a testing and characterization facility for industries, offering access to sophisticated analytical instruments and expert technical support. Companies leverage our capabilities for quality control, failure analysis, product development, and research support. This mutually beneficial relationship provides industries with access to cutting-edge technology while giving our students and researchers exposure to practical problems and industry standards.\n\nWe have established memorandums of understanding (MOUs) with over 100 companies and research organizations. Our industry partners include multinational corporations, government laboratories, and innovative startups. These collaborations have resulted in numerous successful technology transfers, patent licensing agreements, and sponsored research projects.\n\nThrough industry-sponsored fellowships, internships, and collaborative research programs, we ensure that our academic pursuits remain aligned with market needs and contribute meaningfully to economic development and technological advancement.",
+      title: t('excellence.item3Title'),
+      description: t('excellence.item3Desc'),
+      fullDescription: t('excellence.item3Full'),
       icon: TrendingUp,
     },
     {
       image: "/assets/outreach/sic-ppl2.png",
-      title: "Student Development",
-      description:
-        "Empowering students with hands-on experience and access to advanced instrumentation.",
-      fullDescription:
-        "Student Development is at the heart of our mission. We believe that providing students with early exposure to sophisticated instrumentation and research methodologies is crucial for nurturing the next generation of scientists and engineers. Our comprehensive student development programs include instrument training, research internships, project guidance, and skill development workshops.\n\nStudents have the opportunity to work on real research projects, using equipment worth millions of dollars that they typically wouldn't access until graduate school or industry employment. This hands-on experience builds confidence, technical competence, and problem-solving skills. We encourage undergraduate students to participate in research activities, present their work at conferences, and co-author research publications.\n\nOur mentorship program pairs students with experienced researchers and faculty members who guide them through their academic journey and help them navigate career choices. We organize regular seminars, journal clubs, and discussion sessions where students can interact with visiting scientists and learn about cutting-edge developments in various fields.\n\nThe centre also focuses on developing soft skills including scientific writing, presentation skills, research ethics, and project management. Through our placement assistance program and industry connections, we help students secure positions in top companies and research institutions. Many of our student alumni have gone on to pursue PhDs at prestigious universities worldwide or have joined leading technology companies.",
+      title: t('excellence.item4Title'),
+      description: t('excellence.item4Desc'),
+      fullDescription: t('excellence.item4Full'),
       icon: Target,
     },
     {
       image: "/assets/outreach/sic-ppl.png",
-      title: "Technical Training",
-      description:
-        "Comprehensive training programs on advanced analytical techniques and instrumentation.",
-      fullDescription:
-        "Our Technical Training programs are designed to build expertise in operating and maintaining sophisticated scientific instruments. We offer specialized courses on electron microscopy, spectroscopy, chromatography, thermal analysis, and surface characterization techniques. Each training module combines theoretical foundations with extensive hands-on practice, ensuring participants gain confidence in using complex equipment.\n\nTraining sessions are conducted by experienced scientists and instrument specialists who share practical tips, troubleshooting techniques, and best practices developed over years of operation. We maintain small batch sizes to ensure personalized attention and adequate instrument access for each participant.\n\nOur certification programs are recognized by industries and research institutions nationwide. Participants receive comprehensive training manuals, access to online resources, and continued support even after course completion. We also offer customized training programs tailored to specific industry requirements or research needs.",
+      title: t('excellence.item5Title'),
+      description: t('excellence.item5Desc'),
+      fullDescription: t('excellence.item5Full'),
       icon: BookOpen,
     },
     {
       image: "/assets/outreach/sic-ppl2.png",
-      title: "Innovation & Patents",
-      description:
-        "Supporting innovation through patent filing, technology transfer, and commercialization guidance.",
-      fullDescription:
-        "The Innovation & Patents initiative supports researchers in transforming their discoveries into tangible innovations. We provide guidance on patent filing, intellectual property protection, technology commercialization, and startup formation. Our experienced team helps researchers navigate the complex process from invention disclosure to patent grant.\n\nWe have established an innovation ecosystem that includes incubation facilities, seed funding opportunities, mentorship from successful entrepreneurs, and connections to venture capital firms. Several startups have emerged from research conducted at our facilities, creating jobs and contributing to economic growth.\n\nOur technology transfer office facilitates licensing agreements between researchers and industry partners, ensuring that innovations reach the market and benefit society. We conduct regular workshops on entrepreneurship, innovation management, and commercialization strategies to build an innovation-oriented mindset among students and researchers.",
+      title: t('excellence.item6Title'),
+      description: t('excellence.item6Desc'),
+      fullDescription: t('excellence.item6Full'),
       icon: Lightbulb,
     },
   ]
@@ -72,10 +62,10 @@ export default function ExcellencePage() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 sm:py-20">
         <div className="max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            Excellence in Every Dimension
+            {t('excellence.title')}
           </h1>
           <p className="text-lg sm:text-xl text-purple-100 max-w-3xl">
-            Discover our commitment to research innovation, academic excellence, and impactful collaborations
+            {t('excellence.subtitle')}
           </p>
         </div>
       </section>
@@ -104,7 +94,7 @@ export default function ExcellencePage() {
                   onClick={() => setSelectedItem(item)}
                   className="text-sm text-blue-600 hover:underline font-medium"
                 >
-                  Read more
+                  {t('excellence.readMore')}
                 </button>
               </div>
             ))}

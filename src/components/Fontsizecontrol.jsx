@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const MIN_SCALE = 0.85;
 const MAX_SCALE = 1.3;
@@ -6,6 +7,7 @@ const STEP = 0.1;
 const STORAGE_KEY = "sic-font-scale";
 
 function FontSizeControl() {
+  const { t } = useTranslation();
   const [scale, setScale] = useState(1);
 
   // Load any previously saved preference and apply it on mount
@@ -28,13 +30,13 @@ function FontSizeControl() {
   const reset = () => applyScale(1);
 
   return (
-    <div className="flex items-center justify-center gap-2" role="group" aria-label="Adjust text size">
+    <div className="flex items-center justify-center gap-2" role="group" aria-label={t("fontSize.group")}>
       <button
         type="button"
         onClick={decrease}
         disabled={scale <= MIN_SCALE}
-        aria-label="Decrease font size"
-        title="Decrease font size"
+        aria-label={t("fontSize.decrease")}
+        title={t("fontSize.decrease")}
         className="w-9 h-9 rounded-md bg-white text-blue-900 font-bold text-sm hover:bg-blue-100 disabled:opacity-40 disabled:cursor-not-allowed transition"
       >
         A-
@@ -42,8 +44,8 @@ function FontSizeControl() {
       <button
         type="button"
         onClick={reset}
-        aria-label="Reset font size"
-        title="Reset font size"
+        aria-label={t("fontSize.reset")}
+        title={t("fontSize.reset")}
         className="w-9 h-9 rounded-md bg-white text-blue-900 font-bold text-sm hover:bg-blue-100 transition"
       >
         A
@@ -52,8 +54,8 @@ function FontSizeControl() {
         type="button"
         onClick={increase}
         disabled={scale >= MAX_SCALE}
-        aria-label="Increase font size"
-        title="Increase font size"
+        aria-label={t("fontSize.increase")}
+        title={t("fontSize.increase")}
         className="w-9 h-9 rounded-md bg-white text-blue-900 font-bold text-base hover:bg-blue-100 disabled:opacity-40 disabled:cursor-not-allowed transition"
       >
         A+

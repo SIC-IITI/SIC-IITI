@@ -1,25 +1,28 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import LanguageToggle from "./LanguageToggle";
 
 function Navbar() {
   const location = useLocation();
+  const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About SIC", dropdown: true },
-    { path: "/instruments", label: "Instruments" },
-    { path: "/booking", label: "Book Now" },
-    { path: "/dst-fist", label: "DST-FIST" },
-    { path: "/contact", label: "Contact" },
+    { path: "/", labelKey: "nav.home" },
+    { path: "/about", labelKey: "nav.aboutSic", dropdown: true },
+    { path: "/instruments", labelKey: "nav.instruments" },
+    { path: "/booking", labelKey: "nav.bookNow" },
+    { path: "/dst-fist", labelKey: "nav.dstFist" },
+    { path: "/contact", labelKey: "nav.contact" },
   ];
 
   const aboutDropdownItems = [
-    { path: "/about", label: "About Us" },
-    { path: "/events", label: "Events" },
-    { path: "/outreach", label: "Outreach" },
-    { path: "/team", label: "SIC Committee" },
-    { path: "/faculty", label: "SIC Team" },
+    { path: "/about", labelKey: "nav.aboutUs" },
+    { path: "/events", labelKey: "nav.events" },
+    { path: "/outreach", labelKey: "nav.outreach" },
+    { path: "/team", labelKey: "nav.committee" },
+    { path: "/faculty", labelKey: "nav.team" },
   ];
 
   // Close mobile menu on route change
@@ -70,6 +73,12 @@ function Navbar() {
   };
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
+      {/* Language toggle (desktop) - mobile/tablet toggle lives in the drawer */}
+      <div className="hidden xl:block border-b border-blue-100 bg-blue-50">
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 flex justify-end py-1">
+          <LanguageToggle compact />
+        </div>
+      </div>
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3 lg:gap-4">
@@ -81,13 +90,13 @@ function Navbar() {
             >
               <img
                 src="/iiti-logo.png"
-                alt="IIT Indore Logo"
+                alt={t("nav.logoAlt")}
                 className="h-12 w-12 lg:h-16 lg:w-16 object-contain"
               />
 
               {/* Hide this text on mobile, show on md and up */}
               <div className="hidden md:flex flex-col leading-tight">
-                <span className="text-[14px] font-semibold text-gray-900">
+                <span lang="hi" className="text-[14px] font-semibold text-gray-900">
                   भारतीय प्रौद्योगिकी संस्थान इंदौर
                 </span>
                 <span className="block w-full border-b border-black my-0.5"></span>
@@ -116,7 +125,7 @@ function Navbar() {
                 return (
                   <div key={item.path} className="relative group">
                     <button className="whitespace-nowrap px-3 py-1.5 rounded-md text-sm font-semibold text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 flex items-center gap-1">
-                      {item.label}
+                      {t(item.labelKey)}
                       <svg
                         className="w-4 h-4 transition-transform group-hover:rotate-180"
                         fill="none"
@@ -139,7 +148,7 @@ function Navbar() {
                           to={subItem.path}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                         >
-                          {subItem.label}
+                          {t(subItem.labelKey)}
                         </Link>
                       ))}
                     </div>
@@ -157,7 +166,7 @@ function Navbar() {
                       : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
                     }`}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               );
             })}
@@ -168,7 +177,7 @@ function Navbar() {
           <button
             onClick={toggleMobileMenu}
             className="xl:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-            aria-label="Toggle menu"
+            aria-label={t("nav.toggleMenu")}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
@@ -217,13 +226,16 @@ function Navbar() {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex flex-col h-full p-6">
-            <button
-              onClick={closeMobileMenu}
-              className="self-end mb-6 text-gray-600 hover:text-black text-2xl w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Close menu"
-            >
-              ✕
-            </button>
+            <div className="flex items-center justify-between mb-6">
+              <LanguageToggle large />
+              <button
+                onClick={closeMobileMenu}
+                className="text-gray-600 hover:text-black text-2xl w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label={t("nav.closeMenu")}
+              >
+                ✕
+              </button>
+            </div>
 
             <div className="flex flex-col gap-4 overflow-y-auto">
               {navItems.slice(0, 3).map((item) => (
@@ -236,14 +248,14 @@ function Navbar() {
                       : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
                     }`}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               ))}
 
               {/* About SIC Section */}
               <div className="border-t border-gray-200 pt-4 mt-2">
                 <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3 px-3">
-                  About SIC
+                  {t("nav.aboutSic")}
                 </p>
                 {aboutDropdownItems.map((item) => (
                   <Link
@@ -255,7 +267,7 @@ function Navbar() {
                         : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                       }`}
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </Link>
                 ))}
               </div>
@@ -272,7 +284,7 @@ function Navbar() {
                         : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
                       }`}
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </Link>
                 ))}
               </div>

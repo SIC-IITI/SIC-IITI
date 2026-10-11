@@ -1,7 +1,14 @@
 import { API_BASE } from "./config";
+import i18n from "../i18n";
+
+function getLang() {
+  return i18n.resolvedLanguage || i18n.language || "en";
+}
 
 async function getJson(path) {
-  const res = await fetch(`${API_BASE}${path}`, { cache: "no-store" });
+  const lang = getLang();
+  const url = `${API_BASE}${path}${path.includes("?") ? "&" : "?"}lang=${lang}`;
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`Request failed: ${res.status}`);
   return res.json();
 }

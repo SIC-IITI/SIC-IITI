@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import HeroSection from "@/components/FacultyPage/HeroSection";
 import SectionTitle from "@/components/FacultyPage/SectionTitle";
 import TeamCard from "@/components/FacultyPage/TeamCard";
@@ -8,25 +9,27 @@ import { useEffect } from "react";
 import "./TeamPage.css";
 
 
-const teamSlides = [
-  {
-    image: "assets/TeamPhotos/armyvisit.png",
-    title: "SIC Committee",
-    subtitle: "A National Facility of IIT Indore",
-  },
-  {
-    image: "assets/TeamPhotos/Team_2.jpeg",
-    title: "Research & Innovation",
-    subtitle: "Empowering future technologies",
-  },
-  {
-    image: "assets/TeamPhotos/Team_3.jpg",
-    title: "Collaborative Excellence",
-    subtitle: "Where science meets impact",
-  },
-];
-
 export default function TeamPage() {
+  const { t } = useTranslation();
+
+  const teamSlides = [
+    {
+      image: "assets/TeamPhotos/armyvisit.png",
+      title: t('team.slide1Title'),
+      subtitle: t('team.slide1Subtitle'),
+    },
+    {
+      image: "assets/TeamPhotos/Team_2.jpeg",
+      title: t('team.slide2Title'),
+      subtitle: t('team.slide2Subtitle'),
+    },
+    {
+      image: "assets/TeamPhotos/Team_3.jpg",
+      title: t('team.slide3Title'),
+      subtitle: t('team.slide3Subtitle'),
+    },
+  ];
+
   useEffect(() => {
     const elements = document.querySelectorAll(".animate-on-scroll");
 
@@ -58,8 +61,8 @@ export default function TeamPage() {
 
       <main className="team-page-main">
         <SectionTitle
-          title="SIC Committee"
-          subtitle="SIC - A National Facility of IIT Indore, empowering cutting-edge research and innovation."
+          title={t('team.committeeTitle')}
+          subtitle={t('team.committeeSubtitle')}
         />
 
         {/* Faculty Advisor */}
@@ -78,7 +81,7 @@ export default function TeamPage() {
 
         {/* Co-convenor Team */}
         <div className="team-section">
-          <h3 className="team-heading">Co-Conveners</h3>
+          <h3 className="team-heading">{t('team.coConveners')}</h3>
           {/* <p className="team-subtext">The backbone of our organization</p> */}
 
           <div className="team-grid f-core-team">
@@ -93,8 +96,8 @@ export default function TeamPage() {
 
         {/* Core Team */}
         <div className="team-section">
-          <h3 className="team-heading">Core Committee</h3>
-          <p className="team-subtext">The backbone of our SIC</p>
+          <h3 className="team-heading">{t('team.coreCommittee')}</h3>
+          <p className="team-subtext">{t('team.coreSubtitle')}</p>
 
           <div className="team-grid core-team">
             {coreTeam.map((member, index) => (
