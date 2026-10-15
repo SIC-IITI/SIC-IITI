@@ -8,7 +8,7 @@ export const facultyAdvisors = [
     designation: "Professor-In-Charge, SIC",
     researchAreas: "Experimental Condensed Matter Physics",
     email: "head-sic@iiti.ac.in",
-    website: "https://physics.iiti.ac.in/dr-krushna-r-mavani/"
+    website: "https://pldthzthinfilm.wixsite.com/krushnarmavani"
   },
 ];
 

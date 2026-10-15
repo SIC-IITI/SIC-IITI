@@ -7,7 +7,7 @@ export const facultyAdvisors = [
     name: "Prof. Krushna R. Mavani",
     designation: "Professor-In-Charge, SIC",
     email: "head-sic@iiti.ac.in",
-    website: "https://physics.iiti.ac.in/dr-krushna-r-mavani/"
+    website: "https://pldthzthinfilm.wixsite.com/krushnarmavani"
   },
 ];
 
